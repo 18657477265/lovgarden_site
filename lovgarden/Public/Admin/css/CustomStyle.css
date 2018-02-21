@@ -1,0 +1,48 @@
+@charset "UTF-8";
+/*product varient detail admin page css*/
+a.add_more_image {
+    cursor: pointer;
+    display:inline-block;
+    width: 20%;
+    height: 30px;
+    background-color: #0c9c6e;
+    color:#fff;
+    line-height: 30px;
+    text-align: center;
+}
+.image-remove {
+    cursor: pointer;
+}
+/*product varient list page pager css*/
+.paging div {
+    text-align: center;
+}
+.num {
+    border: none;
+    border-radius: 3px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+.current {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    height: 25px;
+    line-height: 25px;
+    border: none;
+    width: 25.6px;
+    background-color: #0069ff66;
+    border-radius: 3px;
+    color: #fff;
+}
+.prev , .next {
+    border: none;
+    border-radius: 3px;
+    margin-left: 3px;
+    margin-right: 3px;
+    width:60px;
+}
+.select {
+    width:150px;
+    text-align: center;
+}
