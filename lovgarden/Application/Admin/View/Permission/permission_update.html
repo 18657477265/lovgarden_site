@@ -1,0 +1,44 @@
+
+<layout name="Common/layout" />
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">权限编辑</h2>
+       <a class="fr top_rt_btn" href="__CONTROLLER__/permission_list">返回权限列表</a>
+      </div>
+     <section>
+         <?php if(isset($errorMessage)): ?>
+         <p style='color: red;'><?php echo $errorMessage; ?></p>
+         <?php endif; ?>
+         <form enctype="multipart/form-data" action="__SELF__" method="post">
+                    <ul class="ulColumn2">
+                     <li>
+                      <span class="item_name" style="width:120px;">权限名字：</span>                      
+                      <input type="text" name="permission_name" class="textbox" placeholder="权限名字" value="<?php echo $data['permission_name'];  ?>"  />
+                     </li>
+                      <li>
+                      <span class="item_name" style="width:120px;">权限描述：</span>                      
+                      <input type="text" name="permission_description" class="textbox" placeholder="权限描述" value="<?php echo $data['permission_description'];  ?>"  />
+                     </li>
+                      <li>
+                      <span class="item_name" style="width:120px;">Module：</span>                      
+                      <input type="text" name="module_name" class="textbox" placeholder="Module" value="<?php echo $data['module_name'];  ?>"  />
+                     </li>
+                      <li>
+                      <span class="item_name" style="width:120px;">Controller：</span>                      
+                      <input type="text" name="controller_name" class="textbox" placeholder="Controller" value="<?php echo $data['controller_name'];  ?>"  />
+                     </li>
+                      <li>
+                      <span class="item_name" style="width:120px;">Action：</span>                      
+                      <input type="text" name="action_name" class="textbox" placeholder="Action" value="<?php echo $data['action_name'];  ?>"  />
+                     </li>
+                      <li>
+                      <span class="item_name" style="width:120px;">授权行为：</span>                      
+                      <input type="text" name="url" class="textbox" placeholder="授权行为" value="<?php echo $data['url'];  ?>"  />
+                     </li>
+                     <div><input type="submit" class="link_btn"/></div>                    
+                    </ul>
+         </form>
+     </section>
+ </div>
+</section>

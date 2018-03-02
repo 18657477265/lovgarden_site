@@ -42,6 +42,44 @@ function buildMultipleHtmlSelect($tableName,$valueFieldName,$textFieldName,$sele
     return $select;
 }
 
+/*自动生成复选框*/
+function buildCheckboxes($tableName,$valueFieldName,$textFieldName,$selectName,$current_value=array()) {
+    $model = new Think\Model();
+    $sql = "select $valueFieldName , $textFieldName from $tableName";
+    $resultArray = $model->query($sql);
+    $select = "";
+    $selectName .='[]';
+    foreach ($resultArray as $k => $v) {
+        $select_status='';
+        if(in_array($v[$valueFieldName], $current_value) && !empty($current_value)) {
+            $select_status='checked="checked"';
+        }
+        $row="<span><input type='checkbox' name='$selectName' value='$v[$valueFieldName]' $select_status>$v[$textFieldName]</span>";
+        $select .= $row;
+        
+    }
+    return $select;
+}
+
+/*自动生成权限列表复选框*/
+function buildCheckboxesForPermission($tableName,$valueFieldName,$textFieldName,$selectName,$description,$current_value=array()) {
+    $model = new Think\Model();
+    $sql = "select $valueFieldName , $textFieldName , $description from $tableName";
+    $resultArray = $model->query($sql);
+    $select = "";
+    $selectName .='[]';
+    foreach ($resultArray as $k => $v) {
+        $select_status='';
+        if(in_array($v[$valueFieldName], $current_value) && !empty($current_value)) {
+            $select_status='checked="checked"';
+        }
+        $row="<p class='permission-row'><span class='permission_name'><strong>$v[$textFieldName]</strong></span><span class='permission-checkbox'><input type='checkbox' name='$selectName' value='$v[$valueFieldName]' $select_status></span></p><p class='permission_description'>$v[$description]</p>";
+        $select .= $row;
+        
+    }
+    return $select;
+}
+
 //封装上传图片的函数
 function uploadImage($imageName,$dirName,$thumb = array()) {
     $image_config = C('IMAGE_CONFIG');    
@@ -126,6 +164,23 @@ function product_varient_vase_attach($vase_status_value){
             break;
     }
     return $vase_status_label;
+}
+
+//根据状态值返回user_status 账号状态
+function user_status_label($user_status){
+    $user_status_label = '';
+    switch ($user_status) {
+        case '1':
+            $user_status_label = '已激活';
+            break;
+        case '0':
+            $user_status_label = '已冻结';
+            break;
+        case '2':
+            $user_status_label = '已封停';
+            break;
+    }
+    return $user_status_label;
 }
 
 

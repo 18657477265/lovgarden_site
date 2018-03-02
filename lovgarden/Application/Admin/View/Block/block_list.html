@@ -1,0 +1,42 @@
+<layout name="Common/layout" />
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">区块列表示例</h2>
+       <a href="__CONTROLLER__/add" class="fr top_rt_btn add_icon">添加区块</a>
+      </div>
+     <form class="mtb" action="__ACTION__" method="GET">
+         <input name="keyword" type="text" class="textbox textbox_225" placeholder="输入区块关键词..." <?php if(!empty($filter_selection['block_info'])): ?><?php $value = $filter_selection['block_info']; echo "value='$value'"; ?><?php endif; ?>/>
+       <input type="submit" value="查询" class="group_btn"/>
+      </form>
+      <table class="table">
+       <tr>
+        <th>区块PC端图</th>
+        <th>区块移动端图</th>
+        <th>区块标题</th>
+        <th>区块所在页面</th>
+        <th>区块所在页面顺序</th>
+        <th>操作</th>
+       </tr>
+       <?php foreach($blocks as $k=>$value): ?>
+       <tr>
+        <td class="center"><img src="<?php echo C('IMAGE_CONFIG')['viewPath'].$value['image_pc']; ?>" width="50px" height="50px"/></td>
+        <td class="center"><img src="<?php echo C('IMAGE_CONFIG')['viewPath'].$value['image_mobile']; ?>" width="50px" height="50px"/></td>
+        <td class="center"><?php echo $value['block_title'];  ?></td>
+        <td class="center"><?php echo $value['page_link'];  ?></td>
+        <td class="center"><?php echo $value['block_order'];  ?></td>
+        <td class="center">
+         <a href="http://www.mycodes.net" title="预览" class="link_icon" target="_blank">&#118;</a>
+         <a href="__CONTROLLER__/update/id/<?php echo $value['id']; ?>" title="编辑" class="link_icon">&#101;</a>
+         <a href="javascript:void(0);" data-row-id = <?php echo $value['id']; ?> title="删除" class="link_icon block-delete">&#100;</a>
+         <img style="width: 60px;height: 60px;display: none;" class="delete-processing" src="__PUBLIC__/Admin/images/icon/timg.gif" />
+        </td>
+       </tr>
+       <?php endforeach; ?>
+      </table>
+      <aside class="paging">
+      <?php echo $page; ?>
+      </aside>
+ </div>
+</section>
+

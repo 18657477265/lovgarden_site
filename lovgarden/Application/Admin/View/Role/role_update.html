@@ -1,0 +1,28 @@
+
+<layout name="Common/layout" />
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">角色编辑</h2>
+       <a class="fr top_rt_btn" href="__CONTROLLER__/role_list">返回角色列表</a>
+      </div>
+     <section>
+         <?php if(isset($errorMessage)): ?>
+         <p style='color: red;'><?php echo $errorMessage; ?></p>
+         <?php endif; ?>
+         <form enctype="multipart/form-data" action="__SELF__" method="post" class="permission-form">
+                    <ul class="ulColumn2">
+                     <li>
+                      <span class="item_name" style="width:120px;">角色名字：</span>    
+                      <input type="text" name="role_name" class="textbox" placeholder="角色名字" value="<?php echo $data['role_name'];  ?>"  />
+                     </li>                             
+                    </ul>
+             <h1>角色权限分配</h1>
+             <div class="permission-list">
+                 <?php print buildCheckboxesForPermission('lovgarden_permission','id','permission_name','permission_id','permission_description',$current_value=array()) ?>
+             </div>
+             <div><input type="submit" class="link_btn"/></div>          
+         </form>
+     </section>
+ </div>
+</section>

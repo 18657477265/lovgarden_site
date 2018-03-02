@@ -1,0 +1,61 @@
+
+<layout name="Common/layout" />
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">新增区块</h2>
+       <a class="fr top_rt_btn" href="__CONTROLLER__/block_list">返回区块列表</a>
+      </div>
+     <section>
+         <?php if(isset($errorMessage)): ?>
+         <p style='color: red;'><?php echo $errorMessage; ?></p>
+         <?php endif; ?>
+         <form enctype="multipart/form-data" action="__SELF__" method="post">
+                    <ul class="ulColumn2">
+                     <li>
+                      <span class="item_name" style="width:120px;">区块标题：</span>
+                      
+                      <input type="text" name="block_title" class="textbox" placeholder="区块标题" value="<?php echo $data['block_title'];  ?>"  />
+                     </li>
+                     <li>
+                      <span class="item_name" style="width:120px;">区块链接标题：</span>
+                      <input type="text" name="block_link_title" class="textbox" placeholder="区块链接标题" value="<?php echo $data['block_link_title'];  ?>" />
+                     </li>
+                     <li>
+                      <span class="item_name" style="width:120px;">区块跳转链接：</span>
+                      <input type="text" name="block_link" class="textbox" placeholder="区块跳转链接" value="<?php echo $data['block_link'];  ?>" />
+                     </li>
+                     <li>
+                      <span class="item_name" style="width:120px;">区块所在页面链接：</span>
+                      <input type="text" name="page_link" class="textbox" placeholder="区块所在页面链接" value="<?php echo $data['page_link'];  ?>" />
+                     </li>
+                   
+                     <li>
+                      <span class="item_name" style="width:120px;">区块详细描述：</span>
+                      <textarea name="block_body" rows="5" cols="20"><?php echo $data['block_body'];  ?></textarea>
+                     </li>
+                     <li>
+                      <span class="item_name" style="width:120px;">区块所在页面排序：</span>
+                      <input type="number" name="block_order" class="textbox" placeholder="区块所在页面排序" value="<?php echo $data['block_order'];  ?>" min="1" max="256" step="1" style="width:120px;" />
+                     </li>
+                     <li class="multiple-images">
+                      <span class="item_name" style="width:120px;">上传PC图片：</span>
+                      <span class="image-remove">[删除]</span>
+                      <label class="nouploadImg">
+                       <input name="image_pc" type="file"/>
+                      </label>
+                     </li>
+                     <li class="multiple-images">
+                      <span class="item_name" style="width:120px;">上传mobile图片：</span>
+                      <span class="image-remove">[删除]</span>
+                      <label class="nouploadImg">
+                       <input name="image_mobile" type="file"/>
+                      </label>
+                     </li>
+                     <div><input type="submit" class="link_btn"/></div>
+                     </li>
+                    </ul>
+         </form>
+     </section>
+ </div>
+</section>

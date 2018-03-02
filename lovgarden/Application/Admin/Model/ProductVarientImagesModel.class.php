@@ -34,6 +34,14 @@ class ProductVarientImagesModel extends Model
             return FALSE;
         }
     }
+    public function product_varient_id_to_images_delete($product_varient_id='',$row_id='') {
+        if(!empty($product_varient_id) && !empty($row_id)) {
+            //开始删除对应的product_varient_和对应图片的关联,实际图片不删，以后会有指定的垃圾清理机制来定时清理
+        }
+        else {
+            return FALSE;
+        }
+    }
 }
 
 

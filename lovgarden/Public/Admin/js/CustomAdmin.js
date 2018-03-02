@@ -1,9 +1,141 @@
 $(function(){
-   $('.add_more_image').on('click',function(){
+   $('.product-detail .add_more_image').on('click',function(){
        var newone = '<li class="multiple-images"><span class="item_name" style="width:120px;">上传图片：</span><span class="image-remove">[删除]</span><label class="nouploadImg"><input name="product_varient_images[]" type="file"/></label></li>';
        $('.multiple-images:last').after(newone);
+       $(".product-update .add-images-in-product-update").after(newone);
+   });
+   //在product_update页面的add_more_image事件
+   $('.product-update .add_more_image').on('click',function(){
+      var newone = '<li class="multiple-images"><span class="item_name" style="width:120px;">上传图片：</span><span class="image-remove">[删除]</span><label class="nouploadImg"><input name="product_varient_images[]" type="file"/></label></li>';
+       $(".product-update .add-images-in-product-update").after(newone); 
    });
    $('body').on('click','.image-remove',function(){
        $(this).parent().remove();
+   });
+   
+   $(".permission_name").click(
+        function(){
+            if($(this).parent().next().css('display') == 'none'){
+              $(this).parent().next().show(200);
+              $(this).parent().next().css('border','none');
+            }else {
+              $(this).parent().next().hide(200);
+              $(this).parent().next().css('border','1px solid #d0cdcd'); 
+            }
+        },
+    );
+   
+   //ajax删除图片
+   $(".product-varient-old-image a").on('click',function(){
+       if(confirm("确定删除该图片?")){
+           $(".delete-processing").css('display','inline-block');
+           var row_id = $(this).data('row-id');
+           var product_varient_id = $(this).data('product-varient-id');
+           var delete_msg = {
+                 row_id: row_id,
+                 product_varient_id:product_varient_id,
+           };
+           var parent_node = $(this).parent();
+           $.ajax({
+                type: 'POST',
+                url: "/index.php/Admin/Product/ajax_delete",
+                data: delete_msg,
+                dataType: 'json',
+                success:function(data)
+                {
+                    if(data == '1') {
+                       $(".delete-processing").css('display','none');
+                       parent_node.remove();
+                    }
+                    else {
+                        alert('图像删除失败');
+                    }
+                }         
+           });
+       }
+   });
+   
+   //ajax 根据id 删除区块block全部信息
+   $('.block-delete').on('click',function(){
+       if(confirm("确定删除该区块?")){
+           $(".delete-processing").css('display','inline-block');
+           var row_id = $(this).data('row-id');
+           var delete_msg = {
+                 row_id: row_id,
+           };
+           var parent_node = $(this).parent().parent();
+           $.ajax({
+                type: 'POST',
+                url: "/index.php/Admin/block/ajax_block_delete",
+                data: delete_msg,
+                dataType: 'json',
+                success:function(data)
+                {
+                    if(data == '1') {
+                       $(".delete-processing").css('display','none');
+                       parent_node.hide(300);
+                    }
+                    else {
+                        alert('区块删除失败');
+                    }
+                }         
+           });
+       }
+   });
+   
+   //ajax 根据id 删除role全部信息
+   $('.role-delete').on('click',function(){
+       if(confirm("确定删除该角色?")){
+           $(".delete-processing").css('display','inline-block');
+           var row_id = $(this).data('row-id');
+           var delete_msg = {
+                 row_id: row_id,
+           };
+           var parent_node = $(this).parent().parent();
+           $.ajax({
+                type: 'POST',
+                url: "/index.php/Admin/Role/ajax_role_delete",
+                data: delete_msg,
+                dataType: 'json',
+                success:function(data)
+                {
+                    if(data == '1') {
+                       $(".delete-processing").css('display','none');
+                       parent_node.hide(300);
+                    }
+                    else {
+                        alert('角色删除失败');
+                    }
+                }         
+           });
+       }
+   });
+   
+   //ajax 根据id 删除permission全部信息
+   $('.permission-delete').on('click',function(){
+       if(confirm("确定删除该权限?")){
+           $(".delete-processing").css('display','inline-block');
+           var row_id = $(this).data('row-id');
+           var delete_msg = {
+                 row_id: row_id,
+           };
+           var parent_node = $(this).parent().parent();
+           $.ajax({
+                type: 'POST',
+                url: "/index.php/Admin/Permission/ajax_permission_delete",
+                data: delete_msg,
+                dataType: 'json',
+                success:function(data)
+                {
+                    if(data == '1') {
+                       $(".delete-processing").css('display','none');
+                       parent_node.hide(300);
+                    }
+                    else {
+                        alert('权限删除失败');
+                    }
+                }         
+           });
+       }
    });
 })

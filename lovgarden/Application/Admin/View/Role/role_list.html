@@ -1,0 +1,32 @@
+<layout name="Common/layout" />
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">角色列表</h2>
+       <a href="__CONTROLLER__/add" class="fr top_rt_btn add_icon">添加角色</a>
+      </div>
+      <table class="table">
+       <tr>
+        <th>角色ID</th>
+        <th>角色名</th>
+        <th>操作</th>
+       </tr>
+       <?php foreach($roles as $k=>$value): ?>
+       <tr>
+        <td class="center"><?php echo $value['id'];  ?></td>
+        <td class="center"><?php echo $value['role_name'];  ?></td>
+        <td class="center">
+         <a href="http://www.mycodes.net" title="预览" class="link_icon" target="_blank">&#118;</a>
+         <a href="__CONTROLLER__/update/id/<?php echo $value['id']; ?>" title="编辑" class="link_icon">&#101;</a>
+         <a href="javascript:void(0);" data-row-id = <?php echo $value['id']; ?> title="删除" class="link_icon role-delete">&#100;</a>
+         <img style="width: 60px;height: 60px;display: none;" class="delete-processing" src="__PUBLIC__/Admin/images/icon/timg.gif" />
+        </td>
+       </tr>
+       <?php endforeach; ?>
+      </table>
+      <aside class="paging">
+      <?php echo $page; ?>
+      </aside>
+ </div>
+</section>
+

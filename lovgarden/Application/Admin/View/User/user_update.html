@@ -1,0 +1,50 @@
+
+<layout name="Common/layout" />
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">用户账号编辑</h2>
+       <a class="fr top_rt_btn" href="__CONTROLLER__/user_list">返回用户列表</a>
+      </div>
+     <section>
+         <?php if(isset($errorMessage)): ?>
+         <p style='color: red;'><?php echo $errorMessage; ?></p>
+         <?php endif; ?>
+         <form enctype="multipart/form-data" action="__SELF__" method="post">
+                    <ul class="ulColumn2">
+                     <li>
+                      <span class="item_name" style="width:120px;">用户名：</span>
+                      
+                      <input type="text" name="user_name" class="textbox" placeholder="用户名" value="<?php echo $data['user_name'];  ?>"  />
+                     </li> 
+                     <li>
+                      <span class="item_name" style="width:120px;">用户邮箱：</span>
+                      
+                      <input type="email" name="user_email" class="textbox" placeholder="用户邮箱" value="<?php echo $data['user_email'];  ?>"  />
+                     </li>  
+                     <li>
+                      <span class="item_name" style="width:120px;">用户密码：</span>
+                      
+                      <input type="password" name="user_password" class="textbox" placeholder="用户密码" value=""  />
+                     </li>  
+                     <li>
+                      <span class="item_name" style="width:120px;">确认密码：</span>
+                      
+                      <input type="password" name="repassword" class="textbox" placeholder="确认密码" value=""  />
+                     </li>
+                     <li>
+                      <span class="item_name" style="width:120px;">账号状态：</span>
+                      <label class="single_selection"><input type="radio" name="user_status" value="0" <?php if($data['user_status'] == '0'): ?><?php echo 'checked="checked"'; ?><?php endif; ?> />已冻结</label>
+                      <label class="single_selection"><input type="radio" name="user_status" value="1" <?php if($data['user_status'] == '1'): ?><?php echo 'checked="checked"'; ?><?php endif; ?>/>已激活</label>
+                      <label class="single_selection"><input type="radio" name="user_status" value="2" <?php if($data['user_status'] == '2'): ?><?php echo 'checked="checked"'; ?><?php endif; ?>/>已封停</label>
+                     </li>
+                     <li style="width:330px; text-align:center;">角色</li>
+                     <li class='role-list'>
+                         <?php print buildCheckboxes('lovgarden_role','id','role_name','role_id',$roles) ?>
+                     </li>
+                     <div><input type="submit" class="link_btn"/></div>                    
+                    </ul>
+         </form>
+     </section>
+ </div>
+</section>

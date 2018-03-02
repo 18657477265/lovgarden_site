@@ -46,3 +46,43 @@ a.add_more_image {
     width:150px;
     text-align: center;
 }
+.role-list {
+    width: 380px;
+    padding-left: 50px;
+}
+.role-list span {
+    display:inline-block;
+    width:150px;
+    height:35px;
+    
+}
+.permission-list {
+    width: 96.5%;
+    padding-left: 3%;
+    border: 1px solid #b3adad;
+    border-radius: 3px;
+    margin-bottom: 50px;
+}
+.permission-list p {
+    line-height: 35px;
+    height: 35px;
+}
+.permission-list .permission_name {
+    display: inline-block;
+    width: 77%;
+    cursor: pointer;
+}
+.permission-list .permission_description {
+    border-bottom: 1px solid #dad4d4;
+    margin-right: 50px;
+    height: 70px;
+    display: none;
+}
+
+.permission-form ul {
+    border: 1px solid #c4c1c1;
+}
+.permission-row {
+    border-bottom: 1px solid #d0cdcd;
+    width: 96%;
+}

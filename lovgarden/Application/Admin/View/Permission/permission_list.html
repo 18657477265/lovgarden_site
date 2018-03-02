@@ -1,0 +1,40 @@
+<layout name="Common/layout" />
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">权限列表</h2>
+       <a href="__CONTROLLER__/add" class="fr top_rt_btn add_icon">添加权限</a>
+      </div>
+      <table class="table">
+       <tr>
+        <th>权限名</th>
+        <th>权限描述</th>
+        <th>Module</th>
+        <th>Controller</th>
+        <th>Action</th>
+        <th>url</th>
+        <th>操作</th>
+       </tr>
+       <?php foreach($permissions as $k=>$value): ?>
+       <tr>
+        <td class="center"><?php echo $value['permission_name'];  ?></td>
+        <td class="center"><?php echo $value['permission_description'];  ?></td>
+        <td class="center"><?php echo $value['module_name'];  ?></td>
+        <td class="center"><?php echo $value['controller_name'];  ?></td>
+        <td class="center"><?php echo $value['action_name'];  ?></td>
+        <td class="center"><?php echo $value['url'];  ?></td>
+        <td class="center">
+         <a href="http://www.mycodes.net" title="预览" class="link_icon" target="_blank">&#118;</a>
+         <a href="__CONTROLLER__/update/id/<?php echo $value['id']; ?>" title="编辑" class="link_icon">&#101;</a>
+         <a href="javascript:void(0);" data-row-id = <?php echo $value['id']; ?> title="删除" class="link_icon permission-delete">&#100;</a>
+         <img style="width: 60px;height: 60px;display: none;" class="delete-processing" src="__PUBLIC__/Admin/images/icon/timg.gif" />
+        </td>
+       </tr>
+       <?php endforeach; ?>
+      </table>
+      <aside class="paging">
+      <?php echo $page; ?>
+      </aside>
+ </div>
+</section>
+

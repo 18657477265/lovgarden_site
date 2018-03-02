@@ -1,0 +1,88 @@
+<layout name="Common/layout" />
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">商品详情</h2>
+       <a class="fr top_rt_btn" href="__CONTROLLER__/product_list">返回产品列表</a>
+      </div>
+     <section>
+         <?php if(isset($errorMessage)): ?>
+         <p style='color: red;'><?php echo $errorMessage; ?></p>
+         <?php endif; ?>
+         <form enctype="multipart/form-data" action="__SELF__" method="post">
+                    <ul class="ulColumn2">
+                     <li>
+                      <span class="item_name" style="width:120px;">商品货号：</span>
+                      
+                      <input type="text" name="sku_id" class="textbox" placeholder="商品编号..." value="<?php echo $this_product_varient_info[$id]['sku_id'];  ?>"  />
+                     </li>
+                     <li>
+                      <span class="item_name" style="width:120px;">商品名称：</span>
+                      <input type="text" name="varient_name" class="textbox" placeholder="商品名称" value="<?php echo $this_product_varient_info[$id]['varient_name'];  ?>" />
+                     </li>
+                     <li>
+                      <span class="item_name" style="width:120px;">商品简要：</span>
+                      <input type="text" name="varient_summary" class="textbox" placeholder="商品简要" value="<?php echo $this_product_varient_info[$id]['varient_summary'];  ?>" />
+                     </li>
+                     <li>
+                      <span class="item_name" style="width:120px;">商品价格：</span>
+                      <input type="text" name="varient_price" class="textbox" placeholder="商品价格"  value="<?php echo $this_product_varient_info[$id]['varient_price'];  ?>" />
+                     </li>
+                     <li>
+                      <span class="item_name" style="width:120px;">商品详细描述：</span>
+                      <textarea name="varient_body" rows="5" cols="20"><?php echo $this_product_varient_info[$id]['varient_body'];  ?></textarea>
+                     </li>
+                     <li>
+                      <span class="item_name" style="width:120px;">商品状态：</span>
+                      <label class="single_selection"><input type="radio" name="varient_status" value="1" <?php if($this_product_varient_info[$id]['varient_status'] == '1'): ?><?php echo 'checked="checked"'; ?><?php endif; ?> />上架</label>
+                      <label class="single_selection"><input type="radio" name="varient_status" value="2" <?php if($this_product_varient_info[$id]['varient_status'] == '2'): ?><?php echo 'checked="checked"'; ?><?php endif; ?>/>下架</label>
+                      <label class="single_selection"><input type="radio" name="varient_status" value="3" <?php if($this_product_varient_info[$id]['varient_status'] == '3'): ?><?php echo 'checked="checked"'; ?><?php endif; ?>/>删除</label>
+                     </li>
+                     <li>
+                      <span class="item_name" style="width:120px;">配花程度：</span>
+                      <label class="single_selection"><input type="radio" name="decoration_level" value="1" <?php if($this_product_varient_info[$id]['decoration_level'] == '1'): ?><?php echo 'checked="checked"'; ?><?php endif; ?>/>适中</label>
+                      <label class="single_selection"><input type="radio" name="decoration_level" value="2" <?php if($this_product_varient_info[$id]['decoration_level'] == '2'): ?><?php echo 'checked="checked"'; ?><?php endif; ?>/>奢侈</label>
+                      <label class="single_selection"><input type="radio" name="decoration_level" value="3" <?php if($this_product_varient_info[$id]['decoration_level'] == '3'): ?><?php echo 'checked="checked"'; ?><?php endif; ?>/>豪华</label>
+                     </li>
+                     
+                      <li>
+                      <span class="item_name" style="width:120px;">款式中是否有花瓶：</span>
+                      <label class="single_selection"><input type="radio" name="vase" value="0" <?php if($this_product_varient_info[$id]['vase'] == '0'): ?><?php echo 'checked="checked"'; ?><?php endif; ?>/>没有花瓶</label>
+                      <label class="single_selection"><input type="radio" name="vase" value="1" <?php if($this_product_varient_info[$id]['vase'] == '1'): ?><?php echo 'checked="checked"'; ?><?php endif; ?>/>有花瓶</label>
+                     </li>
+                     
+                     <li>
+                         <span class="item_name" style="width: 120px">包含颜色</span>
+                         <?php print buildMultipleHtmlSelect('lovgarden_flower_color','id','flower_color','flower_color',$this_product_varient_info[$id]['flower_color_id']) ?>
+                     </li>
+                     <li>
+                         <span class="item_name" style="width: 120px">可配送缓急</span>
+                         <?php print buildMultipleHtmlSelect('lovgarden_hurry_level','id','hurry_level','hurry_level',$this_product_varient_info[$id]['hurry_level_id']) ?>
+                     </li>
+                     <li>
+                         <span class="item_name" style="width: 120px">花卉品种</span>
+                         <?php print buildMultipleHtmlSelect('lovgarden_flower_type','id','flower_name','flower_name',$this_product_varient_info[$id]['flower_type_id']) ?>
+                     </li>
+                     <li>
+                         <span class="item_name" style="width: 120px">花卉产地</span>
+                         <?php print buildMultipleHtmlSelect('lovgarden_flower_home','id','flower_home','flower_home',$this_product_varient_info[$id]['flower_home_id']) ?>
+                     </li>
+                     <li>
+                         <span class="item_name" style="width: 120px">用花场合</span>
+                         <?php print buildMultipleHtmlSelect('lovgarden_flower_occasion','id','flower_occasion','flower_occasion',$this_product_varient_info[$id]['flower_occasion_id']) ?>
+                     </li>
+                     <li class="add-images-in-product-update">
+                         <?php foreach($key_value_images as $key  => $value): ?>
+                         <span class="product-varient-old-image"><img src="<?php echo C('IMAGE_CONFIG')['viewPath'].$value['image_url']; ?>" width="50px" height="50px"><a href="javascript:void(0);" data-row-id = <?php echo $value['id']; ?> data-product-varient-id=<?php echo $id ?>>移除</a></span>
+                         <?php endforeach; ?>
+                         <img style="width: 100px;height: 100px;display: none;" class="delete-processing" src="__PUBLIC__/Admin/images/icon/timg.gif" />
+                     </li>
+                     <li><p><a class="add_more_image">继续添加图片</a></p></li>
+                     <li>
+                     <div><input type="submit" class="link_btn"/></div>
+                     </li>
+                    </ul>
+         </form>
+     </section>
+ </div>
+</section>

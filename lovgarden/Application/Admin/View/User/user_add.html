@@ -1,0 +1,39 @@
+
+<layout name="Common/layout" />
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">新增用户</h2>
+       <a class="fr top_rt_btn" href="__CONTROLLER__/user_list">返回用户列表</a>
+      </div>
+     <section>
+         <?php if(isset($errorMessage)): ?>
+         <p style='color: red;'><?php echo $errorMessage; ?></p>
+         <?php endif; ?>
+         <form enctype="multipart/form-data" action="__SELF__" method="post">
+                    <ul class="ulColumn2">
+                     <li>
+                      <span class="item_name" style="width:120px;">用户名：</span>                      
+                      <input type="text" name="user_name" class="textbox" placeholder="角色名字" value="<?php echo $data['user_name'];  ?>"  />
+                     </li>
+                     <li>
+                      <span class="item_name" style="width:120px;">邮箱：</span>
+                      
+                      <input type="email" name="user_email" class="textbox" placeholder="角色名字" value="<?php echo $data['user_email'];  ?>"  />
+                     </li>   
+                     <li>
+                      <span class="item_name" style="width:120px;">密码：</span>
+                      
+                      <input type="password" name="user_password" class="textbox" placeholder="密码" value=""  />
+                     </li>
+                     <li>
+                      <span class="item_name" style="width:120px;">确认密码：</span>
+                      
+                      <input type="password" name="repassword" class="textbox" placeholder="确认密码" value=""  />
+                     </li>
+                     <div><input type="submit" class="link_btn"/></div>                    
+                    </ul>
+         </form>
+     </section>
+ </div>
+</section>
