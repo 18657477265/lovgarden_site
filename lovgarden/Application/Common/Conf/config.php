@@ -18,6 +18,6 @@ return array(
     ),
     /************分页配置***************/
     'PRODUCT_VARIENT_PAGE' => array(
-         'page_count' => 3,  
+         'page_count' => 10,  
     ), 
 );

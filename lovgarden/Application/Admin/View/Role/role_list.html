@@ -3,7 +3,7 @@
  <div class="rt_content">
       <div class="page_title">
        <h2 class="fl">角色列表</h2>
-       <a href="__CONTROLLER__/add" class="fr top_rt_btn add_icon">添加角色</a>
+       <?php print check_permission_view("__CONTROLLER__/add","添加角色",'fr top_rt_btn add_icon'); ?>
       </div>
       <table class="table">
        <tr>
@@ -17,8 +17,10 @@
         <td class="center"><?php echo $value['role_name'];  ?></td>
         <td class="center">
          <a href="http://www.mycodes.net" title="预览" class="link_icon" target="_blank">&#118;</a>
-         <a href="__CONTROLLER__/update/id/<?php echo $value['id']; ?>" title="编辑" class="link_icon">&#101;</a>
+         <?php print check_permission_view("__CONTROLLER__/update/id/".$value['id'],"&#101;",'link_icon','编辑'); ?>
+         <?php if(!empty(check_permission_view("__CONTROLLER__/ajax_role_delete",'删除角色'))): ?>
          <a href="javascript:void(0);" data-row-id = <?php echo $value['id']; ?> title="删除" class="link_icon role-delete">&#100;</a>
+         <?php endif; ?>
          <img style="width: 60px;height: 60px;display: none;" class="delete-processing" src="__PUBLIC__/Admin/images/icon/timg.gif" />
         </td>
        </tr>

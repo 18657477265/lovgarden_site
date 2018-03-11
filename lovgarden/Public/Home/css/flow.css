@@ -1,0 +1,950 @@
+@charset "UTF-8"; 
+/*products checkout flow1 页面手机端样式*/
+@media ( max-width:767px ) {
+  .checkout-progress {
+    margin: 0 auto 16px;
+    width: 84%;
+    height: 10px;
+    text-align: center;
+    border-bottom: 3px solid #ffa600;
+    padding: 0;
+    margin-top: 30px;
+  }
+  .checkout-progress li {
+    color: #ffa600;
+    display: inline-block;
+    width: 16px;
+    color: #ffa600;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .checkout-progress__step:before {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    text-indent: 16px;
+    background: #ffa600;
+    border: 3px solid #ffa600;
+    border-radius: 8px;
+    content: '';
+    background: #ffffff;
+  }
+  .checkout-progress__step:first-child {
+    float: left;
+  }
+  .checkout-progress__step:last-child {
+    float: right;
+  }
+  .checkout-progress__step--active:before {
+    background: orange !important;
+  }
+
+  .checkout-order-content {
+    background-color: #fff;
+  }
+  .check-before-next-brief {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #d8d6d6;
+  }
+  .product-title-info , .product-small-img , .flow-check-vase ,.flow-check-vase-name , .flow-check-date , .flow-check-date-value ，.flow-check-each-price {
+    height: 110px;
+    padding: 0;
+    text-align: center;
+  }
+  .product-title-info p , .flow-check-vase-name p , .flow-check-date p , .flow-check-date-value p , .flow-check-each-price p {
+    height: 110px;
+    text-align: center;
+    position: relative;
+  }
+  .ceil {
+    position: absolute;
+    -ms-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, 75%);
+    left: 24%;
+  }
+  .product-title-info-title .ceil {
+    transform: translate(0, 33%);
+  }
+  .flow-check-vase span {
+    display: inline-block;
+    height: 110px;
+    line-height: 110px;
+  }
+  .product-details__shipping-vase-value input[type="checkbox"]{appearance: none; -webkit-appearance: none;outline: none;display:none}
+  .product-details__shipping-vase-value label{width:100px;height:100px;display:inline-block;cursor:pointer;}
+  .product-details__shipping-vase-value label input[type="checkbox"] + span{width:40px;height:40px;display:inline-block;background:url("/images/product_detail/vase_checkout.jpg")  no-repeat;background-position:0 0;background-size: 40px;}
+  .product-details__shipping-vase-value label input[type="checkbox"]:checked + span{background-position:0 -42px;background-size: 40px;}
+  .product-details__shipping-vase-value span {
+    position: absolute;
+    top: 29%;
+  }
+  .flow-check-each-price {
+    padding: 0;
+  }
+  .flow-check-each-price p {
+    font-size: 15px;
+    width: 100%;
+  }
+  .flow-check-each-operation {
+    height: 60px;
+    padding: 0;
+    text-align: center;
+  }
+  .flow-check-each-operation a {
+    display: inline-block;
+    height: 60px;
+    width: 100%;
+    line-height: 60px;
+    text-decoration: none;
+    color: #fff;
+    background-color: orange;
+  }
+  .flow-check-each-operation a:hover {
+    color: #fff;
+  }
+  .product-info-head {
+    height: 110px;
+    text-align: center;
+    line-height: 110px;
+  }
+  .product-info-head p {
+    height: 110px;
+    width: 100%;
+    text-align: center;
+    line-height: 110px;
+    font-weight: bold;
+  }
+  .each-product {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #c4bfbf;
+    padding-bottom: 20px;
+  }
+  .discount_code {
+    text-align:center;
+  }
+  .discount_code input {
+    display: inline-block;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    text-indent: 1em;
+    border: 1px solid #b5b4b4;
+    border-radius: 5px;
+  }
+  .inline-form__cell {
+    height: 45px;
+  }
+  .inline-form__cell button {
+    display: inline-block;
+    height: 100%;
+    margin-top: 20px;
+    width: 100%;
+    background-color: orange;
+    border: 1px solid orange;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 20px;
+  }
+  .total-price {
+    width: 100%;
+  }
+  .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    border-top: none;
+    text-align: center;
+  }
+  .total-price-value {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .total-price-list {
+    border-bottom: 1px solid #c4bfbf;
+  }
+  .checkout-button {
+    height: 50px;
+    margin: 30px 0 30px 0;
+    text-align: center;
+  }
+  .checkout-to-flow2 {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background: orange;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+  }
+  .checkout-button a:hover {
+    text-decoration: none;
+    background-color: #ffa50085;
+    color: #fff;
+  }
+  .flow-checkout-footer {
+    height: 50px;
+    width: 100%;
+    text-align: center;
+  }
+  .flow-checkout-footer p {
+    height: 50px;
+    line-height: 50px;
+    color: #807d7d;
+  }
+  p {
+    font-size: 15px;
+  }
+  .price-list-mobile {
+    margin-top: 50px;
+  }
+  /*flow2 form样式*/
+  .input-wrapper {
+    height: 40px;
+    text-align: center;
+    margin-top: 10px;
+    padding-left: 0;
+  }
+  #first_name , #last_name , #phone_number , #address_detail_location , #zip_code {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    text-indent: 20px;
+    border: 1px solid #c8c5c5;
+    border-radius: 5px;
+  }
+  .deliver-info-form , .deliver-info-form-left {
+    padding: 0;
+  }
+  .deliver-info-form-right {
+    padding: 0;
+  }
+  .input-select-info-source {
+    padding-right: 0;
+    width: 100%;
+  }
+  #order_item_info_source {
+    width: 100%;
+    height: 40px;
+    text-indent: 20px;
+    border: 1px solid #c8c5c5;
+    border-radius: 5px;
+  }
+  .nice-select {
+    width: 100%;
+  }
+  .nice-select .list {
+    width: 100%;
+  }
+  .nice-select .list li {
+    width: 100%;
+  }
+  .nice-select .option:hover {
+    background-color: orange !important;
+    color: #fff;
+  }
+  .input-wrapper-address {
+    text-align: left;
+  }
+  .checkout-addresses__heading {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    margin-top: 20px;
+  }
+  #message_order {
+    width: 100%;
+    height: 200px;
+    border: 1px solid #c8c5c5;
+  }
+  .deliver-info-form {
+    margin-bottom: 20px;
+  }
+  .products-list-flow2 {
+    margin-bottom: 20px;
+    margin-top: 185px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-bottom: 1px solid #c8c5c5;
+    border-top: 1px solid #c8c5c5;
+  }
+  .nice-select .option:hover, .nice-select .option.focus, .nice-select .option.selected.focus {
+    background-color: orange;
+  }
+  /*支付成功跳转页面*/
+  .flow3-background {
+    position: relative;
+  }
+  .flow3-success-message {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    font-size: 20px;
+    background-color: rgba(255,255,255,0.7);
+    height: auto;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 5%;
+    padding-bottom: 0;
+  }
+  .flow3-background p {
+    text-align: center;
+    color: #000;
+  }
+  .flow3-background p a {
+    display: inline-block;
+    color: #000;
+    margin: 20px;
+    margin-bottom: 10px;
+    text-decoration: none;
+  }
+  .flow3-background p a:hover {
+    text-decoration: none;
+    color: orange;
+  }
+  .ok-icon {
+    font-size: 25px;
+    display: inline-block;
+    width: 50px;
+    color: green;
+  }
+}
+/*products checkout flow1 小屏幕手机端样式*/
+@media ( max-width:320px) {
+  .flow-check-each-price span , p {
+    font-size: 13px;
+  }
+  .product-small-img {
+    padding-left: 10px;
+  }
+  /*支付成功跳转页面*/
+  .flow3-background {
+    position: relative;
+  }
+  .flow3-success-message {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    font-size: 20px;
+    background-color: rgba(255,255,255,0.7);
+    height: auto;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 3%;
+    padding-bottom: 0;
+  }
+  .flow3-background p {
+    text-align: center;
+    color: #000;
+  }
+  .flow3-success-message p a {
+    display: inline-block;
+    color: #000;
+    margin: 20px;
+    margin-bottom: 0px;
+    text-decoration: none;
+  }
+  .flow3-success-message p a:hover {
+    color: orange;
+    text-decoration: none;
+  }
+  .ok-icon {
+    font-size: 25px;
+    display: inline-block;
+    width: 50px;
+    color: green;
+  }
+}
+/*products checkout flow1 页面PC端样式*/
+@media ( min-width:1200px ) {
+  body {
+    background-color: #f1f1f1;
+  }
+  .checkout-progress {
+    display: inline-block;
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    height: 70px;
+    line-height: 70px;
+  }
+  .checkout-progress li {
+    display: inline-block;
+    margin: 20px;
+    margin-top: 0;
+    color: #827f7f;
+  }
+  .checkout-progress__step--active {
+    font-weight: bold;
+    color: orange !important;
+  }
+  .checkout-order-content {
+    background-color: #fff;
+  }
+  .check-before-next-brief {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #d8d6d6;
+  }
+  .product-title-info , .product-small-img , .flow-check-vase ,.flow-check-vase-name , .flow-check-date , .flow-check-date-value ，.flow-check-each-price {
+    height: 110px;
+    padding: 0;
+    text-align: center;
+    position: relative;
+  }
+  .product-title-info p , .flow-check-vase-name p , .flow-check-date p , .flow-check-date-value p , .flow-check-each-price p {
+    height: 110px;
+    text-align: center;   
+  }
+  .ceil {
+    position: absolute;
+    -ms-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, 75%);
+    left: 24%;
+  }
+  .flow-check-vase span {
+    display: inline-block;
+    height: 110px;
+  }
+  .product-details__shipping-vase-value input[type="checkbox"]{appearance: none; -webkit-appearance: none;outline: none;display:none}
+  .product-details__shipping-vase-value label{width:100px;height:100px;display:inline-block;cursor:pointer;}
+  .product-details__shipping-vase-value label input[type="checkbox"] + span{width:40px;height:40px;display:inline-block;background:url("/images/product_detail/vase_checkout.jpg")  no-repeat;background-position:0 0;background-size: 40px;}
+  .product-details__shipping-vase-value label input[type="checkbox"]:checked + span{background-position:0 -42px;background-size: 40px;}
+  .product-details__shipping-vase-value span {
+    position: absolute;
+    top: 29%;
+  }
+  .flow-check-each-price p {
+    font-weight: bold;
+  }
+  .flow-check-each-operation {
+    height: 110px;
+    padding: 0;
+    text-align: center;
+  }
+  .flow-check-each-operation a {
+    display: inline-block;
+    height: 110px;
+    width: 100%;
+    line-height: 110px;
+    text-decoration: none;
+    color: #333;
+  }
+  .flow-check-each-operation a:hover {
+    color: orange;
+  }
+  .product-info-head {
+    height: 110px;
+    text-align: center;
+    line-height: 110px;
+  }
+  .product-info-head p {
+    height: 110px;
+    width: 100%;
+    text-align: center;
+    line-height: 110px;
+    font-weight: bold;
+  }
+  .each-product {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #c4bfbf;
+    padding-bottom: 20px;
+  }
+  .discount_code {
+    text-align: right;
+    width: 50%;
+  }
+  .discount_code input {
+    display: inline-block;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    text-indent: 1em;
+    border: 1px solid #b5b4b4;
+    border-radius: 5px;
+  }
+  .inline-form__cell {
+    height: 45px;
+  }
+  .inline-form__cell button {
+    display: inline-block;
+    height: 100%;
+    width: 50%;
+    background-color: orange;
+    border: 1px solid orange;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 20px;
+  }
+  .total-price {
+    width: 100%;
+  }
+  .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    border-top: none;
+  }
+  .total-price-value {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .total-price-list {
+    border-bottom: 1px solid #c4bfbf;
+  }
+  .checkout-button {
+    height: 50px;
+    margin: 50px;
+    text-align: center;
+  }
+  .checkout-to-flow2 {
+    display: inline-block;
+    width: 30%;
+    height: 100%;
+    background: orange;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+  }
+  .checkout-button a:hover {
+    text-decoration: none;
+    background-color: #ffa50085;
+    color: #fff;
+  }
+  .flow-checkout-footer {
+    height: 50px;
+    width: 100%;
+    text-align: center;
+  }
+  .flow-checkout-footer p {
+    height: 50px;
+    line-height: 50px;
+    color: #807d7d;
+  }
+  /*flow2 form样式*/
+  .input-wrapper {
+    height: 40px;
+    text-align: center;
+    margin-top: 10px;
+    padding-left: 0;
+  }
+  #first_name , #last_name , #phone_number , #address_detail_location , #zip_code {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    text-indent: 20px;
+    border: 1px solid #c8c5c5;
+    border-radius: 5px;
+  }
+  .deliver-info-form , .deliver-info-form-left {
+    padding: 0;
+  }
+  .deliver-info-form-right {
+    padding: 0;
+  }
+  .input-select-info-source {
+    padding-right: 0;
+    width: 100%;
+  }
+  #order_item_info_source {
+    width: 100%;
+    height: 40px;
+    text-indent: 20px;
+    border: 1px solid #c8c5c5;
+    border-radius: 5px;
+  }
+  .nice-select {
+    width: 100%;
+  }
+  .nice-select .list {
+    width: 100%;
+  }
+  .nice-select .list li {
+    width: 100%;
+  }
+  .nice-select .option:hover {
+    background-color: orange !important;
+    color: #fff;
+  }
+  .input-wrapper-address {
+    text-align: left;
+  }
+  .checkout-addresses__heading {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+  }
+  #message_order {
+    width: 100%;
+    height: 200px;
+    border: 1px solid #c8c5c5;
+  }
+  .deliver-info-form {
+    margin-bottom: 20px;
+  }
+  .products-list-flow2 {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-bottom: 1px solid #c8c5c5;
+    border-top: 1px solid #c8c5c5;
+  }
+  /*支付成功跳转页面*/
+  .flow3-background {
+    position: relative;
+  }
+  .flow3-success-message {
+    position: absolute;
+    top: 28%;
+    left: 26%;
+    font-size: 20px;
+    background-color: rgba(255,255,255,0.7);
+    height: auto;
+    width: 50%;
+    margin: 0 auto;
+    padding: 5%;
+  }
+  .flow3-background p {
+    text-align: center;
+    color: #000;
+  }
+  .flow3-background p a {
+    display: inline-block;
+    color: #000;
+    margin: 20px;
+    text-decoration: none;
+  }
+  .flow3-background p a:hover {
+    text-decoration: none;
+    color: orange;
+  }
+  .ok-icon {
+    font-size: 25px;
+    display: inline-block;
+    width: 50px;
+    color: green;
+  }
+}
+/*products checkout flow1页面平板端样式*/
+@media ( min-width:768px ) and ( max-width:1199px ) {
+  body {
+      background-color: #f1f1f1;
+  }
+  .checkout-progress {
+    display: inline-block;
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    height: 70px;
+    line-height: 70px;
+  }
+  .checkout-progress li {
+    display: inline-block;
+    margin: 20px;
+    margin-top: 0;
+    color: #827f7f;
+  }
+  .checkout-progress__step--active {
+    font-weight: bold;
+    color: orange !important;
+  }
+  .checkout-order-content {
+    background-color: #fff;
+  }
+  .check-before-next-brief {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #d8d6d6;
+  }
+  .product-title-info , .product-small-img , .flow-check-vase ,.flow-check-vase-name , .flow-check-date , .flow-check-date-value ，.flow-check-each-price {
+    height: 110px;
+    padding: 0;
+    text-align: center;
+  }
+  .product-title-info p , .flow-check-vase-name p , .flow-check-date p , .flow-check-date-value p , .flow-check-each-price p {
+    height: 110px;
+    text-align: center;
+    position: relative;
+  }
+  .ceil {
+    position: absolute;
+    -ms-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, 75%);
+    left: 24%;
+  }
+  .flow-check-vase span {
+    display: inline-block;
+    height: 110px;
+    line-height: 110px;
+  }
+  .product-details__shipping-vase-value input[type="checkbox"]{appearance: none; -webkit-appearance: none;outline: none;display:none}
+  .product-details__shipping-vase-value label{width:100px;height:100px;display:inline-block;cursor:pointer;}
+  .product-details__shipping-vase-value label input[type="checkbox"] + span{width:40px;height:40px;display:inline-block;background:url("/images/product_detail/vase_checkout.jpg")  no-repeat;background-position:0 0;background-size: 40px;}
+  .product-details__shipping-vase-value label input[type="checkbox"]:checked + span{background-position:0 -42px;background-size: 40px;}
+  .product-details__shipping-vase-value span {
+    position: absolute;
+    top: 29%;
+  }
+  .flow-check-each-price {
+    padding: 0;
+  }
+  .flow-check-each-price p {
+    font-size: 15px;
+    width: 100%;
+  }
+  .flow-check-each-operation {
+    height: 110px;
+    padding: 0;
+    text-align: center;
+  }
+  .flow-check-each-operation a {
+    display: inline-block;
+    height: 110px;
+    width: 100%;
+    line-height: 110px;
+    text-decoration: none;
+    color: #333;
+  }
+  .flow-check-each-operation a:hover {
+    color: orange;
+  }
+  .product-info-head {
+    height: 110px;
+    text-align: center;
+    line-height: 110px;
+  }
+  .product-info-head p {
+    height: 110px;
+    width: 100%;
+    text-align: center;
+    line-height: 110px;
+    font-weight: bold;
+  }
+  .each-product {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #c4bfbf;
+    padding-bottom: 20px;
+  }
+  .discount_code {
+    text-align: right;
+    width: 50%;
+  }
+  .discount_code input {
+    display: inline-block;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    text-indent: 1em;
+    border: 1px solid #b5b4b4;
+    border-radius: 5px;
+  }
+  .inline-form__cell {
+    height: 45px;
+  }
+  .inline-form__cell button {
+    display: inline-block;
+    height: 100%;
+    width: 50%;
+    background-color: orange;
+    border: 1px solid orange;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 20px;
+  }
+  .total-price {
+    width: 100%;
+  }
+  .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    border-top: none;
+  }
+  .total-price-value {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .total-price-list {
+    border-bottom: 1px solid #c4bfbf;
+  }
+  .checkout-button {
+    height: 50px;
+    margin: 50px;
+    text-align: center;
+  }
+  .checkout-to-flow2 {
+    display: inline-block;
+    width: 30%;
+    height: 100%;
+    background: orange;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+  }
+  .checkout-button a:hover {
+    text-decoration: none;
+    background-color: #ffa50085;
+    color: #fff;
+  }
+  .flow-checkout-footer {
+    height: 50px;
+    width: 100%;
+    text-align: center;
+  }
+  .flow-checkout-footer p {
+    height: 50px;
+    line-height: 50px;
+    color: #807d7d;
+  }
+  p {
+    font-size: 15px;
+  }
+  /*flow2 form样式*/
+  .input-wrapper {
+    height: 40px;
+    text-align: center;
+    margin-top: 10px;
+    padding-left: 0;
+  }
+  #first_name , #last_name , #phone_number , #address_detail_location , #zip_code {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    text-indent: 20px;
+    border: 1px solid #c8c5c5;
+    border-radius: 5px;
+  }
+  .deliver-info-form , .deliver-info-form-left {
+    padding: 0;
+  }
+  .deliver-info-form-right {
+    padding: 0;
+  }
+  .input-select-info-source {
+    padding-right: 0;
+    width: 100%;
+  }
+  #order_item_info_source {
+    width: 100%;
+    height: 40px;
+    text-indent: 20px;
+    border: 1px solid #c8c5c5;
+    border-radius: 5px;
+  }
+  .nice-select {
+    width: 100%;
+  }
+  .nice-select .list {
+    width: 100%;
+  }
+  .nice-select .list li {
+    width: 100%;
+  }
+  .nice-select .option:hover {
+    background-color: orange !important;
+    color: #fff;
+  }
+  .input-wrapper-address {
+    text-align: left;
+  }
+  .checkout-addresses__heading {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+  }
+  #message_order {
+    width: 100%;
+    height: 200px;
+    border: 1px solid #c8c5c5;
+  }
+  .deliver-info-form {
+    margin-bottom: 20px;
+  }
+  .products-list-flow2 {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-bottom: 1px solid #c8c5c5;
+    border-top: 1px solid #c8c5c5;
+  }
+  .nice-select .option:hover, .nice-select .option.focus, .nice-select .option.selected.focus {
+    background-color: orange;
+  }
+  /*支付成功跳转页面*/
+  .flow3-background {
+    position: relative;
+  }
+  .flow3-success-message {
+    position: absolute;
+    top: 15%;
+    left: 26%;
+    font-size: 20px;
+    background-color: rgba(255,255,255,0.7);
+    height: auto;
+    width: 50%;
+    margin: 0 auto;
+    padding: 5%;
+  }
+  .flow3-background p {
+    text-align: center;
+    color: #000;
+  }
+  .flow3-background p a {
+    display: inline-block;
+    color: #000;
+    margin: 20px;
+    text-decoration: none;
+  }
+  .flow3-background p a:hover {
+    text-decoration: none;
+    color: orange;
+  }
+  .ok-icon {
+    font-size: 25px;
+    display: inline-block;
+    width: 50px;
+    color: green;
+  }
+
+}
+.coupin-code-info {
+  text-align: center;
+}
+.flow-top-banner {
+  width: 100%;
+  height: 100px;
+  background-color: #fff;
+}
+.page-header--checkout {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  border:none;
+}
+.page-header__logo {
+  height: 100%;
+  text-align: center;
+}
+.page-header__logo a {
+  height: 100px;
+  line-height: 100px;
+}
+.page-header__logo a img {
+  height: 70px;
+}
+.checkout-help-link {
+  height: 100px;
+  text-align: center;
+}
+.checkout-help-link a {
+  display: inline-block;
+  height: 100px;
+  line-height: 100px;
+  text-decoration: none;
+  color: #333333;
+}
+.checkout-help-link a:hover {
+  color: orange;
+}

@@ -3,7 +3,7 @@
  <div class="rt_content">
       <div class="page_title">
        <h2 class="fl">商品列表</h2>
-       <a href="__CONTROLLER__/add" class="fr top_rt_btn add_icon">添加商品</a>
+       <?php print check_permission_view("__CONTROLLER__/add","添加商品",'fr top_rt_btn add_icon'); ?>
       </div>
      <form class="mtb" action="__ACTION__" method="GET">
        <select class="select" name='varient_status'>
@@ -48,7 +48,7 @@
         <td class="center"><?php echo product_varient_vase_attach($value['vase']);  ?></td>
         <td class="center">
          <a href="http://www.mycodes.net" title="预览" class="link_icon" target="_blank">&#118;</a>
-         <a href="__CONTROLLER__/update/id/<?php echo $value['id']; ?>" title="编辑" class="link_icon">&#101;</a>
+         <?php print check_permission_view("__CONTROLLER__/update/id/".$value['id'],"&#101;",'link_icon','编辑'); ?>
         </td>
        </tr>
        <?php endforeach; ?>

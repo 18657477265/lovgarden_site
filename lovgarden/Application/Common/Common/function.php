@@ -183,4 +183,35 @@ function user_status_label($user_status){
     return $user_status_label;
 }
 
+//判断后台用户是否有权限看这个链接，如果有这个链接的权限，可以看，如果没有，不能看
+function check_permission_view($url,$text_field,$class='',$title='') {
+    $result = "";
+    if(!empty(session('id'))){
+        $user_id = session('id');
+        if($user_id == 1) {
+            $return_string = '<a title="'.$title.'" class="'.$class.'" href='.$url.'>'.$text_field.'</a>';
+            return $return_string;
+        }
+        else{
+            $model = D('User');
+            $sql = "SELECT a.user_id,a.user_name,d.`url` FROM lovgarden_user AS a 
+                        LEFT JOIN lovgarden_user_to_role AS b ON a.`user_id`=b.`user_id`
+                        LEFT JOIN lovgarden_role_to_permission AS c ON b.`role_id`=c.`role_id`
+                        LEFT JOIN lovgarden_permission AS d ON c.`permission_id`= d.`id` WHERE a.`user_id`= '$user_id'";
+            $permission_list = $model->query($sql);
+            if(!empty($permission_list)) {
+                    $user_permission_info = translate_database_result_to_logic_array($permission_list,array('url'),'user_id');               
+                    $user_permission_info = $user_permission_info[$user_id];                    
+                    foreach ($user_permission_info['url'] as $k => $v) {
+                        if(stristr($url,$v)) {
+                            $return_string = '<a title="'.$title.'" class="'.$class.'" href='.$url.'>'.$text_field.'</a>';
+                            return $return_string;
+                            break;
+                        }
+                    }
+             }
+        }
+    }
+    return $result;   
+}
 

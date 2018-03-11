@@ -138,4 +138,28 @@ $(function(){
            });
        }
    });
+   
+   //按照权限将没有权限的menu隐藏，只有有权限的menu才有a标签
+   $('.left-side-menu li').each(function(){
+       if($(this).find('a').length == 0){
+           $(this).css('display','none');
+       }
+   });
+   $('.left-side-menu dl').each(function(){
+       if($(this).find('a').length == 0){
+           $(this).css('display','none');
+       }
+   });
+   $('.left-side-menu dd').each(function(){
+       if($(this).find('a').length == 0){
+           $(this).css('display','none');
+       }
+   });
+   //在任何位置，都将对标记有permission-check-link class的link进行检查，没有a标签就隐藏
+   $('.permission-check-link').each(function(){
+       if($(this).find('a').length == 0){
+           $(this).css('display','none');
+       }
+   });
+   //在一些情况下，直接是个a标签，没有多余的元素包含这个a标签，则url权限验证方法会自动过滤掉没有权限的a标签
 })

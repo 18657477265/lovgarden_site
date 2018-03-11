@@ -3,7 +3,7 @@
  <div class="rt_content">
       <div class="page_title">
        <h2 class="fl">用户列表</h2>
-       <a href="__CONTROLLER__/user_add" class="fr top_rt_btn add_icon">添加用户</a>
+       <?php print check_permission_view("__CONTROLLER__/user_add","添加用户",'fr top_rt_btn add_icon'); ?>
       </div>
      <form class="mtb" action="__ACTION__" method="GET">
          <input name="keyword" type="text" class="textbox textbox_225" placeholder="输入用户关键词..." <?php if(!empty($filter_selection['user_info'])): ?><?php $value = $filter_selection['user_info']; echo "value='$value'"; ?><?php endif; ?>/>
@@ -29,7 +29,7 @@
          <td class="center"><?php echo $value['regist_time'];  ?></td>
         <td class="center">
          <a href="http://www.mycodes.net" title="预览" class="link_icon" target="_blank">&#118;</a>
-         <a href="__CONTROLLER__/update/id/<?php echo $value['user_id']; ?>" title="编辑" class="link_icon">&#101;</a>
+         <?php print check_permission_view("__CONTROLLER__/update/id/".$value['user_id'],"&#101;",'link_icon','编辑'); ?>
          <img style="width: 60px;height: 60px;display: none;" class="delete-processing" src="__PUBLIC__/Admin/images/icon/timg.gif" />
         </td>
        </tr>

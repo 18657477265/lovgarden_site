@@ -1,7 +1,7 @@
 <?php
 namespace Admin\Controller;
 use Think\Controller;
-class BlockController extends Controller {
+class BlockController extends BaseController {
     public function add(){
         if(IS_POST) {
             $data = array(

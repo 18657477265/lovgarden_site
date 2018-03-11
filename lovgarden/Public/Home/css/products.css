@@ -1,0 +1,1305 @@
+@charset "UTF-8"; 
+/*左边黑框描述，右边图片block样式*/
+#mobile-filter-section {
+  -webkit-overflow-scrolling: touch;
+}
+.category-banner-content-block__content {
+	background-color: #666666;
+	padding-top: 5%;
+	height: 400px;
+}
+.category-banner-content-block__image {
+	height: 400px;
+	background-image:url("/images/products_list/banner.jpg");
+	background-size: cover;
+}
+.category-banner-content-block__title {
+	font-size: 30px;
+    color: #fff;
+    text-align: center;
+}
+.category-banner-content-block__description {
+	margin: 16px 0 0;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+}
+.category-banner-content-block__value-add {
+	margin: 16px 0 0;
+    font-size: 16px;
+    color: #fff;
+    border-top: 1px solid #fff;
+    padding-top: 20px;
+    text-align: center;
+}
+/*filter 样式*/
+.filter {
+	height: 50px;
+	margin-top: 20px;
+    margin-bottom: 20px;	
+}
+.filter div {
+	height: 100%;
+}
+.filter div span {
+	display: inline-block;
+	height: 100%;
+	line-height: 50px;
+}
+.filter-part {
+	text-align: center;
+}
+.filter-input span {
+	width: 100%;
+	border: 1px solid #000;
+    border-radius: 5px;
+}
+.filter-input {
+  position: relative;
+}
+.filter-input .filter-input-icon {
+  display: inline-block;
+  border: none;
+  position: absolute;
+  width: 30px;
+  height: 50px;
+  line-height: 50px;
+  left: 70%;
+}
+.filter-title {
+	font-weight: bold;
+	font-size: 20px;
+}
+/*products list页面手机端样式*/
+@media ( max-width:767px ) {
+  /*左边黑框描述，右边图片block样式*/
+  .category-banner-content-block__content {
+  	padding-top: 2em;
+  }
+  .category-banner-content-block__content h1 {
+  	font-size: 2.5em;
+  }
+  .category-banner-content-block__content p {
+  	font-size: 1.5em;
+  }
+  /*filter 手机端样式*/
+  .filter-input .filter-input-icon {
+    display: inline-block;
+    border: none;
+    position: absolute;
+    width: 30px;
+    height: 50px;
+    line-height: 50px;
+    left: 62%;
+  }
+  .mobile-filter {
+    width: 100%;
+    text-align: center;
+    line-height: 56px;
+    font-size: 16px;
+    margin: 10px auto;
+    height: auto;
+    border: 1px solid #000;
+    border-radius: 5px;
+  }
+  .mobile-filter-name {
+    display: inline-block;
+    margin: 0;
+    height: 56px;
+    line-height: 56px;
+    width: 20%;
+  }
+  .mobile-filter-name:active {
+    color: orange;
+    border-color: orange;
+  }
+  .mobile-filter:active {
+    border-color: purple;
+    background-color: #ffa50069;
+    color: orange;
+  }
+  .mobile-filter:hover {
+    border-color: orange;
+    color: orange;
+  }
+  #mobile-filter-section {
+    width: 80%;
+    border: 1px solid #edecec;
+    box-shadow: -1px 0 4px 0 rgba(0,0,0,0.15);
+  }
+  #shop-filter-popup {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0;
+  }
+  #shop-filter-popup ul li {
+    list-style: none;
+    font-size: 14px;
+  }
+  .filter-mobile-popup-title {
+    padding-left: 5%;
+    font-size: 16px;
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    color: orange;
+    border-bottom: 1px solid #d3d3d3;
+  }
+  .filter-mobile-popup-delivertime , .filter-mobile-popup-flowertype , .filter-mobile-popup-occasion , .filter-mobile-popup-flower-color , .filter-mobile-popup-order {
+    padding-left: 5%;
+    font-size: 16px;
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    border-top: 1px solid #d3d3d3;
+  }
+  .filter-mobile-popup-delivertime {
+    border-top: none;
+  }
+  .filter-mobile-popup-delivertime-choice {
+    height: 50px;
+    padding-left: 0;   
+  }
+  .filter-mobile-popup-delivertime-choice li {
+    height: 50px;
+    line-height: 50px;
+  }
+  .filter-mobile-popup-delivertime-choice li a {
+    display: inline-block;
+    width: 80%;
+    height: 50px;
+    border:1px solid #000;
+    text-align: center;
+  }
+
+
+  .filter-mobile-popup-flowertype-choice {
+    height: 593px;
+    padding-left: 0;   
+  }
+  .filter-mobile-popup-flowertype-choice li {
+    height: 40px;
+    line-height: 40px;
+    margin: 10px auto;
+  }
+  .filter-mobile-popup-flowertype-choice li a {
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    border:1px solid #000;
+    text-align: center;
+  }
+
+  .filter-mobile-popup-occasion-choice {
+    height: 300px;
+    padding-left: 0;   
+  }
+  .filter-mobile-popup-occasion-choice li {
+    height: 40px;
+    line-height: 40px;
+    margin: 10px auto;
+  }
+  .filter-mobile-popup-occasion-choice li a {
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    border:1px solid #000;
+    text-align: center;
+  }
+
+  .filter-mobile-popup-flower-color-choice {
+    height: 239px;
+    padding-left: 0;   
+  }
+  .filter-mobile-popup-flower-color-choice li {
+    height: 40px;
+    line-height: 40px;
+    margin: 10px auto;
+  }
+  .filter-mobile-popup-flower-color-choice li a {
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    border:1px solid #000;
+    text-align: center;
+  }
+
+  .filter-mobile-popup-order-choice {
+    height: 110px;
+    padding-left: 0;   
+  }
+  .filter-mobile-popup-order-choice li {
+    height: 40px;
+    line-height: 40px;
+    margin: 10px auto;
+  }
+  .filter-mobile-popup-order-choice li a {
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    border:1px solid #000;
+    text-align: center;
+  }
+  .choose-title {
+    width: 90%;
+    display: inline-block;
+  }
+  .choose-close {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+  }
+  #shop-filter-popup a:active {
+    text-decoration: none;
+    color: orange;
+    background-color: #ffa50069;
+  }
+  #shop-filter-popup a:hover {
+    text-decoration: none;
+    color: orange;
+    border-color: orange;
+  }
+  .filter-mobile-popup-delivertime span ,.filter-mobile-popup-flowertype span ,.filter-mobile-popup-occasion span ,.filter-mobile-popup-flower-color span , .filter-mobile-popup-order span {
+    display: inline-block;
+    width: 73%;
+    text-align: right;
+    color: orange;
+
+  }
+  #shop-filter-popup ul {
+    display: none;
+  }
+  #shop-filter-popup p:active {
+    background-color: #ffa50069;
+  }
+  .pink {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 15px -209px !important;
+    background-size: 28px !important;
+    background-repeat: no-repeat;
+  }
+  .assorted {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 15px -178px !important;
+    background-size: 28px !important;
+    background-repeat: no-repeat;
+  }
+  .purple {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 15px -145px !important;
+    background-size: 28px !important;
+    background-repeat: no-repeat;
+  }
+  .red {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 15px -90px !important;
+    background-size: 28px !important;
+    background-repeat: no-repeat;
+  }
+  .yellow {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 15px -59px !important;
+    background-size: 28px !important;
+    background-repeat: no-repeat;
+  }
+  .orange {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 15px -28px !important;
+    background-size: 28px !important;
+    background-repeat: no-repeat;
+  }
+  .green {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 15px 3px !important;
+    background-size: 28px !important;
+    background-repeat: no-repeat;
+  }
+  #mobile-filter-section {
+    height: 700px;
+    display: block;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    background-color: rgba(255, 255, 255,0.95);
+    z-index: 999;
+    height: 481px;
+    overflow-y: scroll;
+    display: none;
+  }
+  /*后端传过来如果筛选条件是选中的话，可以加这个class*/
+  .mobile-tablet-filter-choosen {
+    color: orange !important;
+    border-color: orange !important;
+  }
+   /*product list 样式 手机端*/
+  .pagination-results {
+    padding: 0;
+  }
+  .product-grid {
+    list-style: none;
+    height: auto;
+    padding: 0;
+  }
+  .product-grid li {
+    padding: 0;
+  }
+  .product-summary__media-link img {
+    width: 100%;
+  }
+  .product-summary__info .product-summary__name {
+    font-size: 1em;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .product-summary__info .product-summary__short-description p {
+    font-size: 12px;
+    height: 20px;
+    color: grey;
+    width: 100%;
+    border: none;
+    text-align: center;
+    margin: 0;
+  }
+  .product-summary__availability .product-summary__availability-label {
+    font-size: 12px;
+    color: #333333;
+    color: grey;
+    text-align: center;
+  }
+  .product-summary__availability .product-summary__availability-date {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .product-grid .product-summary {
+    position: relative;
+  }
+  .product-grid .product-summary .product-summary__info .product-summary__pricing {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(255,255,255,0.9);
+    border: 1px solid #fff;
+    text-align: center;
+    font-size: 13px;
+    width: 60px;
+    height: 33px;
+    line-height: 33px;
+  }
+  .product-grid .product-summary .product-summary__info .product-summary__manufacturer {
+    position: absolute;
+    top: 80%;
+    right: 0px;
+  }
+  .product-grid .product-summary .product-summary__info .product-summary__manufacturer .product-summary__manufacturer-image {
+    text-align: right;
+  }
+  .product-grid .product-summary .product-summary__info .product-summary__manufacturer .product-summary__manufacturer-title {
+    font-size: 10px;
+    text-align: right;
+  }
+  .product-grid .product-summary .product-summary__info .product-summary__manufacturer .product-summary__manufacturer-location {
+    font-size: 10px;
+    text-align: right;
+  }
+  .price__unit , .price__number {
+    font-size: 18px;
+  }
+  .small-start {
+    font-size: 5px;
+  }
+  .product-grid .product-summary .product-summary__info .product-summary__availability .product-summary__availability-date {
+    font-size: 13px;
+  }
+  .input-choice-two , .input-choice-three ,.input-choice-four {
+    z-index: 99;
+  }
+  .product-grid .product-grid__cell {
+    padding: 0 10px 40px 10px;
+  }
+  .product-summary a:active {
+     color: orange;
+     text-decoration: none;
+  }
+  .product-summary a:hover {
+    color: orange;
+    text-decoration: none;
+  }
+}
+@media ( max-width:320px) {
+  /*左边黑框描述，右边图片block样式*/
+  .category-banner-content-block__content h1 {
+  	font-size: 1em;
+  }
+  .category-banner-content-block__content h1 {
+  	font-size: 2em;
+  }
+  .category-banner-content-block__content p {
+  	font-size: 1em;
+  }
+  /*filter 手机端样式*/
+  .filter-input .filter-input-icon {
+    display: inline-block;
+    border: none;
+    position: absolute;
+    width: 30px;
+    height: 50px;
+    line-height: 50px;
+    left: 62%;
+  }
+  .mobile-filter {
+    width: 100%;
+    text-align: center;
+    line-height: 56px;
+    font-size: 16px;
+    margin: 10px auto;
+    height: auto;
+    border: 1px solid #000;
+    border-radius: 5px;
+  }
+  .mobile-filter-name {
+    display: inline-block;
+    margin: 0;
+    height: 56px;
+    line-height: 56px;
+    width: 20%;
+  }
+  .mobile-filter-name:active {
+    color: orange;
+    border-color: orange;
+  }
+  .mobile-filter:active {
+    border-color: purple;
+    background-color: #ffa50069;
+    color: orange;
+  }
+  .mobile-filter:hover {
+    border-color: orange;
+    color: orange;
+  }
+  #mobile-filter-section {
+    width: 95%;
+    border: 1px solid #edecec;
+    box-shadow: -1px 0 4px 0 rgba(0,0,0,0.15);
+  }
+  #shop-filter-popup {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0;
+  }
+  #shop-filter-popup ul li {
+    list-style: none;
+    font-size: 14px;
+  }
+  .filter-mobile-popup-title {
+    padding-left: 5%;
+    font-size: 16px;
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    color: orange;
+    border-bottom: 1px solid #d3d3d3;
+  }
+  .filter-mobile-popup-delivertime , .filter-mobile-popup-flowertype , .filter-mobile-popup-occasion , .filter-mobile-popup-flower-color , .filter-mobile-popup-order {
+    padding-left: 5%;
+    font-size: 16px;
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    border-top: 1px solid #d3d3d3;
+  }
+  .filter-mobile-popup-delivertime {
+    border-top: none;
+  }
+  .filter-mobile-popup-delivertime-choice {
+    height: 50px;
+    padding-left: 0;   
+  }
+  .filter-mobile-popup-delivertime-choice li {
+    height: 50px;
+    line-height: 50px;
+  }
+  .filter-mobile-popup-delivertime-choice li a {
+    display: inline-block;
+    width: 80%;
+    height: 50px;
+    border:1px solid #000;
+    text-align: center;
+  }
+
+
+  .filter-mobile-popup-flowertype-choice {
+    height: 593px;
+    padding-left: 0;   
+  }
+  .filter-mobile-popup-flowertype-choice li {
+    height: 40px;
+    line-height: 40px;
+    margin: 10px auto;
+  }
+  .filter-mobile-popup-flowertype-choice li a {
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    border:1px solid #000;
+    text-align: center;
+  }
+
+  .filter-mobile-popup-occasion-choice {
+    height: 300px;
+    padding-left: 0;   
+  }
+  .filter-mobile-popup-occasion-choice li {
+    height: 40px;
+    line-height: 40px;
+    margin: 10px auto;
+  }
+  .filter-mobile-popup-occasion-choice li a {
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    border:1px solid #000;
+    text-align: center;
+  }
+
+  .filter-mobile-popup-flower-color-choice {
+    height: 239px;
+    padding-left: 0;   
+  }
+  .filter-mobile-popup-flower-color-choice li {
+    height: 40px;
+    line-height: 40px;
+    margin: 10px auto;
+  }
+  .filter-mobile-popup-flower-color-choice li a {
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    border:1px solid #000;
+    text-align: center;
+  }
+
+  .filter-mobile-popup-order-choice {
+    height: 110px;
+    padding-left: 0;   
+  }
+  .filter-mobile-popup-order-choice li {
+    height: 40px;
+    line-height: 40px;
+    margin: 10px auto;
+  }
+  .filter-mobile-popup-order-choice li a {
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    border:1px solid #000;
+    text-align: center;
+  }
+  .choose-title {
+    width: 90%;
+    display: inline-block;
+  }
+  .choose-close {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+  }
+  #shop-filter-popup a:active {
+    text-decoration: none;
+    color: orange;
+    background-color: #ffa50069;
+  }
+  #shop-filter-popup a:hover {
+    text-decoration: none;
+    color: orange;
+    border-color: orange;
+  }
+  .filter-mobile-popup-delivertime span ,.filter-mobile-popup-flowertype span ,.filter-mobile-popup-occasion span ,.filter-mobile-popup-flower-color span , .filter-mobile-popup-order span {
+    display: inline-block;
+    width: 73%;
+    text-align: right;
+    color: orange;
+
+  }
+  #shop-filter-popup ul {
+    display: none;
+  }
+  #shop-filter-popup p:active {
+    background-color: #ffa50069;
+  }
+  .pink {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 7px -209px !important;
+    background-size: 28px !important;
+    background-repeat: no-repeat;
+  }
+  .assorted {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 7px -178px !important;
+    background-size: 28px !important;
+    background-repeat: no-repeat;
+  }
+  .purple {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 7px -145px !important;
+    background-size: 28px !important;
+    background-repeat: no-repeat;
+  }
+  .red {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 7px -90px !important;
+    background-size: 28px !important;
+    background-repeat: no-repeat;
+  }
+  .yellow {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 7px -59px !important;
+    background-size: 28px !important;
+    background-repeat: no-repeat;
+  }
+  .orange {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 7px -28px !important;
+    background-size: 28px !important;
+    background-repeat: no-repeat;
+  }
+  .green {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 7px 3px !important;
+    background-size: 28px !important;
+    background-repeat: no-repeat;
+  }
+  #mobile-filter-section {
+    height: 700px;
+    display: block;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    background-color: rgba(255, 255, 255,0.95);
+    z-index: 999;
+    height: 481px;
+    overflow-y: scroll;
+    display: none;
+  }
+  /*后端传过来如果筛选条件是选中的话，可以加这个class*/
+  .mobile-tablet-filter-choosen {
+    color: orange !important;
+    border-color: orange !important;
+  }
+  .product-grid .product-summary .product-summary__info .product-summary__pricing {
+    top: 40%;
+  }
+  .product-summary__availability-date {
+    padding-top: 20px;
+  }
+  .product-grid .product-grid__cell {
+    padding:0 10px 20px 10px;
+  }
+}
+/*products list页面PC端样式*/
+@media ( min-width:1200px ) {
+  /*filter PC 样式 配送时间*/
+  .filter-input span a:hover {
+    font-weight: bold;
+    text-decoration: none;
+    color: orange;
+  }
+  div.input-choice {
+    z-index: 80;
+    background-color: red;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    height: auto;
+    background-color: #fff;
+    position: absolute;
+    width: 84.4%;
+    top: 40px;
+    border: 1px solid #000;
+    border-top: none;
+    display: none;
+  }
+  .input-choice .result-filters__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .input-choice .result-filters__list .filter-deliver-time-dropdown-a {
+    text-decoration: none;
+    display: inline-block;
+    width: 70%;
+    height: 50px;
+    line-height: 50px;
+    margin-top: 10px;
+    border: 1px solid #000;
+    color: #000;
+    border-color: #000;
+  }
+  .input-choice .result-filters__list .filter-deliver-time-dropdown-a:hover {
+    text-decoration: none;
+    color: orange;
+    border-color: orange;
+  }
+  .input-choice .result-filters__list .filter-deliver-time-item-choosen {
+    text-decoration: none;
+    color: orange;
+    border-color: orange;
+  }
+  /*filter 花品种选择框 情景选择继承 鲜花色系继承*/
+  .filter-flower-type .input-choice-two , .filter-flower-hoilday .input-choice-three , .filter-flower-color .input-choice-four {
+    height: auto;
+    width: 168%;
+    padding: 0;
+    border: 1px solid #000;
+    position: absolute;
+    top: 62px;
+    background-color: #fff;
+    border-top: none;
+    display: none;
+  }
+  .flower-type-list , .flower-holiday-list , .flower-color-list {
+    padding: 0;
+    list-style: none;
+    height: auto;
+  }
+  .flower-type-list-item , .flower-holiday-list-item , .flower-color-list-item {
+    height: 30px;
+    line-height: 30px;
+    padding-left: 12%;
+  }
+  .flower-type-list-item a , .flower-holiday-list-item a , .flower-color-list-item a {
+    display: inline-block;
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    background-image: url("/images/products_list/checkbox.png");
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 0px -39px;
+  }
+  .flower-type-list-item a:hover {
+    background-position: 0px -1px;
+    color: orange;
+    text-decoration: none;
+  }
+  .flower-holiday-list-item a:hover {
+    background-position: 0px -1px;
+    color: orange;
+    text-decoration: none;
+  }
+  .flower-color-list-item a:hover {
+    background-position: 0px -1px;
+    color: orange;
+    text-decoration: none;
+  }
+  .filter-flower-type .flower-type-list-item .flower-type-list-item-choosen , .filter-flower-hoilday .flower-holiday-list-item .flower-holiday-list-item-choosen {
+    display: inline-block;
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    background-image: url("/images/products_list/checkbox.png");
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 0px -1px;
+    color: orange;
+    text-decoration: none;
+  }
+  ..filter-flower-color .flower-color-list-item .flower-color-list-item-choosen {
+    display: inline-block;
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    background-image: url("/images/products_list/checkbox.png");
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 0px -1px;
+    color: orange;
+    text-decoration: none;
+  }
+  .flower-type-list-one , .flower-holiday-list-one , .flower-color-list-one {
+    border-top: 1px solid #fff;
+    padding-top: 20px;
+  }
+  .flower-type-list-two , .flower-holiday-list-two , .flower-color-list-two {
+    border-top: 1px solid #000;
+    padding-top: 20px;
+  }
+  /*绿色*/
+  .green {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 0px -2px !important;
+    background-size: 20px !important;
+    
+  }
+  .orange {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 0px -23px !important;
+    background-size: 20px !important;
+  }
+  .yellow {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 0px -46px !important;
+    background-size: 20px !important;
+  }
+  .red {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 0px -67px !important;
+    background-size: 20px !important;
+  }
+  .white {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 0px -89px !important;
+    background-size: 20px !important;
+  }
+  .purple {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 0px -107px !important;
+    background-size: 20px !important;
+  }
+  .assorted {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 0px -130px !important;
+    background-size: 20px !important;
+  }
+  .pink {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 0px -153px !important;
+    background-size: 20px !important;
+  }
+  /*filter 情景选择*/
+  .filter-flower-hoilday .input-choice-three , .filter-flower-color .input-choice-four {
+    height: auto;
+  }
+  /*filter 排序*/
+  .filter-order .order-list {
+    width: 84%;
+  }
+  /*product list 样式 PC*/
+  .pagination-results {
+    padding: 0;
+  }
+  .product-grid {
+    list-style: none;
+    height: auto;
+    padding: 0;
+  }
+  .product-grid li {
+    padding: 0;
+  }
+  .product-summary__media-link img {
+    width: 100%;
+  }
+  .product-summary__info .product-summary__name {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  .product-summary__info .product-summary__short-description p {
+    font-size: 12px;
+    width: 80%;
+    height: 30px;
+    border-bottom: 1px solid #d5d5d5;
+    color: grey;
+  }
+  .product-summary__availability .product-summary__availability-label {
+    font-size: 12px;
+    color: #333333;
+    color: grey;
+  }
+  .product-summary__availability .product-summary__availability-date {
+    font-size: 12px;
+    font-weight: bold;
+  }
+  .product-grid .product-summary {
+    position: relative;
+  }
+  .product-grid .product-summary .product-summary__info .product-summary__pricing {
+    position: absolute;
+    top: 60%;
+    background-color: rgba(255,255,255,0.8);
+    text-align: center;
+    font-size: 15px;
+    width: 120px;
+    height: 50px;
+    line-height: 50px;
+  }
+  .product-grid .product-summary .product-summary__info .product-summary__manufacturer {
+    position: absolute;
+    top: 86%;
+    right: 0px;
+  }
+  .product-grid .product-summary .product-summary__info .product-summary__manufacturer .product-summary__manufacturer-image {
+    text-align: right;
+  }
+  .product-grid .product-summary .product-summary__info .product-summary__manufacturer .product-summary__manufacturer-title {
+    font-size: 10px;
+    text-align: right;
+  }
+  .product-grid .product-summary .product-summary__info .product-summary__manufacturer .product-summary__manufacturer-location {
+    font-size: 10px;
+    text-align: right;
+  }
+  .price__unit , .price__number {
+    font-size: 30px;
+  }
+  .small-start {
+    font-size: 10px;
+  }
+  .product-grid .product-summary .product-summary__info .product-summary__availability .product-summary__availability-date {
+    font-size: 13px;
+  }
+  .input-choice-two , .input-choice-three ,.input-choice-four {
+    z-index: 99;
+  }
+  .product-grid .product-grid__cell {
+    padding: 0 10px 50px 10px;
+  }
+  .product-summary a:active {
+     color: orange;
+     text-decoration: none;
+  }
+  .product-summary a:hover {
+    color: orange;
+    text-decoration: none;
+    /*消除product list 的左右内边距*/
+  }
+}
+/*products list页面平板端样式*/
+@media ( min-width:768px ) and ( max-width:1199px ) {
+  /*filter 平板样式*/
+  .filter-input .filter-input-icon {
+    display: inline-block;
+    border: none;
+    position: absolute;
+    width: 30px;
+    height: 50px;
+    line-height: 50px;
+    left: 62%;
+  }
+  .mobile-filter {
+    width: 100%;
+    text-align: center;
+    line-height: 56px;
+    font-size: 16px;
+    margin: 10px auto;
+    height: auto;
+    border: 1px solid #000;
+    border-radius: 5px;
+  }
+  .mobile-filter-name {
+    display: inline-block;
+    margin: 0;
+    height: 56px;
+    line-height: 56px;
+    width: 20%;
+  }
+  .mobile-filter-name:active {
+    color: orange;
+    border-color: orange;
+  }
+  .mobile-filter:active {
+    border-color: purple;
+    background-color: #ffa50069;
+    color: orange;
+  }
+  .mobile-filter:hover {
+    border-color: orange;
+    color: orange;
+  }
+  #mobile-filter-section {
+    width: 40%;
+    border: 1px solid #edecec;
+    box-shadow: -1px 0 4px 0 rgba(0,0,0,0.15);
+  }
+  #shop-filter-popup {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0;
+  }
+  #shop-filter-popup ul li {
+    list-style: none;
+    font-size: 14px;
+  }
+  .filter-mobile-popup-title {
+    padding-left: 5%;
+    font-size: 16px;
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    color: orange;
+    border-bottom: 1px solid #d3d3d3;
+  }
+  .filter-mobile-popup-delivertime , .filter-mobile-popup-flowertype , .filter-mobile-popup-occasion , .filter-mobile-popup-flower-color , .filter-mobile-popup-order {
+    padding-left: 5%;
+    font-size: 16px;
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    border-top: 1px solid #d3d3d3;
+  }
+  .filter-mobile-popup-delivertime {
+    border-top: none;
+  }
+  .filter-mobile-popup-delivertime-choice {
+    height: 50px;
+    padding-left: 0;   
+  }
+  .filter-mobile-popup-delivertime-choice li {
+    height: 50px;
+    line-height: 50px;
+  }
+  .filter-mobile-popup-delivertime-choice li a {
+    display: inline-block;
+    width: 80%;
+    height: 50px;
+    border:1px solid #000;
+    text-align: center;
+  }
+
+
+  .filter-mobile-popup-flowertype-choice {
+    height: 593px;
+    padding-left: 0;   
+  }
+  .filter-mobile-popup-flowertype-choice li {
+    height: 40px;
+    line-height: 40px;
+    margin: 10px auto;
+  }
+  .filter-mobile-popup-flowertype-choice li a {
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    border:1px solid #000;
+    text-align: center;
+  }
+
+  .filter-mobile-popup-occasion-choice {
+    height: 300px;
+    padding-left: 0;   
+  }
+  .filter-mobile-popup-occasion-choice li {
+    height: 40px;
+    line-height: 40px;
+    margin: 10px auto;
+  }
+  .filter-mobile-popup-occasion-choice li a {
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    border:1px solid #000;
+    text-align: center;
+  }
+
+  .filter-mobile-popup-flower-color-choice {
+    height: 239px;
+    padding-left: 0;   
+  }
+  .filter-mobile-popup-flower-color-choice li {
+    height: 40px;
+    line-height: 40px;
+    margin: 10px auto;
+  }
+  .filter-mobile-popup-flower-color-choice li a {
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    border:1px solid #000;
+    text-align: center;
+  }
+
+  .filter-mobile-popup-order-choice {
+    height: 110px;
+    padding-left: 0;   
+  }
+  .filter-mobile-popup-order-choice li {
+    height: 40px;
+    line-height: 40px;
+    margin: 10px auto;
+  }
+  .filter-mobile-popup-order-choice li a {
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    border:1px solid #000;
+    text-align: center;
+  }
+  .choose-title {
+    width: 90%;
+    display: inline-block;
+  }
+  .choose-close {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+  }
+  #shop-filter-popup a:active {
+    text-decoration: none;
+    color: orange;
+    background-color: #ffa50069;
+  }
+  #shop-filter-popup a:hover {
+    text-decoration: none;
+    color: orange;
+    border-color: orange;
+  }
+  .filter-mobile-popup-delivertime span ,.filter-mobile-popup-flowertype span ,.filter-mobile-popup-occasion span ,.filter-mobile-popup-flower-color span , .filter-mobile-popup-order span {
+    display: inline-block;
+    width: 73%;
+    text-align: right;
+    color: orange;
+
+  }
+  #shop-filter-popup ul {
+    display: none;
+  }
+  #shop-filter-popup p:active {
+    background-color: #ffa50069;
+  }
+  .pink {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 15px -209px !important;
+    background-size: 28px !important;
+    background-repeat: no-repeat;
+  }
+  .assorted {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 15px -178px !important;
+    background-size: 28px !important;
+    background-repeat: no-repeat;
+  }
+  .purple {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 15px -145px !important;
+    background-size: 28px !important;
+    background-repeat: no-repeat;
+  }
+  .red {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 15px -90px !important;
+    background-size: 28px !important;
+    background-repeat: no-repeat;
+  }
+  .yellow {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 15px -59px !important;
+    background-size: 28px !important;
+    background-repeat: no-repeat;
+  }
+  .orange {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 15px -28px !important;
+    background-size: 28px !important;
+    background-repeat: no-repeat;
+  }
+  .green {
+    background-image: url("/images/products_list/colors.png") !important;
+    background-position: 15px 3px !important;
+    background-size: 28px !important;
+    background-repeat: no-repeat;
+  }
+  #mobile-filter-section {
+    height: 700px;
+    display: block;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    background-color: rgba(255, 255, 255,0.95);
+    z-index: 999;
+    height: 481px;
+    overflow-y: scroll;
+    display: none;
+  }
+  /*后端传过来如果筛选条件是选中的话，可以加这个class*/
+  .mobile-tablet-filter-choosen {
+    color: orange !important;
+    border-color: orange !important;
+  }
+    /*product list 样式 平板*/
+  .pagination-results {
+    padding: 0;
+  }
+  .product-grid {
+    list-style: none;
+    height: auto;
+    padding: 0;
+  }
+  .product-grid li {
+    padding: 0;
+  }
+  .product-summary__media-link img {
+    width: 100%;
+  }
+  .product-summary__info .product-summary__name {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  .product-summary__info .product-summary__short-description p {
+    font-size: 12px;
+    width: 80%;
+    height: 30px;
+    border-bottom: 1px solid #d5d5d5;
+    color: grey;
+  }
+  .product-summary__availability .product-summary__availability-label {
+    font-size: 12px;
+    color: #333333;
+    color: grey;
+  }
+  .product-summary__availability .product-summary__availability-date {
+    font-size: 12px;
+    font-weight: bold;
+  }
+  .product-grid .product-summary {
+    position: relative;
+  }
+  .product-grid .product-summary .product-summary__info .product-summary__pricing {
+    position: absolute;
+    top: 48%;
+    background-color: rgba(255,255,255,0.8);
+    text-align: center;
+    font-size: 13px;
+    width: 90px;
+    height: 45px;
+    line-height: 45px;
+  }
+  .product-grid .product-summary .product-summary__info .product-summary__manufacturer {
+    position: absolute;
+    top: 80%;
+    right: 0px;
+  }
+  .product-grid .product-summary .product-summary__info .product-summary__manufacturer .product-summary__manufacturer-image {
+    text-align: right;
+  }
+  .product-grid .product-summary .product-summary__info .product-summary__manufacturer .product-summary__manufacturer-title {
+    font-size: 10px;
+    text-align: right;
+  }
+  .product-grid .product-summary .product-summary__info .product-summary__manufacturer .product-summary__manufacturer-location {
+    font-size: 10px;
+    text-align: right;
+  }
+  .price__unit , .price__number {
+    font-size: 30px;
+  }
+  .small-start {
+    font-size: 10px;
+  }
+  .product-grid .product-summary .product-summary__info .product-summary__availability .product-summary__availability-date {
+    font-size: 13px;
+  }
+  .input-choice-two , .input-choice-three ,.input-choice-four {
+    z-index: 99;
+  }
+  .product-grid .product-grid__cell {
+    padding: 0 10px 40px 10px;
+  }
+  .product-summary a:active {
+     color: orange;
+     text-decoration: none;
+  }
+  .product-summary a:hover {
+    color: orange;
+    text-decoration: none;
+  }
+}

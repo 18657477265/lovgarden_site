@@ -4,7 +4,7 @@
  <div class="rt_content">
       <div class="page_title">
        <h2 class="fl">新增角色</h2>
-       <a class="fr top_rt_btn" href="__CONTROLLER__/role_list">返回角色列表</a>
+       <?php print check_permission_view("__CONTROLLER__/role_list","返回角色列表",'fr top_rt_btn'); ?>
       </div>
      <section>
          <?php if(isset($errorMessage)): ?>

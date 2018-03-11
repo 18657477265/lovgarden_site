@@ -3,7 +3,7 @@
  <div class="rt_content">
       <div class="page_title">
        <h2 class="fl">商品详情</h2>
-       <a class="fr top_rt_btn" href="__CONTROLLER__/product_list">返回产品列表</a>
+       <?php print check_permission_view("__CONTROLLER__/product_list","返回产品列表",'fr top_rt_btn'); ?>
       </div>
      <section>
          <?php if(isset($errorMessage)): ?>

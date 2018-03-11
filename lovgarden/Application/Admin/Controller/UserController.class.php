@@ -1,9 +1,48 @@
 <?php
 namespace Admin\Controller;
 use Think\Controller;
-class UserController extends Controller {
+class UserController extends BaseController {
     public function login(){
+        if(IS_POST) {
+   	    $user_model = D('User');
+   	    // 接收表单并且验证表单
+            $user_info = array(
+               'user_name' => I('post.user_name',''),
+               'user_password' => I('post.user_password',''),
+               'user_active_code' => I('post.user_active_code','')
+            );
+           
+   	    if($user_model->validate($user_model->_login_validate)->create()) {
+   		if($user_model->login()) {
+   		   $this->redirect("Index/index");
+   	        }
+   	    }
+   	   $error_message = $user_model->getError();
+           $this->assign(array(
+              'error_message' => $error_message,
+              'user_name' => $user_info['user_name']
+           ));
+   	}
+        //如果是已经登录用户，跳转到后台首页去
+        if(!empty(session('id'))) {
+            $this->redirect('Index/index');
+        }
         $this->display('login');
+    }
+    
+    public function logout() {
+        $user_model = D('User');
+        $user_model->logout();
+        $this->redirect('User/login');
+    }
+
+    public function chkcode() {
+	$Verify = new \Think\Verify(array(
+	  'fontSize'    =>    20,    // 验证码字体大小
+          'length'      =>    4,     // 验证码位数
+	  'useNoise'    =>   TRUE, // 关闭验证码杂点
+	));
+	$Verify->entry();
     }
     public function user_add(){
         if(IS_POST) {

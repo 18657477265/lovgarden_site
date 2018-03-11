@@ -45,16 +45,22 @@ class UserModel extends Model
     public function login(){
         // 从模型中获取用户名和密码
 	$username = $this->user_name;
-        $password = $this->password;
+        $password = $this->user_password;
         $user = $this->where(array(
-		'username' => array('eq', $username),
+		'user_name' => array('eq', $username),
 		))->find();
         if($user) {
-	    if($user['password'] == md5($password)) {
-		// 登录成功存session
-		session('id', $user['id']);
-		session('username', $user['username']);
-		return TRUE;
+	    if($user['user_password'] == md5($password)) {
+                if($user['user_status'] == '1') {
+                    // 登录成功存session
+                    session('id', $user['user_id']);
+                    session('user_name', $user['user_name']);
+                    return TRUE;
+                }
+                else {
+                    $this->error = '该账号已冻结，请稍后再试';
+                    return FALSE;
+                }
 	    }
 	    else {
 		$this->error = '密码不正确！';

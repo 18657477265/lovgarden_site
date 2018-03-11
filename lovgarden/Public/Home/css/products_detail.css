@@ -1,0 +1,944 @@
+@charset "UTF-8"; 
+/*products detail页面手机端样式*/
+@media ( max-width:767px ) {
+  .product-detail-container__manufacturer-title {
+    font-size: 1em;
+    color: #676767;
+  }
+  .product-detail-container__manufacturer-location {
+    font-size: 1em;
+    color: #676767;
+  }
+  .product-detail-container__manufacturer-description {
+    font-size: 1em;
+    color: #676767;
+  }
+
+  .produtc-detail-product-title {
+    font-size: 25px;
+    text-align: center;
+  }
+  .produtc-detail-product-title-description {
+    font-size: 14px;
+    text-align: center;
+    color: #676767;
+  }
+
+  /*product detail form radio*/
+  .product-variants__item {
+    font-size: 12px;
+  }
+  .radio-button__label {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 12px;
+    text-align: center;
+  }
+  .radio-button__faux-checkbox {
+    margin-right: 4px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+    border: 1px solid #ffa600;
+    border-radius: 50%;
+    vertical-align: middle;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  .radio-button__input:checked ~ .product-variants__label .radio-button__label .radio-button__faux-checkbox {
+    border-width: 6px;
+  }
+  input[type="checkbox"], input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+  }
+  .radio-button__input {
+    position: absolute;
+  }
+  .product-variants__input {
+    display: inline-block;
+    font-size: 16px;
+    line-height: normal;
+  }
+  .form-name h4 {
+    font-size: 16px;
+    color: #000;
+    text-align: center;
+  }
+  .product-detail-info-form {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid #cdcccc;
+  }
+  .product-variants__item {
+    height: 200px;
+  }
+  .radio-button__label {
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .product-variants__label {
+    width: 100%;
+    padding: 5px;
+    cursor: pointer;
+  }
+  .button-property__text {
+    height: 30px;
+    line-height: 30px;
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+  }
+  .product-variants__price-group {
+    text-align: center;
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 20px;
+  }
+  .product-variants__size-description-1 , .product-variants__size-description-2 {
+    font-size: 10px;
+    font-weight: normal;
+    color: #595959;
+    text-align: center;
+  }
+  .product-variant-choice-border {
+    border: 1px solid #e1dfdf;
+  }
+  .product-variant-choice-choosen {
+    border: 1px solid orange;
+  }
+  input[name="sku"] {
+    opacity: 0;
+  }
+  .product-variants__item {
+    padding: 3px;
+  }
+
+  /*datepicker 位置*/
+  ul,ol,li 
+  {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+  }
+  #shop-menu-popup ul {
+    padding-left: 30px;
+  }
+  #date-picker {
+    position: absolute;
+    top: 10% !important;
+    left: 10% !important;
+    -moz-box-shadow: 10px 10px 20px #888888; /* 老的 Firefox */
+    box-shadow: 10px 10px 20px #888888;
+  }
+  .calendar-hd {
+    height: 100px;
+    line-height: 100px;
+    background-color: orange;
+    padding: 0;
+  }
+  .calendar-hd a , .calendar-hd span{
+    text-decoration: none;
+    color: #fff !important;
+  }
+  .calendar-hd span:hover {
+    color: #fff !important;
+  }
+  .calendar-arrow {
+    height: 100px;
+    line-height: 100px;
+  }
+  .calendar-arrow span {
+    display: inline-block;
+    height: 100px;
+    line-height: 100px;
+    color: #fff;
+  }
+  .calendar .calendar-views .selected {
+    color: #fff;
+    background-color: orange !important;
+  }
+  .calendar .days li[data-calendar-day]:hover, .calendar .view-month li[data-calendar-month]:hover {
+    background: orange;
+  }
+  .product-details__shipping-date-container {
+    height: 120px;
+  }
+  .date-picker-border {
+    border: 1px solid #e1dfdf;
+    height: 100%;
+  }
+  .product-details__shipping-date {
+    height: 100%;
+  }
+  .product-details__shipping-date-label {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    height: 100%;
+    cursor: pointer;
+  }
+  .product-details__shipping-date-input input {
+    opacity: 0;
+  }
+  .product-details__shipping-date-value {
+    display: block;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    left: 50%;
+    color: orange;
+  }
+  .product-details__shipping-date-icon {
+    display: block;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    left: 31%;
+    color: orange;
+    font-size: 45px;
+  }
+  .product-details__shipping-vase-value {
+    display: block;
+    position: absolute;
+    top: 75%;
+    -ms-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    left: 50%;
+    color: orange;
+    font-size: 15px;
+  }
+  .product-details__shipping-vase-icon {
+    display: block;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    left: 8%;
+    color: orange;
+    font-size: 45px;
+  }
+  .product-details__shipping-vase-value input[type="checkbox"]{appearance: none; -webkit-appearance: none;outline: none;display:none}
+  .product-details__shipping-vase-value label{width:100px;height:100px;display:inline-block;cursor:pointer;}
+  .product-details__shipping-vase-value label input[type="checkbox"] + span{width:40px;height:40px;display:inline-block;background:url("/images/product_detail/vase_checkout.jpg")  no-repeat;background-position:0 0;background-size: 40px;}
+  .product-details__shipping-vase-value label input[type="checkbox"]:checked + span{background-position:0 -42px;background-size: 40px;}
+  .product-details__shipping-date-container h4 , .product-details__shipping-date-container h4 {
+    margin-top: 50px;
+    text-align: center;
+  }
+  .product-details__vase-container {
+    margin-top: 200px;
+    margin-bottom: 35px
+  }
+  /*Add to cart button*/
+  .add-to-cart {
+    height: 50px;
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+  }
+  .add-to-cart button {
+    height: 50px;
+    width: auto;
+    border-radius: 3px;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 14px;
+    padding: 9px 10px;
+    color: #ffffff;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #ffa600;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    min-width: 230px;
+  }
+}
+/*products detail小屏幕手机端样式*/
+@media ( max-width:320px) {
+  .product-detail-container__manufacturer-title {
+    font-size: 0.8em;
+    color: #676767;
+  }
+  .product-detail-container__manufacturer-location {
+    font-size: 0.8em;
+    color: #676767;
+  }
+  .product-detail-container__manufacturer-description {
+    font-size: 0.8em;
+    color: #676767;
+  }
+
+  .produtc-detail-product-title {
+    font-size: 25px;
+    text-align: center;
+  }
+  .produtc-detail-product-title-description {
+    font-size: 14px;
+    text-align: center;
+    color: #676767;
+  }
+
+  /*product detail form radio*/
+  .product-variants__item {
+    font-size: 12px;
+  }
+  .radio-button__label {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 12px;
+    text-align: center;
+  }
+  .radio-button__faux-checkbox {
+    margin-right: 4px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+    border: 1px solid #ffa600;
+    border-radius: 50%;
+    vertical-align: middle;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  .radio-button__input:checked ~ .product-variants__label .radio-button__label .radio-button__faux-checkbox {
+    border-width: 6px;
+  }
+  input[type="checkbox"], input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+  }
+  .radio-button__input {
+    position: absolute;
+  }
+  .product-variants__input {
+    display: inline-block;
+    font-size: 16px;
+    line-height: normal;
+  }
+  .form-name h4 {
+    font-size: 16px;
+    color: #000;
+    text-align: center;
+  }
+  .product-detail-info-form {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid #cdcccc;
+  }
+  .product-variants__item {
+    height: 200px;
+  }
+  .radio-button__label {
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .product-variants__label {
+    width: 100%;
+    padding: 5px;
+    cursor: pointer;
+  }
+  .button-property__text {
+    height: 30px;
+    line-height: 30px;
+    font-size: 15px;
+    font-weight: normal;
+    text-align: center;
+  }
+  .product-variants__price-group {
+    text-align: center;
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 20px;
+  }
+  .product-variants__size-description-1 , .product-variants__size-description-2 {
+    font-size: 10px;
+    font-weight: normal;
+    color: #595959;
+    text-align: center;
+  }
+  .product-variant-choice-border {
+    border: 1px solid #e1dfdf;
+  }
+  .product-variant-choice-choosen {
+    border: 1px solid orange;
+  }
+  input[name="sku"] {
+    opacity: 0;
+  }
+  .product-variants__item {
+    padding: 3px;
+  }
+  /*date picker 位置*/
+  #date-picker {
+    position: absolute;
+    top: 10% !important;
+    left: 0 !important;
+    -moz-box-shadow: 10px 10px 20px #888888; /* 老的 Firefox */
+    box-shadow: 10px 10px 20px #888888;
+  }
+}
+/*products detail页面PC端样式*/
+@media ( min-width:1200px ) {
+  .product-detail-container__manufacturer-title {
+    font-size: 12px;
+    color: #676767;
+  }
+  .product-detail-container__manufacturer-location {
+    font-size: 14px;
+    color: #676767;
+  }
+  .product-detail-container__manufacturer-description {
+    font-size: 14px;
+    color: #676767;
+  }
+  .produtc-detail-product-title {
+    font-size: 25px;
+    text-align: center;
+  }
+  .produtc-detail-product-title-description {
+    font-size: 14px;
+    text-align: center;
+    color: #676767;
+  }
+
+  /*product detail form radio*/
+  .product-variants__item {
+    font-size: 12px;
+  }
+  .radio-button__label {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 12px;
+    text-align: center;
+  }
+  .radio-button__faux-checkbox {
+    margin-right: 4px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: #ffffff;
+    border: 1px solid #ffa600;
+    border-radius: 50%;
+    vertical-align: middle;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  .radio-button__input:checked ~ .product-variants__label .radio-button__label .radio-button__faux-checkbox {
+    border-width: 6px;
+  }
+  input[type="checkbox"], input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+  }
+  .radio-button__input {
+    position: absolute;
+  }
+  .product-variants__input {
+    display: inline-block;
+    font-size: 16px;
+    line-height: normal;
+  }
+  .form-name h4 {
+    font-size: 16px;
+    color: #000;
+    text-align: center;
+  }
+  .product-detail-info-form {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid #cdcccc;
+  }
+  .product-variants__item {
+    height: 200px;
+  }
+  .radio-button__label {
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .product-variants__label {
+    width: 100%;
+    padding: 15px;
+    cursor: pointer;
+  }
+  .button-property__text {
+    height: 30px;
+    line-height: 30px;
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+  }
+  .product-variants__price-group {
+    text-align: center;
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 20px;
+  }
+  .product-variants__size-description-1 , .product-variants__size-description-2 {
+    font-size: 13px;
+    font-weight: normal;
+    color: #595959;
+    text-align: center;
+  }
+  .product-variant-choice-border {
+    border: 1px solid #e1dfdf;
+  }
+  .product-variant-choice-choosen {
+    border: 1px solid orange;
+  }
+  input[name="sku"] {
+    opacity: 0;
+  }
+
+  /*datepicker 位置*/
+  ul,ol,li 
+  {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+  }
+  #date-picker {
+    position: absolute;
+    top: 10% !important;
+    left: 10% !important;
+    -moz-box-shadow: 10px 10px 20px #888888; /* 老的 Firefox */
+    box-shadow: 10px 10px 20px #888888;
+  }
+  .calendar-hd {
+    height: 100px;
+    line-height: 100px;
+    background-color: orange;
+    padding: 0;
+  }
+  .calendar-hd a , .calendar-hd span{
+    text-decoration: none;
+    color: #fff !important;
+  }
+  .calendar-hd span:hover {
+    color: #fff !important;
+  }
+  .calendar-arrow {
+    height: 100px;
+    line-height: 100px;
+  }
+  .calendar-arrow span {
+    display: inline-block;
+    height: 100px;
+    line-height: 100px;
+    color: #fff;
+  }
+  .calendar .calendar-views .selected {
+    color: #fff;
+    background-color: orange !important;
+  }
+  .calendar .days li[data-calendar-day]:hover, .calendar .view-month li[data-calendar-month]:hover {
+    background: orange;
+  }
+  .product-details__shipping-date-container {
+    height: 120px;
+  }
+  .date-picker-border {
+    border: 1px solid #e1dfdf;
+    height: 100%;
+  }
+  .product-details__shipping-date {
+    height: 100%;
+  }
+  .product-details__shipping-date-label {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    height: 100%;
+    cursor: pointer;
+  }
+  .product-details__shipping-date-input input {
+    opacity: 0;
+  }
+  .product-details__shipping-date-value {
+    display: block;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    left: 46%;
+    color: orange;
+  }
+  .product-details__shipping-date-icon {
+    display: block;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    left: 31%;
+    color: orange;
+    font-size: 45px;
+  }
+  .product-details__shipping-vase-value {
+    display: block;
+    position: absolute;
+    top: 75%;
+    -ms-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    left: 30%;
+    color: orange;
+    font-size: 15px;
+  }
+  .product-details__shipping-vase-icon {
+    display: block;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    left: 8%;
+    color: orange;
+    font-size: 45px;
+  }
+  .product-details__shipping-vase-value input[type="checkbox"]{appearance: none; -webkit-appearance: none;outline: none;display:none}
+  .product-details__shipping-vase-value label{width:100px;height:100px;display:inline-block;cursor:pointer;}
+  .product-details__shipping-vase-value label input[type="checkbox"] + span{width:40px;height:40px;display:inline-block;background:url("/images/product_detail/vase_checkout.jpg")  no-repeat;background-position:0 0;background-size: 40px;}
+  .product-details__shipping-vase-value label input[type="checkbox"]:checked + span{background-position:0 -42px;background-size: 40px;}
+  .product-details__shipping-date-container h4 , .product-details__shipping-date-container h4 {
+    text-align: center;
+  }
+  /*Add to cart button*/
+  .add-to-cart {
+    height: 50px;
+    width: 100%;
+    margin-top: 70px;
+    text-align: center;
+  }
+  .add-to-cart button {
+    height: 50px;
+    width: auto;
+    border-radius: 3px;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 14px;
+    padding: 9px 10px;
+    color: #ffffff;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #ffa600;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    min-width: 230px;
+  }
+}
+/*products detail页面平板端样式*/
+@media ( min-width:768px ) and ( max-width:1199px ) {
+  .product-detail-container__manufacturer-title {
+    font-size: 10px;
+    color: #676767;
+  }
+  .product-detail-container__manufacturer-location {
+    font-size: 10px;
+    color: #676767;
+  }
+  .product-detail-container__manufacturer-description {
+    font-size: 10px;
+    color: #676767;
+  }
+  .produtc-detail-product-title {
+    font-size: 25px;
+    text-align: center;
+  }
+  .produtc-detail-product-title-description {
+    font-size: 14px;
+    text-align: center;
+    color: #676767;
+  }
+
+  /*product detail form radio*/
+  .product-variants__item {
+    font-size: 12px;
+  }
+  .radio-button__label {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 12px;
+    text-align: center;
+  }
+  .radio-button__faux-checkbox {
+    margin-right: 4px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: #ffffff;
+    border: 1px solid #ffa600;
+    border-radius: 50%;
+    vertical-align: middle;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  .radio-button__input:checked ~ .product-variants__label .radio-button__label .radio-button__faux-checkbox {
+    border-width: 6px;
+  }
+  input[type="checkbox"], input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+  }
+  .radio-button__input {
+    position: absolute;
+  }
+  .product-variants__input {
+    display: inline-block;
+    font-size: 16px;
+    line-height: normal;
+  }
+  .form-name h4 {
+    font-size: 16px;
+    color: #000;
+    text-align: center;
+  }
+  .product-detail-info-form {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid #cdcccc;
+  }
+  .product-variants__item {
+    height: 200px;
+  }
+  .radio-button__label {
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .product-variants__label {
+    width: 100%;
+    padding: 15px;
+    cursor: pointer;
+  }
+  .button-property__text {
+    height: 30px;
+    line-height: 30px;
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+  }
+  .product-variants__price-group {
+    text-align: center;
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 20px;
+  }
+  .product-variants__size-description-1 , .product-variants__size-description-2 {
+    font-size: 13px;
+    font-weight: normal;
+    color: #595959;
+    text-align: center;
+  }
+  .product-variant-choice-border {
+    border: 1px solid #e1dfdf;
+  }
+  .product-variant-choice-choosen {
+    border: 1px solid orange;
+  }
+  input[name="sku"] {
+    opacity: 0;
+  }
+
+  /*datepicker 位置*/
+  ul,ol,li 
+  {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+  }
+  #date-picker {
+    position: absolute;
+    top: 10% !important;
+    left: 10% !important;
+    -moz-box-shadow: 10px 10px 20px #888888; /* 老的 Firefox */
+    box-shadow: 10px 10px 20px #888888;
+  }
+  .calendar-hd {
+    height: 100px;
+    line-height: 100px;
+    background-color: orange;
+    padding: 0;
+  }
+  .calendar-hd a , .calendar-hd span{
+    text-decoration: none;
+    color: #fff !important;
+  }
+  .calendar-hd span:hover {
+    color: #fff !important;
+  }
+  .calendar-arrow {
+    height: 100px;
+    line-height: 100px;
+  }
+  .calendar-arrow span {
+    display: inline-block;
+    height: 100px;
+    line-height: 100px;
+    color: #fff;
+  }
+  .calendar .calendar-views .selected {
+    color: #fff;
+    background-color: orange !important;
+  }
+  .calendar .days li[data-calendar-day]:hover, .calendar .view-month li[data-calendar-month]:hover {
+    background: orange;
+  }
+  .product-details__shipping-date-container {
+    height: 120px;
+  }
+  .date-picker-border {
+    border: 1px solid #e1dfdf;
+    height: 100%;
+  }
+  .product-details__shipping-date {
+    height: 100%;
+  }
+  .product-details__shipping-date-label {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    height: 100%;
+    cursor: pointer;
+  }
+  .product-details__shipping-date-input input {
+    opacity: 0;
+  }
+  .product-details__shipping-date-value {
+    display: block;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    left: 60%;
+    color: orange;
+  }
+  .product-details__shipping-date-icon {
+    display: block;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    left: 31%;
+    color: orange;
+    font-size: 45px;
+  }
+  .product-details__shipping-vase-value {
+    display: block;
+    position: absolute;
+    top: 75%;
+    -ms-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    left: 60%;
+    color: orange;
+    font-size: 15px;
+  }
+  .product-details__shipping-vase-icon {
+    display: block;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    left: 8%;
+    color: orange;
+    font-size: 45px;
+  }
+  .product-details__shipping-vase-value input[type="checkbox"]{appearance: none; -webkit-appearance: none;outline: none;display:none}
+  .product-details__shipping-vase-value label{width:100px;height:100px;display:inline-block;cursor:pointer;}
+  .product-details__shipping-vase-value label input[type="checkbox"] + span{width:40px;height:40px;display:inline-block;background:url("/images/product_detail/vase_checkout.jpg")  no-repeat;background-position:0 0;background-size: 40px;}
+  .product-details__shipping-vase-value label input[type="checkbox"]:checked + span{background-position:0 -42px;background-size: 40px;}
+  .product-details__shipping-date-container h4 , .product-details__shipping-date-container h4 {
+    margin-top: 50px;
+    text-align: center;
+  }
+  /*Add to cart button*/
+  .add-to-cart {
+    height: 50px;
+    width: 100%;
+    margin-top: 100px;
+    text-align: center;
+  }
+  .add-to-cart button {
+    height: 50px;
+    width: auto;
+    border-radius: 3px;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 14px;
+    padding: 9px 10px;
+    color: #ffffff;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #ffa600;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    min-width: 230px;
+  }
+
+
+}
+.product-detail-big-img {
+  width: 100%;
+}
+.farm_vendor_info a img {
+  width: 100%;
+}
+.product-info-plus {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e1dfdf;
+}
+.product-detail-region {
+  margin-bottom: 70px;
+}

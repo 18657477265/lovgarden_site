@@ -3,7 +3,7 @@
  <div class="rt_content">
       <div class="page_title">
        <h2 class="fl">区块列表示例</h2>
-       <a href="__CONTROLLER__/add" class="fr top_rt_btn add_icon">添加区块</a>
+       <?php print check_permission_view("__CONTROLLER__/add","添加区块",'fr top_rt_btn add_icon'); ?>
       </div>
      <form class="mtb" action="__ACTION__" method="GET">
          <input name="keyword" type="text" class="textbox textbox_225" placeholder="输入区块关键词..." <?php if(!empty($filter_selection['block_info'])): ?><?php $value = $filter_selection['block_info']; echo "value='$value'"; ?><?php endif; ?>/>
@@ -27,8 +27,10 @@
         <td class="center"><?php echo $value['block_order'];  ?></td>
         <td class="center">
          <a href="http://www.mycodes.net" title="预览" class="link_icon" target="_blank">&#118;</a>
-         <a href="__CONTROLLER__/update/id/<?php echo $value['id']; ?>" title="编辑" class="link_icon">&#101;</a>
+         <?php print check_permission_view("__CONTROLLER__/update/id/".$value['id'],"&#101;",'link_icon','编辑'); ?>
+         <?php if(!empty(check_permission_view("__CONTROLLER__/ajax_block_delete",'删除图片区块'))): ?>
          <a href="javascript:void(0);" data-row-id = <?php echo $value['id']; ?> title="删除" class="link_icon block-delete">&#100;</a>
+         <?php endif; ?>
          <img style="width: 60px;height: 60px;display: none;" class="delete-processing" src="__PUBLIC__/Admin/images/icon/timg.gif" />
         </td>
        </tr>

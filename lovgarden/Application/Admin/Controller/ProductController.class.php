@@ -2,7 +2,7 @@
 namespace Admin\Controller;
 use Think\Controller;
 use Think\Model;
-class ProductController extends Controller {
+class ProductController extends BaseController {
     public function add(){
         if(IS_POST) {
             $model = D('ProductVarient');

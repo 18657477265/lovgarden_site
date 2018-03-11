@@ -1,7 +1,7 @@
 <?php
 namespace Admin\Controller;
 use Think\Controller;
-class PermissionController extends Controller {
+class PermissionController extends BaseController {
     public function add() {
         if(IS_POST) {
           $errorMessage = '';
@@ -81,14 +81,28 @@ class PermissionController extends Controller {
     }
     
     public function ajax_permission_delete() {
+       
         if(IS_POST) {
            $row_id = $_POST['row_id'];
            $permission_model = D('Permission');
+           $permission_model->startTrans();
            $delete_status = $permission_model->where(array(
                'id' => $row_id,
            ))->delete();
            if(delete_status) {
-               echo '1';//表示删除成功
+               //删除权限绑定表中的内容
+               $role_to_permission = D('RoleToPermission');
+               $status = $role_to_permission->where(array(
+                   'permission_id' => $row_id
+               ))->delete();
+               if($status!==FALSE) {
+                  $permission_model->commit();
+                  echo '1';//表示删除成功
+               }
+               else {
+                   $permission_model->rollback();
+                   echo '2';
+               }
            }
            else {
                echo '2';//表示删除失败

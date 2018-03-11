@@ -21,9 +21,9 @@ class PermissionModel extends Model
 	/**
 	 * 检查当前管理员是否有权限访问这个页面
 	 */
-	public function check_user_permission()
-	{
-                //匿名用户肯定没有权限
+	public function check_user_permission() {
+                //匿名用户肯定没有权限                
+                //return TRUE; //debug用 暂时把权限都打开了                
                 if(empty(session('id'))){
                     return FALSE;
                 }
@@ -32,19 +32,25 @@ class PermissionModel extends Model
 		//MODULE_NAME , CONTROLLER_NAME , ACTION_NAME
 		$adminId = session('id');
 		// 如果是超级管理员直接返回 TRUE
-		if($adminId == 1)
+		if($adminId == 1) {
 			return TRUE;
-		$arModel = D('admin_role');
-		$has = $arModel->alias('a')
-		->join('LEFT JOIN __ROLE_PRI__ b ON a.role_id=b.role_id 
-		        LEFT JOIN __PRIVILEGE__ c ON b.pri_id=c.id')
-		->where(array(
-			'a.admin_id' => array('eq', $adminId),
-			'c.module_name' => array('eq', MODULE_NAME),
-			'c.controller_name' => array('eq', CONTROLLER_NAME),
-			'c.action_name' => array('eq', ACTION_NAME),
-		))->count();
-		return ($has > 0);
+                }
+                $model = D('User');
+                $sql = "SELECT a.user_id,a.user_name,d.`url` FROM lovgarden_user AS a 
+                        LEFT JOIN lovgarden_user_to_role AS b ON a.`user_id`=b.`user_id`
+                        LEFT JOIN lovgarden_role_to_permission AS c ON b.`role_id`=c.`role_id`
+                        LEFT JOIN lovgarden_permission AS d ON c.`permission_id`= d.`id` WHERE a.`user_id`= '$adminId'";
+                $permission_list = $model->query($sql);
+                if(!empty($permission_list)) {
+                    $user_permission_info = translate_database_result_to_logic_array($permission_list,array('url'),'user_id');               
+                    $user_permission_info = $user_permission_info[$adminId];
+                    $current_uri = '/'.MODULE_NAME.'/'.CONTROLLER_NAME.'/'.ACTION_NAME;
+                    if(in_array($current_uri, $user_permission_info['url'])) {
+                        return TRUE;
+                    }
+                    
+                }
+                return FALSE;
 	}
         
         //用于编辑时候验证权限名称输入的唯一性

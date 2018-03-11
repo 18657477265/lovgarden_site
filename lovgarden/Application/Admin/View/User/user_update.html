@@ -4,7 +4,7 @@
  <div class="rt_content">
       <div class="page_title">
        <h2 class="fl">用户账号编辑</h2>
-       <a class="fr top_rt_btn" href="__CONTROLLER__/user_list">返回用户列表</a>
+       <?php print check_permission_view("__CONTROLLER__/user_list","返回用户列表",'fr top_rt_btn'); ?>
       </div>
      <section>
          <?php if(isset($errorMessage)): ?>

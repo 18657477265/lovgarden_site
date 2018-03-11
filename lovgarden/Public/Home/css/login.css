@@ -1,0 +1,296 @@
+@charset "UTF-8"; 
+/*products checkout flow1 页面手机端样式*/
+@media ( max-width:767px ) {
+  .login-create-account__heading {
+    text-align: center;
+  }
+  .login-create-account__heading span {
+     font-size: 19px;
+  }
+  #signup_form {
+    margin: 0 0 20px 0;
+    height: auto;
+  }
+  .property {
+    margin: 25px 0 20px 0;
+  }
+  .value input {
+    display: inline-block;
+    width: 100%;
+    height: 35px;
+    text-indent: 10px;
+    border: 1px solid #bcb8b8;
+  }
+  #signup_form .button--full-width {
+    margin: 0;
+    height: 35px;
+    width: 100%;
+    color: #fff;
+    background-color: orange;
+    border: none;
+  }
+  #signup_form .button--full-width:hover {
+    background-color: #ffa500c9
+  }
+  .login-create-account__toggle {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+  .login-create-account__toggle-link {
+    color: orange;
+  }
+  .login-create-account__toggle-link:hover {
+    color: orange;
+  }
+  .login-create-account__legal {
+    text-align: center;
+    color: #aab2bd;
+    font-size: 10px;
+  }
+  .login-create-account__legal a {
+    color: orange;
+  }
+  .login-create-account__legal a:hover {
+    color: #a0a1a3;
+  }
+  .login-create-account__header {
+    margin-bottom: 50px;
+  }
+  .login-create-account__toggle {
+    text-align: center;
+  }
+  .header-gap {
+    height: 55px;
+  }
+
+  .login-create-account__header {
+    padding: 0;
+  }
+  #login_form .button--full-width {
+    margin: 0;
+    height: 35px;
+    width: 100%;
+    color: #fff;
+    background-color: orange;
+    border: none;
+  }
+  #login_form .button--full-width:hover {
+    background-color: #ffa500c9
+  }
+  #login_form {
+    margin: 0 0 20px 0;
+    height: auto;
+  }
+  .forget-password a {
+    font-size: 12px;
+    color: #9b9292;
+  }
+  .qq-login-button {
+    margin: 0;
+    height: 35px;
+    width: 100%;
+    color: #fff;
+    background-color: #42b6cec7;
+    border: none;
+  }
+  .qq-login-button:hover {
+    background-color: #42b6ce75;
+  }
+  .singup-block {
+    display: none;
+  }
+}
+/*products checkout flow1 小屏幕手机端样式*/
+@media ( max-width:320px) {
+  .login-create-account__heading {
+    font-size: 30px;
+  }
+}
+/*products checkout flow1 页面PC端样式*/
+@media ( min-width:1200px ) {
+  .login-create-account__heading span {
+     font-size: 19px;
+  }
+  #signup_form {
+    margin: 50px 0 20px 0;
+    height: auto;
+  }
+  .property {
+    margin: 25px 0 20px 0;
+  }
+  .value input {
+    display: inline-block;
+    width: 50%;
+    height: 35px;
+    text-indent: 10px;
+    border: 1px solid #bcb8b8;
+  }
+  #signup_form .button--full-width {
+    margin: 0;
+    height: 35px;
+    width: 50%;
+    color: #fff;
+    background-color: orange;
+    border: none;
+  }
+  #signup_form .button--full-width:hover {
+    background-color: #ffa500c9
+  }
+  .login-create-account__toggle {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+  .login-create-account__toggle-link {
+    color: orange;
+  }
+  .login-create-account__toggle-link:hover {
+    color: orange;
+  }
+  .login-create-account__legal {
+    color: #aab2bd;
+    font-size: 12px;
+  }
+  .login-create-account__legal a {
+    color: orange;
+  }
+  .login-create-account__legal a:hover {
+    color: #a0a1a3;
+  }
+  .login-create-account__header {
+    margin-bottom: 50px;
+  }
+  .header-gap {
+    height: 100px;
+  }
+
+  .login-create-account__header {
+    padding: 0;
+  }
+  #login_form .button--full-width {
+    margin: 0;
+    height: 35px;
+    width: 50%;
+    color: #fff;
+    background-color: orange;
+    border: none;
+  }
+  #login_form .button--full-width:hover {
+    background-color: #ffa500c9
+  }
+  #login_form {
+    margin: 50px 0 20px 0;
+    height: auto;
+  }
+  .forget-password a {
+    font-size: 12px;
+    color: #9b9292;
+  }
+  .qq-login-button {
+    margin: 0;
+    height: 35px;
+    width: 50%;
+    color: #fff;
+    background-color: #42b6cec7;
+    border: none;
+  }
+  .qq-login-button:hover {
+    background-color: #42b6ce75;
+  }
+  .singup-block {
+    display: none;
+  }
+}
+/*products checkout flow1页面平板端样式*/
+@media ( min-width:768px ) and ( max-width:1199px ) {
+  .login-create-account__heading span {
+     font-size: 19px;
+  }
+  #signup_form {
+    margin: 0 0 20px 0;
+    height: auto;
+  }
+  .property {
+    margin: 25px 0 20px 0;
+  }
+  .value input {
+    display: inline-block;
+    width: 100%;
+    height: 35px;
+    text-indent: 10px;
+    border: 1px solid #bcb8b8;
+  }
+  #signup_form .button--full-width {
+    margin: 0;
+    height: 35px;
+    width: 100%;
+    color: #fff;
+    background-color: orange;
+    border: none;
+  }
+  #signup_form .button--full-width:hover {
+    background-color: #ffa500c9
+  }
+  .login-create-account__toggle {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+  .login-create-account__toggle-link {
+    color: orange;
+  }
+  .login-create-account__toggle-link:hover {
+    color: orange;
+  }
+  .login-create-account__legal {
+    color: #aab2bd;
+    font-size: 12px;
+  }
+  .login-create-account__legal a {
+    color: orange;
+  }
+  .login-create-account__legal a:hover {
+    color: #a0a1a3;
+  }
+  .login-create-account__header {
+    margin-bottom: 50px;
+  }
+  .header-gap {
+    height: 100px;
+  }
+
+  .login-create-account__header {
+    padding: 0;
+  }
+  #login_form .button--full-width {
+    margin: 0;
+    height: 35px;
+    width: 100%;
+    color: #fff;
+    background-color: orange;
+    border: none;
+  }
+  #login_form .button--full-width:hover {
+    background-color: #ffa500c9
+  }
+  #login_form {
+    margin: 0 0 20px 0;
+    height: auto;
+  }
+  .forget-password a {
+    font-size: 12px;
+    color: #9b9292;
+  }
+  .qq-login-button {
+    margin: 0;
+    height: 35px;
+    width: 100%;
+    color: #fff;
+    background-color: #42b6cec7;
+    border: none;
+  }
+  .qq-login-button:hover {
+    background-color: #42b6ce75;
+  }
+  .singup-block {
+    display: none;
+  }
+}

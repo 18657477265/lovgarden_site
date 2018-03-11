@@ -29,31 +29,34 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
+<?php if(!empty($error_message)): ?>
+<p style="color:red;position: absolute; top: 20%;width:100%;text-align: center;font-size: 20px;"><?php print $error_message; ?></p>
+<?php endif; ?>
+<form action="__SELF__" method="POST" class="login-form">
 <dl class="admin_login">
  <dt>
-  <strong>站点后台管理系统</strong>
+  <strong>丽de花苑后台管理系统</strong>
   <em>Management System</em>
  </dt>
  <dd class="user_icon">
-  <input type="text" placeholder="账号" class="login_txtbx"/>
+     <input type="text" name="user_name" placeholder="账号" class="login_txtbx" value="<?php print $user_name; ?>"/>
  </dd>
  <dd class="pwd_icon">
-  <input type="password" placeholder="密码" class="login_txtbx"/>
+     <input type="password" name="user_password" placeholder="密码" class="login_txtbx"/>
  </dd>
  <dd class="val_icon">
-  <div class="checkcode">
-    <input type="text" id="J_codetext" placeholder="验证码" maxlength="4" class="login_txtbx">
-    <canvas class="J_codeimg" id="myCanvas" onclick="createCode()">对不起，您的浏览器不支持canvas，请下载最新版浏览器!</canvas>
+  <div class="lovgarden-checkcode">
+      <input type="text" id="J_codetext" name="user_active_code" placeholder="验证码" maxlength="4" class="login_txtbx" style="width:42%;display: inline-block;">
+    <img src="__CONTROLLER__/chkcode" onclick="this.src='<?php echo U('chkcode'); ?>#'+Math.random();" style="height:43px; display: inline-block;margin-bottom: 2px;"/>
   </div>
-  <input type="button" value="验证码核验" class="ver_btn" onClick="validate();">
  </dd>
  <dd>
-  <input type="button" value="立即登录" class="submit_btn"/>
+  <input type="submit" value="立即登录" class="submit_btn"/>
  </dd>
  <dd>
-  <p>© 2015-2016 DeathGhost 版权所有</p>
-  <p>陕B2-20080224-1</p>
+  <p>丽de花苑版权所有</p>
  </dd>
 </dl>
+</form>
 </body>
 </html>

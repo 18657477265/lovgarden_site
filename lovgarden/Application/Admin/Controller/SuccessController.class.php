@@ -11,4 +11,7 @@ class SuccessController extends Controller {
     public function notFound(){
         $this->display();
     }
+    public function access_denied(){
+        $this->display();
+    }
 }
