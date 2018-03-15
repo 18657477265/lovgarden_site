@@ -10,7 +10,7 @@
 }
 .category-banner-content-block__image {
 	height: 400px;
-	background-image:url("/images/products_list/banner.jpg");
+	background-image:url("../images/products_list/banner.jpg");
 	background-size: cover;
 }
 .category-banner-content-block__title {
@@ -274,43 +274,43 @@
     background-color: #ffa50069;
   }
   .pink {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 15px -209px !important;
     background-size: 28px !important;
     background-repeat: no-repeat;
   }
   .assorted {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 15px -178px !important;
     background-size: 28px !important;
     background-repeat: no-repeat;
   }
   .purple {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 15px -145px !important;
     background-size: 28px !important;
     background-repeat: no-repeat;
   }
   .red {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 15px -90px !important;
     background-size: 28px !important;
     background-repeat: no-repeat;
   }
   .yellow {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 15px -59px !important;
     background-size: 28px !important;
     background-repeat: no-repeat;
   }
   .orange {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 15px -28px !important;
     background-size: 28px !important;
     background-repeat: no-repeat;
   }
   .green {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 15px 3px !important;
     background-size: 28px !important;
     background-repeat: no-repeat;
@@ -629,43 +629,43 @@
     background-color: #ffa50069;
   }
   .pink {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 7px -209px !important;
     background-size: 28px !important;
     background-repeat: no-repeat;
   }
   .assorted {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 7px -178px !important;
     background-size: 28px !important;
     background-repeat: no-repeat;
   }
   .purple {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 7px -145px !important;
     background-size: 28px !important;
     background-repeat: no-repeat;
   }
   .red {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 7px -90px !important;
     background-size: 28px !important;
     background-repeat: no-repeat;
   }
   .yellow {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 7px -59px !important;
     background-size: 28px !important;
     background-repeat: no-repeat;
   }
   .orange {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 7px -28px !important;
     background-size: 28px !important;
     background-repeat: no-repeat;
   }
   .green {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 7px 3px !important;
     background-size: 28px !important;
     background-repeat: no-repeat;
@@ -772,7 +772,7 @@
     width: 100%;
     height: 20px;
     line-height: 20px;
-    background-image: url("/images/products_list/checkbox.png");
+    background-image: url("../images/products_list/checkbox.png");
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: 0px -39px;
@@ -797,7 +797,7 @@
     width: 100%;
     height: 20px;
     line-height: 20px;
-    background-image: url("/images/products_list/checkbox.png");
+    background-image: url("../images/products_list/checkbox.png");
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: 0px -1px;
@@ -809,7 +809,7 @@
     width: 100%;
     height: 20px;
     line-height: 20px;
-    background-image: url("/images/products_list/checkbox.png");
+    background-image: url("../images/products_list/checkbox.png");
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: 0px -1px;
@@ -826,43 +826,43 @@
   }
   /*绿色*/
   .green {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 0px -2px !important;
     background-size: 20px !important;
     
   }
   .orange {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 0px -23px !important;
     background-size: 20px !important;
   }
   .yellow {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 0px -46px !important;
     background-size: 20px !important;
   }
   .red {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 0px -67px !important;
     background-size: 20px !important;
   }
   .white {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 0px -89px !important;
     background-size: 20px !important;
   }
   .purple {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 0px -107px !important;
     background-size: 20px !important;
   }
   .assorted {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 0px -130px !important;
     background-size: 20px !important;
   }
   .pink {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 0px -153px !important;
     background-size: 20px !important;
   }
@@ -1157,43 +1157,43 @@
     background-color: #ffa50069;
   }
   .pink {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 15px -209px !important;
     background-size: 28px !important;
     background-repeat: no-repeat;
   }
   .assorted {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 15px -178px !important;
     background-size: 28px !important;
     background-repeat: no-repeat;
   }
   .purple {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 15px -145px !important;
     background-size: 28px !important;
     background-repeat: no-repeat;
   }
   .red {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 15px -90px !important;
     background-size: 28px !important;
     background-repeat: no-repeat;
   }
   .yellow {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 15px -59px !important;
     background-size: 28px !important;
     background-repeat: no-repeat;
   }
   .orange {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 15px -28px !important;
     background-size: 28px !important;
     background-repeat: no-repeat;
   }
   .green {
-    background-image: url("/images/products_list/colors.png") !important;
+    background-image: url("../images/products_list/colors.png") !important;
     background-position: 15px 3px !important;
     background-size: 28px !important;
     background-repeat: no-repeat;

@@ -39,6 +39,45 @@ $(function(){
       $('.singup-block').css('display','none');
       $('.login-block').css('display','block');
    });
+   $('.icon--wechat').on('click',function(event){
+      event.stopPropagation();
+      $('.wechat-popup').css('display','inline-block'); 
+   });
+   $(document).click(function(event){
+      $('.wechat-popup').css('display','none'); 
+   });
+   
+   
+   //product详情页根据包装切换内容
+   $("body.product-detail-page input[type='radio']").on('change',function(){
+     var new_sku_id = $("input[type='radio']:checked").val();
+     var url = "/product/show/sku_id/" + new_sku_id;  
+     var deliver_date = $("input[name='delivery_date']").val();
+     var vase_status = '0';
+     if($("input[name='vase_buy']").prop('checked')) {
+        vase_status = '1';
+     }
+     //存储日期和花瓶的状态到radio点击的下一个页面上使用
+     localStorage.setItem("deliver_date",deliver_date);
+     localStorage.setItem("vase_status",vase_status);
+     //alert(localStorage.getItem("deliver_date"));
+     //alert(localStorage.getItem("vase_status"));
+     window.location.href = url;  
+   });
+   
+   //在product detail页面将localstorage里面的deliver_date 和 vase_status如果有的话赋值上去，并马上删除
+   var deliver_date_send = localStorage.getItem("deliver_date");
+   var vase_status_send = localStorage.getItem("vase_status");
+   if(deliver_date_send != null && deliver_date_send != undefined && deliver_date_send != "") {
+       $('.product-detail-page span.product-details__shipping-date-value').text(deliver_date_send);
+       $(".product-detail-page input[name='delivery_date']").val(deliver_date_send);
+       localStorage.removeItem("deliver_date");
+   }
+   if(vase_status_send == '1') {
+       $(".product-detail-page input[name='vase_buy']").attr("checked",true);
+       localStorage.removeItem("vase_status");
+   }
+   
    var device = equipmentCheck();
    if(device == 'pc') {
 	   $("#shop-market").hover(function(){

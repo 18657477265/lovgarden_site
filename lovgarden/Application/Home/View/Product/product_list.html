@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+     <title>丽de花苑</title>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css"/>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap-maizi.css"/>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/animate.css"/>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/style.css"/>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/products.css"/>
+     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+     <script src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
+</head>
+<body class="page">
+ <include file="Application/Home/View/Common/nav_block.html" />
+ <include file="Application/Home/View/Common/menu_block.html" />
+   <!--content-->
+   <!-- 左边黑框描述，右边图片block样式-->
+   <div style="width: 100%;height: 100px;"></div>
+   <div class="category-banner-content-block container">
+      <div class="row">
+      <div class="category-banner-content-block__content col-md-3 col-sm-4">
+          <h1 class="category-banner-content-block__title"><?php print $block['block_title']; ?></h1>
+          <p class="category-banner-content-block__description"><?php print $block['block_body']; ?></p>
+          <p class="category-banner-content-block__value-add"><?php print $block['block_link_title']; ?></p>
+      </div>
+      <div class="category-banner-content-block__image col-md-9 col-sm-8" style="background-image: url(<?php print C('IMAGE_CONFIG')['viewPath'].$block['image_pc']; ?>)">
+        
+      </div>
+      </div>
+   </div>
+
+   <!-- filter pc -->
+   <div class="container filter show-pc">
+     <div class="col-md-1 col-sm-1 filter-part">
+       <span class="filter-title">筛选</span>
+     </div>
+     <div class="col-md-2 col-sm-2 filter-part filter-input filter-deliver-time">
+       <span><a>配送时间</a></span><span class="glyphicon glyphicon-menu-down filter-input-icon"></span>
+       <div class="input-choice">
+         <ul class="result-filters__list">
+           <li>
+             <a class="filter-deliver-time-dropdown-a" href="#">越快越好</a>
+           </li>
+           <li>
+             <a class="filter-deliver-time-dropdown-a filter-deliver-time-item-choosen" href="#">不急,按计划来</a>
+           </li>
+         </ul>
+       </div>
+     </div>
+     <div class="col-md-2 col-sm-2 filter-part filter-input filter-flower-type">
+       <span class="dynamic-span"><a>花材种类</a></span><span class="glyphicon glyphicon-menu-down filter-input-icon"></span>
+       <div class="input-choice-two">
+         <ul class="flower-type-list flower-type-list-one col-md-6">
+            <li class="flower-type-list-item">
+               <a>onetwo</a>
+            </li>
+            <li class="flower-type-list-item">
+               <a class="flower-type-list-item-choosen">onetwo</a>
+            </li>
+            <li class="flower-type-list-item">
+               <a>onetwo</a>
+            </li>
+            <li class="flower-type-list-item">
+               <a>onetwo</a>
+            </li>
+            <li class="flower-type-list-item">
+               <a>onetwo</a>
+            </li>
+            <li class="flower-type-list-item">
+               <a>onetwo</a>
+            </li>
+            <li class="flower-type-list-item">
+               <a>onetwo</a>
+            </li>
+            <li class="flower-type-list-item">
+               <a>onetwo</a>
+            </li>
+            <li class="flower-type-list-item">
+               <a>onetwo</a>
+            </li>
+        </ul>
+        <ul class="flower-type-list flower-type-list-two col-md-6">
+            <li class="flower-type-list-item">
+               <a>onetwo</a>
+            </li>
+            <li class="flower-type-list-item">
+               <a>onetwo</a>
+            </li>
+            <li class="flower-type-list-item">
+               <a>onetwo</a>
+            </li>
+            <li class="flower-type-list-item">
+               <a>onetwo</a>
+            </li>
+            <li class="flower-type-list-item">
+               <a>onetwo</a>
+            </li>
+            <li class="flower-type-list-item">
+               <a>onetwo</a>
+            </li>
+            <li class="flower-type-list-item">
+               <a>onetwo</a>
+            </li>
+            <li class="flower-type-list-item">
+               <a>onetwo</a>
+            </li>
+            <li class="flower-type-list-item">
+               <a>onetwo</a>
+            </li>
+        </ul>
+       </div>
+     </div>
+     <div class="col-md-2 col-sm-2 filter-part filter-input filter-flower-hoilday">
+       <span class="dynamic-span-holiday"><a>情景选择</a></span><span class="glyphicon glyphicon-menu-down filter-input-icon"></span>
+       <div class="input-choice-three">
+         <ul class="flower-holiday-list flower-holiday-list-one col-md-6">
+            <li class="flower-holiday-list-item">
+               <a>纪念日</a>
+            </li>
+            <li class="flower-holiday-list-item">
+               <a class="flower-holiday-list-item-choosen">onetwo</a>
+            </li>
+            <li class="flower-holiday-list-item">
+               <a>onetwo</a>
+            </li>
+            <li class="flower-holiday-list-item">
+               <a>onetwo</a>
+            </li>
+            <li class="flower-holiday-list-item">
+               <a>onetwo</a>
+            </li>
+            <li class="flower-holiday-list-item">
+               <a>onetwo</a>
+            </li>
+            <li class="flower-holiday-list-item">
+               <a>onetwo</a>
+            </li>
+        </ul>
+        <ul class="flower-holiday-list flower-holiday-list-two col-md-6">
+            <li class="flower-holiday-list-item">
+               <a>onetwo</a>
+            </li>
+            <li class="flower-holiday-list-item">
+               <a>onetwo</a>
+            </li>
+            <li class="flower-holiday-list-item">
+               <a>onetwo</a>
+            </li>
+            <li class="flower-holiday-list-item">
+               <a>onetwo</a>
+            </li>
+            <li class="flower-holiday-list-item">
+               <a>onetwo</a>
+            </li>
+            <li class="flower-holiday-list-item">
+               <a>onetwo</a>
+            </li>
+            <li class="flower-holiday-list-item">
+               <a>onetwo</a>
+            </li>
+        </ul>
+       </div>
+     </div>
+     <div class="col-md-2 col-sm-2 filter-part filter-input filter-flower-color">
+       <span class="dynamic-span-color"><a>款式色系</a></span><span class="glyphicon glyphicon-menu-down filter-input-icon"></span>
+       <div class="input-choice-four">
+         <ul class="flower-color-list flower-color-list-one col-md-6">
+            <li class="flower-color-list-item">
+               <a class="pink">Pinks</a>
+            </li>
+            <li class="flower-color-list-item">
+               <a class="flower-color-list-item-choosen purple">Purples</a>
+            </li>
+            <li class="flower-color-list-item">
+               <a class="yellow">Yellows</a>
+            </li>
+            <li class="flower-color-list-item">
+               <a class="orange">Oranges</a>
+            </li>
+        </ul>
+        <ul class="flower-color-list flower-color-list-two col-md-6">
+            <li class="flower-color-list-item">
+               <a class="assorted">Assorted</a>
+            </li>
+            <li class="flower-color-list-item">
+               <a class="white">Whites</a>
+            </li>
+            <li class="flower-color-list-item">
+               <a class="red">Reds</a>
+            </li>
+            <li class="flower-color-list-item">
+               <a class="green">Greens</a>
+            </li>
+        </ul>
+       </div>
+     </div>
+
+     <div class="col-md-1 col-sm-1 filter-part">
+       <span class="filter-title">特色</span>
+     </div>
+     <div class="col-md-2 col-sm-2 filter-part filter-input filter-order">
+       <span><a>特色</a></span><span class="glyphicon glyphicon-menu-down filter-input-icon"></span>
+       <div class="input-choice order-list">
+         <ul class="result-filters__list">
+           <li>
+             <a class="filter-deliver-time-dropdown-a" href="#">热销</a>
+           </li>
+           <li>
+             <a class="filter-deliver-time-dropdown-a filter-deliver-time-item-choosen" href="#">价格</a>
+           </li>
+           <li>
+             <a class="filter-deliver-time-dropdown-a" href="#">最新款</a>
+           </li>
+         </ul>
+       </div>
+     </div>
+   </div>
+   <!--filter mobile and tablet -->
+   <div class="container show-tablet-mobile">
+   	<div class="col-xs-12 col-sm-12 mobile-filter">
+   		<span class="mobile-filter-name">筛选 +</span>
+   	</div>
+   </div>
+   <!--filter 弹出框-->
+   <div id="mobile-filter-section" class="show-tablet-mobile">
+	  <section id="shop-filter-popup">
+	  	<p class="filter-mobile-popup-title"><span class="choose-title">筛选</span><span class="choose-close glyphicon glyphicon-remove"></span></p>
+	  	<p class="filter-mobile-popup-delivertime">配送时间<span class="glyphicon glyphicon-plus"></span></p>
+	  	<ul class="filter-mobile-popup-delivertime-choice">
+	      <li class="col-sm-6 col-xs-6"><a>越快越好</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#" class="mobile-tablet-filter-choosen">按计划来</a></li>
+	    </ul>
+	  	<p class="filter-mobile-popup-flowertype">花材种类<span class="glyphicon glyphicon-plus"></span></p>
+	  	<ul class="filter-mobile-popup-flowertype-choice">
+	      <li class="col-sm-6 col-xs-6"><a href="#" class="mobile-tablet-filter-choosen">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	    </ul>
+	  	<p class="filter-mobile-popup-occasion">使用情景<span class="glyphicon glyphicon-plus"></span></p>
+	  	<ul class="filter-mobile-popup-occasion-choice">
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">选择一个</a></li>
+	    </ul>
+	  	<p class="filter-mobile-popup-flower-color">鲜花色系<span class="glyphicon glyphicon-plus"></span></p>
+	  	<ul class="filter-mobile-popup-flower-color-choice">
+	      <li class="col-sm-6 col-xs-6"><a href="#" class="pink">粉色</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#" class="assorted">炫彩</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#" class="purple">紫色</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">白色</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#" class="yellow">金色</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#" class="red">红色</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#" class="green">绿色</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#" class="orange">橙色</a></li>
+	    </ul>
+	  	<p class="filter-mobile-popup-order">特色选择<span class="glyphicon glyphicon-plus"></span></p>
+	  	<ul class="filter-mobile-popup-order-choice">
+	      <li class="col-sm-6 col-xs-6"><a href="#">价格</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">最新</a></li>
+	      <li class="col-sm-6 col-xs-6"><a href="#">热销</a></li>
+	    </ul>
+	  </section>
+  </div>
+
+  <!--product list flow 商品展示瀑布流分页-->
+  <div class="pagination-results container">
+  	<ul class="product-grid">
+          <?php foreach($product_varients_info as $sku_id => $product_varient): ?>
+	  <li class="product-grid__cell col-md-4 col-sm-4 col-xs-6 list-grid-left">
+		<div class="product-summary">
+		    <div class="product-summary__media">
+                        <a class="product-summary__media-link" href='/product/show/sku_id/<?php print $sku_id; ?>'><img class="product-summary__media-image" src="<?php print C('IMAGE_CONFIG')['viewPath'].$product_varient['image_url'][0] ?>"></a>
+		    </div>
+			<div class="product-summary__info">
+			    <h3 class="heading--2 product-summary__name"><a class="product-summary__name-link" href='/product/show/sku_id/<?php print $sku_id; ?>'><?php print $product_varient['varient_name']; ?></a></h3>
+				<div class="product-summary__short-description">
+					<p><?php print $product_varient['varient_summary']; ?></p>
+				</div>
+				<div class="product-summary__pricing">
+				   <div class="product-prices product-prices--summary">
+				    <p class="product-prices__price"><span class="price__unit">￥</span><span class="price__number"><?php print rtrim(rtrim($product_varient['varient_price'], '0'), '.'); ?></span><!--<span class="small-start">起</span>--></p>
+				   </div>
+				</div>
+				<div class="product-summary__manufacturer show-tablet-pc">
+				    <div class="product-summary__manufacturer-image"><img src="__PUBLIC__/Home/images/products_list/creator1.jpg"></div>
+				    <div class="product-summary__manufacturer-title">Farmer Andre</div>
+				    <div class="product-summary__manufacturer-location">Ecuador</div>
+				</div>
+				<div class="product-summary__availability">
+				    <div class="product-summary__availability-label show-tablet-pc">配送时间</div>
+				    <div class="product-summary__availability-date"><span><?php print show_appropriate_hurry_status($product_varient['hurry_level_id']); ?></span></div>
+				</div>
+			</div>
+		</div>
+	  </li>
+          <?php endforeach; ?>
+  	</ul>
+  </div>
+
+   <!--block 底座-->
+   <include file="Application/Home/View/Common/foot_block.html" />
+   <script src="__PUBLIC__/Home/js/jquery.singlePageNav.min.js"></script>
+   <script src="__PUBLIC__/Home/js/wow.min.js"></script> 
+   <script src="__PUBLIC__/Home/js/custom.js"></script>
+</body>
+</html>

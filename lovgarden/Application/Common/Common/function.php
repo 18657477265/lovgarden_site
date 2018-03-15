@@ -215,3 +215,96 @@ function check_permission_view($url,$text_field,$class='',$title='') {
     return $result;   
 }
 
+//根据decoration_id输入对应的包装等级名称
+function get_decoration_name($decoration_id) {
+    $decoration_name = '';
+    switch ($decoration_id) {
+        case '1':
+            $decoration_name = '经典';
+            break;
+        case '2':
+            $decoration_name = '奢华';
+            break;
+        case '3':
+            $decoration_name = '豪华';
+            break;
+    }
+    return $decoration_name;
+}
+
+function get_decoration_name_info($decoration_id) {
+    $decoration_name = '';
+    switch ($decoration_id) {
+        case '1':
+            $decoration_name = '款式流行包装';
+            break;
+        case '2':
+            $decoration_name = '更多配花数量';
+            break;
+        case '3':
+            $decoration_name = '更多配花品种';
+            break;
+    }
+    return $decoration_name;
+}
+
+//根据sku_id的命名规则获取商品的关联商品
+function get_related_products($current_id) {
+    //$decoration_id = substr($current_id,-1);
+    $group_id = substr($current_id,0,5);
+    $related_ids = array();
+    $related_ids[] = $group_id.'1';
+    $related_ids[] = $group_id.'2';
+    $related_ids[] = $group_id.'3';
+    return $related_ids;
+}
+
+//根据配送huryy_level_id选择合适的展现
+function show_appropriate_hurry_status($hurry_level_ids = array()){
+    if(count($hurry_level_ids) > 1){
+        return '可当日配送';
+    }else {
+        return '按您的预定计划配送';
+    }
+}
+
+//更具url get 的条件生成查询所需要的条件
+//查询url类似：/product/select_list/flowerType_1/1/flowerType_2/2/color_1/2/color_2/6/hurryLevel_1/0/
+function get_filter_conditions(){
+    $conditiones = I('get.');
+    $conditiones_fix = array();
+    if(!empty($conditiones)) {
+        foreach($conditiones as $k => $v) {
+            $temp_array = explode('_', $k);
+            $conditiones_fix[$temp_array[0]][]=$v;
+        }
+    }
+    return $conditiones_fix;
+}
+
+//去除url get参数中的某一个参数
+function filterUrl($param,$url) {
+    $pattern = "/\/$param\/[^\/]+/";
+    return preg_replace($pattern, '', $url);
+}
+
+//根据product_varient 一群产品的获取他们所包含的属性值,用于动态生成查询条件
+function get_available_filters($product_varients_info) {
+   $all_filter = array();
+   foreach($product_varients_info as $sku_id => $product_varient){
+       foreach($product_varient['hurry_level_id'] as $k => $hurry_level_id) {
+           $all_filter['hurry_level'][$hurry_level_id] = $product_varient['hurry_level'][$k];
+       }
+       foreach($product_varient['flower_type_id'] as $k => $flower_type_id) {
+           $all_filter['flower_type'][$flower_type_id] = $product_varient['flower_name'][$k];
+       }
+       foreach($product_varient['flower_occasion_id'] as $k => $flower_occasion_id) {
+           $all_filter['flower_occasion'][$flower_occasion_id] = $product_varient['flower_occasion'][$k];
+       }
+       foreach($product_varient['flower_color_id'] as $k => $flower_color_id) {
+           $all_filter['flower_color'][$flower_color_id] = $product_varient['flower_color'][$k];
+       }
+   }
+   return $all_filter;
+}
+

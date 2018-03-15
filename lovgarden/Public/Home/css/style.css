@@ -459,7 +459,16 @@ body a {
     .show-tablet-pc {
       display: none;
     }
-
+    .wechat-popup {
+        display: inline-block;
+        width: 200px;
+        position: relative;
+        top: -380px;
+        left: 25%;   
+    }
+    .page-footer__social {
+        position: relative;
+    }
 }
 /*平板移动端代码*/
 @media ( min-width:768px ) and ( max-width:1199px ) {
@@ -688,10 +697,25 @@ body a {
   }
   .show-tablet-mobile {
       display: block;
-    }
-    .show-tablet-pc {
+  }
+  .show-tablet-pc {
       display: block;
-    }
+  }
+  h2.blend-into-image {
+      color: #fff;
+  }
+  p.blend-into-image {
+      color: #fff;
+  }  
+  .wechat-popup {
+      display: inline-block;
+      position: absolute;
+      top: -135px;
+      left: 36%;      
+  }
+  .page-footer__social {
+      position: relative;
+  }
 }
 
 /*PC 端代码*/
@@ -887,6 +911,22 @@ body a {
     .show-tablet-pc {
       display: block;
     }
+  h2.blend-into-image {
+        color: #fff;
+  }
+  p.blend-into-image {
+      color: #fff;
+  }
+  .wechat-popup {
+      display: inline-block;
+      position: absolute;
+      top: -135px;
+      left: 36%;
+      
+  }
+  .page-footer__social {
+      position: relative;
+  }
 }
 
 /*小屏手机*/

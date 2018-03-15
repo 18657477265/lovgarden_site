@@ -19,14 +19,14 @@
    <div class="banner wow slideInRight" data-wow-offset="30">
 		<div class="content-block-full-wide">
 		<div class="block-background-img">
-			<img class="show-pc" src="__PUBLIC__/Home/images/home/banner1.jpg" width="100%" />
-      <img class="show-tablet" src="__PUBLIC__/Home/images/home/banner1.jpg" width="100%" />
-			<img class="show-mobile" src="__PUBLIC__/Home/images/home/banner1_mobile.jpg" width="100%" />
+                    <img class="show-pc" src="<?php print C('IMAGE_CONFIG')['viewPath'].$blocks[0]['image_pc']  ?>" width="100%" />
+      <img class="show-tablet" src="<?php print C('IMAGE_CONFIG')['viewPath'].$blocks[0]['image_pc']  ?>" width="100%" />
+			<img class="show-mobile" src="<?php print C('IMAGE_CONFIG')['viewPath'].$blocks[0]['image_mobile']  ?>" width="100%" />
 	    </div>
 			<div class="content-block-left-description col-md-6 col-xs-12 wow zoomIn" data-wow-offset="30" data-wow-delay="0.5s">
-			  <h2 class="content-block-left-description-title">Made<br>With Heart.</h2>
-			  <p class="content-block-left-description-body">Sustainable, Farm Fresh Blooms&nbsp;<br>$40 &amp; Up,&nbsp;Free Delivery Nationwide<br></p>
-			  <p class="content-block-left-description-button"><a class="button button-wide">Shop Now</a></p>
+			  <h2 class="content-block-left-description-title blend-into-image"><?php print $blocks[0]['block_title']  ?></h2>
+			  <p class="content-block-left-description-body blend-into-image"><?php print $blocks[0]['block_body']  ?></p>
+			  <p class="content-block-left-description-button"><a href='<?php print $blocks[0]["block_link"]  ?>' class="button button-wide"><?php print $blocks[0]['block_link_title']  ?></a></p>
 			</div>
 		</div>
    </div>
@@ -34,25 +34,25 @@
    <!--block 3框栏配置代码-->
    <div class="html-content-block">
      <div class="how-it-works container-fluid">
-        <h2 class="wow zoomIn" data-wow-offset="30">How It Works</h2>
-          <h4>SIMPLE AS 1,2,3</h4>
+        <h2 class="wow zoomIn" data-wow-offset="30">如何订花</h2>
+          <h4>简单3步 1 2 3</h4>
      <div class="col-md-4 col-sm-4 col-xs-12 show-part  wow zoomIn" data-wow-offset="30">
             <span class="glyphicon glyphicon-shopping-cart"></span>
-          <h4>Pick your Bouq</h4>
-          <p>So we can pick your Bouq! We have a wide selection available nationwide.</p>
+          <h4>选择您喜欢的款式</h4>
+          <p>我们的花卉来自世界各地，您在这儿可以有大量的选择</p>
      </div>
      <div class="col-md-4 col-sm-4 col-xs-12 show-part  wow zoomIn" data-wow-offset="30">
             <span class="glyphicon glyphicon-scissors"></span>
-          <h4>Cut fresh from the farm</h4>
-          <p>We either cut your Bouq and deliver fresh from a sustainable farm, or deliver on demand from an artisan florist in as little as 2 hours.</p>
+          <h4>从农场采摘</h4>
+          <p>您在这儿按照配送日期下单，我们会从农场采购刚采摘的花材，制作和配送，当然您也可以做加急处理</p>
     </div>
     <div class="col-md-4 col-sm-4 col-xs-12 show-part  wow zoomIn" data-wow-offset="30">
           <span class="glyphicon glyphicon-thumbs-up"></span>
-          <h4>Enjoy the #BouqLove</h4>
-          <p>Our Happiness Guarantee will ensure you’re thrilled with your flowers.</p>
+          <h4>enjoy来自我们的艺术鲜花</h4>
+          <p>送到您手里的鲜花有我们的鲜花品质保证</p>
     </div>
     <div style="clear: both;"></div>
-    <p class="content-block-left-description-button wow zoomIn" data-wow-offset="30"><a class="button button-wide">Shop Now</a></p>
+    <p class="content-block-left-description-button wow zoomIn" data-wow-offset="30"><a class="button button-wide">去购买</a></p>
     </div>
   </div>
 
@@ -60,16 +60,16 @@
    <div class="banner wow slideInLeft" data-wow-offset="30">
     <div class="content-block-full-wide">
     <div class="block-background-img">
-      <img class="show-pc" src="__PUBLIC__/Home/images/home/HP_images_Farm.jpg" width="100%" />
-      <img class="show-tablet" src="__PUBLIC__/Home/images/home/HP_images_Farm2.jpg" width="100%" />
-      <img class="show-mobile" src="__PUBLIC__/Home/images/home/HP_images_Farm_mobile.jpg" width="100%" />
+      <img class="show-pc" src="<?php print C('IMAGE_CONFIG')['viewPath'].$blocks[1]['image_pc']  ?>" width="100%" />
+      <img class="show-tablet" src="<?php print C('IMAGE_CONFIG')['viewPath'].$blocks[1]['image_pc']  ?>" width="100%" />
+      <img class="show-mobile" src="<?php print C('IMAGE_CONFIG')['viewPath'].$blocks[1]['image_mobile']  ?>" width="100%" />
       </div>
       <div class="content-block-left-description col-md-6 col-sm-6 col-xs-12 right-square wow zoomIn" data-wow-offset="30" data-wow-delay="0.2s">
         <div class="right-square-content">
-          <h4>FLOWERS FRESH FROM THE</h4>
-          <h2 class="content-block-left-description-title">Farm</h2>
-          <p class="content-block-left-description-body">Our Farm-to-Table flowers ship fresh from eco-friendly, sustainable farms from around the world so they last. With FREE weekday delivery!</p>
-          <p class="content-block-left-description-button"><a class="button button-wide">Learn More</a></p>
+          <!--<h4><?php print $blocks[1]['block_title']  ?></h4>-->
+          <h2 class="content-block-left-description-title"><?php print $blocks[1]['block_title']  ?></h2>
+          <p class="content-block-left-description-body"><?php print $blocks[1]['block_body']  ?></p>
+          <p class="content-block-left-description-button"><a href="<?php print $blocks[0]['block_link']  ?>" class="button button-wide"><?php print $blocks[0]['block_link_title']  ?></a></p>
         </div>
       </div>
     </div>
@@ -78,20 +78,20 @@
    <!--block 3框栏配置代码-->
    <div class="html-content-block">
      <div class="how-it-works container-fluid">
-        <h2 class="wow zoomIn" data-wow-offset="30">Save 20% + Free Delivery</h2>
-          <h4>WITH SUBSCRIPTIONS</h4>
-          <p>Have flowers in your home all year round! Set up a subscription and receive a new bouquet once a week, twice a month, or monthly. Makes an amazing gift!</p>
+        <h2 class="wow zoomIn" data-wow-offset="30">省钱30%+免费配送</h2>
+          <h4>日常鲜花订阅</h4>
+          <p>给自己和她(他)每周或者每月一次鲜花，让她(他)的房间四季如春,天天好心情。</p>
      <div class="col-md-4 col-sm-4 col-xs-12 show-part wow zoomIn" data-wow-offset="30">
             <span class="glyphicon glyphicon-yen"></span>
-          <h4>SAVE EVERY TIME</h4>
+          <h4>为您省时省力</h4>
      </div>
      <div class="col-md-4 col-sm-4 col-xs-12 show-part wow zoomIn" data-wow-offset="30">
             <span class="glyphicon glyphicon-heart"></span>
-          <h4>ONLY THE BEST BLOOMS</h4>
+          <h4>鲜花品质保证</h4>
     </div>
     <div class="col-md-4 col-sm-4 col-xs-12 show-part wow zoomIn" data-wow-offset="30">
           <span class="glyphicon glyphicon-calendar"></span>
-          <h4>ON YOUR SCHEDULE</h4>
+          <h4>按您的计划配送</h4>
     </div>
     <div style="clear: both;"></div>
     <p class="content-block-left-description-button wow zoomIn" data-wow-offset="30"><a class="button button-wide">马上订阅</a></p>
@@ -102,16 +102,16 @@
    <div class="banner wow slideInRight" data-wow-offset="30">
     <div class="content-block-full-wide">
     <div class="block-background-img">
-      <img class="show-pc" src="__PUBLIC__/Home/images/home/flo2.jpg" width="100%" />
-      <img class="show-tablet" src="__PUBLIC__/Home/images/home/flo2-tablet.jpg" width="100%" />
-      <img class="show-mobile" src="__PUBLIC__/Home/images/home/flo2-mobile.jpg" width="100%" />
+      <img class="show-pc" src="<?php print C('IMAGE_CONFIG')['viewPath'].$blocks[2]['image_pc']  ?>" width="100%" />
+      <img class="show-tablet" src="<?php print C('IMAGE_CONFIG')['viewPath'].$blocks[2]['image_pc']  ?>" width="100%" />
+      <img class="show-mobile" src="<?php print C('IMAGE_CONFIG')['viewPath'].$blocks[2]['image_mobile']  ?>" width="100%" />
       </div>
       <div class="content-block-left-description col-md-6 col-sm-6 col-xs-12 left-square wow zoomIn" data-wow-offset="30" data-wow-delay="0.2s">
         <div class="left-square-content">
-          <h2 class="content-block-left-description-title">Artisan Florists</h2>
-          <h4>DELIVER SAME DAY</h4>
-          <p class="content-block-left-description-body">Our one-of-a-kind artisan Bouqs are hand crafted with care for your loved one (no cookie cutter designs here) and flowers delivered in as little as 2 hours.</p>
-          <p class="content-block-left-description-button"><a class="button button-wide">Shop Artisan</a></p>
+          <h2 class="content-block-left-description-title"><?php print $blocks[2]['block_title']  ?></h2>
+          <!--<h4>DELIVER SAME DAY</h4>-->
+          <p class="content-block-left-description-body"><?php print $blocks[2]['block_body']  ?></p>
+          <p class="content-block-left-description-button"><a href="<?php print $blocks[1]['block_link']  ?>" class="button button-wide"><?php print $blocks[2]['block_link_title']  ?></a></p>
         </div>
       </div>
     </div>
@@ -120,13 +120,13 @@
    <!--block 单框-->
    <div class="html-content-block wow zoomIn" data-wow-offset="30">
    	<div class="happiness container-fluid">
-	   	   <h2>100% Happiness</h2>
+	   	   <h2>满意保证</h2>
 	       <h4>Guarantee</h4>
 	       <span class="icon icon--happiness-guaranteed"></span>
 	       <div class="description">
-	         <p>When we say we're different,we mean it. That includes our promise to quickly address any issue.</p>
+	         <p>如果配送不及时或者鲜花到手时候有质量问题,我们会按流程马上包退，包换，请放心购买</p>
 	       </div>
-	       <p class="content-block-left-description-button"><a class="button button-wide">Shop now</a></p>
+	       <p class="content-block-left-description-button"><a class="button button-wide">马上购买</a></p>
     </div>
    </div>
 
@@ -134,36 +134,36 @@
    <div class="banner wow slideInLeft" data-wow-offset="30">
     <div class="content-block-full-wide">
     <div class="block-background-img">
-      <img class="show-pc" src="__PUBLIC__/Home/images/home/homepage_wedding.jpg" width="100%" />
-      <img class="show-tablet" src="__PUBLIC__/Home/images/home/homepage_wedding_tablet.jpg" width="100%" />
-      <img class="show-mobile" src="__PUBLIC__/Home/images/home/homepage_wedding_mobile.jpg" width="100%" />
+      <img class="show-pc" src="<?php print C('IMAGE_CONFIG')['viewPath'].$blocks[3]['image_pc']  ?>" width="100%" />
+      <img class="show-tablet" src="<?php print C('IMAGE_CONFIG')['viewPath'].$blocks[3]['image_pc']  ?>" width="100%" />
+      <img class="show-mobile" src="<?php print C('IMAGE_CONFIG')['viewPath'].$blocks[3]['image_mobile']  ?>" width="100%" />
       </div>
       <div class="content-block-left-description col-md-6 col-sm-6 col-xs-12 right-square wow zoomIn" data-wow-offset="30" data-wow-delay="0.2s">
         <div class="right-square-content">
-          <h2 class="content-block-left-description-title">Weddings</h2>
-          <h4>EVENTS & CORPORATE SERVICES</h4>
-          <p class="content-block-left-description-body">Brides and event planners can save up to 80% for fresher, environmentally friendly flowers by going farm direct, and we offer exclusive benefits for Corporate Partners!</p>
-          <p class="content-block-left-description-button"><a class="button button-wide">开始您的大计划</a></p>
+          <h2 class="content-block-left-description-title"><?php print $blocks[3]['block_title']  ?></h2>
+          <!--<h4>EVENTS & CORPORATE SERVICES</h4>-->
+          <p class="content-block-left-description-body"><?php print $blocks[3]['block_body']  ?></p>
+          <p class="content-block-left-description-button"><a href="<?php print $blocks[3]['block_link']  ?>" class="button button-wide"><?php print $blocks[3]['block_link_title']  ?></a></p>
         </div>
       </div>
     </div>
    </div>
 
     <!--block 单框-->
-   <div class="html-content-block wow zoomIn" data-wow-offset="30">
+   <!--<div class="html-content-block wow zoomIn" data-wow-offset="30">
    	<div class="happiness container-fluid">
-	   	   <h2>We're The Darlings</h2>
+	   	   <h2>您也可以通过如下找到我们</h2>
 	       <h4>OF THE PRESS</h4>
 	       <span style="display: block; height: 20px;width: 100%;"></span>
 	       <div class="description">
 	         <p>Check out our braggin' rights.</p>
 	       </div>
     </div>
-   </div>
+   </div>-->
    
 
 
-   <include file="Application/Home/View/Common/press_block.html" />
+  <!-- <include file="Application/Home/View/Common/press_block.html" />-->
    <!--block 底座-->
    <include file="Application/Home/View/Common/foot_block.html" />
    

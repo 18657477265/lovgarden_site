@@ -1,13 +1,13 @@
 $(function(){
-   $('.product-detail .add_more_image').on('click',function(){
+   $('.section-product-detail .add_more_image').on('click',function(){
        var newone = '<li class="multiple-images"><span class="item_name" style="width:120px;">上传图片：</span><span class="image-remove">[删除]</span><label class="nouploadImg"><input name="product_varient_images[]" type="file"/></label></li>';
        $('.multiple-images:last').after(newone);
-       $(".product-update .add-images-in-product-update").after(newone);
+       $(".section-product-update .add-images-in-product-update").after(newone);
    });
    //在product_update页面的add_more_image事件
-   $('.product-update .add_more_image').on('click',function(){
+   $('.section-product-update .add_more_image').on('click',function(){
       var newone = '<li class="multiple-images"><span class="item_name" style="width:120px;">上传图片：</span><span class="image-remove">[删除]</span><label class="nouploadImg"><input name="product_varient_images[]" type="file"/></label></li>';
-       $(".product-update .add-images-in-product-update").after(newone); 
+       $(".section-product-update .add-images-in-product-update").after(newone); 
    });
    $('body').on('click','.image-remove',function(){
        $(this).parent().remove();

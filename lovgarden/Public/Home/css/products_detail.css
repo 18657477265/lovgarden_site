@@ -236,7 +236,7 @@
   }
   .product-details__shipping-vase-value input[type="checkbox"]{appearance: none; -webkit-appearance: none;outline: none;display:none}
   .product-details__shipping-vase-value label{width:100px;height:100px;display:inline-block;cursor:pointer;}
-  .product-details__shipping-vase-value label input[type="checkbox"] + span{width:40px;height:40px;display:inline-block;background:url("/images/product_detail/vase_checkout.jpg")  no-repeat;background-position:0 0;background-size: 40px;}
+  .product-details__shipping-vase-value label input[type="checkbox"] + span{width:40px;height:40px;display:inline-block;background:url("../images/product_detail/vase_checkout.jpg")  no-repeat;background-position:0 0;background-size: 40px;}
   .product-details__shipping-vase-value label input[type="checkbox"]:checked + span{background-position:0 -42px;background-size: 40px;}
   .product-details__shipping-date-container h4 , .product-details__shipping-date-container h4 {
     margin-top: 50px;
@@ -250,7 +250,7 @@
   .add-to-cart {
     height: 50px;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 67px;
     text-align: center;
   }
   .add-to-cart button {
@@ -272,6 +272,15 @@
     transition: all 0.2s ease;
     white-space: nowrap;
     min-width: 230px;
+  }
+  div.product-variants__item.radio-button {
+      z-index: 80;
+  }
+  .product-variants__price-group , .button-property__text {
+      font-size: 17px;
+  }
+  div.product-details__shipping-date-container.product-details__vase-container {
+      padding-top: 3px;
   }
 }
 /*products detail小屏幕手机端样式*/
@@ -397,6 +406,15 @@
     left: 0 !important;
     -moz-box-shadow: 10px 10px 20px #888888; /* 老的 Firefox */
     box-shadow: 10px 10px 20px #888888;
+  }
+  div.product-variants__item.radio-button {
+      z-index: 80;
+  }
+  .product-variants__price-group , .button-property__text {
+      font-size: 17px;
+  }
+  div.product-details__shipping-date-container.product-details__vase-container {
+      padding-top: 3px;
   }
 }
 /*products detail页面PC端样式*/
@@ -629,7 +647,7 @@
   }
   .product-details__shipping-vase-value input[type="checkbox"]{appearance: none; -webkit-appearance: none;outline: none;display:none}
   .product-details__shipping-vase-value label{width:100px;height:100px;display:inline-block;cursor:pointer;}
-  .product-details__shipping-vase-value label input[type="checkbox"] + span{width:40px;height:40px;display:inline-block;background:url("/images/product_detail/vase_checkout.jpg")  no-repeat;background-position:0 0;background-size: 40px;}
+  .product-details__shipping-vase-value label input[type="checkbox"] + span{width:40px;height:40px;display:inline-block;background:url("../images/product_detail/vase_checkout.jpg")  no-repeat;background-position:0 0;background-size: 40px;}
   .product-details__shipping-vase-value label input[type="checkbox"]:checked + span{background-position:0 -42px;background-size: 40px;}
   .product-details__shipping-date-container h4 , .product-details__shipping-date-container h4 {
     text-align: center;
@@ -892,7 +910,7 @@
   }
   .product-details__shipping-vase-value input[type="checkbox"]{appearance: none; -webkit-appearance: none;outline: none;display:none}
   .product-details__shipping-vase-value label{width:100px;height:100px;display:inline-block;cursor:pointer;}
-  .product-details__shipping-vase-value label input[type="checkbox"] + span{width:40px;height:40px;display:inline-block;background:url("/images/product_detail/vase_checkout.jpg")  no-repeat;background-position:0 0;background-size: 40px;}
+  .product-details__shipping-vase-value label input[type="checkbox"] + span{width:40px;height:40px;display:inline-block;background:url("../images/product_detail/vase_checkout.jpg")  no-repeat;background-position:0 0;background-size: 40px;}
   .product-details__shipping-vase-value label input[type="checkbox"]:checked + span{background-position:0 -42px;background-size: 40px;}
   .product-details__shipping-date-container h4 , .product-details__shipping-date-container h4 {
     margin-top: 50px;
@@ -942,3 +960,4 @@
 .product-detail-region {
   margin-bottom: 70px;
 }
+

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+     <title><?php print $product_varients[$current_sku_id]['varient_name']; ?>|花点馨思</title>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css"/>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap-maizi.css"/>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/animate.css"/>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/style.css"/>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/lightslider.css" />
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/calendar.css"/>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/products_detail.css"/>
+     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+     <script src="__PUBLIC__/Home/js/lightslider.js"></script>
+     <script src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
+     <script src="__PUBLIC__/Home/js/calendar.js"></script>
+</head>
+<body class="page product-detail-page">
+ <include file="Application/Home/View/Common/nav_block.html" />
+ <include file="Application/Home/View/Common/menu_block.html" />
+   <!--content-->
+             <div style="height: 100px;"></div>
+             <div class="container-fluid product-detail-region">
+              <div class="row">
+                <div class="clearfix product-detail-grid-img col-md-4 col-sm-4">
+                  <ul id="image-gallery" class="gallery list-unstyled cS-hidden image-gallery current-product <?php print 'sku_'.$current_sku_id; ?>">                     
+                      <?php foreach($product_varients[$current_sku_id]['image_url'] as $k => $v): ?>
+                      <li data-thumb="<?php print C('IMAGE_CONFIG')['viewPath'].$v ?>"> 
+                          <img class="product-detail-big-img" src="<?php print C('IMAGE_CONFIG')['viewPath'].$v ?>" />
+                      </li>
+                      <?php endforeach; ?>                      
+                  </ul>
+                  
+<!--                  <?php foreach($product_varients as  $sku_id => $v1): ?>
+                        <?php if($sku_id != $current_sku_id): ?>
+                  <ul id="image-gallery" class="gallery list-unstyled cS-hidden image-gallery related-product <?php print 'sku_'.$sku_id; ?>">  
+                        <?php foreach($v1['image_url'] as $image_id => $image_url): ?>
+                           <li data-thumb="<?php print C('IMAGE_CONFIG')['viewPath'].$image_url ?>"> 
+                          <img class="product-detail-big-img" src="<?php print C('IMAGE_CONFIG')['viewPath'].$image_url ?>" />
+                           </li>
+                        <?php endforeach; ?>
+                  </ul>
+                        <?php endif; ?>                        
+                  <?php endforeach; ?>-->
+                  
+                   <div class="farm_vendor_info">
+                      <a><img src="__PUBLIC__/Home/images/product_detail/farm_vendor/farm_vendor.jpg"></a>
+                      <h3 class="product-detail-container__manufacturer-title">Farmer Manuel</h3>
+                      <p class="product-detail-container__manufacturer-location">Colombia</p>
+                      <p class="product-detail-container__manufacturer-description">Founded in 1976 by four entrepreneurs, it now boasts almost 500 acres of production and more than 30 products available on a year-round basis. They grow great flowers like Roses, Alstroemerias, Carnations, Mini Carnations, Garden Roses and more! Plus, the farm is Rainforest Alliance and SGS certified! They believe their business, the growth of their employees, and caring for the environment are ALL important. </p>
+                   </div>
+                </div>
+                <div class="col-md-8 col-sm-8 product-detail-info">
+                <h2 class="produtc-detail-product-title"><?php print $product_varients[$current_sku_id]['varient_name']; ?></h2>
+                <p class="produtc-detail-product-title-description"><?php print $product_varients[$current_sku_id]['varient_summary']; ?></p>
+                <div class="product-detail-info-form-div">
+                    <form class="product-detail-info-form" action="__SELF__" method="POST">
+                      <div class="form-name"><h4>选择一个包装等级</h4></div>
+                      <div class="product-details__variants product-variants">  
+                         
+                        <?php foreach($product_varients as $k => $v): ?>
+                        <div class="product-variants__item radio-button col-md-4 col-sm-4 col-xs-4">
+                         <div class="product-variant-choice-border">
+                             <input type="radio" name="sku" id="sku_<?php print $k; ?>" value="<?php print $k; ?>" required="required" class="product-variants__input radio-button__input" <?php if($k == $current_sku_id){ print 'checked="checked"';} ?>>
+                          <label class="product-variants__label" for="sku_<?php print $k; ?>">
+                            <div class="radio-button__label">
+                            <span class="radio-button__faux-checkbox"></span>
+                            </div>
+                            <div class="product-variants__size">
+                              <div class="button-property__text"><?php print get_decoration_name($v['decoration_level']); ?></div>
+                              <div class="product-variants__price-group">
+                                    <span class="product-variants__price">
+                                      <span class="price">
+                                        <span class="price__unit">￥</span><span class="price__number"><?php print $v['varient_price']; ?></span>
+                                      </span>
+                                    </span>
+
+                              </div>
+                            </div>
+                            <div class="product-variants__size-description-1"><?php print get_decoration_name_info($v['decoration_level']); ?></div>
+                            </label>
+                          </div>
+                        </div>
+                        <?php endforeach; ?>                          
+                       
+                      <!--时间规划框-->
+                      
+                      <div id="date-picker"></div>
+                      <div class="product-details__shipping-date-container col-md-6 col-sm-6">
+                      	<h4>请选择配送日期</h4>
+                      	<div class="date-picker-border">
+	                        <div class="product-details__shipping-date">
+	                          <label class="product-details__shipping-date-label" for="delivery_date_catalog_product">
+	                           	<span class="product-details__shipping-date-icon glyphicon glyphicon-calendar"></span>
+	                            <span class="product-details__shipping-date-value">配送日期</span>
+	                            <div class="product-details__shipping-date-input">
+	                                <input type="text" name="delivery_date" id="delivery_date_catalog_product" class="text-box text-box--small product-details__delivery-date-input hasDatepicker" placeholder="yyyy-mm-dd" required="required" readonly="readonly">
+	                                 
+	                            </div>
+	                           </label>
+	                         </div>
+                         </div>
+                      </div>
+                      <?php if($product_varients[$current_sku_id]['vase'] == '1'): ?>
+                      <div class="product-details__shipping-date-container product-details__vase-container col-md-6 col-sm-6">
+                      	<h4>是否需要花瓶(10元)？</h4>
+                      	<div class="date-picker-border">
+	                        <div class="product-details__shipping-date">
+	                          <label class="product-details__shipping-date-label" for="delivery_date_catalog_product">
+	                           	<span class="product-details__shipping-vase-icon"><img src="__PUBLIC__/Home/images/product_detail/vase.png" style="width: 90px;height: 90px;"/></span>
+	                            <span class="product-details__shipping-vase-value">
+	                            	<!--<input class="styled-checkbox" id="styled-checkbox-1" type="checkbox" value="0">
+                                    <label for="styled-checkbox-1">花瓶也要</label>-->
+                                    <label><input type="checkbox" name="vase_buy" value="1"><span></span></label>
+	                            </span>
+	                           </label>
+	                         </div>
+                         </div>
+                      </div>
+                      <?php endif; ?>
+                      <p class="add-to-cart col-xs-12 col-sm-12 col-md-12"><button name="button" type="submit" value="add_to_cart" class="cancel button button--wide">加入购物车</button></p>
+                  </form>
+                </div>
+                <p class="col-md-12 col-sm-12 col-xs-12 product-info-plus"><?php print $product_varients[$current_sku_id]['varient_body']; ?></p>
+                </div>
+              </div>              
+            </div>
+
+   <!--block 底座-->
+ <include file="Application/Home/View/Common/foot_block.html" />
+    <script>
+       $(document).ready(function() {
+              $('.image-gallery').lightSlider({
+                gallery:true,
+                item:1,
+                thumbItem:5,
+                slideMargin: 0,
+                speed:500,
+                auto:false,
+                loop:true,
+                adaptiveHeight: true,
+                onSliderLoad: function() {
+                    $('.image-gallery').removeClass('cS-hidden');
+                }  
+              });
+              
+              $('#date-picker').calendar({
+		            trigger: '#delivery_date_catalog_product',
+		            width: 320,
+                    height: 320,
+		            zIndex: 999,
+		            onSelected: function (view, date, data) {
+
+		            },
+		            onClose: function (view, date, data) {
+		                var date_text = $("#delivery_date_catalog_product").val();
+		                $('.product-details__shipping-date-value').text(date_text);
+		            }
+		      });     
+        });
+    </script>
+    <script src="__PUBLIC__/Home/js/custom.js"></script>
+</body>
+</html>

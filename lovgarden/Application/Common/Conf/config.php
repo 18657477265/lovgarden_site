@@ -8,7 +8,11 @@ return array(
     'DB_PORT' =>  '3306',
     'DB_PREFIX' =>  'lovgarden_',
     'DEFAULT_FILTER' => 'trim,htmlspecialchars',
-    
+    'URL_MODEL'  =>  2, 
+    'URL_CASE_INSENSITIVE' => true,
+    'MODULE_ALLOW_LIST' => array('Home','Admin'), 
+    'APP_GROUP_LIST' => 'Home,Admin', //项目分组设定 
+    'DEFAULT_GROUP' => 'Home', //默认分组
     /************ 图片相关的配置 ***************/
     'IMAGE_CONFIG' => array(
     	'maxSize' => 1024*1024,
