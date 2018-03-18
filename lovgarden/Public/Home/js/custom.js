@@ -43,7 +43,7 @@ $(function(){
       event.stopPropagation();
       $('.wechat-popup').css('display','inline-block'); 
    });
-   $(document).click(function(event){
+   $('.wechat-popup').click(function(event){
       $('.wechat-popup').css('display','none'); 
    });
    
@@ -86,7 +86,7 @@ $(function(){
 	   $("#shop-menu-dropdown").hover(function(){ },function() {
 	   	  $("#shop-menu-dropdown").css("display","none");
 	   });
-
+           
 	   /*product list 页面 filter 展开*/
 	   $(".filter-deliver-time").mouseover(function(){
 	      $(".filter-deliver-time .input-choice").css("display","block");
@@ -139,6 +139,9 @@ $(function(){
 	      $(".filter-order .input-choice").css("display","none");
 	      $(".filter-order .filter-input-icon").removeClass("glyphicon-menu-up").addClass("glyphicon-menu-down");
 	   });
+           
+           //双保险 如果碰到有show-tablet-mobile的在PC上隐藏
+           $(".show-tablet-mobile").css('display','none');
    }
    else if(device == 'tablet') {
 	   $('#shop-market').on('click',function(e) { 
@@ -230,16 +233,18 @@ $(function(){
 	   });
 	   /*开启按钮*/
 	   $(".mobile-filter").on('click',function() {
-	   	  $('#mobile-filter-section').css('height',$(window).height());
+	   	  $('#mobile-filter-section').css('min-height',$(window).height());
 	   	  $('body').addClass("stop-flow");
           $('#mobile-filter-section').fadeIn(300);
 	   });
-
+          
+          //双保险 碰到有show-pc的在非PC端隐藏
+          $('.show-pc').css('display','none');
    }
    else if (device == 'mobile') {
 	   $('.mobile-menu-show').on('click',function(e) {
 	   	  $('body').addClass("stop-flow");
-	   	  $('#mobile-menu-section').css('height',$(window).height());
+	   	  $('#mobile-menu-section').css('min-height',$(window).height());
 	   	  $('#mobile-menu-section').show();
 	   });
 
@@ -321,7 +326,7 @@ $(function(){
 	   });
 
 	   //filter mobile js
-	   function close_other_filter_category(except_itself) {
+	  function close_other_filter_category(except_itself) {
           $("#shop-filter-popup ul").each(function(){
              if(!$(this).hasClass(except_itself)) {
              	var icon_span = $(this).prev().children("span");
@@ -401,17 +406,20 @@ $(function(){
 
 	   /*关闭按钮*/
 	   $('.filter-mobile-popup-title').on('click',function() {
-	   	  if ($('body').hasClass("stop-flow")) {
-             $('body').removeClass("stop-flow");
-          }
-          $('#mobile-filter-section').fadeOut(300);
+	      if ($('body').hasClass("stop-flow")) {
+                  $('body').removeClass("stop-flow");
+              }
+              $('#mobile-filter-section').fadeOut(300);
 	   });
 	   /*开启按钮*/
 	   $(".mobile-filter").on('click',function() {
 	   	  $('body').addClass("stop-flow");
-	   	  $('#mobile-filter-section').css('height',$(window).height()+'px');
-          $('#mobile-filter-section').fadeIn(300);
+	   	  $('#mobile-filter-section').css('min-height',$(window).height()+'px');
+                  $('#mobile-filter-section').fadeIn(300);
 	   });
+           
+           //双保险 碰到有show-pc的在非PC端隐藏
+           $('.show-pc').css('display','none');
 
    }
 })

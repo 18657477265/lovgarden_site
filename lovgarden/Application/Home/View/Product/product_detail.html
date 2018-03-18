@@ -45,7 +45,7 @@
                         <?php endif; ?>                        
                   <?php endforeach; ?>-->
                   
-                   <div class="farm_vendor_info">
+                   <div class="farm_vendor_info show-tablet-pc">
                       <a><img src="__PUBLIC__/Home/images/product_detail/farm_vendor/farm_vendor.jpg"></a>
                       <h3 class="product-detail-container__manufacturer-title">Farmer Manuel</h3>
                       <p class="product-detail-container__manufacturer-location">Colombia</p>
@@ -56,7 +56,7 @@
                 <h2 class="produtc-detail-product-title"><?php print $product_varients[$current_sku_id]['varient_name']; ?></h2>
                 <p class="produtc-detail-product-title-description"><?php print $product_varients[$current_sku_id]['varient_summary']; ?></p>
                 <div class="product-detail-info-form-div">
-                    <form class="product-detail-info-form" action="__SELF__" method="POST">
+                    <form class="product-detail-info-form" action="__SELF__" method="GET">
                       <div class="form-name"><h4>选择一个包装等级</h4></div>
                       <div class="product-details__variants product-variants">  
                          
@@ -96,7 +96,7 @@
 	                           	<span class="product-details__shipping-date-icon glyphicon glyphicon-calendar"></span>
 	                            <span class="product-details__shipping-date-value">配送日期</span>
 	                            <div class="product-details__shipping-date-input">
-	                                <input type="text" name="delivery_date" id="delivery_date_catalog_product" class="text-box text-box--small product-details__delivery-date-input hasDatepicker" placeholder="yyyy-mm-dd" required="required" readonly="readonly">
+	                                <input type="text" name="delivery_date" id="delivery_date_catalog_product" class="text-box text-box--small product-details__delivery-date-input hasDatepicker" placeholder="yyyy-mm-dd" required="required" readonly="readonly" onfocus='this.blur();' >
 	                                 
 	                            </div>
 	                           </label>
@@ -125,7 +125,14 @@
                 </div>
                 <p class="col-md-12 col-sm-12 col-xs-12 product-info-plus"><?php print $product_varients[$current_sku_id]['varient_body']; ?></p>
                 </div>
-              </div>              
+                <div class="farm_vendor_info show-mobile">
+                      <a><img src="__PUBLIC__/Home/images/product_detail/farm_vendor/farm_vendor.jpg"></a>
+                      <h3 class="product-detail-container__manufacturer-title">Farmer Manuel</h3>
+                      <p class="product-detail-container__manufacturer-location">Colombia</p>
+                      <p class="product-detail-container__manufacturer-description">Founded in 1976 by four entrepreneurs, it now boasts almost 500 acres of production and more than 30 products available on a year-round basis. They grow great flowers like Roses, Alstroemerias, Carnations, Mini Carnations, Garden Roses and more! Plus, the farm is Rainforest Alliance and SGS certified! They believe their business, the growth of their employees, and caring for the environment are ALL important. </p>
+                </div>
+              </div> 
+                  
             </div>
 
    <!--block 底座-->

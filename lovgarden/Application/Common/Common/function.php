@@ -258,13 +258,43 @@ function get_related_products($current_id) {
     $related_ids[] = $group_id.'3';
     return $related_ids;
 }
+//根据颜色ID 输出 英文class 名字
+function get_css_class_color($color_id) {
+    $color_class = '';
+    switch ($color_id) {
+        case '2':
+            $color_class = 'white';
+            break;
+        case '1':
+            $color_class = 'pink';
+            break;
+        case '3':
+            $color_class = 'purple';
+            break;
+        case '6':
+            $color_class = 'red';
+            break;
+        case '5':
+            $color_class = 'green';
+            break;
+        case '4':
+            $color_class = 'yellow';
+            break;
+    }
+    return $color_class;
+}
 
 //根据配送huryy_level_id选择合适的展现
 function show_appropriate_hurry_status($hurry_level_ids = array()){
     if(count($hurry_level_ids) > 1){
         return '可当日配送';
     }else {
-        return '按您的预定计划配送';
+        if($hurry_level_ids[0] == '1') {
+            return '按预定配送';
+        }
+        elseif($hurry_level_ids[0] == '2'){
+            return '可当日配送';
+        }
     }
 }
 
@@ -283,13 +313,16 @@ function get_filter_conditions(){
 }
 
 //去除url get参数中的某一个参数
-function filterUrl($param,$url) {
+function filterUrl($param,$url='') {
+    if(empty($url)) {
+        $url = $_SERVER['PHP_SELF'];
+    }
     $pattern = "/\/$param\/[^\/]+/";
     return preg_replace($pattern, '', $url);
 }
 
 //根据product_varient 一群产品的获取他们所包含的属性值,用于动态生成查询条件
-function get_available_filters($product_varients_info) {
+function get_available_filters($product_varients_info) {    
    $all_filter = array();
    foreach($product_varients_info as $sku_id => $product_varient){
        foreach($product_varient['hurry_level_id'] as $k => $hurry_level_id) {

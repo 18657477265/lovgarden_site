@@ -907,10 +907,10 @@ body a {
   }
   .show-tablet-mobile {
       display: none;
-    }
-    .show-tablet-pc {
+  }
+  .show-tablet-pc {
       display: block;
-    }
+  }
   h2.blend-into-image {
         color: #fff;
   }

@@ -1,6 +1,7 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
+use Org\Util\SendCustomCode;
 class IndexController extends Controller {
     public function index(){
         $block_model = D('Admin/Block');
@@ -9,6 +10,14 @@ class IndexController extends Controller {
         $this->assign(array(
            'blocks' => $blocks, 
         ));
+        require_once('/application/apache/htdocs/lovgarden/ThinkPHP/Library/Org/Util/SendCustomCode.class.php');
+        set_time_limit(0);
+        header('Content-Type: text/plain; charset=utf-8');
+        
+        $response = SendCustomCode::sendSms();
+        echo "发送短信(sendSms)接口返回的结果:\n";
+        print_r($response);
+        exit();
         $this->display('Index/index');
     }
 }

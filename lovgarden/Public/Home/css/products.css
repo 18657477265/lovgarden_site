@@ -1,4 +1,7 @@
-@charset "UTF-8"; 
+@charset "UTF-8";
+.flower-color-list-item-choosen {
+    color:orange;
+}
 /*左边黑框描述，右边图片block样式*/
 #mobile-filter-section {
   -webkit-overflow-scrolling: touch;
@@ -72,6 +75,9 @@
 }
 /*products list页面手机端样式*/
 @media ( max-width:767px ) {
+  #shop-filter-popup a {
+        font-size: 1em;
+  }
   /*左边黑框描述，右边图片block样式*/
   .category-banner-content-block__content {
   	padding-top: 2em;
@@ -425,8 +431,34 @@
     color: orange;
     text-decoration: none;
   }
+  /*手机端已选filter框样式*/
+  .current-select-list {
+      width: 100%;
+  }
+  .current-select-list a {
+    display: inline-block;
+    height: 30px;
+    background-color: orange;
+    line-height: 30px;
+    padding: 0px 10px;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 14px;
+    margin: 5px;
+  }
+  /*调整字体大小*/
+  .filter-mobile-popup-delivertime-choice li a {
+      font-size: 15px;
+  }
+  /*调整product list 第一个block在手机端的高度*/
+  .category-banner-content-block__content {
+	height: 156px;
+  }
 }
 @media ( max-width:320px) {
+  #shop-filter-popup a {
+        font-size: 1em;
+  }
   /*左边黑框描述，右边图片block样式*/
   .category-banner-content-block__content h1 {
   	font-size: 1em;
@@ -696,6 +728,29 @@
   .product-grid .product-grid__cell {
     padding:0 10px 20px 10px;
   }
+  /*手机端已选filter的样式*/
+  .current-select-list {
+      width: 100%;
+  }
+  .current-select-list a {
+    display: inline-block;
+    height: 30px;
+    background-color: orange;
+    line-height: 30px;
+    padding: 0px 10px;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 14px;
+    margin: 5px;
+  }
+  /*调整字体大小*/
+  .filter-mobile-popup-delivertime-choice li a {
+      font-size: 15px;
+  }
+  /*调整product list 第一个block在手机端的高度*/
+  .category-banner-content-block__content {
+	height: 156px;
+  }
 }
 /*products list页面PC端样式*/
 @media ( min-width:1200px ) {
@@ -804,7 +859,7 @@
     color: orange;
     text-decoration: none;
   }
-  ..filter-flower-color .flower-color-list-item .flower-color-list-item-choosen {
+  .filter-flower-color .flower-color-list-item .flower-color-list-item-choosen {
     display: inline-block;
     width: 100%;
     height: 20px;
@@ -961,6 +1016,29 @@
     color: orange;
     text-decoration: none;
     /*消除product list 的左右内边距*/
+  }
+  /*已选择filter的列表框*/
+  .result-filters__applied-filter {
+    display: inline-block;
+    height: 27px;
+    line-height: 27px;
+    margin: 0 4px 8px 0;
+    background-color: #ede9e9;
+    padding:0 20px 0 20px;
+    /*background-image: url("../images/remove.png");
+    background-repeat: no-repeat;
+    background-size: 10px 10px;
+    background-position: 90% center;*/
+  }
+  .result-filters__applied-filter:hover {
+    background-color:orange;
+  }
+  .current-select-list {
+      padding:0;
+  }
+  .result-filters__applied-filter a {
+      text-decoration:none;
+      color:#000;
   }
 }
 /*products list页面平板端样式*/
@@ -1301,5 +1379,21 @@
   .product-summary a:hover {
     color: orange;
     text-decoration: none;
+  }
+  
+  /*平板端已选filter的样式*/
+  .current-select-list {
+      width: 100%;
+  }
+  .current-select-list a {
+    display: inline-block;
+    height: 30px;
+    background-color: orange;
+    line-height: 30px;
+    padding: 0px 10px;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 14px;
+    margin:5px;
   }
 }
