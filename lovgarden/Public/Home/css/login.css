@@ -99,6 +99,27 @@
   .singup-block {
     display: none;
   }
+  .auth-code-box {
+      width: 100%;
+      height: 50px;
+  }
+  .verification-input {
+      width: 50%;
+      float: left;
+      padding: 0;
+      margin: 0;
+  }
+  .verification-get {
+      float: left;
+      width: 50%;
+      text-align: right;
+  }
+  .getCode{
+      width: 90%;
+      background-color: #ffa500;
+      color: #fff;
+      border: none;
+  }
 }
 /*products checkout flow1 小屏幕手机端样式*/
 @media ( max-width:320px) {
@@ -199,6 +220,27 @@
   .singup-block {
     display: none;
   }
+  .auth-code-box {
+      width: 50%;
+      height: 50px;
+  }
+  .verification-input {
+      width: 50%;
+      float: left;
+      padding: 0;
+      margin: 0;
+  }
+  .verification-get {
+      float: left;
+      width: 50%;
+      text-align: right;
+  }
+  .getCode{
+      width: 90%;
+      background-color: #ffa500;
+      color: #fff;
+      border: none;
+  }
 }
 /*products checkout flow1页面平板端样式*/
 @media ( min-width:768px ) and ( max-width:1199px ) {
@@ -292,5 +334,27 @@
   }
   .singup-block {
     display: none;
+  }
+  
+  .auth-code-box {
+      width: 100%;
+      height: 50px;
+  }
+  .verification-input {
+      width: 50%;
+      float: left;
+      padding: 0;
+      margin: 0;
+  }
+  .verification-get {
+      float: left;
+      width: 50%;
+      text-align: right;
+  }
+  .getCode{
+      width: 90%;
+      background-color: #ffa500;
+      color: #fff;
+      border: none;
   }
 }

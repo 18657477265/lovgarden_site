@@ -29,24 +29,59 @@ $(function(){
    	alert($(this).val());
    });
    //login页面注册和登录框互相转换
-   $("a.click-to-signup").on('click',function(event) {
-   	  event.preventDefault(); 
-      $('.singup-block').css('display','block');
-      $('.login-block').css('display','none');
+//   $("a.click-to-signup").on('click',function(event) {
+//   	  event.preventDefault(); 
+//      $('.singup-block').css('display','block');
+//      $('.login-block').css('display','none');
+//   });
+//   $("a.click-to-login").on('click',function(event) {
+//   	  event.preventDefault(); 
+//      $('.singup-block').css('display','none');
+//      $('.login-block').css('display','block');
+//   });
+   //注册页面点击按钮发送验证码ajax,发送之前检查倒计时60秒是否存在,存在继续倒计时
+    var countdown=60;
+    function settime(obj) { //发送验证码倒计时
+        if (countdown == 0) { 
+            obj.attr('disabled',false); 
+            //obj.removeattr("disabled"); 
+            obj.val("获取验证码");
+            countdown = 60;
+            $.cookie("total",countdown, { expires: -1 });
+            return;
+        } else { 
+            obj.attr('disabled',true);
+            obj.val("重新发送(" + countdown + ")");
+            countdown--;
+            $.cookie("total",countdown);
+        } 
+        setTimeout(function() { settime(obj) },1000) 
+    }
+    if($.cookie("total")!=undefined && $.cookie("total")!='NaN' && $.cookie("total")!='null') {
+        countdown = $.cookie("total");
+        settime($('.verification-get input.getCode'));
+    }
+   $('.verification-get input.getCode').on('click',function(){
+           //$(this).val('验证码发送中');
+           var this_button = $(this);
+           settime(this_button);
+            $.ajax({
+                type: 'POST',
+                url: "/user/send_ali_message_code",
+                dataType: 'json',
+                success:function(data) {
+                  alert(data);
+                }         
+           });
    });
-   $("a.click-to-login").on('click',function(event) {
-   	  event.preventDefault(); 
-      $('.singup-block').css('display','none');
-      $('.login-block').css('display','block');
-   });
+   
    $('.icon--wechat').on('click',function(event){
       event.stopPropagation();
       $('.wechat-popup').css('display','inline-block'); 
    });
    $('.wechat-popup').click(function(event){
       $('.wechat-popup').css('display','none'); 
-   });
-   
+   });  
    
    //product详情页根据包装切换内容
    $("body.product-detail-page input[type='radio']").on('change',function(){

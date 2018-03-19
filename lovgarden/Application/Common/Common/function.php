@@ -341,3 +341,17 @@ function get_available_filters($product_varients_info) {
    return $all_filter;
 }
 
+//操作成功页面根据status状态码返回不同信息
+function translate_status_label($status_code = '2') {
+    $result = '成功';
+    switch ($status_code) {
+        case '1':
+            $result = '恭喜您注册成功';
+            break;
+        case '2':
+            $result = '成功';
+            break;
+    }
+    return $result;
+}
+

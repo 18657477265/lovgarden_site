@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+     <title>花点馨思|登入注册</title>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css"/>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap-maizi.css"/>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/style.css"/>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/login.css"/>
+     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+     <script src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
+     <script src="__PUBLIC__/Home/js/jquery.cookie.js"></script>
+</head>
+<body class="page">
+<include file="Application/Home/View/Common/nav_block.html" />
+<include file="Application/Home/View/Common/menu_block.html" />
+  <div class="header-gap"></div>
+
+  <div class="container login-block">
+  	  <h1 class="login-create-account__heading">
+		<span class="heading-1">用户登录</span><br/>欢迎您回来</span>
+	  </h1>
+	  <div class="login-create-account__header col-md-6 col-sm-6 col-xs-12">
+              <form id="login_form" class="login-create-account__form" action="__SELF__" method="POST">
+           <!--<input type="hidden" name="return_to" id="login_return_to">-->
+           <div class="property">
+             
+              <div class="value">
+                  <input class="form-control" type="text" name="telephone" id="login_account" required="required" placeholder="手机号码">
+              </div>
+           </div>
+           <div class="property">
+            
+              <div class="value">
+	              <input type="password" name="password" id="login_account_password" class="form-control text-box text-box--full-width" required="required" placeholder="密码" autocomplete="off">
+              </div>
+           </div>
+           <p><button name="button" type="submit" value="create_account" class="btn button button--full-width">登录</button></p>
+           <p class="forget-password">
+           <a href="/legal">忘记密码</a>
+           </p>
+          </form>
+        <p>
+        	<button name="button" type="submit" value="create_account" class="btn button button--full-width qq-login-button">QQ登录</button>
+        </p>	
+        <h3 class="login-create-account__toggle">
+         <span>没有花点馨思账号?</span>
+         <a class="click-to-signup" href="__CONTROLLER__/register">点击这里注册</a>
+        </h3>
+      </div>
+      <div class="login-create-account__right-image col-md-6 col-sm-6 col-xs-12 show-tablet-pc">
+      	<img src="__PUBLIC__/Home/images/login_signup/login_signup.jpg"/ width="100%">
+      </div>
+  </div>
+  
+
+   <!--block 底座-->
+   <include file="Application/Home/View/Common/foot_block.html" />
+    <script src="__PUBLIC__/Home/js/jquery.singlePageNav.min.js"></script>
+    <script src="__PUBLIC__/Home/js/wow.min.js"></script> 
+    <script src="__PUBLIC__/Home/js/custom.js"></script>
+    <script>
+      $(function(){
+        new WOW().init();
+      })
+    </script>
+</body>
+</html>
