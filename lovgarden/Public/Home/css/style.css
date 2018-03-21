@@ -181,6 +181,9 @@ body a {
   body a {
   	font-size: 1.3em;
   }
+  .user-options {
+      display: none;
+  }
   .navbar-desktop {
     display: none;
   }
@@ -716,6 +719,42 @@ body a {
   .page-footer__social {
       position: relative;
   }
+  /*用户选项下拉框样式*/
+  #login {
+      position: relative;
+  }
+  .user-options {
+      display: none;
+      border: 1px solid #d4cece;
+      border-radius: 5px;
+      position: absolute;
+      border-color: #c8c0c0;
+      left: -32px;
+      top: 66%;
+      box-shadow: 2px 3px 5px #c2bcbc;
+      background-color: #fff;
+  }
+  .user-options .arrow-icon {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    position: absolute;
+    border: 10px solid;
+    border-color: transparent transparent #c8c0c0 transparent;
+    top: -25%;
+    left: 32%;
+  }
+  .user-options ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+  }
+  .user-options ul li {
+      padding: 10px;
+      width: 150px;
+      text-align: center;
+      line-height: 20px;
+  }
 }
 
 /*PC 端代码*/
@@ -927,10 +966,49 @@ body a {
   .page-footer__social {
       position: relative;
   }
+  /*用户选项下拉框样式*/
+  #login {
+      position: relative;
+  }
+  .user-options {
+      display: none;
+      border: 1px solid #d4cece;
+      border-radius: 5px;
+      position: absolute;
+      border-color: #c8c0c0;
+      left: 0;
+      top: 66%;
+      box-shadow: 2px 3px 5px #c2bcbc;
+      background-color: #fff;
+  }
+  .user-options .arrow-icon {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    position: absolute;
+    border: 10px solid;
+    border-color: transparent transparent #c8c0c0 transparent;
+    top: -25%;
+    left: 32%;
+  }
+  .user-options ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+  }
+  .user-options ul li {
+      padding: 10px;
+      width: 150px;
+      text-align: center;
+      line-height: 20px;
+  }
 }
 
 /*小屏手机*/
 @media ( max-width:320px) {
+  .user-options {
+      display: none;
+  }
   .content-block-left-description-button {
     display: inline-block;
     background-color: orange;

@@ -22,22 +22,27 @@
   	  <h1 class="login-create-account__heading">
 		<span class="heading-1">用户登录</span><br/>欢迎您回来</span>
 	  </h1>
+          <?php if(!empty($error_message)): ?>
+          <p class="error-message" style="color: red"><?php print $error_message; ?></p>
+          <?php endif; ?>
 	  <div class="login-create-account__header col-md-6 col-sm-6 col-xs-12">
               <form id="login_form" class="login-create-account__form" action="__SELF__" method="POST">
            <!--<input type="hidden" name="return_to" id="login_return_to">-->
            <div class="property">
              
               <div class="value">
-                  <input class="form-control" type="text" name="telephone" id="login_account" required="required" placeholder="手机号码">
+                  <input class="form-control" type="text" name="login_telephone" id="login_account" placeholder="手机号码" autocomplete="on" value="<?php print $user_telephone; ?>">
               </div>
+               <span id="telephone-error" style="display: none; color: red;"></span>
            </div>
            <div class="property">
             
               <div class="value">
-	              <input type="password" name="password" id="login_account_password" class="form-control text-box text-box--full-width" required="required" placeholder="密码" autocomplete="off">
+	              <input type="password" name="login_password" id="login_account_password" class="form-control text-box text-box--full-width"placeholder="密码" autocomplete="off">
               </div>
+              <span id="password-error" style="display: none; color: red;"></span>
            </div>
-           <p><button name="button" type="submit" value="create_account" class="btn button button--full-width">登录</button></p>
+           <p><button type="submit" value="create_account" class="btn button button--full-width login-submmit-button">登录</button></p>
            <p class="forget-password">
            <a href="/legal">忘记密码</a>
            </p>
@@ -61,6 +66,7 @@
     <script src="__PUBLIC__/Home/js/jquery.singlePageNav.min.js"></script>
     <script src="__PUBLIC__/Home/js/wow.min.js"></script> 
     <script src="__PUBLIC__/Home/js/custom.js"></script>
+    <script src="__PUBLIC__/Home/js/validator.js"></script>
     <script>
       $(function(){
         new WOW().init();

@@ -12,6 +12,21 @@ $(function(){
 	   		return "pc";
 	   	}
    }
+   //检测用户是否处于登录状态
+   $.ajax({
+        type: 'POST',
+        url: "/user/get_user_status",
+        //data: send_message,
+        dataType: 'json',
+        success:function(data) {
+            if(data == '1') {
+                $('.user-options ul li.option1 a').attr('href','/user/profile');
+                $('.user-options ul li.option1 a').text('您的资料');
+                $('.user-options ul li.option2 a').attr('href','/user/logout');
+                $('.user-options ul li.option2 a').text('退出系统');
+            }            
+        }         
+   });
    
    //检测product detail 页面中的radio是否被选中
    $(".product-variant-choice-border input[name='sku']").on('change',function(){
@@ -64,13 +79,21 @@ $(function(){
    $('.verification-get input.getCode').on('click',function(){
            //$(this).val('验证码发送中');
            var this_button = $(this);
+           var send_telephone = $('input[name="telephone"]').val();
            settime(this_button);
+           var send_message = {
+                 send_telephone: send_telephone,
+           };
             $.ajax({
                 type: 'POST',
                 url: "/user/send_ali_message_code",
+                data: send_message,
                 dataType: 'json',
                 success:function(data) {
-                  alert(data);
+                    //alert(data);
+                  if(data == '3') {
+                      alert('验证码发送失败,请稍后再试');
+                  }
                 }         
            });
    });
@@ -177,6 +200,15 @@ $(function(){
            
            //双保险 如果碰到有show-tablet-mobile的在PC上隐藏
            $(".show-tablet-mobile").css('display','none');
+           
+           //控制用户小弹窗的显示和消失
+           $('#login').on('mouseenter',function(){
+               $('.user-options').fadeIn(300);
+           });
+           $('#login').on('mouseleave',function(){
+               $('.user-options').fadeOut(300);
+           });
+           
    }
    else if(device == 'tablet') {
 	   $('#shop-market').on('click',function(e) { 
@@ -275,6 +307,11 @@ $(function(){
           
           //双保险 碰到有show-pc的在非PC端隐藏
           $('.show-pc').css('display','none');
+          
+           //控制用户小弹窗的显示和消失
+           $('#login').on('click',function(){
+               $('.user-options').fadeToggle(300);
+           });
    }
    else if (device == 'mobile') {
 	   $('.mobile-menu-show').on('click',function(e) {

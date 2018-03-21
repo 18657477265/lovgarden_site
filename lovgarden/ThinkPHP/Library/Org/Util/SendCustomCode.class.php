@@ -64,7 +64,7 @@ class SendCustomCode {
      * 发送短信
      * @return stdClass
      */
-    public static function sendSms() {
+    public static function sendSms($telephone,$random_code) {
 
         // 初始化SendSmsRequest实例用于设置发送短信的参数
         $request = new SendSmsRequest();
@@ -73,7 +73,7 @@ class SendCustomCode {
         //$request->setProtocol("https");
 
         // 必填，设置短信接收号码
-        $request->setPhoneNumbers("18657477265");
+        $request->setPhoneNumbers($telephone);
 
         // 必填，设置签名名称，应严格按"签名名称"填写，请参考: https://dysms.console.aliyun.com/dysms.htm#/develop/sign
         $request->setSignName("花点馨思");
@@ -83,7 +83,7 @@ class SendCustomCode {
 
         // 可选，设置模板参数, 假如模板中存在变量需要替换则为必填项
         $request->setTemplateParam(json_encode(array(  // 短信模板中字段的值
-            "code"=>"HM2018",
+            "code"=>$random_code,
             "product"=>"dsd"
         ), JSON_UNESCAPED_UNICODE));
 

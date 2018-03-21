@@ -13,6 +13,10 @@ return array(
     'MODULE_ALLOW_LIST' => array('Home','Admin'), 
     'APP_GROUP_LIST' => 'Home,Admin', //项目分组设定 
     'DEFAULT_GROUP' => 'Home', //默认分组
+    'DATA_CACHE_TYPE' => 'Memcache',
+    'MEMCACHE_HOST'  => 'tcp://127.0.0.1:11211',
+    //'MEMCACHED_PORT' => array('11211'),
+    'DATA_CACHE_TIME' => 7200,
     /************ 图片相关的配置 ***************/
     'IMAGE_CONFIG' => array(
     	'maxSize' => 1024*1024,
