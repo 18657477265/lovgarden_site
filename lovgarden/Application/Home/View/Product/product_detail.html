@@ -123,7 +123,7 @@
                          </div>
                       </div>
                       <?php endif; ?>
-                      <p class="add-to-cart col-xs-12 col-sm-12 col-md-12"><button name="button" type="button" value="add_to_cart" class="cancel button button--wide">加入购物车</button></p>
+                      <p class="add-to-cart col-xs-12 col-sm-12 col-md-12"><button name="button" type="button" value="add_to_cart" class="cancel button button--wide">加入购物车</button><span class="waiting-response" style="display: none;"><img width="40px;" src="__PUBLIC__/Home/images/processing.gif" /></span></p>
                   </form>
                 </div>
                 <p class="col-md-12 col-sm-12 col-xs-12 product-info-plus"><?php print $product_varients[$current_sku_id]['varient_body']; ?></p>
@@ -136,9 +136,8 @@
                 </div>
               </div>                  
             </div>
-                 <div id="my_popup">
-                     <p>已加入购物车</p>
-                     <button class="my_popup_close">Close</button>
+                 <div id="add_to_cart_popup">
+                     <p class="response-message"><span class="glyphicon glyphicon-ok"></span>已加入购物车</p>
                  </div>
 
    <!--block 底座-->

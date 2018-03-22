@@ -29,8 +29,11 @@
                       <input type="text" name="varient_price" class="textbox" placeholder="商品价格"  value="<?php echo $data['varient_price'];  ?>" />
                      </li>
                      <li>
-                      <span class="item_name" style="width:120px;">商品详细描述：</span>
-                      <textarea name="varient_body" rows="5" cols="20"><?php echo $data['varient_body'];  ?></textarea>
+                      
+                     
+   
+                       
+
                      </li>
                      <li>
                       <span class="item_name" style="width:120px;">商品状态：</span>
@@ -80,9 +83,11 @@
                      </li>
                      <li><p><a class="add_more_image">继续添加图片</a></p></li>
                      <li>
-                     <div><input type="submit" class="link_btn"/></div>
                      </li>
                     </ul>
+                      <span class="item_name" style="width:120px;">商品详细描述：</span>
+                      <textarea id="editor" name="varient_body"><?php echo $data['varient_body'];  ?></textarea>
+                    <div><input type="submit" class="link_btn"/></div>
          </form>
      </section>
  </div>

@@ -282,6 +282,22 @@
   div.product-details__shipping-date-container.product-details__vase-container {
       padding-top: 3px;
   }
+  /*加入购物车按钮提示框样式*/
+  #add_to_cart_popup {
+    width: 88%;
+    height: 200px;
+    background-color: rgba(0,0,0,0.5);
+    border: 2px solid #fff;
+    border-radius: 10px;
+    display: none;
+  }
+  #add_to_cart_popup .response-message {
+    width: 100%;
+    text-align: center;
+    line-height: 200px;
+    font-size: 25px;
+    color: orange;
+  }
 }
 /*products detail小屏幕手机端样式*/
 @media ( max-width:320px) {
@@ -415,6 +431,22 @@
   }
   div.product-details__shipping-date-container.product-details__vase-container {
       padding-top: 3px;
+  }
+  /*加入购物车按钮提示框样式*/
+  #add_to_cart_popup {
+    width: 88%;
+    height: 200px;
+    background-color: rgba(0,0,0,0.5);
+    border: 2px solid #fff;
+    border-radius: 10px;
+    display: none;
+  }
+  #add_to_cart_popup .response-message {
+    width: 100%;
+    text-align: center;
+    line-height: 200px;
+    font-size: 25px;
+    color: orange;
   }
 }
 /*products detail页面PC端样式*/
@@ -678,6 +710,22 @@
     transition: all 0.2s ease;
     white-space: nowrap;
     min-width: 230px;
+  }
+  /*加入购物车按钮提示框样式*/
+  #add_to_cart_popup {
+    width: 30%;
+    height: 200px;
+    background-color: rgba(0,0,0,0.5);
+    border: 2px solid #fff;
+    border-radius: 10px;
+    display: none;
+  }
+  #add_to_cart_popup .response-message {
+    width: 100%;
+    text-align: center;
+    line-height: 200px;
+    font-size: 30px;
+    color: orange;
   }
 }
 /*products detail页面平板端样式*/
@@ -943,7 +991,25 @@
     white-space: nowrap;
     min-width: 230px;
   }
-
+  /*加入购物车按钮提示框样式*/
+  #add_to_cart_popup {
+    width: 45%;
+    height: 200px;
+    background-color: rgba(0,0,0,0.5);
+    border: 2px solid #fff;
+    border-radius: 10px;
+    display: none;
+    position: absolute !important;
+    top: 19%;
+    left: 28%;
+  }
+  #add_to_cart_popup .response-message {
+    width: 100%;
+    text-align: center;
+    line-height: 200px;
+    font-size: 30px;
+    color: orange;
+  }
 
 }
 .product-detail-big-img {

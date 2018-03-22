@@ -140,4 +140,15 @@ class ProductController extends Controller {
         $this->display('product_list');
         
     }
+    
+    //点击添加到购物车时候出发的ajax请求
+    public function ajax_add_to_cart(){
+        sleep(1);
+        if(!empty(session('custom_id'))){
+          echo '1';
+        }
+        else {
+          echo '2';
+        }
+    }
 }

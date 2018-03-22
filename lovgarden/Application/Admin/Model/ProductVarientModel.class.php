@@ -47,11 +47,12 @@ lovgarden_product_varient_images AS df ON mf.`id`= df.`product_varient_id` WHERE
         if(isset($_POST['flower_occasion'])) {
             $multiple_select_array['flower_occasion'] = $_POST['flower_occasion'];
         }
+        
         //构建product_varient数据
         $data['sku_id'] = htmlspecialchars($_POST['sku_id']);
         $data['varient_name'] = htmlspecialchars($_POST['varient_name']);
         $data['varient_summary'] = htmlspecialchars($_POST['varient_summary']);
-        $data['varient_body'] = htmlspecialchars($_POST['varient_body']);
+        $data['varient_body'] = $_POST['varient_body'];
         $data['varient_status'] = htmlspecialchars($_POST['varient_status']);
         $data['varient_price'] = htmlspecialchars($_POST['varient_price']);
         $data['decoration_level'] = htmlspecialchars($_POST['decoration_level']);
@@ -91,7 +92,7 @@ lovgarden_product_varient_images AS df ON mf.`id`= df.`product_varient_id` WHERE
         $data['sku_id'] = htmlspecialchars($_POST['sku_id']);
         $data['varient_name'] = htmlspecialchars($_POST['varient_name']);
         $data['varient_summary'] = htmlspecialchars($_POST['varient_summary']);
-        $data['varient_body'] = htmlspecialchars($_POST['varient_body']);
+        $data['varient_body'] = $_POST['varient_body'];
         $data['varient_status'] = htmlspecialchars($_POST['varient_status']);
         $data['varient_price'] = htmlspecialchars($_POST['varient_price']);
         $data['decoration_level'] = htmlspecialchars($_POST['decoration_level']);
