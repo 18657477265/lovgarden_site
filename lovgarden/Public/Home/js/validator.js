@@ -91,4 +91,18 @@ $(function(){
            return false;
        }
    });
+   
+   //忘记密码验证
+   $("#reset_password_form").on('submit',function(){
+       var telephone = $('input[name="telephone"]').val();
+       var password = $('input[name="password"]').val();
+       var repassword = $('input[name="repassword"]').val();
+       var auth_code = $('input[name="auth_code"]').val();
+       if(checkIsMobil(telephone) && checkIsPassword(password) && checkIsComfirmPassword(repassword) && checkVerifyCode(auth_code)) {
+         return true;
+       }
+       else {
+           return false;
+       }
+   });
 })

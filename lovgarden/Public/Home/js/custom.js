@@ -20,10 +20,17 @@ $(function(){
         dataType: 'json',
         success:function(data) {
             if(data == '1') {
+                //pc端
                 $('.user-options ul li.option1 a').attr('href','/user/profile');
                 $('.user-options ul li.option1 a').text('您的资料');
                 $('.user-options ul li.option2 a').attr('href','/user/logout');
                 $('.user-options ul li.option2 a').text('退出系统');
+                
+                //手机端
+                $('.account-option1').attr('href','/user/profile');
+                $('.account-option1').text('您的资料');
+                $('.account-option2').attr('href','/user/logout');
+                $('.account-option2').text('退出系统');
             }            
         }         
    });

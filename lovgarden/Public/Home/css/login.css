@@ -120,6 +120,10 @@
       color: #fff;
       border: none;
   }
+  /*忘记密码页面的样式*/
+  .reset-account__heading {
+      text-align: center;
+  }
 }
 /*products checkout flow1 小屏幕手机端样式*/
 @media ( max-width:320px) {
@@ -241,6 +245,27 @@
       color: #fff;
       border: none;
   }
+  /*忘记密码页面的样式*/
+  .reset-password-page .reset-account__heading {
+      text-align: center;
+  }
+  
+  #reset_password_telephone {
+      width:100%;
+  }
+  #reset_password {
+      width:100%;
+  }
+  #reset_repassword {
+      width:100%;
+  }
+  .reset-password-page .auth-code-box {
+      width:100%;
+  }
+  .reset-password-page .login-submmit-button {
+      width:100% !important;
+  }
+  
 }
 /*products checkout flow1页面平板端样式*/
 @media ( min-width:768px ) and ( max-width:1199px ) {
@@ -356,5 +381,24 @@
       background-color: #ffa500;
       color: #fff;
       border: none;
+  }
+  /*忘记密码页面的样式*/
+  .reset-password-page .reset-account__heading {
+      text-align: center;
+  }
+  #reset_password_telephone {
+      width:100%;
+  }
+  #reset_password {
+      width:100%;
+  }
+  #reset_repassword {
+      width:100%;
+  }
+  .reset-password-page .auth-code-box {
+      width:100%;
+  }
+  .reset-password-page .login-submmit-button {
+      width:100%;
   }
 }

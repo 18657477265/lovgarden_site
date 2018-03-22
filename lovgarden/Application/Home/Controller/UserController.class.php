@@ -154,4 +154,8 @@ class UserController extends Controller {
         $user_model->logout();
         $this->redirect('User/login');
     }
+    
+    public function forgetPassword() {
+        $this->display('reset_password');
+    }
 }
