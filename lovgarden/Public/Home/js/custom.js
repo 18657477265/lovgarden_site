@@ -87,22 +87,33 @@ $(function(){
            //$(this).val('验证码发送中');
            var this_button = $(this);
            var send_telephone = $('input[name="telephone"]').val();
-           settime(this_button);
-           var send_message = {
-                 send_telephone: send_telephone,
-           };
-            $.ajax({
-                type: 'POST',
-                url: "/user/send_ali_message_code",
-                data: send_message,
-                dataType: 'json',
-                success:function(data) {
-                    //alert(data);
-                  if(data == '3') {
-                      alert('验证码发送失败,请稍后再试');
-                  }
-                }         
-           });
+           var pattern = /^[1][3,4,5,7,8][0-9]{9}$/;
+           if(send_telephone != null && send_telephone != undefined && send_telephone != "" && pattern.test(send_telephone)) {
+                settime(this_button);
+                var send_message = {
+                      send_telephone: send_telephone,
+                };
+                 $.ajax({
+                     type: 'POST',
+                     url: "/user/send_ali_message_code",
+                     data: send_message,
+                     dataType: 'json',
+                     success:function(data) {
+                         //alert(data);
+                       if(data == '3') {
+                           $('#telephone-error').text('输入的手机格式有误!');
+                           $('#telephone-error').fadeIn(300);
+                       }
+                       else if(data == '5') {
+                           alert('由于您多次点击发送,出于安全考虑,系统已将您冻结');
+                       }
+                     }         
+                });
+            }
+            else {
+                $('#telephone-error').text('输入的手机格式有误!');
+                $('#telephone-error').fadeIn(300);
+            }
    });
    
    $('.icon--wechat').on('click',function(event){

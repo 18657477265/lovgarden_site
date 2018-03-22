@@ -7,34 +7,19 @@ class UserController extends Controller {
     public function login(){
         if(IS_POST) {            
    	    $user_model = D('User');
-   	    // 接收表单并且验证表单
-            
+   	    // 接收表单并且验证表单           
             $user_info = array(
                'user_telephone' => I('post.login_telephone',''),
                'user_password' => I('post.login_password',''),
             );
-            //首先要检查这个登录是不是正常用户登录，如果登入失败10次封掉IP 1小时
-            $client_ip = getClientIp();
-            $mem = new Memcache();
-            $ip_send_count = $mem->get($client_ip);
-            if(empty($ip_send_count) || $ip_send_count <10) {
+            //首先要检查这个登录是不是正常用户登录，如果登入失败10次封掉IP 1小时            
+            if(mem_check_ip_attention()) {
                 if($user_model->validate($user_model->_login_validate)->create($user_info)) {
                     if($user_model->login()) {
-                       $this->redirect("/");
+                       $this->redirect("User/operation_success/status/2");
                        exit();
                     }
-                }
-                
-                if(!empty($ip_send_count)) {
-                  //一小时内不是第一次发送
-                  $ip_send_count ++;
-                  $mem->set($client_ip, $ip_send_count, 21600);
-                }
-                else {
-                  //第一次发送
-                  $mem->set($client_ip,1,21600); 
-                }
-                
+                }                
    	        $error_message = $user_model->getError();
                 $this->assign(array(
                    'error_message' => $error_message,
@@ -43,7 +28,7 @@ class UserController extends Controller {
             }
             else {
                $this->assign(array(
-                   'error_message' => '由于您失败太多次,出于安全考虑系统暂时将您冻结',
+                   'error_message' => '由于您失败太多次或者频繁登录,出于安全考虑系统暂时将您冻结',
                    'user_telephone' => $user_info['user_telephone']
                )); 
             }
@@ -79,6 +64,10 @@ class UserController extends Controller {
               'error_message' => $error_message,
             ));
          }
+         //如果是已经登录用户，跳转到首页去
+        if(!empty(session('custom_id'))) {
+            $this->redirect('/');
+        }
          $this->display('register');
     }
     
@@ -88,35 +77,24 @@ class UserController extends Controller {
         ));
         $this->display('success');
     } 
-    
+    //发送短信验证码接口
     public function send_ali_message_code() {
         //将验证码保存在session中，其实最好得方式是保存在memcache中，之后得改
         $telephone= I('post.send_telephone');       
-        if(!empty($telephone)) {
-            //检查是否过于频繁发送，一个ip地址一小时内最多发送5次
-            $client_ip = getClientIp();
-            $mem = new Memcache();
-            $ip_send_count = $mem->get($client_ip);
-            if(empty($ip_send_count) || $ip_send_count <10) {
+        if(!empty($telephone) && preg_match('/^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$/',$telephone)) {
+            //检查是否过于频繁发送，一个ip地址一小时内最多发送5次            
+            if(mem_check_ip_attention()) {
                 //生成随机验证码
                 $param = str_pad(mt_rand(0, 999999), 6, "0", STR_PAD_BOTH);              
                 set_time_limit(0);          
                 $response = SendCustomCode::sendSms($telephone,$param);
                 //将数据存入memcache,并设置5分钟后过期
                 //S($telephone,$param,300);
-                $mem->set($telephone, $param, 300);
-                if(!empty($ip_send_count)) {
-                  //一小时内不是第一次发送
-                  $ip_send_count ++;
-                  $mem->set($client_ip, $ip_send_count, 21600);
-                }
-                else {
-                  //第一次发送
-                  $mem->set($client_ip,1,21600); 
-                }
+                $mem_new = new Memcache();
+                $mem_new->set($telephone, $param, 300);
             }
             else {
-              echo '3';
+              echo '5';
             }
         }
         else {
@@ -131,10 +109,11 @@ class UserController extends Controller {
        
       
           $mem2 = new Memcache();
-          $value = $mem2->get($a);
-          echo $value;
-          exit();
-          $value2 = $mem2->set($a, 1, 3600);
+          $value1 = $mem2->get('15168188557');
+          $value2 = $mem2->get($a);
+          echo $value1;
+          //exit();
+          $value3 = $mem2->set($a, 1, 7200);
           echo '------';
           echo $value2;
           exit();
@@ -155,7 +134,41 @@ class UserController extends Controller {
         $this->redirect('User/login');
     }
     
-    public function forgetPassword() {
-        $this->display('reset_password');
+    public function forgetPassword() {        
+            if(IS_POST) {
+               $error_message_info = '';
+               $user_model = D('User');
+               $user_info = array(
+                   'user_telephone' => I('post.telephone',''),
+                   'user_password' => I('post.password',''),
+                   'repassword' => I('post.repassword',''),
+                   'user_active_code' => I('post.auth_code',''),
+                   'user_status' => '1'
+                );
+                $data_status = $user_model->validate($user_model->_reset_password_validate)->create($user_info);             
+                if($data_status) {
+                    //通过验证，开始更新用户密码
+                    $user = $user_model->where(array(
+                               'user_telephone' => array('EQ',$user_info['user_telephone']),
+                            ))->find();
+                    if($user) {
+                        $user_id = $user['user_id'];
+                        $user_save_status = $user_model->where(array('user_id' => $user_id))->save($data_status);
+                        if($user_save_status !== FALSE) {
+                            $this->redirect('User/operation_success/status/3');
+                        }
+                        else {                             
+                            $error_message_info = '密码修改失败,请稍后再试';                       
+                        }
+                    }else {
+                        $error_message_info = '该用户不存在,请注册';   
+                    }        
+                }                
+                $error_message = $error_message_info . $user_model->getError();
+                $this->assign(array(
+                  'error_message' => $error_message,
+                ));
+             }
+            $this->display('reset_password');   
     }
 }

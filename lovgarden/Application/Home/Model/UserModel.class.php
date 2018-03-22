@@ -34,20 +34,38 @@ class UserModel extends Model
         array('user_telephone','/^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$/','手机号码格式不正确',0),
         array('user_password','check_password','密码由数字和字母组成并且是6-12位',1,'callback',3),
     );
-    // 验证验证码是否正确
+    //为忘记密码的表单定义一个验证规则
+    public $_reset_password_validate = array(
+        array('user_telephone', 'require', '手机号不能为空！', 1),
+	array('user_password', 'require', '密码不能为空！', 1),
+        array('repassword','user_password','确认密码必须和密码一致',1,'confirm'),
+        array('user_password','check_password','密码由数字和字母组成并且是6-12位',1,'callback',3),
+        array('user_active_code', 'check_verify_code', '验证码不正确！', 1, 'callback'),
+    );
+    // 验证验证码是否正确(注册)
     function check_verify_code($user_active_code = ''){
             //session('verify_message_code','2222');
 	    //$right_code = session('verify_message_code');
             //通过memcache取得这个号码的验证码
             $telephone = I('post.telephone');
             $mem = new \Think\Cache\Driver\Memcache();
-            $right_code = $mem->get($telephone);           
+            $right_code = $mem->get($telephone); 
             if($user_active_code === $right_code) {
 	       return TRUE;
             }
             else {
                 return FALSE;
             }
+    }
+    //验证是否擅自改了手机号码(忘记密码页面)
+    function check_verify_telephone($user_telephone){
+            $right_user_telephone = session('user_telephone');
+            if(!empty($right_user_telephone)) {
+               if($right_user_telephone === $user_telephone){
+                   return true;
+               }
+            }
+            return FALSE;
     }
     
     public function login(){

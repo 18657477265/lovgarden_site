@@ -66,7 +66,7 @@
   .login-create-account__header {
     padding: 0;
   }
-  #login_form .button--full-width {
+  #login_form .button--full-width , #reset_password_form .button--full-width {
     margin: 0;
     height: 35px;
     width: 100%;
@@ -77,7 +77,10 @@
   #login_form .button--full-width:hover {
     background-color: #ffa500c9
   }
-  #login_form {
+  #reset_password_form .button--full-width:hover {
+    background-color: #ffa500c9
+  }
+  #login_form , #reset_password_form {
     margin: 0 0 20px 0;
     height: auto;
   }
@@ -191,7 +194,7 @@
   .login-create-account__header {
     padding: 0;
   }
-  #login_form .button--full-width {
+  #login_form .button--full-width , #reset_password_form .button--full-width {
     margin: 0;
     height: 35px;
     width: 50%;
@@ -202,7 +205,10 @@
   #login_form .button--full-width:hover {
     background-color: #ffa500c9
   }
-  #login_form {
+  #reset_password_form .button--full-width:hover {
+    background-color: #ffa500c9
+  }
+  #login_form , #reset_password_form {
     margin: 50px 0 20px 0;
     height: auto;
   }
@@ -327,7 +333,7 @@
   .login-create-account__header {
     padding: 0;
   }
-  #login_form .button--full-width {
+  #login_form .button--full-width , #reset_password_form .button--full-width {
     margin: 0;
     height: 35px;
     width: 100%;
@@ -338,7 +344,10 @@
   #login_form .button--full-width:hover {
     background-color: #ffa500c9
   }
-  #login_form {
+  #reset_password_form .button--full-width:hover {
+    background-color: #ffa500c9
+  }
+  #login_form , #reset_password_form {
     margin: 0 0 20px 0;
     height: auto;
   }
