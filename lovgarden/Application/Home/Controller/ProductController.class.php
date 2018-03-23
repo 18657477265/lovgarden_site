@@ -15,6 +15,7 @@ class ProductController extends Controller {
         $result_rows = $model->query($sql);
         $multiple_fileds_array = array('image_url','flower_home_id');    
         $result_rows_array = translate_database_result_to_logic_array($result_rows,$multiple_fileds_array,'sku_id');
+            
         $this->assign(array(
            'product_varients' => $result_rows_array,
            'current_sku_id' => $sku_id,
@@ -144,8 +145,26 @@ class ProductController extends Controller {
     //点击添加到购物车时候出发的ajax请求
     public function ajax_add_to_cart(){
         sleep(1);
-        if(!empty(session('custom_id'))){
-          echo '1';
+        $user_id = session('custom_id');
+        if(!empty($user_id)){
+          //将该用户的user_id，sku_id，配送日期,是否要花瓶等信息存入购物车表
+          $cart_info = array(
+            'user_id' => $user_id,
+            'varient_id' => I('post.sku_id'),
+            'deliver_time' => I('post.deliver_time'),
+            'vase' => I('post.vase'),
+          );
+                    
+          $cart = D('Cart');
+          $add_to_cart_status = $cart->create($cart_info);
+          if($add_to_cart_status) {
+              echo '1';
+          }
+          else {
+              $error = $cart->getError();
+              $error = json_encode($error);
+              echo $error;
+          }
         }
         else {
           echo '2';

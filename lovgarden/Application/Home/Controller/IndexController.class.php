@@ -18,6 +18,28 @@ class IndexController extends Controller {
         //exit();
         //print_r($response);
         //exit();
+        
+//        $cart = D('Cart');
+//        $cart_info = array(
+//            'user_id' => 14,
+//            'varient_id' => '190011',
+//            'deliver_time' => '2018/12/29',
+//            'vase' => '1',
+//        );
+//        $status = $cart->create($cart_info);
+//        header('Content-Type: text/plain; charset=utf-8');
+//        var_dump($status);
+//        var_dump($cart->getError());
+//        exit();
+        
+//        $model = new \Think\Model();
+//        $t=$model->query("SELECT b.hurry_level_id  from lovgarden_product_varient AS a 
+//LEFT JOIN lovgarden_product_varient_hurry_level AS b ON a.`id`=b.`product_varient_id` WHERE a.`sku_id`='180011';
+//");
+//        echo "<pre>";
+//        print_r($t);
+//        echo "</pre>";
+//        exit();
         $this->display('Index/index');
     }
 }
