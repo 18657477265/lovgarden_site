@@ -21,8 +21,8 @@ class IndexController extends Controller {
         
 //        $cart = D('Cart');
 //        $cart_info = array(
-//            'user_id' => 14,
-//            'varient_id' => '190011',
+//            'user_id' => 5,
+//            'varient_id' => '180011',
 //            'deliver_time' => '2018/12/29',
 //            'vase' => '1',
 //        );
@@ -40,6 +40,15 @@ class IndexController extends Controller {
 //        print_r($t);
 //        echo "</pre>";
 //        exit();
+        
+//        $sql = "SELECT id FROM lovgarden_cart WHERE user_id = '6'";
+//        $model = new \Think\Model();
+//        $results = $model->query($sql);
+//        echo "<pre>";
+//        print_r(count($results));
+//        echo "</pre>";
+//        exit();
+        
         $this->display('Index/index');
     }
 }

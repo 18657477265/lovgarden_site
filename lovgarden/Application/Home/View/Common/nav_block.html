@@ -20,7 +20,28 @@
                     </ul>
                </div>
             </li>
-            <li id="cart" class="shop"><a href="#contact"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+            <li id="cart" class="shop my-cart"><a title="我的购物车" href="javascript:void(0);"><span class="glyphicon glyphicon-shopping-cart shopping-cart-icon"><span class='add_to_cart_number'>0</span></span></a>
+                <div class="checkout__order" style="display: none;">
+                    <div class="checkout__order-inner">
+                        <table class="checkout__summary">
+                            <thead>
+                            <tr><th>购物车中商品</th><th>单价</th></tr>
+                            </thead>
+                            <tfoot>
+                            <tr><th colspan="2">总价 <span class="checkout__total">$56.20</span></th></tr>
+                            </tfoot>
+                            <tbody>
+                              <tr><td><strong>Imitations</strong> <span>Mark Lanegan</span></td><td>$9.90</td></tr>
+                              <tr><td><strong>In The Silence</strong> <span>Ásgeir</span></td><td>$5.50</td></tr>
+                              <tr><td><strong>Out Of Exile</strong> <span>Audioslave</span></td><td>$11.00</td></tr>
+                              <tr><td><strong>London</strong> <span>Frank Sinatra</span></td><td>$19.90</td></tr>
+                              <tr><td><strong>Cure For Pain</strong> <span>Morphine</span></td><td>$9.90</td></tr>
+                            </tbody>
+                        </table><!-- /checkout__summary -->
+                        <p class="link-to-cart-page"><button class="checkout__option checkout__option--loud">结算详情</button></p>
+                   </div>
+            </div>
+            </li>
         </ul>
    </div>
    
@@ -33,8 +54,32 @@
            <a href="#course"><img src="__PUBLIC__/Home/images/temp_lovgarden_logo.png"></a>
        </div>
        <div class="col-xs-3 shop-mobile cart-mobile">
-           <a href="#contact"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+           <a href="#contact" title="我的购物车"><span class="glyphicon glyphicon-shopping-cart shopping-cart-icon"><span class='add_to_cart_number'>0</span></span></a>
+           <div class="checkout__order" style="display: none;">
+                    <div class="checkout__order-inner">
+                        <table class="checkout__summary">
+                            <thead>
+                            <tr><th>购物车中商品</th><th>单价</th></tr>
+                            </thead>
+                            <tfoot>
+                            <tr><th colspan="2">总价 <span class="checkout__total">$56.20</span></th></tr>
+                            </tfoot>
+                            <tbody>
+                              <tr><td><strong>Imitations</strong> <span>Mark Lanegan</span></td><td>$9.90</td></tr>
+                              <tr><td><strong>In The Silence</strong> <span>Ásgeir</span></td><td>$5.50</td></tr>
+                              <tr><td><strong>Out Of Exile</strong> <span>Audioslave</span></td><td>$11.00</td></tr>
+                              <tr><td><strong>London</strong> <span>Frank Sinatra</span></td><td>$19.90</td></tr>
+                              <tr><td><strong>Cure For Pain</strong> <span>Morphine</span></td><td>$9.90</td></tr>
+                            </tbody>
+                        </table><!-- /checkout__summary -->
+                        <p class="link-to-cart-page"><button class="checkout__option checkout__option--loud">结算详情</button></p>
+                   </div>
+          </div>
        </div> 
      </div>    
    </div>
   </nav>
+
+<div id="my-cart-detail-info">
+    
+</div>

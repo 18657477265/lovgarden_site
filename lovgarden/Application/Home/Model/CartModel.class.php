@@ -15,6 +15,7 @@ class CartModel extends Model
         array('deliver_time','checkIsFurture','请选择当下或将来日期',1,'callback',3),
         array('varient_id','productIdIsRight','商品编号非法',1,'callback',3),
         array('deliver_time','checkDeliverTodayAllowed','本商品不支持今日配送',1,'callback',3),
+        array('user_id','checkUserCartProductNumber','您购物车里的商品数已到顶',1,'callback',3),
     );
     
     //检查日期格式是否有效
@@ -93,6 +94,25 @@ class CartModel extends Model
         else {
             return TRUE;
         }
+    }
+    
+    //验证购物车中商品的数量不能超过20
+    function checkUserCartProductNumber($user_id,$max_items = 20){
+        //同样为了避免多次查询数据库，将用户的购物车内数量存入memcache
+        $mem = new Memcache();
+        $name = $user_id.'cart_items_count';
+        $count = $mem->get($name);
+        if(empty($count)){
+            $sql = "SELECT id FROM lovgarden_cart WHERE user_id = '$user_id'";        
+            $model_for_user = new Model();
+            $results = $model_for_user->query($sql);
+            $count = count($results);
+            $mem->set($name, $count,86400);
+        }
+        if($count<$max_items){
+           return TRUE;
+        }
+        return FALSE;
     }
 }
 

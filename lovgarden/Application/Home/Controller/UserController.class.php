@@ -109,7 +109,7 @@ class UserController extends Controller {
        
       
           $mem2 = new Memcache();
-          $value1 = $mem2->get('180012deliver_status');
+          $value1 = $mem2->get('16cart_items_count');
           
           //$value2 = $mem2->get($a);
           echo $value1;

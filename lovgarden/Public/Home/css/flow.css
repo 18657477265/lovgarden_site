@@ -75,7 +75,7 @@
   }
   .product-details__shipping-vase-value input[type="checkbox"]{appearance: none; -webkit-appearance: none;outline: none;display:none}
   .product-details__shipping-vase-value label{width:100px;height:100px;display:inline-block;cursor:pointer;}
-  .product-details__shipping-vase-value label input[type="checkbox"] + span{width:40px;height:40px;display:inline-block;background:url("/images/product_detail/vase_checkout.jpg")  no-repeat;background-position:0 0;background-size: 40px;}
+  .product-details__shipping-vase-value label input[type="checkbox"] + span{width:40px;height:40px;display:inline-block;background:url("../images/product_detail/vase_checkout.jpg")  no-repeat;background-position:0 0;background-size: 40px;}
   .product-details__shipping-vase-value label input[type="checkbox"]:checked + span{background-position:0 -42px;background-size: 40px;}
   .product-details__shipping-vase-value span {
     position: absolute;
@@ -410,7 +410,7 @@
   }
   .product-details__shipping-vase-value input[type="checkbox"]{appearance: none; -webkit-appearance: none;outline: none;display:none}
   .product-details__shipping-vase-value label{width:100px;height:100px;display:inline-block;cursor:pointer;}
-  .product-details__shipping-vase-value label input[type="checkbox"] + span{width:40px;height:40px;display:inline-block;background:url("/images/product_detail/vase_checkout.jpg")  no-repeat;background-position:0 0;background-size: 40px;}
+  .product-details__shipping-vase-value label input[type="checkbox"] + span{width:40px;height:40px;display:inline-block;background:url("../images/product_detail/vase_checkout.jpg")  no-repeat;background-position:0 0;background-size: 40px;}
   .product-details__shipping-vase-value label input[type="checkbox"]:checked + span{background-position:0 -42px;background-size: 40px;}
   .product-details__shipping-vase-value span {
     position: absolute;
@@ -682,7 +682,7 @@
   }
   .product-details__shipping-vase-value input[type="checkbox"]{appearance: none; -webkit-appearance: none;outline: none;display:none}
   .product-details__shipping-vase-value label{width:100px;height:100px;display:inline-block;cursor:pointer;}
-  .product-details__shipping-vase-value label input[type="checkbox"] + span{width:40px;height:40px;display:inline-block;background:url("/images/product_detail/vase_checkout.jpg")  no-repeat;background-position:0 0;background-size: 40px;}
+  .product-details__shipping-vase-value label input[type="checkbox"] + span{width:40px;height:40px;display:inline-block;background:url("../images/product_detail/vase_checkout.jpg")  no-repeat;background-position:0 0;background-size: 40px;}
   .product-details__shipping-vase-value label input[type="checkbox"]:checked + span{background-position:0 -42px;background-size: 40px;}
   .product-details__shipping-vase-value span {
     position: absolute;

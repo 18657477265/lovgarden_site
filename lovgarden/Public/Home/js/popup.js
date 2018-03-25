@@ -28,10 +28,16 @@ $(function(){
             $("p.add-to-cart button").removeAttr("disabled");            
             //console.log(data);                        
             if(data == '1') {
-                 $('.response-message').html('<span class="glyphicon glyphicon-ok"></span>已加入购物车');     
+                 $('.response-message').html('<span class="glyphicon glyphicon-ok"></span>已加入购物车');
+                 var number = $('.add_to_cart_number').text();
+                 number ++;
+                 $('.add_to_cart_number').text(number);
             }
             else if(data == '2') {
                  $('.response-message').html('您还未登录,请先登录');   
+            }
+            else if(data == '4') {
+                 $('.response-message').html('Sorry,目前系统繁忙,请稍后再试');   
             }
             else {
                 $('.response-message').html(data); 
@@ -47,5 +53,6 @@ $(function(){
           }         
         });
        
-   })
+   });
+
 })

@@ -159,7 +159,7 @@ $(function(){
 	   $("#shop-market").hover(function(){
 	      $("#shop-menu-dropdown").css("display","block");
 	   });
-	   $("#shop-menu-dropdown").hover(function(){ },function() {
+	   $("#shop-menu-dropdown , #shop-feature , #shop-brief ,#logo ,#help ,#login ,#cart").hover(function(){ },function() {
 	   	  $("#shop-menu-dropdown").css("display","none");
 	   });
            
@@ -227,6 +227,13 @@ $(function(){
                $('.user-options').fadeOut(300);
            });
            
+           //控制购物车小弹窗的显示和消失
+           $('.shop.my-cart').on('mouseenter',function(){
+                $('.checkout__order').fadeIn(300);
+           });
+           $('.shop.my-cart').on('mouseleave',function(){
+                $('.checkout__order').fadeOut(300);
+           });
    }
    else if(device == 'tablet') {
 	   $('#shop-market').on('click',function(e) { 
@@ -330,6 +337,11 @@ $(function(){
            $('#login').on('click',function(){
                $('.user-options').fadeToggle(300);
            });
+           
+          //控制购物车小弹窗的显示和消失
+          $('.shop.my-cart').on('click',function(){
+                $('.checkout__order').slideToggle(300);
+          });              
    }
    else if (device == 'mobile') {
 	   $('.mobile-menu-show').on('click',function(e) {
@@ -510,6 +522,10 @@ $(function(){
            
            //双保险 碰到有show-pc的在非PC端隐藏
            $('.show-pc').css('display','none');
-
+           
+           //控制购物车小弹窗的显示和消失           
+           $('.cart-mobile').on('click',function(){
+                $('.checkout__order').slideToggle(300);
+           });  
    }
 })

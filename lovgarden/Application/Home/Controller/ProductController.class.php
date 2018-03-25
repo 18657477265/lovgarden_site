@@ -144,7 +144,7 @@ class ProductController extends Controller {
     
     //点击添加到购物车时候出发的ajax请求
     public function ajax_add_to_cart(){
-        sleep(1);
+        sleep(1);//避免有人大量同时点击加入购物车，减轻系统并发压力
         $user_id = session('custom_id');
         if(!empty($user_id)){
           //将该用户的user_id，sku_id，配送日期,是否要花瓶等信息存入购物车表
@@ -158,7 +158,19 @@ class ProductController extends Controller {
           $cart = D('Cart');
           $add_to_cart_status = $cart->create($cart_info);
           if($add_to_cart_status) {
-              echo '1';
+              //通过所有验证，允许加入购物车
+              if($cart->add($add_to_cart_status)){
+                 //修改内存中的用户购物车数目
+                 $mem = new \Think\Cache\Driver\Memcache();
+                 $name = $user_id.'cart_items_count';
+                 $count = $mem->get($name);
+                 $count ++;
+                 $mem->set($name, $count, 86400);
+                 echo '1';   
+              }
+              else {
+                 echo '4';
+              }
           }
           else {
               $error = $cart->getError();

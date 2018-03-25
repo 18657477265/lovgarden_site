@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+     <title>丽de花苑</title>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css"/>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/flow.css"/>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/style.css"/>
+     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+     <script src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
+</head>
+<body class="page">
+  <include file="Application/Home/View/Common/cart_head_block.html" />
+  <div class="container checkout-order-content">
+    <h3 class="check-before-next-title">请确认您的订单是否正确</h3>
+    <p class="check-before-next-brief">请检查看看您选的商品款式是否正确哦，在接下来的一步您也可以在商品订单上给我们添加备注哦</p>
+
+    <div class="row each-product">
+      <div class="product-small-img col-md-2 col-sm-2 col-xs-4">
+        <img src="__PUBLIC__/Home/images/flow/flow_product.jpg">
+      </div>
+      <div class="product-title-info product-title-info-title col-md-2 col-sm-2 col-xs-4">
+        <p><span class="ceil">商品名称<br/>THE FLAMINGO</span></p>
+      </div>
+      <div class="product-title-info col-md-1 col-sm-1 col-xs-4">
+        <p><span class="ceil">配花<br/>少</span></p>
+      </div>
+      <div class="product-title-info col-md-2 col-sm-2 col-xs-4">        
+         <p><span class="ceil">是否包含花瓶<br/>含花瓶</span></p>
+      </div>
+      <div class="flow-check-date-value col-md-2 col-sm-2 col-xs-4">
+          <p><span class="ceil">配送日期<br/>2018/3/2</span></p>
+      </div>
+      <div class="flow-check-each-price col-md-1 col-sm-1 col-xs-4">
+          <p><span class="ceil">价格<br/>98元</span></p>
+      </div>
+      <div class="flow-check-each-operation col-md-2 col-sm-2 col-xs-12">
+          <a href="#">删除</a>
+      </div>
+    </div>
+    <div class="row each-product">
+      <div class="product-small-img col-md-2 col-sm-2 col-xs-4">
+        <img src="__PUBLIC__/Home/images/flow/flow_product.jpg">
+      </div>
+      <div class="product-title-info product-title-info-title col-md-2 col-sm-2 col-xs-4">
+        <p><span class="ceil">商品名称<br/>THE FLAMINGO</span></p>
+      </div>
+      <div class="product-title-info col-md-1 col-sm-1 col-xs-4">
+        <p><span class="ceil">配花<br/>少</span></p>
+      </div>
+      <div class="product-title-info col-md-2 col-sm-2 col-xs-4">        
+         <p><span class="ceil">是否包含花瓶<br/>含花瓶</span></p>
+      </div>
+      <div class="flow-check-date-value col-md-2 col-sm-2 col-xs-4">
+          <p><span class="ceil">配送日期<br/>2018/3/2</span></p>
+      </div>
+      <div class="flow-check-each-price col-md-1 col-sm-1 col-xs-4">
+          <p><span class="ceil">价格<br/>98元</span></p>
+      </div>
+      <div class="flow-check-each-operation col-md-2 col-sm-2 col-xs-12">
+          <a href="#">删除</a>
+      </div>
+    </div>
+    <div class="row each-product">
+      <div class="product-small-img col-md-2 col-sm-2 col-xs-4">
+        <img src="__PUBLIC__/Home/images/flow/flow_product.jpg">
+      </div>
+      <div class="product-title-info product-title-info-title col-md-2 col-sm-2 col-xs-4">
+        <p><span class="ceil">商品名称<br/>THE FLAMINGO</span></p>
+      </div>
+      <div class="product-title-info col-md-1 col-sm-1 col-xs-4">
+        <p><span class="ceil">配花<br/>少</span></p>
+      </div>
+      <div class="product-title-info col-md-2 col-sm-2 col-xs-4">        
+         <p><span class="ceil">是否包含花瓶<br/>含花瓶</span></p>
+      </div>
+      <div class="flow-check-date-value col-md-2 col-sm-2 col-xs-4">
+          <p><span class="ceil">配送日期<br/>2018/3/2</span></p>
+      </div>
+      <div class="flow-check-each-price col-md-1 col-sm-1 col-xs-4">
+          <p><span class="ceil">价格<br/>98元</span></p>
+      </div>
+      <div class="flow-check-each-operation col-md-2 col-sm-2 col-xs-12">
+          <a href="#">删除</a>
+      </div>
+    </div>
+   
+    <div class="row total-price-list">
+      <div class="col-md-8 col-sm-8 col-xs-12">
+        <form class="inline-form" action="/cart/add_promo_code" accept-charset="UTF-8" method="post">
+          <div class="discount_code col-md-4 col-sm-4 col-xs-12"><input type="text" name="discount_code" placeholder="优惠券码,可致电商家询问"></div>
+          <div class="inline-form__cell col-md-5 col-sm-5 col-xs-12"><button name="button" type="submit" value="add_promo_code" class="button button--full-width">添加</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-12 price-list-mobile">
+        <table class="total-price table table--totals">
+          <tbody>
+          <tr>
+            <th>
+              <span>Vase:</span>
+            </th>
+            <td>
+              <span>$12.00</span>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <span>Welcome15</span>
+            </th>
+            <td>
+              <strong>-$34.05</strong>
+            </td>
+          </tr>
+          <tr>
+            <th class="checkout-step-summary__login-free-delivery-cell">
+              <span>Delivery:</span>
+            </th>
+            <td>
+              <span>Free</span>
+            </td>
+          </tr>
+          <tr class="table__total">
+            <th>
+              <span>Subtotal:</span>
+            </th>
+            <td class="total-price-value">$192.95</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div> 
+    
+    <div class="row checkout-button">
+      <a href="#" class="checkout-to-flow2">确认订单</a>
+    </div>
+  </div>
+  <div class="flow-checkout-footer">
+    <p>本站点版权和最终解释权归©丽de花苑所有</p>
+  </div>
+    <script src="__PUBLIC__/Home/js/custom.js"></script>
+</body>
+</html>
