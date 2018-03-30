@@ -403,4 +403,68 @@ function mem_check_ip_attention($max_visit_count = 10,$frozen_time = 7200) {
         return FALSE;
     }
 }
+//根据商品信息整理出价格，优惠，花瓶价格等信息
+function calculate_cost($products_array,$vase_price = '20',$cut_code = '0') {
+    $cost_info_array = array(
+        'total_cost' => 0,
+        'vase_cost' => 0,
+        'cut_cost' => 0,
+        'deliver_cost' => 0,
+        'products_original_cost' => 0,
+    );
+    foreach($products_array as $k => $v) {
+        $cost_info_array['products_original_cost']+= $v['varient_price'];
+        if($v['vase'] == '1') {
+            $cost_info_array['vase_cost'] += $vase_price;
+        }
+    }
+    //这里以后添加购物券的逻辑，从数据库里取出扣除的价格
+    $cost_info_array['total_cost'] = $cost_info_array['vase_cost'] + $cost_info_array['deliver_cost'] + $cost_info_array['products_original_cost'] - $cost_info_array['cut_cost'];
+    return $cost_info_array;
+}
+
+//确认订单时候用户提交的数据和老的cart info数据组合成新的数据
+function merge_submit_cart_info($old_cart_info,$submit_info,$user_id) {
+    foreach($submit_info['vase_options'] as $k => $v) {
+        $old_cart_info[$k]['vase'] = $v;
+    }
+    foreach($submit_info['deliver_date'] as $k1 => $v1) {
+        $old_cart_info[$k1]['deliver_time'] = $v1;
+    }
+    return $old_cart_info;
+}
+
+//验证提交的商品ID是不是有被非法改造过
+function check_sumbit_sku_id_right($old_cart_info,$submit_info,$user_id) {
+    if(!empty($old_cart_info)) {
+        $count = count($old_cart_info);
+        $old_sku_ids = array();
+        foreach($old_cart_info as $k=>$v) {
+            $old_sku_ids[] = $k;
+        }
+        if(!empty($submit_info['vase_options']) && !empty($submit_info['deliver_date'])) {
+            $result = TRUE;
+            foreach($submit_info['vase_options'] as $k1 => $v1) {
+                if(!in_array($k1, $old_sku_ids) || !in_array($v1, array('1','2'))){
+                    return false;
+                }
+            }
+            foreach($submit_info['deliver_date'] as $k2 => $v2) {
+                if(!in_array($k2, $old_sku_ids) || empty($v2)){
+                    return false;
+                }
+            }
+            if(count($submit_info['vase_options']) != $count || count($submit_info['deliver_date']) != $count) {
+                return FALSE;
+            }
+            return TRUE;
+        }
+        else {
+            return FALSE; 
+        }
+    }
+    else {
+        return FALSE;
+    }
+}
 

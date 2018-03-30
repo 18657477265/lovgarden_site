@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+     <title>丽de花苑</title>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css"/>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/nice-select.css">
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/city-picker.css">
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/flow.css"/>
+     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+     <script src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
+     <script src="__PUBLIC__/Home/js/jquery.cookie.js"></script>
+     <script src="__PUBLIC__/Home/js/jquery.nice-select.min.js"></script>
+</head>
+<body class="page">
+  <include file="Application/Home/View/Common/flow_header.html" />
+  <ol class="checkout-progress">
+        <li class="checkout-progress__step">
+        1. 检查订单
+        </li>
+        <li class="checkout-progress__step checkout-progress__step--active">
+        2. 填写配送信息
+        </li>
+        <li class="checkout-progress__step">3. 付款</li>
+  </ol>
+
+  <div class="container checkout-order-content">
+    <h3 class="check-before-next-title">请确认您的订单和收获信息</h3>
+    <p class="check-before-next-brief">请务必确认收货人联系方式和地址详细可靠哦</p>
+
+    <!--收获信息form-->
+
+    <form class="container deliver-info-form">
+      <div class="col-md-6 col-sm-6 col-xs-12 deliver-info-form-left">
+          <div class="row col-md-12 col-xs-12 input-select-info-source">
+            <select name="order_item" id="order_item_info_source" required="required" data-checkout-relationship-select="5a7c0df06170706c40005108" aria-required="true" aria-invalid="false" class="valid">
+              <option value="">Select Recipient</option>
+              <option value="new">New Recipient</option>
+            </select>
+          </div>
+
+          <div class="col-md-6 col-sm-6 col-xs-12 input-wrapper">
+           <input type="text" name="first_name" id="first_name" class="text-box" required="required" title="Shipping First Name" placeholder="First Name*" autocomplete="off">
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12 input-wrapper">
+            <input type="text" name="last_name" id="last_name" class="text-box" required="required" autocorrect="off" title="Shipping Last Name" placeholder="Last Name*" autocomplete="off">
+          </div>
+          <div class="col-md-12 col-sm-12 col-xs-12 input-wrapper">
+            <input type="tel" name="phone_number" id="phone_number" class="text-box" required="required" placeholder="Phone Number*" title="Shipping Phone Number" autocomplete="off">
+          </div>
+
+          <div class="col-md-12 col-sm-12 col-xs-12 input-wrapper input-wrapper-address">
+              <div id="distpicker">
+              <div class="form-group">
+                <div style="position: relative;">
+                  <input id="city-picker3" class="form-control" readonly type="text" value="浙江省/宁波市" data-toggle="city-picker" name="address_province_city">
+                </div>
+              </div>     
+              </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12 col-xs-12 input-wrapper">
+            <input type="text" name="address_detail_location" id="address_detail_location" class="text-box" required="required" placeholder="街道/门牌等详细位置" title="详细地址" autocomplete="off">
+          </div>
+          <div class="col-md-12 col-sm-12 col-xs-12 input-wrapper">
+            <input type="text" name="zip_code" id="zip_code" class="text-box" required="required" placeholder="邮政编码" title="邮政编码" autocomplete="off">
+          </div>
+      </div>
+
+      <div class="col-md-6 col-sm-6 col-xs-12 deliver-info-form-right">
+          <h3 class="checkout-addresses__heading col-md-12"><label for="message_order"><span class="property__text">Message</span><span class="property__requirement">(optional)</span></label>
+          </h3>
+          <div class="col-md-11 col-sm-11 col-xs-12 input-wrapper">
+            <textarea name="order_item_message" id="message_order" class="text-box text-box--multi-line" autocorrect="off" maxlength="440" title="Product Message" placeholder="为无比重要的他/她写一张贺卡吧"></textarea>
+          </div>
+      </div>
+    </form>
+    <h3 class="products-list-flow2">商品列表</h3>
+    <div class="row each-product">
+      <div class="product-small-img col-md-3 col-sm-3 col-xs-4">
+        <img src="__PUBLIC__/Home/images/flow/flow_product.jpg">
+      </div>
+      <div class="product-title-info product-title-info-title col-md-2 col-sm-2 col-xs-4">
+        <p><span class="ceil">FLAMINGO</span></p>
+      </div>
+      <div class="product-title-info decoration-level-status col-md-1 col-sm-1 col-xs-4">
+        <p><span class="ceil checkout-decoration-value">少</span></p>
+      </div>
+      <div class="product-title-info input-select-vase-status col-md-2 col-sm-2 col-xs-4">        
+         <p><span class="ceil checkout-vase-status">含花瓶</span></p>
+      </div>
+      <div class="flow-check-date-value col-md-2 col-sm-2 col-xs-4">
+          <p><span class="ceil checkout-date-value">2018-03/02</span></p>
+      </div>
+      <div class="flow-check-each-price col-md-1 col-sm-1 col-xs-4">
+          <p><span class="ceil">价格<br/>98元</span></p>
+      </div>
+    </div>
+    <div class="row each-product">
+      <div class="product-small-img col-md-3 col-sm-3 col-xs-4">
+        <img src="__PUBLIC__/Home/images/flow/flow_product.jpg">
+      </div>
+      <div class="product-title-info product-title-info-title col-md-2 col-sm-2 col-xs-4">
+        <p><span class="ceil">FLAMINGO</span></p>
+      </div>
+      <div class="product-title-info decoration-level-status col-md-1 col-sm-1 col-xs-4">
+        <p><span class="ceil checkout-decoration-value">少</span></p>
+      </div>
+      <div class="product-title-info input-select-vase-status col-md-2 col-sm-2 col-xs-4">        
+         <p><span class="ceil checkout-vase-status">含花瓶</span></p>
+      </div>
+      <div class="flow-check-date-value col-md-2 col-sm-2 col-xs-4">
+          <p><span class="ceil checkout-date-value">2018-03/02</span></p>
+      </div>
+      <div class="flow-check-each-price col-md-1 col-sm-1 col-xs-4">
+          <p><span class="ceil">价格<br/>98元</span></p>
+      </div>
+    </div>
+    <div class="row each-product">
+      <div class="product-small-img col-md-3 col-sm-3 col-xs-4">
+        <img src="__PUBLIC__/Home/images/flow/flow_product.jpg">
+      </div>
+      <div class="product-title-info product-title-info-title col-md-2 col-sm-2 col-xs-4">
+        <p><span class="ceil">FLAMINGO</span></p>
+      </div>
+      <div class="product-title-info decoration-level-status col-md-1 col-sm-1 col-xs-4">
+        <p><span class="ceil checkout-decoration-value">少</span></p>
+      </div>
+      <div class="product-title-info input-select-vase-status col-md-2 col-sm-2 col-xs-4">        
+         <p><span class="ceil checkout-vase-status">含花瓶</span></p>
+      </div>
+      <div class="flow-check-date-value col-md-2 col-sm-2 col-xs-4">
+          <p><span class="ceil checkout-date-value">2018-03/02</span></p>
+      </div>
+      <div class="flow-check-each-price col-md-1 col-sm-1 col-xs-4">
+          <p><span class="ceil">价格<br/>98元</span></p>
+      </div>
+    </div>
+   
+    <div class="row total-price-list">
+      <div class="col-md-8 col-sm-8 col-xs-12">
+        <p class="coupin-code-info">优惠码号：XXXXXXXXXXXX</p>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-12 price-list-mobile">
+        <table class="total-price table table--totals">
+          <tbody>
+          <tr>
+            <th>
+              <span>Vase:</span>
+            </th>
+            <td>
+              <span>$12.00</span>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <span>Welcome15</span>
+            </th>
+            <td>
+              <strong>-$34.05</strong>
+            </td>
+          </tr>
+          <tr>
+            <th class="checkout-step-summary__login-free-delivery-cell">
+              <span>Delivery:</span>
+            </th>
+            <td>
+              <span>Free</span>
+            </td>
+          </tr>
+          <tr class="table__total">
+            <th>
+              <span>Subtotal:</span>
+            </th>
+            <td class="total-price-value">$192.95</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div> 
+    
+    <div class="row checkout-button">
+      <a href="#" class="checkout-to-flow2">付款</a>
+    </div>
+  </div>
+  <div class="flow-checkout-footer">
+    <p>本站点版权和最终解释权归©丽de花苑所有</p>
+  </div>
+    <script src="__PUBLIC__/Home/js/city-picker.data.js"></script>
+    <script src="__PUBLIC__/Home/js/city-picker.js"></script>
+    <script src="__PUBLIC__/Home/js/custom.js"></script>
+    <script>
+      $(document).ready(function() {
+         $('#order_item_info_source').niceSelect();
+      });
+    </script>
+</body>
+</html>

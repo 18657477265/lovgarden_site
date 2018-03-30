@@ -35,6 +35,36 @@ $(function(){
         }         
    });
    
+   // 获取用户的购物车信息
+   $.ajax({
+        type: 'POST',
+        url: "/user/get_cart_info",
+        //data: send_message,
+        dataType: 'json',
+        success:function(data) {
+              //alert(data);
+              if(data == '0') {
+                  
+              }
+              else {
+                 var cart_info = '';
+                 var total = 0;
+                 for(var i=0;i<data.length;i++){
+                    //alert(data[i].varient_name);
+                    var this_price = parseInt(data[i].varient_price);
+                    var row = "<tr><td>" + data[i].varient_name  + "</td><td class='item-price'>" + this_price + "</td><td class='item-number'>" + data[i].number  + "</td><td><span class='glyphicon glyphicon-trash remove-cart-item' data-target='" + data[i].varient_id + "'></span><span class='remove-processing-icon' style='display:none;'><img width=20px src='/Public/Home/images/spin.gif' /></span></td></tr>";
+                    total = total +  this_price*data[i].number;
+                    cart_info = cart_info + row;
+                    $('.checkout__order-inner .checkout__summary tbody').html(cart_info);
+                    $('.checkout__order-inner .checkout__summary .checkout__total').text(total);
+                 }
+              }
+        }         
+   });
+   // 当结算按钮被点击时候 
+   $('body').on('click','button.checkout__option--loud',function(){
+       window.location.href = "/cart/detail";
+   });
    //检测product detail 页面中的radio是否被选中
    $(".product-variant-choice-border input[name='sku']").on('change',function(){
    	$(".product-variant-choice-border input[name='sku']").each(function(){
@@ -339,7 +369,7 @@ $(function(){
            });
            
           //控制购物车小弹窗的显示和消失
-          $('.shop.my-cart').on('click',function(){
+          $('.shop.my-cart a').on('click',function(){
                 $('.checkout__order').slideToggle(300);
           });              
    }
@@ -524,7 +554,7 @@ $(function(){
            $('.show-pc').css('display','none');
            
            //控制购物车小弹窗的显示和消失           
-           $('.cart-mobile').on('click',function(){
+           $('span.shopping-cart-icon').on('click',function(){
                 $('.checkout__order').slideToggle(300);
            });  
    }

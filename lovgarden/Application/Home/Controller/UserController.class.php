@@ -109,7 +109,8 @@ class UserController extends Controller {
        
       
           $mem2 = new Memcache();
-          $value1 = $mem2->get('16cart_items_count');
+          $name = '14'.'order_cart_info';
+          $value1 = $mem2->get($name);
           
           //$value2 = $mem2->get($a);
           echo $value1;
@@ -171,5 +172,37 @@ class UserController extends Controller {
                 ));
              }
             $this->display('reset_password');   
+    }
+    
+    //获取用户购物车信息
+    public function get_cart_info() {
+        $user_id = session('custom_id');
+        if(!empty($user_id)){
+            $mem_cart_info = new memcache();
+            $name = $user_id.'cart_info';
+            $cache_cart_info = $mem_cart_info->get($name);
+            $results = '';
+            if($cache_cart_info) {
+                $results = unserialize($cache_cart_info);
+            }
+            else {
+            //这里得加入缓存，避免数据库不必要的查询
+            //注意缓存得再 用户加入购物车指向时候更新 再删除购物车条目时候页更新
+                $sql = "SELECT a.varient_id, b.varient_name,b.varient_price,COUNT(*) AS number FROM lovgarden_cart AS a
+    LEFT JOIN lovgarden_product_varient AS b ON a.varient_id = b.sku_id WHERE a.user_id = '$user_id' GROUP BY b.id;";
+                $model = new \Think\Model();
+                $results = $model->query($sql);
+                $mem_cart_info->set($name, serialize($results),86400);
+            }            
+            if(!empty($results)){
+               echo json_encode($results);
+               exit();
+            }else {
+                echo '0';
+                exit();
+            }                
+        }
+        //表示输出空购物车的状态码
+        echo '0';
     }
 }

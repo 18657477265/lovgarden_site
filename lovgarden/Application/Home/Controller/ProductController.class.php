@@ -166,6 +166,10 @@ class ProductController extends Controller {
                  $count = $mem->get($name);
                  $count ++;
                  $mem->set($name, $count, 86400);
+                 
+                 //修改内存中的用户购物车信息，直接删除
+                 $user_cart_info = $user_id.'cart_info';
+                 $mem->rm($user_cart_info);
                  echo '1';   
               }
               else {
@@ -182,4 +186,45 @@ class ProductController extends Controller {
           echo '2';
         }
     }
+    
+    public function remove_cart_item() {
+        sleep(1);//防止一下子处理太多删除行为        
+        $user_id = session('custom_id');
+        if(!empty($user_id)) {
+            $remove_item_id = I('post.delete_item');
+            $cart_model = D('Cart');
+//            $delete_status = $cart_model->where(array(
+//                'user_id' => $user_id,
+//                'varient_id' => $remove_item_id
+//            ))->delete();
+            
+            $delete_status = $cart_model->where("user_id='%s' and varient_id='%f'",array($user_id,$remove_item_id))->delete();
+            
+            if($delete_status !== FALSE) {
+                //去掉购物车的信息
+                $mem_delete_cart = new \Think\Cache\Driver\Memcache();
+                $user_cart_info = $user_id.'cart_info';
+                $mem_delete_cart->rm($user_cart_info);
+                $user_cart_count = $user_id.'cart_items_count';
+                $mem_delete_cart->rm($user_cart_count);
+                
+                
+                $order_cart_info = $user_id.'order_cart_info';
+                $mem_order_cart_info = $mem_delete_cart->get($order_cart_info);
+                if(!empty($mem_order_cart_info)) {
+                    //更新缓存
+                    $mem_order_cart_info_array = unserialize($mem_order_cart_info);
+                    unset($mem_order_cart_info_array[$remove_item_id]);
+                    $mem_delete_cart->set($order_cart_info, serialize($mem_order_cart_info_array), 600);
+                }                
+                echo '1';
+                exit();
+            }
+            echo '2';
+            exit();
+        }
+        echo '2';
+        exit();
+    }
+    
 }

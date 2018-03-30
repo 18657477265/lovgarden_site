@@ -41,11 +41,20 @@ class IndexController extends Controller {
 //        echo "</pre>";
 //        exit();
         
-//        $sql = "SELECT id FROM lovgarden_cart WHERE user_id = '6'";
+//        $sql = "SELECT b.varient_name,b.varient_price,COUNT(*) AS number FROM lovgarden_cart AS a
+//LEFT JOIN lovgarden_product_varient AS b ON a.varient_id = b.sku_id WHERE a.user_id = '16' GROUP BY b.id;";
 //        $model = new \Think\Model();
 //        $results = $model->query($sql);
+//        
+//        $this->assign(array(
+//           'results' => $results, 
+//        ));
+//        $content = $this->display('Common/cart_block');
+//        echo $content;
+//        exit();
+//        
 //        echo "<pre>";
-//        print_r(count($results));
+//        print_r($results);
 //        echo "</pre>";
 //        exit();
         
