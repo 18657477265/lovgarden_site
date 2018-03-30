@@ -206,6 +206,43 @@ class ProductController extends Controller {
                 $user_cart_info = $user_id.'cart_info';
                 $mem_delete_cart->rm($user_cart_info);
                 $user_cart_count = $user_id.'cart_items_count';
+                $mem_delete_cart->rm($user_cart_count);                
+                
+                $order_cart_info = $user_id.'order_cart_info';
+                $mem_delete_cart->rm($order_cart_info);    
+                
+                echo '1';
+                exit();
+            }
+            echo '2';
+            exit();
+        }
+        echo '2';
+        exit();
+    }
+    
+    public function order_remove_cart_item() {
+        sleep(1);//防止一下子处理太多删除行为 
+        echo '1';
+        exit();
+        $user_id = session('custom_id');
+        if(!empty($user_id)) {
+            $remove_item_id = I('post.delete_item');
+            
+            $cart_model = D('Cart');
+//            $delete_status = $cart_model->where(array(
+//                'user_id' => $user_id,
+//                'varient_id' => $remove_item_id
+//            ))->delete();
+            
+            $delete_status = $cart_model->where("user_id='%s' and id='%f'",array($user_id,$remove_item_id))->delete();
+            
+            if($delete_status !== FALSE) {
+                //去掉购物车的信息
+                $mem_delete_cart = new \Think\Cache\Driver\Memcache();
+                $user_cart_info = $user_id.'cart_info';
+                $mem_delete_cart->rm($user_cart_info);
+                $user_cart_count = $user_id.'cart_items_count';
                 $mem_delete_cart->rm($user_cart_count);
                 
                 

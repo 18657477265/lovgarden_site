@@ -438,19 +438,19 @@ function merge_submit_cart_info($old_cart_info,$submit_info,$user_id) {
 function check_sumbit_sku_id_right($old_cart_info,$submit_info,$user_id) {
     if(!empty($old_cart_info)) {
         $count = count($old_cart_info);
-        $old_sku_ids = array();
+        $old_cart_ids = array();
         foreach($old_cart_info as $k=>$v) {
-            $old_sku_ids[] = $k;
+            $old_cart_ids[] = $k;
         }
         if(!empty($submit_info['vase_options']) && !empty($submit_info['deliver_date'])) {
             $result = TRUE;
             foreach($submit_info['vase_options'] as $k1 => $v1) {
-                if(!in_array($k1, $old_sku_ids) || !in_array($v1, array('1','2'))){
+                if(!in_array($k1, $old_cart_ids) || !in_array($v1, array('1','2'))){
                     return false;
                 }
             }
             foreach($submit_info['deliver_date'] as $k2 => $v2) {
-                if(!in_array($k2, $old_sku_ids) || empty($v2)){
+                if(!in_array($k2, $old_cart_ids) || empty($v2)){
                     return false;
                 }
             }

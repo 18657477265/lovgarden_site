@@ -20,9 +20,12 @@ class CartController extends Controller {
             if(!empty($old_cart_info)){
                 $old_cart_info = unserialize($old_cart_info);
                 $submit_info = I('post.');
+ 
                 //通过比对提交数据和缓存中的购物车数据，查看有没有非法篡改数据，要求内存中的购物车数据必须准确
                 if(check_sumbit_sku_id_right($old_cart_info,$submit_info,$user_id)) {
                     $new_cart_info_choose = merge_submit_cart_info($old_cart_info,$submit_info,$user_id);
+                    //这个在原购物车数据基础上生成的新的数据和提交的优惠码一同构成了order对象的基本数据，接下来要验证这些数据是否允许构成一个订单
+                    
                     echo "<pre>";
                     header("Content-type:text/html;charset=utf-8");
                     print_r($new_cart_info_choose);

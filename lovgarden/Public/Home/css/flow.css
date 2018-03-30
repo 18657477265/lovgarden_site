@@ -371,6 +371,9 @@
        width: 100%;
        left: 0;
    }
+   .utility-nav__item-node {
+       font-size: 10px;
+   }
 }
 /*products checkout flow1 小屏幕手机端样式*/
 @media ( max-width:320px) {
