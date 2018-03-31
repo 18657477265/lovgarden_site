@@ -6,21 +6,31 @@ $(function(){
    $("#review-order").on('submit',function(){
        return true;
    });
-   //改变花瓶选项的时候改变价格说明
-   $("select.vase-option").on('change',function(){
-       var vase_total_cost = 0;
-       var final_user_cost = 0;
-       $("select.vase-option").each(function(){
-           if($(this).val() == '1') {
-              vase_total_cost = vase_total_cost + 20; 
-           }
-       });
-       $("span.vase_total_cost").text(vase_total_cost);
+   //计算价单
+   function calculate_price_list() {
+       calculate_vase_price_list();
        var product_original_cost = Number($('span.products_total_cost').text());
+       var vase_total_cost = Number($('span.vase_total_cost').text());
        var cur_cost = Number($('span.cut_total_cost').text());
        var deliver_cost = Number($('span.deliver_cost').text());
-       final_user_cost = product_original_cost + deliver_cost + vase_total_cost - cur_cost;
+       var final_user_cost = product_original_cost + deliver_cost + vase_total_cost - cur_cost;
        $('span.total-price-value').text(final_user_cost);
+   }
+   
+   //计算花瓶价单
+   function calculate_vase_price_list() {
+       var vase_count = 0;
+       $("select.vase-option").each(function(){
+           if($(this).val() == '1') {
+              vase_count = vase_count + 20;
+           }
+       });
+       $("span.vase_total_cost").text(vase_count);
+   }
+   
+   //改变花瓶选项的时候改变价格说明
+   $("select.vase-option").on('change',function(){
+       calculate_price_list();
    });
    
    //用户删除购物车中的商品
@@ -47,17 +57,15 @@ $(function(){
                         success:function(data) {                           
                            if(data == '1') {
                               //添加删除的动态效果
-                              this_row.fadeOut("slow", function (){
+                              this_row.fadeOut("fast", function (){
                                 this_row.remove();
                               });
                               //更新价目表
-                              var product_original_cost = Number($('span.products_total_cost').text()) - Number(this_price);
-                              $('span.products_total_cost').text(product_original_cost);
-                              var vase_total_cost = Number($('span.vase_total_cost').text());
-                              var cur_cost = Number($('span.cut_total_cost').text());
-                              var deliver_cost = Number($('span.deliver_cost').text());
-                              var final_user_cost = product_original_cost + deliver_cost + vase_total_cost - cur_cost;
-                              $('span.total-price-value').text(final_user_cost);
+                              setTimeout(function(){
+                                  var product_original_cost = Number($('span.products_total_cost').text()) - Number(this_price);
+                                  $('span.products_total_cost').text(product_original_cost);
+                                  calculate_price_list();                                  
+                              },500);
                            }else {
                                alert('出现未知错误,请稍后再试')
                            }

@@ -223,8 +223,6 @@ class ProductController extends Controller {
     
     public function order_remove_cart_item() {
         sleep(1);//防止一下子处理太多删除行为 
-        echo '1';
-        exit();
         $user_id = session('custom_id');
         if(!empty($user_id)) {
             $remove_item_id = I('post.delete_item');
