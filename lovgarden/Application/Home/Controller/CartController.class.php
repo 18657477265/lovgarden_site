@@ -25,12 +25,23 @@ class CartController extends Controller {
                 if(check_sumbit_sku_id_right($old_cart_info,$submit_info,$user_id)) {
                     $new_cart_info_choose = merge_submit_cart_info($old_cart_info,$submit_info,$user_id);
                     //这个在原购物车数据基础上生成的新的数据和提交的优惠码一同构成了order对象的基本数据，接下来要验证这些数据是否允许构成一个订单
-                    
-                    echo "<pre>";
-                    header("Content-type:text/html;charset=utf-8");
-                    print_r($new_cart_info_choose);
-                    echo "</pre>";
-                    exit();
+                    $checked_date = checkOrderItemsDeliverDateValid($new_cart_info_choose);
+                    if($checked_date['result_code'] == '1') {
+                        //正式保留数据进行跳转
+                        echo '22';
+                        exit();
+                    }   
+                    else {
+                        //输出错误信息
+                        $costs_info_array = calculate_cost($old_cart_info);
+                        $this->assign(array(
+                            'cart_products' => $old_cart_info,
+                            'costs_info_array' => $costs_info_array,
+                            'error_message' => $checked_date['error_message']
+                         ));
+                         $this->display('detail');
+                         exit();
+                    }
                 }
                 else {
                     header("Content-type:text/html;charset=utf-8");
@@ -44,10 +55,8 @@ class CartController extends Controller {
                 echo '数据已经过期,请重新提交结算';
                 exit();
             }
-          }
-          
-          
-          
+          }         
+          //正常进入页面
           $model = new \Think\Model();
           $sql = "SELECT cart.id AS cart_id, product.id,product.sku_id,product.varient_name,product.varient_price,product.decoration_level,images.`image_url` , cart.`deliver_time` , cart.`vase` FROM lovgarden_cart AS cart
                   LEFT JOIN lovgarden_product_varient AS product ON cart.varient_id = product.`sku_id`

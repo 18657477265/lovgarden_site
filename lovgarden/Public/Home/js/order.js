@@ -56,7 +56,7 @@ $(function(){
                         dataType: 'json',
                         success:function(data) {                           
                            if(data == '1') {
-                              //添加删除的动态效果
+                              //添加删除的动态效果                              
                               this_row.fadeOut("fast", function (){
                                 this_row.remove();
                               });
@@ -64,7 +64,7 @@ $(function(){
                               setTimeout(function(){
                                   var product_original_cost = Number($('span.products_total_cost').text()) - Number(this_price);
                                   $('span.products_total_cost').text(product_original_cost);
-                                  calculate_price_list();                                  
+                                  calculate_price_list();
                               },500);
                            }else {
                                alert('出现未知错误,请稍后再试')

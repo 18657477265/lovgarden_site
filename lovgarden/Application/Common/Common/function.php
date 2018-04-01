@@ -468,3 +468,96 @@ function check_sumbit_sku_id_right($old_cart_info,$submit_info,$user_id) {
     }
 }
 
+//当用户提交订单后，需要验证原来的日期数据是不是还支不支持配送
+function orderCheckDateIsValid($deliver_time) {
+        $unixTime = strtotime($deliver_time);
+        if ($unixTime) { //strtotime转换不对，日期格式显然不对。
+            return TRUE;
+        }
+        return false;
+}
+
+function orderCheckIsFurture($deliver_time) {
+        if(orderCheckDateIsValid($deliver_time)) {
+            $today = date("Y-m-d");
+            if(strtotime($deliver_time)-strtotime($today) >= 0){
+                return TRUE;
+            }
+        }
+        return FALSE;        
+}
+
+//验证此刻商品的配送日期是不是还合法
+function orderCheckDeliverTodayAllowed($deliver_time,$sku_id) {        
+        $unix_time = strtotime($deliver_time); 
+        $deliver_date = date('Y-m-d',$unix_time);
+        $today = date('Y-m-d');
+        if($deliver_date == $today) {
+            //输入的日期是今天，查看该商品是不是允许今天下单
+            //这里还是得使用memcache,防止多次查询数据库的情况发生
+            //注意：之所以直接从后台取数据而不从模板里面传上来是怕有人故意传错误的值上来
+            $mem_check_deliver = new Think\Cache\Driver\Memcache();
+            $name = $sku_id.'deliver_status';
+            $count = $mem_check_deliver->get($name);
+            if(empty($count)){
+                $sql = "SELECT b.hurry_level_id  from lovgarden_product_varient AS a LEFT JOIN lovgarden_product_varient_hurry_level AS b ON a.`id`=b.`product_varient_id` WHERE a.`sku_id`='$sku_id';";
+                $model = new \Think\Model();
+                $result = $model->query($sql);
+                $count = count($result);//如果配送选择大于1的说明肯定支持当天配送，否则肯定是预约配送
+                $mem_check_deliver->set($name,$count,86400);
+            }
+            if($count > 1) {
+                return TRUE;
+            }
+            else {
+                return FALSE;
+            }
+        }
+        //如果输入的配送日期不是今天，则直接通过
+        else {
+            return TRUE;
+        }
+}
+
+//开始利用上面三个方法验证提交上来的新的订单配送日期信息
+function checkOrderItemsDeliverDateValid($new_cart_info_choose) {
+    $flag = array(
+        'result_code' => '0',
+        'error_message' => '',
+    );
+    if(!empty($new_cart_info_choose)) {
+        foreach($new_cart_info_choose as $k => $v) {
+            if(orderCheckIsFurture($v['deliver_time'])){
+                if(orderCheckDeliverTodayAllowed($v['deliver_time'],$v['sku_id'])){
+                    $flag = array(
+                        'result_code' => '1',
+                        'error_message' => '',
+                    );
+                }
+                else {
+                    $flag = array(
+                        'result_code' => '2',
+                        'error_message' => $v['deliver_time'].':'.$v['varient_name'].' 不支持今日配送,请重选配送日期',
+                    );
+                    break;
+                }
+            }
+            else {
+                $flag = array(
+                        'result_code' => '3',
+                        'error_message' => $v['deliver_time'].':该日期已过期',
+                );
+                break;
+            }
+        }
+    }
+    else {
+       $flag = array(
+        'result_code' => '0',
+        'error_message' => '数据为空',
+       );
+    }
+    return $flag;
+}
+
+

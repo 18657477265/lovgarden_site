@@ -35,6 +35,9 @@
   <div class="container checkout-order-content">
     <h3 class="check-before-next-title">请确认您的订单是否正确</h3>
     <p class="check-before-next-brief">请检查看看您选的商品款式是否正确哦，在接下来的一步您也可以在商品订单上给我们添加备注哦</p>
+    <?php if(!empty($error_message)):   ?>
+    <p style="color: red;"><?php print $error_message;  ?></p>
+    <?php endif;  ?>
     <?php foreach($cart_products as $k => $v): ?>
     <div class="row each-product">
       <div class="product-small-img col-md-2 col-sm-2 col-xs-4">
