@@ -25,10 +25,15 @@ class CartController extends Controller {
                 if(check_sumbit_sku_id_right($old_cart_info,$submit_info,$user_id)) {
                     $new_cart_info_choose = merge_submit_cart_info($old_cart_info,$submit_info,$user_id);
                     //这个在原购物车数据基础上生成的新的数据和提交的优惠码一同构成了order对象的基本数据，接下来要验证这些数据是否允许构成一个订单
-                    $checked_date = checkOrderItemsDeliverDateValid($new_cart_info_choose);
+                    $checked_date = checkOrderItemsDeliverDateValid($new_cart_info_choose,$old_cart_info);
                     if($checked_date['result_code'] == '1') {
-                        //正式保留数据进行跳转
-                        echo '22';
+                        //正式保留数据进行跳转                        
+                        $correct_data = $user_id.'correct_order_cart_info';
+                        $coupon_code = $user_id.'coupon_code';
+                        $mem_store_cart_info->set($correct_data, serialize($new_cart_info_choose), 1200);
+                        $mem_store_cart_info->set($coupon_code, $submit_info['discount_code'], 1200);
+                        //跳转到checkout页面
+                        $this->redirect('cart/checkout');
                         exit();
                     }   
                     else {
@@ -88,8 +93,76 @@ class CartController extends Controller {
     }
     
     public function checkout() {
-        $this->display('checkout');
+        $user_id = session('custom_id');
+        if(!empty($user_id)){
+            $correct_data = $user_id.'correct_order_cart_info';
+            $coupon_code = $user_id.'coupon_code';
+            $mem_order = new Memcache();
+            $order_products_info = $mem_order->get($correct_data);
+            $order_coupon_code = $mem_order->get($coupon_code);
+            
+            if(!empty($order_products_info)) {
+                $order_products_info = unserialize($order_products_info);
+                $costs = calculate_cost($order_products_info);
+                $error_message = '';
+                if(IS_POST) {
+                    //生成最终订单，并验证配送信息
+                    
+                    $order_info = array(
+                      'order_id' => date('ymdHis'). rand(10000,99999),
+                      'order_owner' => session('user_telephone'),
+                      'last_name' => I('post.last_name'),
+                      'first_name' => I('post.first_name'),
+                      'telephone' => I('post.phone_number'),
+                      'area' => I('post.address_province_city'),
+                      'address' => I('post.address_detail_location'),
+                      'post_code' => I('post.zip_code'),
+                      'content_body' => I('post.order_item_message'),
+                      'order_create_time' => date('Y-m-d H:i:s'),
+                      'order_products_total_price' => $costs['products_original_cost'],
+                      'order_deliver_price' => $costs['deliver_cost'],
+                      'order_vases_price' => $costs['vase_cost'],
+                      'order_coupon_code' => $order_coupon_code,
+                      'order_coupon_cut' => $costs['cut_cost'],
+                      'order_vip_level_cut' => '0',
+                      'order_final_price' => $costs['total_cost'],
+                      'order_status' => '1',  
+                    );
+                    $order_model = D('Order');
+                    $validate_status = $order_model->create($order_info);
+                    if($validate_status){
+                        //订单通过验证，提交事务，生成订单(不能大于10个),关联商品
+                        echo 'd';
+                        exit();
+                    }
+                    else {
+                        $error_message = $order_model->getError();
+                    }
+//                    echo "<pre>";
+//                    print_r(I('post.'));
+//                    echo "</pre>";
+//                    exit();                   
+                }
+                
+                $this->assign(array(
+                    'order_products_info' => $order_products_info,
+                    'order_coupon_code' => $order_coupon_code,
+                    'costs' => $costs,
+                    'error_message' => $error_message
+                ));
+                $this->display('checkout');
+                exit();
+            }
+            else {
+               $this->redirect('User/operation_success/status/5');
+               exit();
+            }
+        }
+        else {
+            $this->redirect('user/login');
+        }
     }
+    
     function ajax_get_cart_items() {
         $user_id = session('custom_id');
         if(!empty($user_id)) {

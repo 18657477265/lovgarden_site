@@ -31,26 +31,30 @@
     <p class="check-before-next-brief">请务必确认收货人联系方式和地址详细可靠哦</p>
 
     <!--收获信息form-->
-
-    <form class="container deliver-info-form">
+   
+    <p id="error-message" style='color: red;'><?php print $error_message; ?></p>
+   
+    <form class="container deliver-info-form" action="__SELF__" method="POST" id="order_submit_confirm">
       <div class="col-md-6 col-sm-6 col-xs-12 deliver-info-form-left">
           <div class="row col-md-12 col-xs-12 input-select-info-source">
-            <select name="order_item" id="order_item_info_source" required="required" data-checkout-relationship-select="5a7c0df06170706c40005108" aria-required="true" aria-invalid="false" class="valid">
-              <option value="">Select Recipient</option>
-              <option value="new">New Recipient</option>
+            <select name="order_item" id="order_item_info_source" aria-required="true" aria-invalid="false" class="valid">
+              <option value="">配送信息</option>
+              <option value="new">添加新配送信息</option>
             </select>
           </div>
 
           <div class="col-md-6 col-sm-6 col-xs-12 input-wrapper">
-           <input type="text" name="first_name" id="first_name" class="text-box" required="required" title="Shipping First Name" placeholder="First Name*" autocomplete="off">
+           <input type="text" name="first_name" id="first_name" class="text-box" required="required" title="姓" placeholder="姓" autocomplete="on" maxlength="30">
           </div>
+          
           <div class="col-md-6 col-sm-6 col-xs-12 input-wrapper">
-            <input type="text" name="last_name" id="last_name" class="text-box" required="required" autocorrect="off" title="Shipping Last Name" placeholder="Last Name*" autocomplete="off">
+            <input type="text" name="last_name" id="last_name" class="text-box" required="required"  title="名字" placeholder="名" autocomplete="on" maxlength="30">
           </div>
+          
           <div class="col-md-12 col-sm-12 col-xs-12 input-wrapper">
-            <input type="tel" name="phone_number" id="phone_number" class="text-box" required="required" placeholder="Phone Number*" title="Shipping Phone Number" autocomplete="off">
+            <input type="tel" name="phone_number" id="phone_number" class="text-box" required="required" placeholder="收货人联系方式" title="收货人联系方式" autocomplete="on"  pattern="^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$">
           </div>
-
+          
           <div class="col-md-12 col-sm-12 col-xs-12 input-wrapper input-wrapper-address">
               <div id="distpicker">
               <div class="form-group">
@@ -60,121 +64,93 @@
               </div>     
               </div>
           </div>
-
+          
           <div class="col-md-12 col-sm-12 col-xs-12 input-wrapper">
-            <input type="text" name="address_detail_location" id="address_detail_location" class="text-box" required="required" placeholder="街道/门牌等详细位置" title="详细地址" autocomplete="off">
+              <input type="text" name="address_detail_location" id="address_detail_location" class="text-box" required="required" placeholder="街道/门牌等详细位置" title="详细地址" autocomplete="on">
           </div>
+          
           <div class="col-md-12 col-sm-12 col-xs-12 input-wrapper">
-            <input type="text" name="zip_code" id="zip_code" class="text-box" required="required" placeholder="邮政编码" title="邮政编码" autocomplete="off">
+              <input type="text" name="zip_code" id="zip_code" class="text-box" required="required" placeholder="邮政编码" title="邮政编码" autocomplete="on" pattern="^[0-9]\\d{5,8}$">
           </div>
+          
       </div>
 
       <div class="col-md-6 col-sm-6 col-xs-12 deliver-info-form-right">
-          <h3 class="checkout-addresses__heading col-md-12"><label for="message_order"><span class="property__text">Message</span><span class="property__requirement">(optional)</span></label>
+          <h3 class="checkout-addresses__heading col-md-12"><label for="message_order"><span class="property__text">贺卡内容</span><span class="property__requirement">(可选,免费)</span></label>
           </h3>
           <div class="col-md-11 col-sm-11 col-xs-12 input-wrapper">
-            <textarea name="order_item_message" id="message_order" class="text-box text-box--multi-line" autocorrect="off" maxlength="440" title="Product Message" placeholder="为无比重要的他/她写一张贺卡吧"></textarea>
+            <textarea name="order_item_message" id="message_order" class="text-box text-box--multi-line" autocorrect="off" maxlength="440" title="贺卡内容" placeholder="为无比重要的他/她写一张贺卡吧"></textarea>
           </div>
       </div>
+      
     </form>
     <h3 class="products-list-flow2">商品列表</h3>
+    <?php foreach($order_products_info as $k => $v): ?>
     <div class="row each-product">
       <div class="product-small-img col-md-3 col-sm-3 col-xs-4">
-        <img src="__PUBLIC__/Home/images/flow/flow_product.jpg">
+          <img style="width: 110px;height: 110px;" src="<?php print C('IMAGE_CONFIG')['viewPath'].$v['image_url'][0];  ?>">
       </div>
       <div class="product-title-info product-title-info-title col-md-2 col-sm-2 col-xs-4">
-        <p><span class="ceil">FLAMINGO</span></p>
+        <p><span class="ceil"><?php print $v['varient_name']; ?></span></p>
       </div>
       <div class="product-title-info decoration-level-status col-md-1 col-sm-1 col-xs-4">
-        <p><span class="ceil checkout-decoration-value">少</span></p>
+        <p><span class="ceil checkout-decoration-value"><?php print product_varient_decoration_level($v['decoration_level']);  ?></span></p>
       </div>
       <div class="product-title-info input-select-vase-status col-md-2 col-sm-2 col-xs-4">        
-         <p><span class="ceil checkout-vase-status">含花瓶</span></p>
+         <p><span class="ceil checkout-vase-status"><?php print get_vase_label($v['vase']); ?></span></p>
       </div>
       <div class="flow-check-date-value col-md-2 col-sm-2 col-xs-4">
-          <p><span class="ceil checkout-date-value">2018-03/02</span></p>
+          <p><span class="ceil checkout-date-value"><?php print $v['deliver_time']; ?></span></p>
       </div>
       <div class="flow-check-each-price col-md-1 col-sm-1 col-xs-4">
-          <p><span class="ceil">价格<br/>98元</span></p>
+          <p><span class="ceil">价格<br/><?php print number_format($v['varient_price']); ?>元</span></p>
       </div>
     </div>
-    <div class="row each-product">
-      <div class="product-small-img col-md-3 col-sm-3 col-xs-4">
-        <img src="__PUBLIC__/Home/images/flow/flow_product.jpg">
-      </div>
-      <div class="product-title-info product-title-info-title col-md-2 col-sm-2 col-xs-4">
-        <p><span class="ceil">FLAMINGO</span></p>
-      </div>
-      <div class="product-title-info decoration-level-status col-md-1 col-sm-1 col-xs-4">
-        <p><span class="ceil checkout-decoration-value">少</span></p>
-      </div>
-      <div class="product-title-info input-select-vase-status col-md-2 col-sm-2 col-xs-4">        
-         <p><span class="ceil checkout-vase-status">含花瓶</span></p>
-      </div>
-      <div class="flow-check-date-value col-md-2 col-sm-2 col-xs-4">
-          <p><span class="ceil checkout-date-value">2018-03/02</span></p>
-      </div>
-      <div class="flow-check-each-price col-md-1 col-sm-1 col-xs-4">
-          <p><span class="ceil">价格<br/>98元</span></p>
-      </div>
-    </div>
-    <div class="row each-product">
-      <div class="product-small-img col-md-3 col-sm-3 col-xs-4">
-        <img src="__PUBLIC__/Home/images/flow/flow_product.jpg">
-      </div>
-      <div class="product-title-info product-title-info-title col-md-2 col-sm-2 col-xs-4">
-        <p><span class="ceil">FLAMINGO</span></p>
-      </div>
-      <div class="product-title-info decoration-level-status col-md-1 col-sm-1 col-xs-4">
-        <p><span class="ceil checkout-decoration-value">少</span></p>
-      </div>
-      <div class="product-title-info input-select-vase-status col-md-2 col-sm-2 col-xs-4">        
-         <p><span class="ceil checkout-vase-status">含花瓶</span></p>
-      </div>
-      <div class="flow-check-date-value col-md-2 col-sm-2 col-xs-4">
-          <p><span class="ceil checkout-date-value">2018-03/02</span></p>
-      </div>
-      <div class="flow-check-each-price col-md-1 col-sm-1 col-xs-4">
-          <p><span class="ceil">价格<br/>98元</span></p>
-      </div>
-    </div>
-   
+    <?php endforeach; ?>
     <div class="row total-price-list">
       <div class="col-md-8 col-sm-8 col-xs-12">
-        <p class="coupin-code-info">优惠码号：XXXXXXXXXXXX</p>
+        <p class="coupin-code-info">优惠码号：<?php if(!empty($order_coupon_code)){ print $order_coupon_code;}else{print '无';} ?></p>
       </div>
       <div class="col-md-4 col-sm-4 col-xs-12 price-list-mobile">
         <table class="total-price table table--totals">
           <tbody>
           <tr>
             <th>
-              <span>Vase:</span>
+              <span>花瓶价格总和:</span>
             </th>
             <td>
-              <span>$12.00</span>
+              <span class="vase_total_cost"><?php print $costs['vase_cost']; ?></span><span>元</span>
             </td>
           </tr>
           <tr>
             <th>
-              <span>Welcome15</span>
+              <span>商品价格总和:</span>
             </th>
             <td>
-              <strong>-$34.05</strong>
+                <span class="products_total_cost"><?php print $costs['products_original_cost']; ?></span><span>元</span>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <span>优惠券</span>
+            </th>
+            <td>
+                <span class="cut_total_cost">-<?php print $costs['cut_cost']; ?></span><span>元</span>
             </td>
           </tr>
           <tr>
             <th class="checkout-step-summary__login-free-delivery-cell">
-              <span>Delivery:</span>
+              <span>运费:</span>
             </th>
             <td>
-              <span>Free</span>
+                <span class="deliver_cost"><?php print $costs['deliver_cost']; ?></span><span>元</span>
             </td>
           </tr>
           <tr class="table__total">
             <th>
-              <span>Subtotal:</span>
+              <span>最终价格:</span>
             </th>
-            <td class="total-price-value">$192.95</td>
+            <td><span class="total-price-value"><?php print $costs['total_cost']; ?></span><span>元</span></td>
           </tr>
           </tbody>
         </table>
@@ -182,7 +158,7 @@
     </div> 
     
     <div class="row checkout-button">
-      <a href="#" class="checkout-to-flow2">付款</a>
+      <a href="javascript:void(0);" class="checkout-to-flow3">提交订单</a>
     </div>
   </div>
   <div class="flow-checkout-footer">
@@ -191,9 +167,12 @@
     <script src="__PUBLIC__/Home/js/city-picker.data.js"></script>
     <script src="__PUBLIC__/Home/js/city-picker.js"></script>
     <script src="__PUBLIC__/Home/js/custom.js"></script>
+    <script src="__PUBLIC__/Home/js/validator.js"></script>
+    <!--<script src="__PUBLIC__/Home/js/validatr.js"></script>-->
     <script>
       $(document).ready(function() {
          $('#order_item_info_source').niceSelect();
+         //$('#order_submit_confirm').validatr();
       });
     </script>
 </body>

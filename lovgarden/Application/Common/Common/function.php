@@ -140,7 +140,7 @@ function product_varient_decoration_level($decoration_level_value){
     $decoration_level_label = '';
     switch ($decoration_level_value) {
         case '1':
-            $decoration_level_label = '适中';
+            $decoration_level_label = '经典';
             break;
         case '2':
             $decoration_level_label = '奢侈';
@@ -284,6 +284,21 @@ function get_css_class_color($color_id) {
     return $color_class;
 }
 
+
+function get_vase_label($vase) {
+    $vase_label = '';
+    switch ($vase) {
+        case '1':
+            $vase_label = '有花瓶';
+            break;
+        case '2':
+            $vase_label = '无花瓶';
+            break;
+    }
+    return $vase_label;
+}
+
+
 //根据配送huryy_level_id选择合适的展现
 function show_appropriate_hurry_status($hurry_level_ids = array()){
     if(count($hurry_level_ids) > 1){
@@ -353,6 +368,9 @@ function translate_status_label($status_code = '2') {
             break;
         case '3':
             $result = '您的密码已修改,请登录';
+            break;
+        case '5':
+            $result = '数据已过期，请重新提交结算';
             break;
     }
     return $result;
@@ -520,13 +538,15 @@ function orderCheckDeliverTodayAllowed($deliver_time,$sku_id) {
 }
 
 //开始利用上面三个方法验证提交上来的新的订单配送日期信息
-function checkOrderItemsDeliverDateValid($new_cart_info_choose) {
+function checkOrderItemsDeliverDateValid($new_cart_info_choose,&$old_cart_info) {
     $flag = array(
         'result_code' => '0',
         'error_message' => '',
     );
     if(!empty($new_cart_info_choose)) {
         foreach($new_cart_info_choose as $k => $v) {
+            //修改原数据,用于输出错误信息，提高用户体验
+            $old_cart_info[$k]['deliver_time']= $v['deliver_time'];
             if(orderCheckIsFurture($v['deliver_time'])){
                 if(orderCheckDeliverTodayAllowed($v['deliver_time'],$v['sku_id'])){
                     $flag = array(
@@ -547,6 +567,7 @@ function checkOrderItemsDeliverDateValid($new_cart_info_choose) {
                         'result_code' => '3',
                         'error_message' => $v['deliver_time'].':该日期已过期',
                 );
+                
                 break;
             }
         }
