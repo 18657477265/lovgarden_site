@@ -136,11 +136,47 @@ $(function(){
            return false;
        }
        else {
+           //将信息存入本地loal storage
+           window.localStorage.setItem('first_name',$('input[name="first_name"]').val());
+           window.localStorage.setItem('last_name',$('input[name="last_name"]').val());
+           window.localStorage.setItem('phone_number',$('input[name="phone_number"]').val());
+           window.localStorage.setItem('area',$('#city-picker3').val());
+           window.localStorage.setItem('address',$('#address_detail_location').val());
+           window.localStorage.setItem('post_code',$('#zip_code').val());
            $('#error-message').hide(100);
            return true;
        }
    });
+   
+   $("body").on('change','#order_item_info_source',function(){
+      var option = $("#order_item_info_source option:selected").val();
+      if(option == 'local1') {
+          $('input[name="first_name"]').val(window.localStorage.getItem('first_name'));
+          $('input[name="last_name"]').val(window.localStorage.getItem('last_name'));
+          $('input[name="phone_number"]').val(window.localStorage.getItem('phone_number'));
+          $('#city-picker3').val(window.localStorage.getItem('area'));
+          $('#address_detail_location').val(window.localStorage.getItem('address'));
+          $('#zip_code').val(window.localStorage.getItem('post_code'));
+      }
+      else if(option == 'new') {
+          $('input[name="first_name"]').val('');
+          $('input[name="last_name"]').val('');
+          $('input[name="phone_number"]').val('');
+          $('#city-picker3').val('');
+          $('#address_detail_location').val('');
+          $('#zip_code').val('');
+      }
+   });
+   
    $('a.checkout-to-flow3').on('click',function() {
        $('#order_submit_confirm').submit();
    });
+   
+   var first_name_test = window.localStorage.getItem('first_name');  
+   if(first_name_test != null && first_name_test != undefined && first_name_test != "") {
+       //说明本地有数据，将其生成一个选项
+       $('#order_item_info_source').append('<option value="local1">配送信息1</option>');
+       $('.nice-select.valid.open .list').append('<li data-value="local1" class="option selected focus">配送信息1</li>');
+   }
+
 })

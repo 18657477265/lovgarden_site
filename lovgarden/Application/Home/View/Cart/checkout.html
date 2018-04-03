@@ -38,21 +38,20 @@
       <div class="col-md-6 col-sm-6 col-xs-12 deliver-info-form-left">
           <div class="row col-md-12 col-xs-12 input-select-info-source">
             <select name="order_item" id="order_item_info_source" aria-required="true" aria-invalid="false" class="valid">
-              <option value="">配送信息</option>
-              <option value="new">添加新配送信息</option>
+              <option value="new">配送信息</option>
             </select>
           </div>
 
           <div class="col-md-6 col-sm-6 col-xs-12 input-wrapper">
-           <input type="text" name="first_name" id="first_name" class="text-box" required="required" title="姓" placeholder="姓" autocomplete="on" maxlength="30">
+           <input type="text" name="first_name" id="first_name" class="text-box" required="required" title="姓" placeholder="姓" autocomplete="off" maxlength="30">
           </div>
           
           <div class="col-md-6 col-sm-6 col-xs-12 input-wrapper">
-            <input type="text" name="last_name" id="last_name" class="text-box" required="required"  title="名字" placeholder="名" autocomplete="on" maxlength="30">
+            <input type="text" name="last_name" id="last_name" class="text-box" required="required"  title="名字" placeholder="名" autocomplete="off" maxlength="30">
           </div>
           
           <div class="col-md-12 col-sm-12 col-xs-12 input-wrapper">
-            <input type="tel" name="phone_number" id="phone_number" class="text-box" required="required" placeholder="收货人联系方式" title="收货人联系方式" autocomplete="on"  pattern="^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$">
+            <input type="tel" name="phone_number" id="phone_number" class="text-box" required="required" placeholder="收货人联系方式" title="收货人联系方式" autocomplete="off"  pattern="^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$">
           </div>
           
           <div class="col-md-12 col-sm-12 col-xs-12 input-wrapper input-wrapper-address">
@@ -66,17 +65,17 @@
           </div>
           
           <div class="col-md-12 col-sm-12 col-xs-12 input-wrapper">
-              <input type="text" name="address_detail_location" id="address_detail_location" class="text-box" required="required" placeholder="街道/门牌等详细位置" title="详细地址" autocomplete="on">
+              <input type="text" name="address_detail_location" id="address_detail_location" class="text-box" required="required" placeholder="街道/门牌等详细位置" title="详细地址" autocomplete="off">
           </div>
           
           <div class="col-md-12 col-sm-12 col-xs-12 input-wrapper">
-              <input type="text" name="zip_code" id="zip_code" class="text-box" required="required" placeholder="邮政编码" title="邮政编码" autocomplete="on" pattern="^[0-9]\\d{5,8}$">
+              <input type="text" name="zip_code" id="zip_code" class="text-box" required="required" placeholder="邮政编码" title="邮政编码" autocomplete="off" pattern="^[0-9]\\d{5,8}$">
           </div>
           
       </div>
 
       <div class="col-md-6 col-sm-6 col-xs-12 deliver-info-form-right">
-          <h3 class="checkout-addresses__heading col-md-12"><label for="message_order"><span class="property__text">贺卡内容</span><span class="property__requirement">(可选,免费)</span></label>
+          <h3 class="checkout-addresses__heading col-md-12"><label for="message_order"><span class="property__text">备注(贺卡内容或者其他要求等)</span><span class="property__requirement">(可选,免费)</span></label>
           </h3>
           <div class="col-md-11 col-sm-11 col-xs-12 input-wrapper">
             <textarea name="order_item_message" id="message_order" class="text-box text-box--multi-line" autocorrect="off" maxlength="440" title="贺卡内容" placeholder="为无比重要的他/她写一张贺卡吧"></textarea>

@@ -374,6 +374,9 @@
    .utility-nav__item-node {
        font-size: 10px;
    }
+   .order-response-block {
+       padding: 10px 10px 0 10px;
+   }
 }
 /*products checkout flow1 小屏幕手机端样式*/
 @media ( max-width:320px) {
@@ -1135,3 +1138,30 @@
     border-radius: 10px;
     display: none;
 }
+#detail-page-error-message {
+    color: red;
+    background-color: rgba(255,218,185,0.5);
+    padding: 20px;
+    border: 1px solid red;
+    
+}
+
+p.order-response {
+    background-color: rgba(0,205,102,0.7);
+    padding: 20px;
+    color: #fff;
+    
+}
+
+p.alipay-button {
+    background-color: rgba(255,165,0,0.7);
+}
+
+p.alipay-button a {
+    color: #fff;
+    margin-bottom: 20px;
+}
+p.alipay-button a:hover {
+    color: #fff;
+}
+

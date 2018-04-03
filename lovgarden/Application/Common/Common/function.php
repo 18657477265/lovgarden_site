@@ -372,6 +372,9 @@ function translate_status_label($status_code = '2') {
         case '5':
             $result = '数据已过期，请重新提交结算';
             break;
+        case '6':
+            $result = '您的订单提交成功';
+            break;
     }
     return $result;
 }

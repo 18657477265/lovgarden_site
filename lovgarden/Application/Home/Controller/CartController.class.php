@@ -106,8 +106,7 @@ class CartController extends Controller {
                 $costs = calculate_cost($order_products_info);
                 $error_message = '';
                 if(IS_POST) {
-                    //生成最终订单，并验证配送信息
-                    
+                    //生成最终订单，并验证配送信息                    
                     $order_info = array(
                       'order_id' => date('ymdHis'). rand(10000,99999),
                       'order_owner' => session('user_telephone'),
@@ -132,16 +131,68 @@ class CartController extends Controller {
                     $validate_status = $order_model->create($order_info);
                     if($validate_status){
                         //订单通过验证，提交事务，生成订单(不能大于10个),关联商品
-                        echo 'd';
-                        exit();
+                        //开始启动事务
+                        $order_model->startTrans();
+                        $order_id = $order_model->add($validate_status);
+                        if($order_id) {
+                            $final_status = TRUE;
+                            $order_bind_product_model = D('OrderProductVarient');
+                            foreach($order_products_info as $k => $v) {
+                                $order_bind_product_array = array(
+                                  'order_original_id' => $order_id,
+                                  'order_info_id' => $order_info['order_id'],
+                                  'product_sku_id' => $v['sku_id'],
+                                  'vase_option' => $v['vase'],
+                                  'deliver_time' => $v['deliver_time'],                                  
+                                );
+                                $order_bind_product_status = $order_bind_product_model->add($order_bind_product_array);
+                                if(!$order_bind_product_status) {
+                                    $order_model->rollback();
+                                    $final_status = FALSE;
+                                    break;
+                                }
+                            }
+                            if($final_status) {
+                                //删除内存信息，删除购物车中数据  
+                                $prefix_cart_info = $user_id.'order_cart_info';
+                                $prefix_cart_block_info = $user_id.'cart_info';
+                                $prefix_cart_block_count = $user_id.'cart_items_count';
+                                $mem_order->rm($correct_data);
+                                $mem_order->rm($coupon_code);
+                                $mem_order->rm($prefix_cart_info);
+                                $mem_order->rm($prefix_cart_block_info);
+                                $mem_order->rm($prefix_cart_block_count);
+                                
+                                $user_cart_model = D('Cart');
+                                $delete_status = $user_cart_model->where(array(
+                                    'user_id' => $user_id,
+                                ))->delete();
+                                if($delete_status !== FALSE) {
+                                    $order_model->commit();
+                                    $this->redirect('cart/order/status/6');
+                                    exit();
+                                }
+                                else {
+                                    $order_model->rollback();
+                                    header("Content-type:text/html;charset=utf-8");
+                                    echo "清除购物车数据失败";
+                                    exit();
+                                }                               
+                            }
+                            else {
+                                header("Content-type:text/html;charset=utf-8");
+                                echo "提交订单产品出错";
+                                exit();
+                            }                                                       
+                        }else {
+                            header("Content-type:text/html;charset=utf-8");
+                            echo "提交订单出错";
+                            exit();
+                        }
                     }
                     else {
                         $error_message = $order_model->getError();
-                    }
-//                    echo "<pre>";
-//                    print_r(I('post.'));
-//                    echo "</pre>";
-//                    exit();                   
+                    }                 
                 }
                 
                 $this->assign(array(
@@ -161,6 +212,12 @@ class CartController extends Controller {
         else {
             $this->redirect('user/login');
         }
+    }
+    function order($status = '6'){
+        $this->assign(array(
+            'status' => $status,
+        ));
+        $this->display('order');
     }
     
     function ajax_get_cart_items() {

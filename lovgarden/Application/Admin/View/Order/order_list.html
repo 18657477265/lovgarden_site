@@ -1,0 +1,70 @@
+<layout name="Common/layout" />
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">订单列表</h2>
+      </div>
+     <form class="mtb" action="__ACTION__" method="GET">
+       <input name="order_id" type="text" class="textbox textbox_100" placeholder="订单编号"/>
+       <input name="user_telephone" type="text" class="textbox textbox_100" placeholder="下单用户"/>
+       <input name="receive_telephone" type="text" class="textbox textbox_100" placeholder="收货人电话"/>
+       <input name="order_create_time" type="text" class="textbox textbox_100" placeholder="订单创建时间"/>
+       <select class="select" name='decoration_level'>
+        <option value='all'>订单状态</option>
+        <option value="1">未付款</option>
+        <option value="2">已付款</option>
+        <option value="3">退款</option>
+       </select>
+       <input name="varient_name_or_sku_id" type="text" class="textbox textbox_225" placeholder="输入姓名备注地址等其他信息..."/>
+       <input type="submit" value="查询" class="group_btn"/>
+      </form>
+      <table class="table">
+       <tr>
+        <th>订单编号</th>
+        <th>下单用户</th>
+        <th>用户姓名</th>
+        <th>收货人电话</th>
+        <th>收获地址</th>
+        <th>邮编</th>
+        <th>备注(贺卡)</th>
+        <th>创建时间</th>
+        <th>商品总价</th>
+        <th>运费</th>
+        <th>花瓶总价</th>
+        <th>优惠码</th>
+        <th>优惠码减价</th>
+        <th>会员减价</th>
+        <th>付款最终价</th>
+        <th>订单状态</th>
+        <th>操作</th>
+       </tr>
+      
+       <tr>
+        <td class="center"></td>
+        <td></td>
+        <td class="center"></td>
+        <td class="center"></td>
+        <td class="center"></td>
+        <td class="center"></td>
+        <td class="center"></td>
+        <td class="center"></td>
+        <td class="center"></td>
+        <td class="center"></td>
+        <td class="center"></td>
+        <td class="center"></td>
+        <td class="center"></td>
+        <td class="center"></td>
+        <td class="center"></td>
+        <td class="center"></td>
+        <td class="center">
+         <a href="http://www.mycodes.net" title="所含商品信息" class="link_icon" target="_blank">&#118;</a>
+        </td>
+       </tr>
+       
+      </table>
+      <aside class="paging">
+      
+      </aside>
+ </div>
+</section>
+

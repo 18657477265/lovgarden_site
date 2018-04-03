@@ -36,7 +36,7 @@
     <h3 class="check-before-next-title">请确认您的订单是否正确</h3>
     <p class="check-before-next-brief">请检查看看您选的商品款式是否正确哦，在接下来的一步您也可以在商品订单上给我们添加备注哦</p>
     <?php if(!empty($error_message)):   ?>
-    <p style="color: red;"><?php print $error_message;  ?></p>
+    <p id="detail-page-error-message"><?php print $error_message;  ?></p>
     <?php endif;  ?>
     <?php foreach($cart_products as $k => $v): ?>
     <div class="row each-product">
@@ -77,7 +77,7 @@
     <div class="row total-price-list">
       <div class="col-md-8 col-sm-8 col-xs-12">
         <div class="inline-form">
-          <div class="discount_code col-md-4 col-sm-4 col-xs-12"><input type="text" name="discount_code" placeholder="优惠券码,可致电商家询问"></div>
+            <div class="discount_code col-md-4 col-sm-4 col-xs-12"><input type="text" name="discount_code" placeholder="优惠券码,可致电商家询问" autocomplete="off"></div>
           <div class="inline-form__cell col-md-5 col-sm-5 col-xs-12"><button name="discount_code_button" type="button" class="button button--full-width">添加</button>
           </div>
         </div>
