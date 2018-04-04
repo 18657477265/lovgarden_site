@@ -1,0 +1,33 @@
+<layout name="Common/layout" />
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">订单商品列表</h2>       
+      </div>   
+      <table class="table">
+       <tr>
+        <th>订单编号</th>
+        <th>产品编号</th>
+        <th>缩略图</th>
+        <th>产品名称</th>
+        <th>单价</th>
+        <th>附带花瓶与否</th>
+        <th>配送日期</th>
+        <th>状态</th>
+       </tr>
+       <?php foreach($products as $k=>$value): ?>
+       <tr>
+        <td><?php print $value['order_info_id'];  ?></td>
+        <td class="center"><?php print $value['product_sku_id'];  ?></td>
+        <td class="center"><img src="<?php echo C('IMAGE_CONFIG')['viewPath'].$value['image_url']['0']; ?>" width="50px" height="50px"/></td>
+        <td class="center"><?php print $value['varient_name'];  ?></td>
+        <td class="center"><?php print $value['varient_price'];  ?></td>
+        <td class="center"><?php print get_vase_label($value['vase_option']);  ?></td>
+        <td class="center"><?php print date('Y-m-d',strtotime($value['deliver_time']));  ?></td>
+        <td class="center"><?php print product_varient_status($value['varient_status']);  ?></td>
+       </tr>
+       <?php endforeach; ?>
+      </table>
+ </div>
+</section>
+

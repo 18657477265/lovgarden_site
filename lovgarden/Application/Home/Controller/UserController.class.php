@@ -205,4 +205,9 @@ class UserController extends Controller {
         //表示输出空购物车的状态码
         echo '0';
     }
+    
+    //用户中心
+    public function usercenter() {
+        $this->display('user_center');
+    }
 }

@@ -1,28 +1,58 @@
 <layout name="Common/layout" />
+
 <section class="rt_wrap content mCustomScrollbar">
- <div class="rt_content">
+<link rel="stylesheet" href="__PUBLIC__/Home/css/datepicker.css">
+<style>
+    .datepicker {
+        top: 169px;
+        left: 681.612px;
+        z-index: 10;
+        position: absolute;
+        display: block;
+        background-color: rgb(255, 255, 255);
+        border: 2px solid green;
+    }
+</style>
+<script src="__PUBLIC__/Home/js/bootstrap-datepicker.js">"></script>
+<script src="__PUBLIC__/Home/js/locales/bootstrap-datepicker.zh-CN.js"></script>
+<script>
+      $(document).ready(function() {
+         $('input[name="order_create_time_start"]').datepicker({
+              format: 'yyyy-mm-dd',
+              language: 'zh-CN',
+              autoclose: true,                       
+         });
+         $('input[name="order_create_time_end"]').datepicker({
+              format: 'yyyy-mm-dd',
+              language: 'zh-CN',
+              autoclose: true,                       
+         });
+      });
+</script>
+    <div class="rt_content" style="overflow-x:scroll;">
       <div class="page_title">
        <h2 class="fl">订单列表</h2>
       </div>
      <form class="mtb" action="__ACTION__" method="GET">
-       <input name="order_id" type="text" class="textbox textbox_100" placeholder="订单编号"/>
-       <input name="user_telephone" type="text" class="textbox textbox_100" placeholder="下单用户"/>
-       <input name="receive_telephone" type="text" class="textbox textbox_100" placeholder="收货人电话"/>
-       <input name="order_create_time" type="text" class="textbox textbox_100" placeholder="订单创建时间"/>
-       <select class="select" name='decoration_level'>
+         <input name="order_id" type="text" class="textbox textbox_100" placeholder="订单编号" value="<?php print $filter_selection['order_id']; ?>"/>
+       <input name="order_owner" type="text" class="textbox textbox_100" placeholder="下单用户" value="<?php print $filter_selection['order_owner']; ?>"/>
+       <input name="telephone" type="text" class="textbox textbox_100" placeholder="收货人电话" value="<?php print $filter_selection['telephone']; ?>"/>
+       <input name="order_create_time_start" type="text" class="textbox textbox_100" placeholder="订单创建时间区间-开始" value="<?php print $filter_selection['order_create_time_start']; ?>"/>
+       <input name="order_create_time_end" type="text" class="textbox textbox_100" placeholder="订单创建时间区间-结束" value="<?php print $filter_selection['order_create_time_end']; ?>"/>
+       <select class="select" name='order_status'>
         <option value='all'>订单状态</option>
-        <option value="1">未付款</option>
-        <option value="2">已付款</option>
-        <option value="3">退款</option>
+        <option  value="1" <?php if($filter_selection['order_status'] === '1'): ?><?php echo "selected='selected'"; ?><?php endif; ?>>未付款</option>
+        <option value="2"  <?php if($filter_selection['order_status'] === '2'): ?><?php echo "selected='selected'"; ?><?php endif; ?>>已付款</option>
+        <option value="3"  <?php if($filter_selection['order_status'] === '3'): ?><?php echo "selected='selected'"; ?><?php endif; ?>>退款</option>
        </select>
-       <input name="varient_name_or_sku_id" type="text" class="textbox textbox_225" placeholder="输入姓名备注地址等其他信息..."/>
+       <input name="others" type="text" class="textbox textbox_225" placeholder="输入名字备注地址等其他信息..." value="<?php print $filter_selection['others']; ?>"/>
        <input type="submit" value="查询" class="group_btn"/>
       </form>
-      <table class="table">
+      <table class="table" style='width: 2650px;'>
        <tr>
         <th>订单编号</th>
         <th>下单用户</th>
-        <th>用户姓名</th>
+        <th>收货人姓名</th>
         <th>收货人电话</th>
         <th>收获地址</th>
         <th>邮编</th>
@@ -38,33 +68,34 @@
         <th>订单状态</th>
         <th>操作</th>
        </tr>
-      
-       <tr>
-        <td class="center"></td>
-        <td></td>
-        <td class="center"></td>
-        <td class="center"></td>
-        <td class="center"></td>
-        <td class="center"></td>
-        <td class="center"></td>
-        <td class="center"></td>
-        <td class="center"></td>
-        <td class="center"></td>
-        <td class="center"></td>
-        <td class="center"></td>
-        <td class="center"></td>
-        <td class="center"></td>
-        <td class="center"></td>
-        <td class="center"></td>
-        <td class="center">
-         <a href="http://www.mycodes.net" title="所含商品信息" class="link_icon" target="_blank">&#118;</a>
-        </td>
-       </tr>
-       
+       <?php foreach($orders as $k => $v): ?>
+        <tr>
+         <td class="center"><?php print $v['order_id']; ?></td>
+         <td><?php print $v['order_owner']; ?></td>
+         <td class="center"><?php print $v['first_name'].$v['last_name']; ?></td>
+         <td class="center"><?php print $v['telephone']; ?></td>
+         <td class="center"><?php print $v['area'].$v['address']; ?></td>
+         <td class="center"><?php print $v['post_code']; ?></td>
+         <td class="center"><?php print $v['content_body']; ?></td>
+         <td class="center"><?php print $v['order_create_time']; ?></td>
+         <td class="center"><?php print $v['order_products_total_price']; ?></td>
+         <td class="center"><?php print $v['order_deliver_price']; ?></td>
+         <td class="center"><?php print $v['order_vases_price']; ?></td>
+         <td class="center"><?php print $v['order_coupon_code']; ?></td>
+         <td class="center"><?php print $v['order_coupon_cut']; ?></td>
+         <td class="center"><?php print $v['order_vip_level_cut']; ?></td>
+         <td class="center"><?php print $v['order_final_price']; ?></td>
+         <td class="center"><?php print get_order_status_label($v['order_status']); ?></td>
+         <td class="center">
+             <a target='_blank' href="/Admin/Order/detail/id/<?php print $v['id']; ?>" data-order-id="<?php print $v['id']; ?>" title="所含商品信息" class="link_icon" target="_blank">&#118;</a>
+         </td>
+        </tr>
+       <?php endforeach; ?>
       </table>
       <aside class="paging">
-      
+        <?php echo $page; ?>
       </aside>
  </div>
 </section>
+
 

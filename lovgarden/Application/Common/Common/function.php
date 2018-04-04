@@ -298,6 +298,22 @@ function get_vase_label($vase) {
     return $vase_label;
 }
 
+function get_order_status_label($order_status) {
+    $order_status_label = '';
+    switch ($order_status) {
+        case '1':
+            $order_status_label = '未付款';
+            break;
+        case '2':
+            $order_status_label = '已付款';
+            break;
+        case '3':
+            $order_status_label = '退货';
+            break;
+    }
+    return $order_status_label;
+}
+
 
 //根据配送huryy_level_id选择合适的展现
 function show_appropriate_hurry_status($hurry_level_ids = array()){
