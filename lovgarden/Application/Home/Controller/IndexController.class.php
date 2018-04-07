@@ -10,14 +10,14 @@ class IndexController extends Controller {
         $this->assign(array(
            'blocks' => $blocks, 
         ));
-        //require_once('/application/apache/htdocs/lovgarden/ThinkPHP/Library/Org/Util/SendCustomCode.class.php');
-        //set_time_limit(0);
-        //header('Content-Type: text/plain; charset=utf-8');       
-        //$response = SendCustomCode::sendSms('18657477265','33tt33');
-        //echo $response;
-        //exit();
-        //print_r($response);
-        //exit();
+//        require_once('/application/apache/htdocs/lovgarden/ThinkPHP/Library/Org/Util/SendCustomCode.class.php');
+//        set_time_limit(0);
+//        header('Content-Type: text/plain; charset=utf-8');       
+//        $response = SendCustomCode::sendSms('18657477265','33tt33');
+//        echo $response;
+//        exit();
+//        print_r($response);
+//        exit();
         
 //        $cart = D('Cart');
 //        $cart_info = array(

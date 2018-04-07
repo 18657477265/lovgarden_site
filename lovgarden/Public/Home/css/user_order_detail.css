@@ -1,0 +1,40 @@
+@charset "UTF-8"; 
+/*products checkout flow1 页面手机端样式*/
+@media ( max-width:767px ) {
+    .row-order-info {
+        padding-bottom: 26px;
+    }
+    .products-list-flow2 {
+        margin-top: 0;
+    }
+    .price-list-mobile {
+        margin-top: 0;
+    }
+    .header-gap {
+        height: 70px;
+    }
+}
+/*products checkout flow1 小屏幕手机端样式*/
+@media ( max-width:320px) {
+    
+}
+/*products checkout flow1 页面PC端样式*/
+@media ( min-width:1200px ) {
+    .row-order-info {
+        padding: 25px 0 25px 0;
+    }
+    .header-gap {
+        height: 200px;
+    }
+}
+/*products checkout flow1页面平板端样式*/
+@media ( min-width:768px ) and ( max-width:1199px ) {
+    .row-order-info {
+        padding: 20px 0 20px 0;
+    }
+    .header-gap {
+        height: 200px;
+    }
+}
+
+

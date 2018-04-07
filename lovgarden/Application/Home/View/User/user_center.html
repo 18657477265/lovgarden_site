@@ -7,11 +7,14 @@
      <title>用户中心|花点馨思</title>
      <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css"/>
      <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap-maizi.css"/>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/nice-select.css">
      <link rel="stylesheet" href="__PUBLIC__/Home/css/style.css"/>
      <link rel="stylesheet" href="__PUBLIC__/Home/css/component.css" />
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/usercenter.css" />
      <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
      <script src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
      <script src="__PUBLIC__/Home/js/jquery.cookie.js"></script>
+     <script src="__PUBLIC__/Home/js/jquery.nice-select.min.js"></script>
 </head>
 <body class="page reset-password-page">
 <include file="Application/Home/View/Common/nav_block.html" />
@@ -25,7 +28,7 @@
 						<li><a href="#section-2"><span>Drinks</span></a></li>
 						<li><a href="#section-3"><span>Food</span></a></li>
 						<li><a href="#section-4"><span>Lab</span></a></li>
-						<li><a href="#section-5"><span>Order</span></a></li>
+						<li><a href="#section-5"><span>订单</span></a></li>
 					</ul>
 				</nav>
 				<div class="content">
@@ -98,21 +101,84 @@
 						</div>
 					</section>
 					<section id="section-5">
-						<div class="mediabox">
-							<img src="__PUBLIC__/Home/images/02.png" alt="img02" />
-							<h3>Radish Tomato</h3>
-							<p>Catsear cauliflower garbanzo yarrow salsify chicory garlic bell pepper napa cabbage lettuce tomato kale arugula melon sierra leone bologi rutabaga tigernut.</p>
-						</div>
-						<div class="mediabox">
-							<img src="__PUBLIC__/Home/images/06.png" alt="img06" />
-							<h3>Fennel Wasabi</h3>
-							<p>Sea lettuce gumbo grape kale kombu cauliflower salsify kohlrabi okra sea lettuce broccoli celery lotus root carrot winter purslane turnip greens garlic.</p>
-						</div>
-						<div class="mediabox">
-							<img src="__PUBLIC__/Home/images/01.png" alt="img01" />
-							<h3>Red Tofu Wrap</h3>
-							<p>Green horseradish azuki bean lettuce avocado asparagus okra. Kohlrabi radish okra azuki bean corn fava bean mustard tigernut wasabi tofu broccoli mixture soup.</p>
-						</div>
+                                        
+                                            <form class="container-fluid order-filter-form" action="__SELF__" method="POST" id="order_filter">
+                                            <div class="row col-md-3 col-sm-3 col-xs-12 order-status-filter filter-item">
+                                                <select name="order_status" id="order_status" aria-required="true" aria-invalid="false" class="valid">
+                                                  <option value="all">订单状态</option>
+                                                  <option value="1">未支付</option>
+                                                  <option value="2">已支付</option>                        
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3 col-sm-3 col-xs-12 order-id-filter filter-item">
+                                                <input type="text" name="order-id-filter" id="order-id-filter" class="text-box form-control" title="订单编号" placeholder="订单编号" autocomplete="off" maxlength="30">
+                                            </div>
+                                            <div class="row col-md-3 col-sm-3 col-xs-12 order-order-by filter-item">
+                                                <select name="order_order_" id="order_order_by" aria-required="true" aria-invalid="false" class="valid">
+                                                  <option value="all">排序</option>
+                                                  <option value="1">按时间升序</option>
+                                                  <option value="2">按时间降序</option>                        
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3 col-sm-3 col-xs-12 order-filter-submit filter-item">
+                                                <button type="submit" class="text-box">查询</button>
+                                            </div>    
+                                            </form>
+                                                    <article class="order-item">
+                                                                <header class="order-img-box col-md-3 col-xs-12 col-sm-4">
+                                                                    <div class="order-img-div">
+                                                                        <img class="order-img" src="/Public/Uploads/product_varient2018-03-15/15211002165aaa25b84a972.jpg">
+                                                                    </div>
+                                                                </header>
+                                                                <div class="col-md-5 col-xs-12 col-sm-4 order-info-box">
+                                                                    <h3 class="order-info-title"><a href="#">Oscuro - Responsive OpenCart Themes</a></h3>
+                                                                    <div class="order-info-title-plus">Ecommerce / Opencart</div>
+                                                                    <ul class="order-info-body">
+                                                                         <li class="listItemCard-module_bulletPoint_tJqoi">OpenCart 3 Themes</li>
+                                                                        <li class="listItemCard-module_bulletPoint_tJqoi">Multipurpose OpenCart Themes</li>
+                                                                        <li class="listItemCard-module_bulletPoint_tJqoi">Shopping Cart Themes</li>
+                                                                    </ul>
+                                                                </div>
+                                                                <footer class="col-md-4 col-xs-12 col-sm-4 order-operation-box">
+                                                                    <div class="order-price">$38</div>
+                                                                    <ul class="order-extra-info">
+                                                                        <li>Last updated: 3 Apr 18</li>
+                                                                        <li>Sales: 1</li>
+                                                                    </ul>
+                                                                    <div class="order-operation-options">
+                                                                        <a href="#" target="_blank">详情</a>
+                                                                        <a href="#">去付款</a>
+                                                                    </div>
+                                                                </footer>
+                                                    </article>
+                                                    <article class="order-item">
+                                                                <header class="order-img-box col-md-3 col-xs-12 col-sm-4">
+                                                                    <div class="order-img-div">
+                                                                        <img class="order-img" src="/Public/Uploads/product_varient2018-03-15/15211002165aaa25b84a972.jpg">
+                                                                    </div>
+                                                                </header>
+                                                                <div class="col-md-5 col-xs-12 col-sm-4 order-info-box">
+                                                                    <h3 class="order-info-title"><a href="#">Oscuro - Responsive OpenCart Themes</a></h3>
+                                                                    <div class="order-info-title-plus">Ecommerce / Opencart</div>
+                                                                    <ul class="order-info-body">
+                                                                         <li class="listItemCard-module_bulletPoint_tJqoi">OpenCart 3 Themes</li>
+                                                                        <li class="listItemCard-module_bulletPoint_tJqoi">Multipurpose OpenCart Themes</li>
+                                                                        <li class="listItemCard-module_bulletPoint_tJqoi">Shopping Cart Themes</li>
+                                                                    </ul>
+                                                                </div>
+                                                                <footer class="col-md-4 col-xs-12 col-sm-4 order-operation-box">
+                                                                    <div class="order-price">$38</div>
+                                                                    <ul class="order-extra-info">
+                                                                        <li>Last updated: 3 Apr 18</li>
+                                                                        <li>Sales: 1</li>
+                                                                    </ul>
+                                                                    <div class="order-operation-options">
+                                                                        <a href="#" target="_blank">详情</a>
+                                                                        <a href="#">去付款</a>
+                                                                    </div>
+                                                                </footer>
+                                                    </article>  
+                                                    
 					</section>
 				</div><!-- /content -->
 			</div><!-- /tabs -->		 	
@@ -128,6 +194,12 @@
     <script src="__PUBLIC__/Home/js/cbpFWTabs.js"></script>
     <script>
 	new CBPFWTabs( document.getElementById( 'tabs' ) );
+
+        $(document).ready(function() {
+           $('#order_status').niceSelect();
+           $('#order_order_by').niceSelect();
+        });
+    
     </script>
 </body>
 </html>

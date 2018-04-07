@@ -210,4 +210,8 @@ class UserController extends Controller {
     public function usercenter() {
         $this->display('user_center');
     }
+    //用户订单详情
+    public function user_order_detail(){
+        $this->display('user_order_detail');
+    }
 }
