@@ -208,7 +208,59 @@ class UserController extends Controller {
     
     //用户中心
     public function usercenter() {
-        $this->display('user_center');
+        $user_account = session('user_telephone');
+        if(!empty($user_account)) {
+            $order_model = D('Order');
+            $filter_selection = array(); 
+            $where = array(array(
+                'orders.order_owner' => $user_account,
+            ));
+            if(!empty(I('get.order_status'))) {
+                $where['orders.order_status'] = I('get.order_status');
+                $filter_selection['order_status'] = I('get.order_status');
+            }
+            if(!empty(I('get.order-id-filter'))) {
+                $where['orders.order_id'] = I('get.order-id-filter');
+                $filter_selection['order_id'] = I('get.order-id-filter');
+            }
+            $order_sort = array(
+                'orders.order_create_time'=>'desc'
+            );
+            if(!empty(I('get.order_order_'))) {
+                if(I('get.order_order_') == '1') {
+                    $order_sort['orders.order_create_time'] = 'desc';
+                }
+                elseif(I('get.order_order_') == '2') {
+                    $order_sort['orders.order_create_time'] = 'asc';
+                }
+                $filter_selection['order_order_'] = I('get.order_order_');
+            }
+            $orders = $order_model->alias('orders')
+                        ->join('LEFT JOIN lovgarden_order_product_varient AS order_product ON orders.`id` = order_product.`order_original_id`')
+                        ->join('LEFT JOIN lovgarden_product_varient AS products ON order_product.`product_sku_id` = products.`sku_id`')
+                        ->join('LEFT JOIN lovgarden_product_varient_images AS images ON products.`id`=images.`product_varient_id`')
+                        ->field('orders.`id`,orders.`order_id`,orders.`area`,orders.`address`,orders.`telephone`,orders.`order_create_time`,orders.`order_final_price`, orders.order_coupon_code,orders.order_coupon_cut,orders.order_status, order_product.`product_sku_id`,products.varient_name,images.`image_url`')
+                        ->where($where)
+                        ->order($order_sort)
+                        ->select();
+            
+            if(!empty($orders)) {
+                $orders_fix = translate_database_result_to_logic_array($orders, array('product_sku_id','image_url','varient_name'), 'id');
+               
+                $this->assign(array(
+                    'orders' => $orders_fix,
+                    'filter_selection' => $filter_selection
+                ));// 赋值数据集
+                $this->display('user_center'); 
+            }else {
+                //跑大盘订单为空的页面中去
+                echo '订单为空';
+                exit();
+            }
+        }
+        else {
+            $this->redirect('user/login');
+        }
     }
     //用户订单详情
     public function user_order_detail(){
