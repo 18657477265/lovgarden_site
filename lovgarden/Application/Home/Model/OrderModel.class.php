@@ -9,6 +9,7 @@ class OrderModel extends Model
     protected $updateFields = '';
     protected $_validate = array(
         array('order_id','require','订单编号不能为空',1),
+        array('order_id','checkUserOrdersUnpaid','未支付订单超过最大限制',1,'callback',3),
         array('order_owner','require','下单人账号不能为空',1),
         array('last_name','1,30','名字格式错误',1,'length'),
         array('first_name','1,30','姓格式错误',1,'length'),
@@ -18,6 +19,19 @@ class OrderModel extends Model
         array('post_code','/^[0-9]\\d{5,8}$/','邮编格式不对',1),
         array('content_body','0,500','贺卡字数限制在500个字符内',1,'length'),
     );
+    //验证未支付订单不能超过20
+    function checkUserOrdersUnpaid($order_id,$max_items = 20){
+        //同样为了避免多次查询数据库，将用户的购物车内数量存入memcache
+        $user_telephone = session('user_telephone');        
+        $sql = "SELECT id FROM lovgarden_order WHERE order_owner = '$user_telephone' and order_status='1'";        
+        $model_for_user = new Model();
+        $results = $model_for_user->query($sql);
+        $count = count($results);
+        if($count<$max_items){
+           return TRUE;
+        }
+        return FALSE;
+    }
 }
 
 

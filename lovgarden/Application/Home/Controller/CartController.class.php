@@ -127,8 +127,15 @@ class CartController extends Controller {
                       'order_final_price' => $costs['total_cost'],
                       'order_status' => '1',  
                     );
-                    $order_model = D('Order');
+                    $order_model = D('Order');                    
                     $validate_status = $order_model->create($order_info);
+//                    
+//                    echo "<pre>";
+//                    header("Content-type:text/html;charset=utf-8");
+//                    print_r($order_model->getError());
+//                    echo "</pre>";
+//                    exit();
+//                    
                     if($validate_status){
                         //订单通过验证，提交事务，生成订单(不能大于10个),关联商品
                         //开始启动事务

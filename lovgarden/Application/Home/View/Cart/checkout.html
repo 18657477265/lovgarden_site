@@ -33,7 +33,7 @@
 
     <!--收获信息form-->
    
-    <p id="error-message" style='color: red;'><?php print $error_message; ?></p>
+    <p id="error-message" style='color: red;<?php if(!empty($error_message)){print "display:block;";} ?>'><?php print $error_message; ?></p>
    
     <form class="container deliver-info-form" action="__SELF__" method="POST" id="order_submit_confirm">
       <div class="col-md-6 col-sm-6 col-xs-12 deliver-info-form-left">

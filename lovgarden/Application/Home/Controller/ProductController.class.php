@@ -6,7 +6,7 @@ class ProductController extends Controller {
         //首先要确认这个sku_id是不是一个有效的sku_id，无效的话返回404
         $model = new \Think\Model();
         $sku_id = I('get.sku_id');
-        $sku_id_real = $model->query("SELECT * FROM lovgarden_product_varient WHERE sku_id = '$sku_id'");
+        $sku_id_real = $model->query("SELECT sku_id FROM lovgarden_product_varient WHERE sku_id = '$sku_id'");
 //        header("Content-type:text/html;charset=utf-8");
 //        var_dump($sku_id_real);
 //        exit();
