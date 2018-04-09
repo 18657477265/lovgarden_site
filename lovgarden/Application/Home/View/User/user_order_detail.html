@@ -4,7 +4,7 @@
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
-     <title>丽de花苑</title>
+     <title>用户订单详情|花点馨思(丽de花苑)</title>
      <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css"/>         
      <link rel="stylesheet" href="__PUBLIC__/Home/css/flow.css"/>
      <link rel="stylesheet" href="__PUBLIC__/Home/css/style.css"/>
@@ -25,39 +25,39 @@
     <!--订单详情-->
     <div class="row-order-info">
         <div class="col-md-4 col-sm-4">
-            <span>订单编号:18040700045071506</span>
+            <span>订单编号:<?php print $order_info['order_id']; ?></span>
         </div>
         <div class="col-md-4 col-sm-4">
-            <span>收货人姓名:何盛芬</span>
+            <span>收货人姓名:<?php print $order_info['first_name'].$order_info['last_name']; ?></span>
         </div>
         <div class="col-md-4 col-sm-4">
-            <span>收货人电话:15168188557</span>
+            <span>收货人电话:<?php print $order_info['telephone']; ?></span>
         </div>
     </div>
     <div class="row-order-info">
         <div class="col-md-4 col-sm-4">
-            <span>创建时间:2018-04-07 00:04:50</span>
+            <span>创建时间:<?php print $order_info['order_create_time']; ?></span>
         </div>
         <div class="col-md-4 col-sm-4">
-            <span>订单状态:未付款</span>
+            <span>订单状态:<?php print get_order_status_label($order_info['order_status']); ?></span>
         </div>
         <div class="col-md-4 col-sm-4">
-            <span>邮编:315171</span>
-        </div>
-    </div>
-    <div class="row-order-info">
-        <div class="col-md-12">
-            <span>收获地址:浙江省/宁波市/海曙区半岛悦城1203</span>
+            <span>邮编:<?php print $order_info['post_code']; ?></span>
         </div>
     </div>
     <div class="row-order-info">
         <div class="col-md-12">
-            <span>备注(贺卡):祝老婆开开森森祝老婆开开森森祝老婆开开森森祝老婆开开森森祝老婆开开森森祝老婆开开森森祝老婆开开森森</span>
+            <span>收获地址:<?php print $order_info['area'].$order_info['address']; ?></span>
+        </div>
+    </div>
+    <div class="row-order-info">
+        <div class="col-md-12">
+            <span>备注(贺卡):<?php print $order_info['content_body']; ?></span>
         </div>
     </div>
     
     <h3 class="products-list-flow2">商品列表</h3>
-    <?php foreach($order_products_info as $k => $v): ?>
+    <?php foreach($order_products_fix as $k => $v): ?>
     <div class="row each-product">
       <div class="product-small-img col-md-3 col-sm-3 col-xs-4">
           <img style="width: 110px;height: 110px;" src="<?php print C('IMAGE_CONFIG')['viewPath'].$v['image_url'][0];  ?>">
@@ -69,10 +69,10 @@
         <p><span class="ceil checkout-decoration-value"><?php print product_varient_decoration_level($v['decoration_level']);  ?></span></p>
       </div>
       <div class="product-title-info input-select-vase-status col-md-2 col-sm-2 col-xs-4">        
-         <p><span class="ceil checkout-vase-status"><?php print get_vase_label($v['vase']); ?></span></p>
+         <p><span class="ceil checkout-vase-status"><?php print get_vase_label($v['vase_option']); ?></span></p>
       </div>
       <div class="flow-check-date-value col-md-2 col-sm-2 col-xs-4">
-          <p><span class="ceil checkout-date-value"><?php print $v['deliver_time']; ?></span></p>
+          <p><span class="ceil checkout-date-value"><?php print date("Y-m-d",strtotime($v['deliver_time'])); ?></span></p>
       </div>
       <div class="flow-check-each-price col-md-1 col-sm-1 col-xs-4">
           <p><span class="ceil">价格<br/><?php print number_format($v['varient_price']); ?>元</span></p>
@@ -81,7 +81,7 @@
     <?php endforeach; ?>
     <div class="row total-price-list">
       <div class="col-md-8 col-sm-8 col-xs-12">
-        <p class="coupin-code-info">优惠码号：<?php if(!empty($order_coupon_code)){ print $order_coupon_code;}else{print '无';} ?></p>
+        <p class="coupin-code-info">优惠码号：<?php if(!empty($order_info['order_coupon_code'])){ print $order_info['order_coupon_code'];}else{print '无';} ?></p>
       </div>
       <div class="col-md-4 col-sm-4 col-xs-12 price-list-mobile">
         <table class="total-price table table--totals">
@@ -91,7 +91,7 @@
               <span>花瓶价格总和:</span>
             </th>
             <td>
-              <span class="vase_total_cost"><?php print $costs['vase_cost']; ?></span><span>元</span>
+              <span class="vase_total_cost"><?php print $order_info['order_vases_price']; ?></span><span>元</span>
             </td>
           </tr>
           <tr>
@@ -99,7 +99,7 @@
               <span>商品价格总和:</span>
             </th>
             <td>
-                <span class="products_total_cost"><?php print $costs['products_original_cost']; ?></span><span>元</span>
+                <span class="products_total_cost"><?php print $order_info['order_products_total_price']; ?></span><span>元</span>
             </td>
           </tr>
           <tr>
@@ -107,7 +107,7 @@
               <span>优惠券</span>
             </th>
             <td>
-                <span class="cut_total_cost">-<?php print $costs['cut_cost']; ?></span><span>元</span>
+                <span class="cut_total_cost">-<?php print $order_info['order_coupon_cut']; ?></span><span>元</span>
             </td>
           </tr>
           <tr>
@@ -115,14 +115,14 @@
               <span>运费:</span>
             </th>
             <td>
-                <span class="deliver_cost"><?php print $costs['deliver_cost']; ?></span><span>元</span>
+                <span class="deliver_cost"><?php print $order_info['order_deliver_price']; ?></span><span>元</span>
             </td>
           </tr>
           <tr class="table__total">
             <th>
               <span>最终价格:</span>
             </th>
-            <td><span class="total-price-value"><?php print $costs['total_cost']; ?></span><span>元</span></td>
+            <td><span class="total-price-value"><?php print $order_info['order_final_price']; ?></span><span>元</span></td>
           </tr>
           </tbody>
         </table>

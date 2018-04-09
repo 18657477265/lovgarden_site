@@ -252,9 +252,13 @@ class UserController extends Controller {
                     'filter_selection' => $filter_selection
                 ));// 赋值数据集
                 $this->display('user_center'); 
-            }else {
+            }elseif(!empty($filter_selection)) {                
+                $this->display('user_center'); 
+                exit();
+            }
+            else {
                 //跑大盘订单为空的页面中去
-                echo '订单为空';
+                echo '22222';
                 exit();
             }
         }
@@ -263,7 +267,33 @@ class UserController extends Controller {
         }
     }
     //用户订单详情
-    public function user_order_detail(){
-        $this->display('user_order_detail');
+    public function user_order_detail($order_id){
+        $user_account = session('user_telephone');
+        $order_id = I('get.order_id');
+        if(!empty($user_account)) {
+            //通过预处理查询            
+            $order_model = D('Order');          
+            $order_info = $order_model->alias('orders')->field('*')->where("orders.`order_owner`='%s' and orders.`order_id`='%s'",array($user_account,$order_id))->select();
+            if(!empty($order_info)) {         
+                $sql = "SELECT order_products.*,products.`varient_name`,products.`varient_price`,products.`decoration_level`,images.`image_url` FROM lovgarden_order_product_varient AS order_products
+                        LEFT JOIN lovgarden_product_varient AS products ON order_products.`product_sku_id`=products.`sku_id`
+                        LEFT JOIN lovgarden_product_varient_images AS images ON products.`id`=images.`product_varient_id` WHERE order_products.`order_info_id`= '$order_id'";
+
+                $order_products = $order_model->query($sql);
+                $order_products_fix = translate_database_result_to_logic_array($order_products, array('image_url'), 'product_sku_id');
+                $this->assign(array(
+                   'order_info' => $order_info[0],
+                   'order_products_fix' => $order_products_fix
+                ));
+                $this->display('user_order_detail');
+            }else {
+                echo "数据为空";
+                exit();
+            }                      
+        }
+        else {
+             $this->redirect('user/login');
+        }
+        //$this->display('user_order_detail');
     }
 }

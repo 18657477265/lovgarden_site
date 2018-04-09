@@ -3,24 +3,37 @@ namespace Home\Controller;
 use Think\Controller;
 class ProductController extends Controller {
     public function show($sku_id){
-       
-        //根据传入的sku_id通过算法获取该sku_id的相关产品信息，并传到页面中去
-        $sku_ids = get_related_products($sku_id);
-        $sku_ids = implode(',', $sku_ids);       
-        $sql = "SELECT a.id,a.sku_id,a.varient_name,a.varient_summary,a.varient_body,a.varient_status,a.varient_price,a.decoration_level,a.vase,b.`image_url`,c.`flower_home_id` FROM lovgarden_product_varient AS a
-                LEFT JOIN lovgarden_product_varient_images AS b ON a.`id`=b.`product_varient_id`
-                LEFT JOIN lovgarden_product_varient_flower_home AS c ON a.`id`=c.`product_varient_id`
-                WHERE a.`sku_id` IN ($sku_ids) ;";
+        //首先要确认这个sku_id是不是一个有效的sku_id，无效的话返回404
         $model = new \Think\Model();
-        $result_rows = $model->query($sql);
-        $multiple_fileds_array = array('image_url','flower_home_id');    
-        $result_rows_array = translate_database_result_to_logic_array($result_rows,$multiple_fileds_array,'sku_id');
-            
-        $this->assign(array(
-           'product_varients' => $result_rows_array,
-           'current_sku_id' => $sku_id,
-        ));
-        $this->display('product_detail');
+        $sku_id = I('get.sku_id');
+        $sku_id_real = $model->query("SELECT * FROM lovgarden_product_varient WHERE sku_id = '$sku_id'");
+//        header("Content-type:text/html;charset=utf-8");
+//        var_dump($sku_id_real);
+//        exit();
+        if(!empty($sku_id_real)) {
+            //根据传入的sku_id通过算法获取该sku_id的相关产品信息，并传到页面中去
+            $sku_id = $sku_id_real[0]['sku_id'];
+            $sku_ids = get_related_products($sku_id);
+            $sku_ids = implode(',', $sku_ids);       
+            $sql = "SELECT a.id,a.sku_id,a.varient_name,a.varient_summary,a.varient_body,a.varient_status,a.varient_price,a.decoration_level,a.vase,b.`image_url`,c.`flower_home_id` FROM lovgarden_product_varient AS a
+                    LEFT JOIN lovgarden_product_varient_images AS b ON a.`id`=b.`product_varient_id`
+                    LEFT JOIN lovgarden_product_varient_flower_home AS c ON a.`id`=c.`product_varient_id`
+                    WHERE a.`sku_id` IN ($sku_ids) ;";
+
+            $result_rows = $model->query($sql);
+            $multiple_fileds_array = array('image_url','flower_home_id');    
+            $result_rows_array = translate_database_result_to_logic_array($result_rows,$multiple_fileds_array,'sku_id');
+
+            $this->assign(array(
+               'product_varients' => $result_rows_array,
+               'current_sku_id' => $sku_id,
+            ));
+            $this->display('product_detail');
+            exit();
+        }
+        else {
+            $this->redirect('./404.html');
+        }
     }
     
     public function select_list() {       
