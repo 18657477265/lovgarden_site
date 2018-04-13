@@ -558,6 +558,7 @@ body a {
   }
   .block-background-img {
     width: 100%;
+    padding-top: 100px;
   }
   .content-block-left-description {
     position: absolute;
