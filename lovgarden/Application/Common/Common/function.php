@@ -347,6 +347,7 @@ function get_filter_conditions(){
 function filterUrl($param,$url='') {
     if(empty($url)) {
         $url = $_SERVER['PHP_SELF'];
+        $url = $url.$_SERVER['REQUEST_URI'];
     }
     $pattern = "/\/$param\/[^\/]+/";
     return preg_replace($pattern, '', $url);
