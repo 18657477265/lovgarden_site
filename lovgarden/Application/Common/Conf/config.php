@@ -1,12 +1,15 @@
 <?php
 return array(
 	//'配置项'=>'配置值'
-    'DB_TYPE' =>  'mysql',
-    'DB_DSN'    => 'mysql:host=127.0.0.1;dbname=lovgarden;charset=utf8',
+    'DB_TYPE' =>  'mysqli',
+    //'DB_DSN'    => 'mysql:host=127.0.0.1;dbname=lovgarden;charset=utf8',
     'DB_USER' =>  'root',
     'DB_PWD' =>  'sherry418!',
     'DB_PORT' =>  '3306',
     'DB_PREFIX' =>  'lovgarden_',
+    'DB_HOST' => '127.0.0.1',
+    'DB_NAME' => 'lovgarden',
+    'DB_CHARSET' => 'utf8',
     'DEFAULT_FILTER' => 'trim,htmlspecialchars',
     'TMPL_EXCEPTION_FILE' => './404.html',// 异常页面的模板文件
     'ERROR_PAGE' => './404.html', // 错误定向页面
