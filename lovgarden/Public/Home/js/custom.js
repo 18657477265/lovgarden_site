@@ -159,7 +159,7 @@ $(function(){
        localStorage.setItem("vase_status",vase_status);
      }
      catch(e){
-       alert("您处于无恒模式,一些功能可能不正常，请关闭无痕模式");
+       alert("您的浏览器处于无痕模式或者版本偏低,一些功能可能不正常，请关闭无痕模式或更新浏览器");
      }     
      //alert(localStorage.getItem("deliver_date"));
      //alert(localStorage.getItem("vase_status"));
