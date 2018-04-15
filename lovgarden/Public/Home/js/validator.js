@@ -136,13 +136,18 @@ $(function(){
            return false;
        }
        else {
-           //将信息存入本地loal storage
-           window.localStorage.setItem('first_name',$('input[name="first_name"]').val());
-           window.localStorage.setItem('last_name',$('input[name="last_name"]').val());
-           window.localStorage.setItem('phone_number',$('input[name="phone_number"]').val());
-           window.localStorage.setItem('area',$('#city-picker3').val());
-           window.localStorage.setItem('address',$('#address_detail_location').val());
-           window.localStorage.setItem('post_code',$('#zip_code').val());
+           try{
+               //将信息存入本地loal storage
+               window.localStorage.setItem('first_name',$('input[name="first_name"]').val());
+               window.localStorage.setItem('last_name',$('input[name="last_name"]').val());
+               window.localStorage.setItem('phone_number',$('input[name="phone_number"]').val());
+               window.localStorage.setItem('area',$('#city-picker3').val());
+               window.localStorage.setItem('address',$('#address_detail_location').val());
+               window.localStorage.setItem('post_code',$('#zip_code').val());
+           }
+           catch(e){
+               alert("注意:您的浏览器处于无痕模式或者版本偏低,一些功能可能不正常，请关闭无痕模式或更新浏览器");
+           }     
            $('#error-message').hide(100);
            return true;
        }
