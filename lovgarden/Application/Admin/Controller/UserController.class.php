@@ -4,6 +4,7 @@ use Think\Controller;
 class UserController extends BaseController {
     public function login(){
         if(IS_POST) {
+        if(mem_check_ip_attention()) {
    	    $user_model = D('User');
    	    // 接收表单并且验证表单
             $user_info = array(
@@ -22,10 +23,18 @@ class UserController extends BaseController {
               'error_message' => $error_message,
               'user_name' => $user_info['user_name']
            ));
+         }
+         else {
+           $this->assign(array(
+              'error_message' => '尝试登录次数过多,已封'
+           ));
+         }
+
    	}
         //如果是已经登录用户，跳转到后台首页去
         if(!empty(session('id'))) {
             $this->redirect('Index/index');
+            exit();
         }
         $this->display('login');
     }
