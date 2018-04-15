@@ -70,7 +70,7 @@
                                                                         <h3 class="order-info-title"><a href="#"><?php $count = count($v['varient_name']); if($count>1) { print $v['varient_name'][0].'等'.$count.'个';}else {print $v['varient_name'][0];} ?></a></h3>
                                                                         <div class="order-info-title-plus">订单号:<?php print $v['order_id']; ?></div>
                                                                         <ul class="order-info-body">
-                                                                            <li class="listItemCard-module_bulletPoint_tJqoi" style='font-size: 13px;'>收获人联系电话:<?php print $v['telephone']; ?></li>
+                                                                            <li class="listItemCard-module_bulletPoint_tJqoi" style='font-size: 13px;'>收获人电话:<?php print $v['telephone']; ?></li>
                                                                             <li class="listItemCard-module_bulletPoint_tJqoi" style='font-size: 13px;' >优惠码:<?php if(!empty($v['order_coupon_code'])){ print $v['order_coupon_code'];}else{print '无';} ?></li>
                                                                             <li class="listItemCard-module_bulletPoint_tJqoi" style='font-size: 13px;' >配送地址:<?php print $v['area'].$v['address']; ?></li>
 
