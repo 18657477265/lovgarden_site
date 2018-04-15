@@ -34,7 +34,8 @@
 				</nav>
 				<div class="content">
                                     <section id="section-1" style="padding-bottom: 140px;">
-					    <form class="container-fluid order-filter-form" action="__ACTION__" method="GET" id="order_filter">
+                                      <?php if(!empty($orders)): ?>
+					                        <form class="container-fluid order-filter-form" action="__ACTION__" method="GET" id="order_filter">
                                             <div class="row col-md-3 col-sm-3 col-xs-12 order-status-filter filter-item">
                                                 <select name="order_status" id="order_status" aria-required="true" aria-invalid="false" class="valid">
                                                   <option value="">订单状态</option>
@@ -55,7 +56,9 @@
                                                 <button type="submit" class="text-box">查询</button>
                                             </div>    
                                             </form>
-                                            
+                                      <?php else: ?> 
+                                      <h4 style="margin-top:100px;text-align:center;">您的订单为空,去<a href="/product/select_list" style="color: orange;">逛逛吧</a></h4>
+                                      <?php endif; ?>
                                             <?php foreach($orders as $k=>$v): ?>
                                                         <article class="order-item">
                                                                     <header class="order-img-box col-md-3 col-xs-12 col-sm-4">

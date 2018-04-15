@@ -154,8 +154,13 @@ $(function(){
         vase_status = '1';
      }
      //存储日期和花瓶的状态到radio点击的下一个页面上使用
-     localStorage.setItem("deliver_date",deliver_date);
-     localStorage.setItem("vase_status",vase_status);
+     try{
+       localStorage.setItem("deliver_date",deliver_date);
+       localStorage.setItem("vase_status",vase_status);
+     }
+     catch(e){
+       alert("您处于无恒模式,一些功能可能不正常，请关闭无痕模式");
+     }     
      //alert(localStorage.getItem("deliver_date"));
      //alert(localStorage.getItem("vase_status"));
      window.location.href = url;  
