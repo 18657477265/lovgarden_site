@@ -28,12 +28,12 @@
     .order-info-title-plus {
         font-size: 12px;
         color: #b9b7b7;
-        text-align: center;
+        text-align: left;
     }
     .order-info-body {
         list-style: none;
         padding: 0;
-        text-align: center;
+        text-align: left;
     }
     .order-info-body li {
         padding: 3px 0;
@@ -48,12 +48,12 @@
         list-style: none;
         padding-left: 0;
         text-indent: 0;
-        text-align: center;
+        text-align: left;
         padding-top: 25px;
         font-size: 12px;
     }
     .order-operation-box .order-extra-info li {
-        text-align: center;
+        text-align: left;
     }
     .order-operation-box .order-operation-options {
         padding: 10px 0 0 0;
