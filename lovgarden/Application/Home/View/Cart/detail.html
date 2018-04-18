@@ -59,7 +59,7 @@
       <div class="flow-check-date-value col-md-2 col-sm-2 col-xs-4">                    
          
           <div class="input-group date" data-provide="delivery_date">
-              <input name="deliver_date[<?php print $k; ?>]" type="text" class="form-control deliver-date" id="delivery_date_<?php print $k; ?>" readonly="true" value="<?php print date('Y-m-d',strtotime($v['deliver_time'])); ?>">
+              <input name="deliver_date[<?php print $k; ?>]" type="text" class="form-control deliver-date" id="delivery_date_<?php print $k; ?>" readonly="true" value="<?php print date('Y-m-d',strtotime($v['deliver_time'])); ?>" onfocus="this.blur();">
               <div class="input-group-addon">
                   <span class="glyphicon glyphicon-th"></span>
               </div>

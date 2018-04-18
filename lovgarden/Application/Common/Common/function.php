@@ -346,7 +346,8 @@ function get_filter_conditions(){
 //去除url get参数中的某一个参数
 function filterUrl($param,$url='') {
     if(empty($url)) {
-        $url = $_SERVER['PHP_SELF'];
+        //$url = $_SERVER['PHP_SELF'];
+          $url = $_SERVER['REQUEST_URI'];
     }
     $pattern = "/\/$param\/[^\/]+/";
     return preg_replace($pattern, '', $url);

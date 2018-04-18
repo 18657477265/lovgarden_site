@@ -4,28 +4,36 @@ use Think\Controller;
 class UserController extends BaseController {
     public function login(){
         if(IS_POST) {
-   	    $user_model = D('User');
-   	    // 接收表单并且验证表单
-            $user_info = array(
-               'user_name' => I('post.user_name',''),
-               'user_password' => I('post.user_password',''),
-               'user_active_code' => I('post.user_active_code','')
-            );
-           
-   	    if($user_model->validate($user_model->_login_validate)->create()) {
-   		if($user_model->login()) {
-   		   $this->redirect("Index/index");
-   	        }
-   	    }
-   	   $error_message = $user_model->getError();
-           $this->assign(array(
-              'error_message' => $error_message,
-              'user_name' => $user_info['user_name']
-           ));
+            if(mem_check_ip_attention()) {
+                $user_model = D('User');
+                // 接收表单并且验证表单
+                $user_info = array(
+                   'user_name' => I('post.user_name',''),
+                   'user_password' => I('post.user_password',''),
+                   'user_active_code' => I('post.user_active_code','')
+                );
+
+                if($user_model->validate($user_model->_login_validate)->create()) {
+                    if($user_model->login()) {
+                       $this->redirect("Index/index");
+                    }
+                }
+               $error_message = $user_model->getError();
+               $this->assign(array(
+                  'error_message' => $error_message,
+                  'user_name' => $user_info['user_name']
+               ));
+            }
+            else {
+               $this->assign(array(
+                  'error_message' => '尝试登录次数过多,已封'
+               ));
+            }
    	}
         //如果是已经登录用户，跳转到后台首页去
         if(!empty(session('id'))) {
             $this->redirect('Index/index');
+            exit();
         }
         $this->display('login');
     }

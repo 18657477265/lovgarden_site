@@ -10,8 +10,8 @@
 // +----------------------------------------------------------------------
 namespace Org\Util;
 ini_set("display_errors", "on");
-//require_once '/application/apache/htdocs/aliyun-dysms-php-sdk/api_sdk/vendor/autoload.php';
-require_once '/application/nginx/html/lovgarden_site/aliyun-dysms-php-sdk/api_sdk/vendor/autoload.php';
+require_once '/application/apache/htdocs/aliyun-dysms-php-sdk/api_sdk/vendor/autoload.php';
+//require_once '/application/nginx/html/lovgarden_site/aliyun-dysms-php-sdk/api_sdk/vendor/autoload.php';
 use Aliyun\Core\Config;
 use Aliyun\Core\Profile\DefaultProfile;
 use Aliyun\Core\DefaultAcsClient;

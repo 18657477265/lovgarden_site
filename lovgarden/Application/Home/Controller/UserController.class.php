@@ -258,7 +258,7 @@ class UserController extends Controller {
             }
             else {
                 //跑大盘订单为空的页面中去
-                echo '22222';
+                $this->display('user_center'); 
                 exit();
             }
         }

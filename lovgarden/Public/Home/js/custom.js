@@ -80,18 +80,7 @@ $(function(){
    $("#delivery_date_catalog_product").on('change',function() {
    	alert($(this).val());
    });
-   //login页面注册和登录框互相转换
-//   $("a.click-to-signup").on('click',function(event) {
-//   	  event.preventDefault(); 
-//      $('.singup-block').css('display','block');
-//      $('.login-block').css('display','none');
-//   });
-//   $("a.click-to-login").on('click',function(event) {
-//   	  event.preventDefault(); 
-//      $('.singup-block').css('display','none');
-//      $('.login-block').css('display','block');
-//   });
-   //注册页面点击按钮发送验证码ajax,发送之前检查倒计时60秒是否存在,存在继续倒计时
+
     var countdown=60;
     function settime(obj) { //发送验证码倒计时
         if (countdown == 0) { 
@@ -164,8 +153,13 @@ $(function(){
         vase_status = '1';
      }
      //存储日期和花瓶的状态到radio点击的下一个页面上使用
-     localStorage.setItem("deliver_date",deliver_date);
-     localStorage.setItem("vase_status",vase_status);
+     try{
+       localStorage.setItem("deliver_date",deliver_date);
+       localStorage.setItem("vase_status",vase_status);
+     }
+     catch(e){
+       alert("您处于无恒模式,一些功能可能不正常，请关闭无痕模式");
+     }
      //alert(localStorage.getItem("deliver_date"));
      //alert(localStorage.getItem("vase_status"));
      window.location.href = url;  
@@ -263,6 +257,12 @@ $(function(){
            });
            $('.shop.my-cart').on('mouseleave',function(){
                 $('.checkout__order').fadeOut(300);
+           });
+           
+           //动态加载image图片
+           $("img").each(function(){
+              var pc_url = $(this).data('img-pc');
+              $(this).attr('src',pc_url);
            });
    }
    else if(device == 'tablet') {
@@ -371,7 +371,12 @@ $(function(){
           //控制购物车小弹窗的显示和消失
           $('.shop.my-cart a').on('click',function(){
                 $('.checkout__order').slideToggle(300);
-          });              
+          });
+          
+          $("img").each(function(){
+              var tablet_url = $(this).data('img-tablet');
+              $(this).attr('src',tablet_url);
+          });
    }
    else if (device == 'mobile') {
 	   $('.mobile-menu-show').on('click',function(e) {
@@ -556,6 +561,10 @@ $(function(){
            //控制购物车小弹窗的显示和消失           
            $('span.shopping-cart-icon').on('click',function(){
                 $('.checkout__order').slideToggle(300);
-           });  
+           });
+           $("img").each(function(){
+              var mobile_url = $(this).data('img-mobile');
+              $(this).attr('src',mobile_url);
+           });
    }
 })

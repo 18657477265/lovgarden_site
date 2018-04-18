@@ -307,7 +307,10 @@
    <script src="__PUBLIC__/Home/js/nocache.js"></script>
    <script type="text/javascript" charset="utf-8">
      $(function() {
-      $("img.lazy").lazyload({effect: "fadeIn"});
+      $("img.lazy").lazyload({
+         effect: "fadeIn", // 载入使用何种效果
+         threshold: 200, // 提前开始加载
+      });
      });
    </script>
 </body>
