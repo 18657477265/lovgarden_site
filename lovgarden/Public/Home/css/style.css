@@ -50,7 +50,7 @@ body a {
   width: 100%;
 }
 .navbar-desktop #logo a img {
-  width: 150px;
+  width: 15em;
 }
 .navbar-desktop #help , .navbar-desktop #login , .navbar-desktop #cart {
   width: 8%;
@@ -191,7 +191,7 @@ body a {
     display: none;
   }
   .navbar-mobile .logo-mobile img {
-    width: 50%;
+    width: 80%;
   }
   .navbar-mobile .shop-mobile {
     height: 70px;
