@@ -53,6 +53,10 @@
                       <label class="single_selection"><input type="radio" name="vase" value="0" <?php if($data['vase'] == '0'): ?><?php echo 'checked="checked"'; ?><?php endif; ?>/>没有花瓶</label>
                       <label class="single_selection"><input type="radio" name="vase" value="1" <?php if($data['vase'] == '1'): ?><?php echo 'checked="checked"'; ?><?php endif; ?>/>有花瓶</label>
                      </li>
+                     <li>
+                         <span class="item_name" style="width: 120px">商品所属专题类</span>
+                         <?php print buildHtmlSelect2('lovgarden_article_category','id','article_category_name','category',$data['category']); ?>
+                     </li>
                      
                      <li>
                          <span class="item_name" style="width: 120px">包含颜色</span>
