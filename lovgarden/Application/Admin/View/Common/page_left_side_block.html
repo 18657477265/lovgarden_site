@@ -44,6 +44,14 @@
    </dl>
   </li>
   <li>
+  <li>
+   <dl>
+    <dt>文章管理</dt>
+    <dd><?php print check_permission_view("__MODULE__/Article/article_list","文章列表"); ?></dd>
+    <dd><?php print check_permission_view("__MODULE__/Article/add_article","添加文章"); ?></dd>
+   </dl>
+  </li>
+  <li>
    <dl>
     <dt>基础设置</dt>
     <dd><a href="setting.html">站点基础设置示例</a></dd>

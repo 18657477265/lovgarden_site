@@ -1,0 +1,47 @@
+<layout name="Common/layout" />
+<section class="rt_wrap content mCustomScrollbar">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">文章列表</h2>
+       <?php print check_permission_view("__CONTROLLER__/add_article","添加文章",'fr top_rt_btn add_icon'); ?>
+      </div>
+      <form class="mtb" action="__ACTION__" method="GET">
+       <select class="select" name='article_status'>
+        <option value='all'>文章状态</option>
+        <option value='1' <?php if($filter_selection['article_status'] == '1'): ?><?php echo "selected='selected'"; ?><?php endif; ?>>发布</option>
+        <option value="2" <?php if($filter_selection['article_status'] == '2'): ?><?php echo "selected='selected'"; ?><?php endif; ?>>不发布</option>
+        <option value="3" <?php if($filter_selection['article_status'] == '3'): ?><?php echo "selected='selected'"; ?><?php endif; ?>>删除</option>
+       </select>
+       <?php print buildHtmlSelect2('lovgarden_article_category','id','article_category_name','article_category',$filter_selection['article_category'],true); ?>
+         <input name="article_info" type="text" class="textbox textbox_225" placeholder="输入文章标题或者内容" <?php if(!empty($filter_selection['article_info'])): ?><?php $value = $filter_selection['article_info']; echo "value='$value'"; ?><?php endif; ?>/>
+       <input type="submit" value="查询" class="group_btn"/>
+      </form>
+      <table class="table">
+       <tr>
+        <th>文章banner</th>
+        <th>文章标题</th>
+        <th>文章状态</th>
+        <th>文章创建时间</th>
+        <th>文章类别</th>
+        <th>操作</th>
+       </tr>
+       <?php foreach($articles as $k=>$value): ?>
+       <tr>
+        <td class="center"><img src="<?php echo C('IMAGE_CONFIG')['viewPath'].$value['banner_image']; ?>" width="50px" height="50px"/></td>
+        <td class="center"><?php echo $value['article_title'];  ?></td>
+        <td class="center"><?php echo $value['article_publish'];  ?></td>
+        <td class="center"><?php echo $value['article_create_time'];  ?></td>
+        <td class="center"><?php echo $value['article_category_name'];  ?></td>
+        <td class="center">
+         <a href="http://www.mycodes.net" title="预览" class="link_icon" target="_blank">&#118;</a>
+         <?php print check_permission_view("__CONTROLLER__/update_article/id/".$value['id'],"&#101;",'link_icon','编辑'); ?>         
+        </td>
+       </tr>
+       <?php endforeach; ?>
+      </table>
+      <aside class="paging">
+      <?php echo $page; ?>
+      </aside>
+ </div>
+</section>
+

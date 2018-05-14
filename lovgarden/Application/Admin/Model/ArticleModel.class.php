@@ -39,7 +39,7 @@ class ArticleModel extends Model
         $data['article_summary'] = I('post.article_summary','');
         $data['article_publish'] = I('post.article_publish','0');
         $data['article_category'] = I('post.article_category_name','0');
-        $data['article_body'] = I('post.article_body','');
+        $data['article_body'] = $_POST['article_body'];
         $data['article_author'] = !empty(session('user_name'))? session('user_name'):'';
         $data['article_create_time'] = date('Y-m-d H:i:s');
         
@@ -62,14 +62,23 @@ class ArticleModel extends Model
         $banner_image = $banner_image[0]['banner_image'];
         return $banner_image;
     }
+    function get_article_list($where = array()) {
+       $count = $this->alias('articles')->join('LEFT JOIN lovgarden_article_category AS categories ON articles.article_category = categories.id')->where($where)->count();
+       $Page  = new \Think\Page($count,C('PRODUCT_VARIENT_PAGE')['page_count']);
+       $show  = $Page->show();// 分页显示输出
+       $all_condiion_rows = $this->alias('articles')->join('LEFT JOIN lovgarden_article_category AS categories ON articles.article_category = categories.id')->field('articles.article_title , articles.article_publish , articles.article_create_time , articles.banner_image , articles.id , articles.article_category , categories.article_category_name')->where($where)->limit($Page->firstRow,$Page->listRows)->select();
+       return array(
+         'articles' => $all_condiion_rows,
+         'page_show' => $show,
+       );
+    }
     function update_article($article_id) {
         $data = array();
         $data['article_title'] = I('post.article_title','');
         $data['article_summary'] = I('post.article_summary','');
         $data['article_publish'] = I('post.article_publish','0');
         $data['article_category'] = I('post.article_category_name','0');
-        $data['article_body'] = I('post.article_body','');
-        
+        $data['article_body'] = $_POST['article_body'];        
         if(!empty($_FILES)) {
             if($_FILES["banner_image"]['error'] > 0) {
                 unset($_FILES['banner_image']);

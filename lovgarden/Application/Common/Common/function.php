@@ -24,11 +24,14 @@ function buildHtmlSelect($tableName,$valueFieldName,$textFieldName,$selectName,$
     return $select;
 }
 
-function buildHtmlSelect2($tableName,$valueFieldName,$textFieldName,$selectName,$current_value='') {
+function buildHtmlSelect2($tableName,$valueFieldName,$textFieldName,$selectName,$current_value='',$all=FALSE) {
     $model = new Think\Model();
     $sql = "select $valueFieldName , $textFieldName from $tableName";
     $resultArray = $model->query($sql);
-    $select = "<select name='$selectName' style='width:150px;'>";
+    $select = "<select name='$selectName' class='select' style='width:150px;'>";
+    if($all) {
+        $select .= "<option value='all'>All</option>";
+    }
     foreach ($resultArray as $k => $v) {
         $select_status='';
         if($current_value == $v[$valueFieldName]) {
@@ -365,7 +368,7 @@ function get_filter_conditions(){
 function filterUrl($param,$url='') {
     if(empty($url)) {
         //$url = $_SERVER['PHP_SELF'];
-        $url = $_SERVER['REQUEST_URI'];
+          $url = $_SERVER['REQUEST_URI'];
     }
     $pattern = "/\/$param\/[^\/]+/";
     return preg_replace($pattern, '', $url);
