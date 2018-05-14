@@ -1,0 +1,58 @@
+<layout name="Common/layout" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Admin/LoadImg-master/assets/css/loadimg.min.css">
+<script src="__PUBLIC__/Admin/LoadImg-master/assets/js/loadimg.min.js"></script>
+<section class="rt_wrap content mCustomScrollbar section-product-detail">
+ <div class="rt_content">
+      <div class="page_title">
+       <h2 class="fl">文章添加</h2>
+       <a title="" class="fr top_rt_btn add_icon" href="/Admin/Product/add">添加文章</a>
+      </div>
+     <section>
+         <?php if(isset($errorMessage)): ?>
+         <p style='color: red;'><?php echo $errorMessage; ?></p>
+         <?php endif; ?>
+         <form enctype="multipart/form-data" action="__SELF__" method="post">
+                    <ul class="ulColumn2">
+                     <li>
+                      <span class="item_name" style="width:120px;">文章标题：</span>                      
+                      <input type="text" name="article_title" class="textbox" placeholder="文章标题" value="<?php echo $data['article_title'];  ?>"  />
+                     </li>
+                     <li>
+                      <span class="item_name" style="width:120px;">文章简要描述：</span>
+                      <textarea name="article_summary"><?php echo $data['article_summary'];  ?></textarea>
+                     </li>                 
+                     <li>
+                         <span class="item_name" style="width: 120px">文章类别:</span>
+                         <?php print buildHtmlSelect2('lovgarden_article_category','id','article_category_name','article_category_name',$data['article_category']) ?>
+                     </li>
+                      <li>
+                      <span class="item_name" style="width:120px;">文章状态：</span>
+                      <label class="single_selection"><input type="radio" name="article_publish" value="1" <?php if($data['article_publish'] == '1'): ?><?php echo 'checked="checked"'; ?><?php endif; ?> />发布</label>
+                      <label class="single_selection"><input type="radio" name="article_publish" value="2" <?php if($data['article_publish'] == '2'): ?><?php echo 'checked="checked"'; ?><?php endif; ?>/>未发布</label>
+                      <label class="single_selection"><input type="radio" name="article_publish" value="3" <?php if($data['article_publish'] == '3'): ?><?php echo 'checked="checked"'; ?><?php endif; ?>/>删除</label>
+                     </li>
+                        <div style="width: 15%;">
+                            <label id="upload" exist-img="<?php  print C('IMAGE_CONFIG')['viewPath'].$data['banner_image']; ?>">
+                              <input name="banner_image" type="file" />
+                           </label>
+                       </div>
+                     <li style="margin-top: 214px;">
+                      <span class="item_name" style="width:120px;">商品详细描述：</span>
+                      <textarea id="editor" name="article_body"><?php echo $data['article_body'];  ?></textarea>
+                     </li>  
+                    </ul>
+                    <div><input type="submit" class="link_btn"/></div>
+         </form>
+     </section>
+ </div>
+</section>
+<script type="text/javascript">
+$(function() {
+    $('#upload').loadImg({
+            "text" : "文章banner图片",
+            "fileExt" : ["png","jpg"],
+    });
+});
+</script>
+
+

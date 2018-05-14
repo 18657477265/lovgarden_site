@@ -51,6 +51,11 @@
                      </li>
                      
                      <li>
+                         <span class="item_name" style="width: 120px">商品所属专题类</span>
+                         <?php print buildHtmlSelect2('lovgarden_article_category','id','article_category_name','category',$this_product_varient_info[$id]['category']); ?>
+                     </li>
+                     
+                     <li>
                          <span class="item_name" style="width: 120px">包含颜色</span>
                          <?php print buildMultipleHtmlSelect('lovgarden_flower_color','id','flower_color','flower_color',$this_product_varient_info[$id]['flower_color_id']) ?>
                      </li>

@@ -11,8 +11,8 @@ return array(
     'DB_NAME' => 'lovgarden',
     'DB_CHARSET' => 'utf8',
     'DEFAULT_FILTER' => 'trim,htmlspecialchars',
-    'TMPL_EXCEPTION_FILE' => './404.html',// 异常页面的模板文件
-    'ERROR_PAGE' => './404.html', // 错误定向页面
+    //'TMPL_EXCEPTION_FILE' => './404.html',// 异常页面的模板文件
+    //'ERROR_PAGE' => './404.html', // 错误定向页面
     'URL_MODEL'  =>  2, 
     'URL_CASE_INSENSITIVE' => true,
     'MODULE_ALLOW_LIST' => array('Home','Admin'), 

@@ -23,6 +23,27 @@ function buildHtmlSelect($tableName,$valueFieldName,$textFieldName,$selectName,$
      $select .= "</select>";
     return $select;
 }
+
+function buildHtmlSelect2($tableName,$valueFieldName,$textFieldName,$selectName,$current_value='',$all=FALSE) {
+    $model = new Think\Model();
+    $sql = "select $valueFieldName , $textFieldName from $tableName";
+    $resultArray = $model->query($sql);
+    $select = "<select name='$selectName' class='select' style='width:150px;'>";
+    if($all) {
+        $select .= "<option value='all'>All</option>";
+    }
+    foreach ($resultArray as $k => $v) {
+        $select_status='';
+        if($current_value == $v[$valueFieldName]) {
+            $select_status='selected="selected"';
+        }
+        $row="<option value=$v[$valueFieldName] $select_status>$v[$textFieldName]</option>";
+        $select .= $row;
+        
+    }
+     $select .= "</select>";
+    return $select;
+}
 /*自动生成多选框*/
 function buildMultipleHtmlSelect($tableName,$valueFieldName,$textFieldName,$selectName,$current_value=array()) {
     $model = new Think\Model();
