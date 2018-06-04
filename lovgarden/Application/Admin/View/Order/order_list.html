@@ -48,7 +48,7 @@
        <input name="others" type="text" class="textbox textbox_225" placeholder="输入名字备注地址等其他信息..." value="<?php print $filter_selection['others']; ?>"/>
        <input type="submit" value="查询" class="group_btn"/>
       </form>
-      <table class="table" style='width: 2650px;'>
+      <table class="table" style='width: 3000px;'>
        <tr>
         <th>订单编号</th>
         <th>下单用户</th>
@@ -66,6 +66,7 @@
         <th>会员减价</th>
         <th>付款最终价</th>
         <th>订单状态</th>
+        <th>支付时间</th>
         <th>操作</th>
        </tr>
        <?php foreach($orders as $k => $v): ?>
@@ -86,6 +87,7 @@
          <td class="center"><?php print $v['order_vip_level_cut']; ?></td>
          <td class="center"><?php print $v['order_final_price']; ?></td>
          <td class="center"><?php print get_order_status_label($v['order_status']); ?></td>
+         <td class="center"><?php print $v['pay_time']; ?></td>
          <td class="center">
              <a target='_blank' href="/Admin/Order/detail/id/<?php print $v['id']; ?>" data-order-id="<?php print $v['id']; ?>" title="所含商品信息" class="link_icon" target="_blank">&#118;</a>
          </td>
