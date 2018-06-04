@@ -296,4 +296,16 @@ class UserController extends Controller {
         }
         //$this->display('user_order_detail');
     }
+
+    public function user_order_handle() {
+       echo "<pre>";
+       echo '2';
+       print_r($_POST);
+       echo "</pre>";
+       exit();
+       $order = D('Order');
+       $order->order_handle_notify();
+    }
+
+
 }

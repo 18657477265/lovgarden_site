@@ -32,6 +32,34 @@ class OrderModel extends Model
         }
         return FALSE;
     }
+    //接收来自码支付的通知（临时用，未来会改为正式支付宝和微信)
+    function order_handle_notify($post_array = array()) {
+        if(empty($post_array)){
+            echo "error";
+            exit();
+        }
+        ksort($post_array); //排序post参数
+        reset($post_array); //内部指针指向数组中的第一个元素
+        $codepay_key= C('PAY_SECRET'); //这是您的密钥
+        $sign = '';//初始化
+        foreach ($post_array AS $key => $val) { //遍历POST参数
+            if ($val == '' || $key == 'sign') continue; //跳过这些不签名
+            if ($sign) $sign .= '&'; //第一个字符串签名不加& 其他加&连接起来参数
+            $sign .= "$key=$val"; //拼接为url参数形式
+        }
+        if (!$post_array['pay_no'] || md5($sign . $codepay_key) != $post_array['sign']) { //不合法的数据
+             exit('fail');  //返回失败 继续补单
+        }
+        else { //合法的数据
+            //业务处理
+            $pay_id = $post_array['pay_id']; //需要充值的ID 或订单号 或用户名
+            $money = (float)$post_array['money']; //实际付款金额
+            $price = (float)$post_array['price']; //订单的原价
+            $param = $post_array['param']; //自定义参数
+            $pay_no = $post_array['pay_no']; //流水号
+            exit('success'); //返回成功 不要删除哦
+        }
+    }
 }
 
 
