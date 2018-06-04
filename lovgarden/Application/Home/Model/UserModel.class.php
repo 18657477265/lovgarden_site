@@ -119,6 +119,35 @@ class UserModel extends Model
             $data['repassword'] = md5($data['repassword']);
         }
     }
+    
+    //用户调用支付接口进行支付
+    function  user_init_order_pay($order_id) {
+        //1登录用户
+        //2 订单号要和系统中已有的未付款的订单号吻合，不然不允许调用付款接口
+        $user_id = session('custom_id');
+        $user_telephone = session('user_telephone');
+        if(empty($user_id) || empty($user_telephone)) {
+            echo "Access Denied";
+            exit();
+        }
+        else {
+            $order = D('Order');
+            $orders = $order->field('order_id,order_owner,order_final_price')->where(array(
+                'order_owner' => $user_telephone,
+                'order_status' => '1',
+            ))->select();
+            if(!empty($orders)){
+               $orders = translate_database_result_to_logic_array($orders,array(),'order_id');
+               $order_ids = array_keys($orders);
+               if(in_array($order_id, $order_ids)){
+                   //这里的话才可以正式发起请求                  
+                  $this_order = $orders[$order_id];
+                  pay_codepay($order_id, $this_order['order_final_price']);
+                  exit();
+               }
+            }
+        }
+    }   
 }
 
 

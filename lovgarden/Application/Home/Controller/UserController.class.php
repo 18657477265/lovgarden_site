@@ -311,6 +311,11 @@ class UserController extends Controller {
        $order = D('Order');
        $order->order_handle_notify($_POST);
     }
-
+    
+    //跳转到支付接口
+    public function user_order_pay($order_id) {
+        $user = D('User');
+        $user->user_init_order_pay($order_id);
+    }
 
 }
