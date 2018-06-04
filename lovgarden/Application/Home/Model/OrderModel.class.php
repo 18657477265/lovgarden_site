@@ -34,7 +34,7 @@ class OrderModel extends Model
     }
     //接收来自码支付的通知（临时用，未来会改为正式支付宝和微信)
     function order_handle_notify($post_array = array()) {
-        //$log_file = '/a.txt';
+        $log_file = '/a.txt';
         //file_put_contents($log_file,'1', FILE_APPEND);
         if(empty($post_array)){
             echo "error";
@@ -62,7 +62,16 @@ class OrderModel extends Model
             $price = (float)$post_array['price']; //订单的原价
             $param = $post_array['param']; //自定义参数
             $pay_no = $post_array['pay_no']; //流水号
-            exit('success'); //返回成功 不要删除哦
+            //站点业务逻辑:需要更新订单状态到已支付
+            //$pay_id = '18040314555687237';
+            $sql_pay = "UPDATE lovgarden_order SET pay_time = NOW(), order_status = '2' WHERE order_id = '$pay_id'";
+            $result = $this->execute($sql_pay);
+            if($result) {
+              exit('success');
+            } //返回成功 不要删除哦
+            else {
+                file_put_contents($log_file,$pay_id, FILE_APPEND);
+            }
         }
     }
 }
