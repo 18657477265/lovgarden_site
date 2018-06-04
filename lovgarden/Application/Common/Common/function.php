@@ -633,7 +633,7 @@ function pay_codepay($order_id,$price) {
         "id" => $codepay_id,//你的码支付ID
         "pay_id" => $order_id, //唯一标识 可以是用户ID,用户名,session_id(),订单ID,ip 付款后返回
         "type" => 1,//1支付宝支付 3微信支付 2QQ钱包
-        "price" => $price,//金额100元
+        "price" => 0.02,//金额100元
         "param" => "",//自定义参数
         "notify_url"=>"https://www.flowerideas.cn/user/user_order_handle",//通知地址
         "return_url"=>"https://www.flowerideas.cn/user/operation_success/status/7",//跳转地址
