@@ -298,6 +298,11 @@ class UserController extends Controller {
     }
 
     public function user_order_handle() {
+       $log_file = '/a.txt';
+       $test = serialize($_POST);
+       file_put_contents($log_file,$test, FILE_APPEND);
+       exit();
+
        echo "<pre>";
        echo '2';
        print_r($_POST);
