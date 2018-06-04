@@ -309,7 +309,7 @@ class UserController extends Controller {
        //echo "</pre>";
        //exit();
        $order = D('Order');
-       $order->order_handle_notify();
+       $order->order_handle_notify($_POST);
     }
 
 
