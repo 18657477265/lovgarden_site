@@ -413,7 +413,7 @@ function translate_status_label($status_code = '2') {
         case '6':
             $result = '您的订单提交成功';
             break;
-        case '6':
+        case '7':
             $result = '订单付款成功';
             break;
     }
