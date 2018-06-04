@@ -34,13 +34,13 @@ class OrderModel extends Model
     }
     //接收来自码支付的通知（临时用，未来会改为正式支付宝和微信)
     function order_handle_notify($post_array = array()) {
-        $log_file = '/a.txt';
-        file_put_contents($log_file,'1', FILE_APPEND);
+        //$log_file = '/a.txt';
+        //file_put_contents($log_file,'1', FILE_APPEND);
         if(empty($post_array)){
             echo "error";
             exit();
         }
-        file_put_contents($log_file,'2', FILE_APPEND);
+        //file_put_contents($log_file,'2', FILE_APPEND);
         ksort($post_array); //排序post参数
         reset($post_array); //内部指针指向数组中的第一个元素
         $codepay_key= C('PAY_SECRET'); //这是您的密钥
@@ -51,12 +51,12 @@ class OrderModel extends Model
             $sign .= "$key=$val"; //拼接为url参数形式
         }
         if (!$post_array['pay_no'] || md5($sign . $codepay_key) != $post_array['sign']) { //不合法的数据
-             file_put_contents($log_file,'3', FILE_APPEND);
+             //file_put_contents($log_file,'3', FILE_APPEND);
              exit('fail');  //返回失败 继续补单
         }
         else { //合法的数据
             //业务处理
-            file_put_contents($log_file,'4', FILE_APPEND);
+            //file_put_contents($log_file,'4', FILE_APPEND);
             $pay_id = $post_array['pay_id']; //需要充值的ID 或订单号 或用户名
             $money = (float)$post_array['money']; //实际付款金额
             $price = (float)$post_array['price']; //订单的原价
