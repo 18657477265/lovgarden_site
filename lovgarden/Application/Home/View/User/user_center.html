@@ -84,7 +84,11 @@
                                                                         </ul>
                                                                         <div class="order-operation-options">
                                                                             <a href="/user/user_order_detail/order_id/<?php print $v['order_id']; ?>" target="_blank">详情</a>
+                                                                            <?php if($v['order_status'] == '1'): ?>
                                                                             <a href="#">去付款</a>
+                                                                            <?php elseif($v['order_status'] == '2'): ?>
+                                                                            <a onclick='javascript:void(0);' style="cursor:default;text-decoration: none;background-color: #5ac689;">已付款</a>
+                                                                            <?php endif ?>
                                                                         </div>
                                                                     </footer>
                                                         </article>
