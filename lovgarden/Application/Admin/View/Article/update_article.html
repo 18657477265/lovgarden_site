@@ -31,6 +31,10 @@
                       <label class="single_selection"><input type="radio" name="article_publish" value="2" <?php if($data['article_publish'] == '2'): ?><?php echo 'checked="checked"'; ?><?php endif; ?>/>未发布</label>
                       <label class="single_selection"><input type="radio" name="article_publish" value="3" <?php if($data['article_publish'] == '3'): ?><?php echo 'checked="checked"'; ?><?php endif; ?>/>删除</label>
                      </li>
+                     <li>
+                      <span class="item_name" style="width:120px;">关联id：</span>                      
+                      <input type="text" name="related_article_ids" class="textbox" placeholder="关联id" value="<?php echo $data['related_article_ids'];  ?>"  />
+                     </li>
                         <div style="width: 15%;">
                             <label id="upload" exist-img="<?php  print C('IMAGE_CONFIG')['viewPath'].$data['banner_image']; ?>">
                               <input name="banner_image" type="file" />
