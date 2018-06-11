@@ -33,5 +33,6 @@ return array(
     /************分页配置***************/
     'PRODUCT_VARIENT_PAGE' => array(
          'page_count' => 10,  
-    ), 
+    ),
+    'PAY_SECRET' => '5v4bRQhIB00NqjcuJPOmIGG49VMXpcPM',
 );

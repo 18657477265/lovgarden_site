@@ -8,7 +8,7 @@
      <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css"/>         
      <link rel="stylesheet" href="__PUBLIC__/Home/css/flow.css"/>
      <link rel="stylesheet" href="__PUBLIC__/Home/css/style.css"/>
-     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+     <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
      <script src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
      <script src="__PUBLIC__/Home/js/jquery.cookie.js"></script>
      <link rel="stylesheet" href="__PUBLIC__/Home/css/user_order_detail.css"/>
@@ -130,7 +130,11 @@
     </div> 
     
     <div class="row checkout-button">
+      <?php if($order_info['order_status'] == '1'): ?>
       <a href="javascript:void(0);" class="checkout-to-flow3">去支付</a>
+      <?php elseif($order_info['order_status'] == '2'): ?>
+      <a href="javascript:void(0);" class="checkout-to-flow3" style="cursor:default;text-decoration: none;background-color: #5ac689;color: #fff;">已支付</a>
+      <?php endif ?>
     </div>
   </div>
   <include file="Application/Home/View/Common/foot_block.html" />  

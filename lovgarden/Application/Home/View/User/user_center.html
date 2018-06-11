@@ -12,7 +12,7 @@
      <link rel="stylesheet" href="__PUBLIC__/Home/css/style.css"/>
      <link rel="stylesheet" href="__PUBLIC__/Home/css/component.css" />
      <link rel="stylesheet" href="__PUBLIC__/Home/css/usercenter.css" />
-     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+     <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
      <script src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
      <script src="__PUBLIC__/Home/js/jquery.cookie.js"></script>
      <script src="__PUBLIC__/Home/js/jquery.nice-select.min.js"></script>
@@ -57,7 +57,7 @@
                                             </div>    
                                             </form>
                                             <?php else: ?>
-                                            <h4 style="margin-top:100px;text-align:center;">您的订单为空,去<a href="/product/select_list" style="color: orange;">逛逛吧</a></h4>
+                                            <h4 style="margin-top:100px;text-align:center;">没有您要找的订单,去<a href="/product/select_list" style="color: orange;">逛逛吧</a></h4>
                                             <?php endif; ?>
                                             <?php foreach($orders as $k=>$v): ?>
                                                         <article class="order-item">
@@ -84,7 +84,11 @@
                                                                         </ul>
                                                                         <div class="order-operation-options">
                                                                             <a href="/user/user_order_detail/order_id/<?php print $v['order_id']; ?>" target="_blank">详情</a>
+                                                                            <?php if($v['order_status'] == '1'): ?>
                                                                             <a href="#">去付款</a>
+                                                                            <?php elseif($v['order_status'] == '2'): ?>
+                                                                            <a onclick='javascript:void(0);' style="cursor:default;text-decoration: none;background-color: #5ac689;">已付款</a>
+                                                                            <?php endif ?>
                                                                         </div>
                                                                     </footer>
                                                         </article>

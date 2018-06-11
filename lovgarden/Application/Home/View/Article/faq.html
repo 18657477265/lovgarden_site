@@ -26,21 +26,9 @@
      <div class="category-sidebar col-md-4 col-sm-4">
       <aside class="topics-sidebar">
         <ul class="topics-list">
-          <li><a class="button -tertiary -size-md -full-width " href="https://thebouqs.zendesk.com/hc/en-us/categories/115000104873-Where-s-My-Bouq">Shipping &amp; Delivery</a></li>
-          <li><a class="button -tertiary -size-md -full-width " href="https://help.bouqs.com/hc/en-us/categories/115000510833-HOLIDAY-SEASONAL&quot;">Holiday/Seasonal</a></li>
-          <li><a class="button -tertiary -size-md -full-width " href="https://help.bouqs.com/hc/en-us/categories/115000510813-PROMOTIONS-REFERRALS-">Promotions &amp; Referrals</a></li>
-          <li><a class="button -tertiary -size-md -full-width " href="https://thebouqs.zendesk.com/hc/en-us/categories/115000104893-Editing-Cancelling-Orders">My Orders</a></li>
-          <li><a class="button -tertiary -size-md -full-width " href="https://thebouqs.zendesk.com/hc/en-us/categories/115000105874-Our-Flowers">Flower Care &amp; Quality</a></li>
-          <li><a class="button -tertiary -size-md -full-width " href="https://thebouqs.zendesk.com/hc/en-us/categories/115000105894-My-Account-Order-History">My Account</a></li>
-          <li><a class="button -tertiary -size-md -full-width " href="https://help.bouqs.com/hc/en-us/categories/115000105854-PAYMENT-GIFT-CARDS">Payment &amp; Giftcards
-          </a></li>
-          <li><a class="button -tertiary -size-md -full-width " href="https://thebouqs.zendesk.com/hc/en-us/categories/115000104953-What-is-a-Bouq-">General</a></li>
-          <li><a class="button -tertiary -size-md -full-width " href="https://thebouqs.zendesk.com/hc/en-us/categories/115000104973-Subscriptions">Subscription
-          </a></li>
-          <li><a class="button -tertiary -size-md -full-width " href="https://thebouqs.zendesk.com/hc/en-us/categories/115000104993-Happiness-Guarantee">Happiness Guarantee</a></li>
-            <li><a class="button -tertiary -size-md -full-width " href="https://help.bouqs.com/hc/en-us/categories/115000504674-SUSTAINABILITY-MISSION">Sustainability</a></li>
-          <li>                <a class="button -primary -size-lg -full-width" href="https://help.bouqs.com/hc/en-us/requests/new">Contact Us</a>
-          </li>
+          <?php foreach($all_faq as $k=>$v): ?>
+          <li><a class="button -tertiary -size-md -full-width " href="/article/faq/id/<?php print $v['id']; ?>"><?php print $v['article_title']; ?></a></li>
+          <?php endforeach; ?>
         </ul>
         </aside>
       </div>

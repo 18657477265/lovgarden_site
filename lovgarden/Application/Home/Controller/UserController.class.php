@@ -296,4 +296,22 @@ class UserController extends Controller {
         }
         //$this->display('user_order_detail');
     }
+    
+    public function user_order_handle() {
+       //$log_file = '/a.txt';
+       //file_put_contents($log_file,'test', FILE_APPEND);
+       //exit();
+       //echo "<pre>";
+       //echo '2';
+       //print_r($_POST);
+       //echo "</pre>";
+       //exit();       
+       $order = D('Order');
+       $order->order_handle_notify($_POST);
+    }
+    
+    public function user_order_pay($order_id) {
+        $user = D('User');
+        $user->user_init_order_pay($order_id);
+    }
 }

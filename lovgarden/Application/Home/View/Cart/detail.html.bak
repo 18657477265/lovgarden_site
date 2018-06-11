@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+     <link rel="shortcut icon" href="/favicon.ico" />
+     <title>订单详情|花点馨思(丽de花苑)</title>
+     <link rel="shortcut icon" href="__PUBLIC__/Home/images/ico.ico" />     
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css"/>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/nice-select.css">
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/datepicker.css">
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/jquery.confirm-1.1.css">
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/flow.css"/>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/style.css"/>
+     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+     <script src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
+     <script src="__PUBLIC__/Home/js/jquery.nice-select.min.js"></script>
+     <script src="__PUBLIC__/Home/js/jquery.cookie.js"></script>
+     <script src="__PUBLIC__/Home/js/jquery.confirm-1.1.js"></script>
+     <script src="__PUBLIC__/Home/js/bootstrap-datepicker.js">"></script>
+     <script src="__PUBLIC__/Home/js/locales/bootstrap-datepicker.zh-CN.js"></script>
+</head>
+<body class="page order-flow1">
+  <include file="Application/Home/View/Common/flow_header.html" /> 
+  <ol class="checkout-progress">
+        <li class="checkout-progress__step checkout-progress__step--active">
+        1. 检查订单
+        </li>
+        <li class="checkout-progress__step">
+        2. 填写配送信息
+        </li>
+        <li class="checkout-progress__step">3. 付款</li>
+  </ol>
+  <form id="review-order" class="submit-order-form" method="post" action="__SELF__">
+  <div class="container checkout-order-content">
+    <h3 class="check-before-next-title">请确认您的订单是否正确</h3>
+    <p class="check-before-next-brief">请检查看看您选的商品款式是否正确哦，在接下来的一步您也可以在商品订单上给我们添加备注哦</p>
+    <?php if(!empty($error_message)):   ?>
+    <p id="detail-page-error-message"><?php print $error_message;  ?></p>
+    <?php endif;  ?>
+    <?php foreach($cart_products as $k => $v): ?>
+    <div class="row each-product">
+      <div class="product-small-img col-md-2 col-sm-2 col-xs-4">
+        <img style='width: 110px; height: 110px;' src="<?php print C('IMAGE_CONFIG')['viewPath'].$v['image_url'][0]; ?>">
+      </div>
+      <div class="product-title-info product-title-info-title col-md-2 col-sm-2 col-xs-4">
+        <p><span class="ceil"><?php print $v['varient_name'];  ?></span></p>
+      </div>
+      <div class="product-title-info decoration-level-status col-md-1 col-sm-1 col-xs-4">
+        <p><span class="ceil"><?php print product_varient_decoration_level($v['decoration_level']);  ?></span></p>
+      </div>
+      <div class="product-title-info input-select-vase-status col-md-2 col-sm-2 col-xs-4">        
+         <select name="vase_options[<?php print $k; ?>]" id="vase_select_<?php print $k; ?>" required="required" data-checkout-relationship-select="5a7c0df06170706c40005108" aria-required="true" aria-invalid="false" class="valid vase-option">
+              <option value="1" <?php if($v['vase'] == '1'){print 'selected="true"';};  ?>>包含花瓶</option>
+              <option value="2" <?php if($v['vase'] == '2'){print 'selected="true"';};  ?>>不含花瓶</option>
+         </select>
+      </div>
+      <div class="flow-check-date-value col-md-2 col-sm-2 col-xs-4">                    
+         
+          <div class="input-group date" data-provide="delivery_date">
+              <input name="deliver_date[<?php print $k; ?>]" type="text" class="form-control deliver-date" id="delivery_date_<?php print $k; ?>" readonly="true" value="<?php print date('Y-m-d',strtotime($v['deliver_time'])); ?>" onfocus="this.blur();">
+              <div class="input-group-addon">
+                  <span class="glyphicon glyphicon-th"></span>
+              </div>
+          </div>
+      </div>
+      <div class="flow-check-each-price col-md-1 col-sm-1 col-xs-4">
+          <p><span class="ceil">价格<br/><?php print number_format($v['varient_price']); ?>元</span></p>
+      </div>
+      <div class="flow-check-each-operation col-md-2 col-sm-2 col-xs-12">
+          <a href="javascript:void(0);" class="remove-user-cart-item" data-price="<?php print number_format($v['varient_price']); ?>" data-target="<?php print $k; ?>">删除<span class="remove-processing-icon" style="display: none;"><img width="20px" src="/Public/Home/images/spin.gif"></span></a>
+          
+      </div>
+    </div>
+    <?php endforeach; ?>
+     
+    <div class="row total-price-list">
+      <div class="col-md-8 col-sm-8 col-xs-12">
+        <div class="inline-form">
+            <div class="discount_code col-md-4 col-sm-4 col-xs-12"><input type="text" name="discount_code" placeholder="优惠券码,可致电商家询问" autocomplete="off"></div>
+          <div class="inline-form__cell col-md-5 col-sm-5 col-xs-12"><button name="discount_code_button" type="button" class="button button--full-width">添加</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4 col-xs-12 price-list-mobile">
+        <table class="total-price table table--totals">
+          <tbody>
+          <tr>
+            <th>
+              <span>花瓶价格总和:</span>
+            </th>
+            <td>
+                <span class="vase_total_cost"><?php print $costs_info_array['vase_cost']; ?></span><span>元</span>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <span>商品价格总和:</span>
+            </th>
+            <td>
+                <span class="products_total_cost"><?php print $costs_info_array['products_original_cost']; ?></span><span>元</span>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <span>优惠券</span>
+            </th>
+            <td>
+                <span class="cut_total_cost">-<?php print $costs_info_array['cut_cost']; ?></span><span>元</span>
+            </td>
+          </tr>
+          <tr>
+            <th class="checkout-step-summary__login-free-delivery-cell">
+              <span>运费:</span>
+            </th>
+            <td>
+                <span class="deliver_cost"><?php print $costs_info_array['deliver_cost']; ?></span><span>元</span>
+            </td>
+          </tr>
+          <tr class="table__total">
+            <th>
+              <span>最终价格:</span>
+            </th>
+            <td><span class="total-price-value"><?php print $costs_info_array['total_cost']; ?></span><span>元</span></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div> 
+    
+    <div class="row checkout-button">
+      <a href="javascript:void(0);" class="checkout-to-flow2">确认订单</a>
+    </div>
+  </div>
+ </form>
+  <div class="flow-checkout-footer">
+    <p>本站点版权和最终解释权归©丽de花苑所有</p>
+  </div>
+    <script src="__PUBLIC__/Home/js/custom.js"></script>
+    <script src="__PUBLIC__/Home/js/order.js"></script>
+    <script>
+      $(document).ready(function() {
+         var date = new Date();
+         var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+        
+         $('select.vase-option').each(function(index){
+            var id = $(this).attr('id');
+            $("#"+ id).niceSelect();
+         });
+
+         $('input.deliver-date').each(function(index){
+            var id = $(this).attr('id');
+            $("#"+ id).datepicker({
+              format: 'yyyy-mm-dd',
+              language: 'zh-CN',
+              autoclose: true,
+              startDate: today,
+              endDate:0,
+            });
+         });
+      });
+    </script>
+</body>
+</html>

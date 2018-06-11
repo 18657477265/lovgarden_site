@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+     <link rel="shortcut icon" href="/favicon.ico" />
+     <title>用户中心|花点馨思(丽de花苑)</title>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css"/>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap-maizi.css"/>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/nice-select.css">
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/style.css"/>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/component.css" />
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/usercenter.css" />
+     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+     <script src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
+     <script src="__PUBLIC__/Home/js/jquery.cookie.js"></script>
+     <script src="__PUBLIC__/Home/js/jquery.nice-select.min.js"></script>
+</head>
+<body class="page reset-password-page">
+<include file="Application/Home/View/Common/nav_block.html" />
+<include file="Application/Home/View/Common/menu_block.html" />
+  <div class="header-gap" style='height: 200px;'></div>
+  <div class="container-fluid singup-block">	
+			<div id="tabs" class="tabs">
+                            <nav style="position: relative;z-index: 1;">
+					<ul>
+						<li><a href="#section-1" class="icon-order"><span>订单</span></a></li>
+						<li><a href="#section-2"><span>Drinks</span></a></li>
+						<li><a href="#section-3"><span>Food</span></a></li>
+						<li><a href="#section-4"><span>Lab</span></a></li>
+                                                <li><a href="#section-5"><span>Shop</span></a></li>
+					</ul>
+				</nav>
+				<div class="content">
+                                    <section id="section-1" style="padding-bottom: 140px;">
+                                            <?php if(!empty($orders)): ?>
+					    <form class="container-fluid order-filter-form" action="__ACTION__" method="GET" id="order_filter">
+                                            <div class="row col-md-3 col-sm-3 col-xs-12 order-status-filter filter-item">
+                                                <select name="order_status" id="order_status" aria-required="true" aria-invalid="false" class="valid">
+                                                  <option value="">订单状态</option>
+                                                  <option value="1" <?php if($filter_selection['order_status']=='1'){print 'selected="true"';} ?>>未支付</option>
+                                                  <option value="2" <?php if($filter_selection['order_status']=='2'){print 'selected="true"';} ?>>已支付</option>                        
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3 col-sm-3 col-xs-12 order-id-filter filter-item">
+                                                <input type="text" name="order-id-filter" id="order-id-filter" class="text-box form-control" title="订单编号" placeholder="订单编号" autocomplete="off" maxlength="30" value="<?php print $filter_selection['order_id']; ?>">
+                                            </div>
+                                            <div class="row col-md-3 col-sm-3 col-xs-12 order-order-by filter-item">
+                                                <select name="order_order_" id="order_order_by" aria-required="true" aria-invalid="false" class="valid">             
+                                                  <option value="1" <?php if($filter_selection['order_order_']=='1'){print 'selected="true"';} ?>>按时间倒序</option>
+                                                  <option value="2" <?php if($filter_selection['order_order_']=='2'){print 'selected="true"';} ?>>按时间顺序</option>                        
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3 col-sm-3 col-xs-12 order-filter-submit filter-item">
+                                                <button type="submit" class="text-box">查询</button>
+                                            </div>    
+                                            </form>
+                                            <?php else: ?>
+                                            <h4 style="margin-top:100px;text-align:center;">您的订单为空,去<a href="/product/select_list" style="color: orange;">逛逛吧</a></h4>
+                                            <?php endif; ?>
+                                            <?php foreach($orders as $k=>$v): ?>
+                                                        <article class="order-item">
+                                                                    <header class="order-img-box col-md-3 col-xs-12 col-sm-4">
+                                                                        <div class="order-img-div">
+                                                                            <img class="order-img" src="<?php print C('IMAGE_CONFIG')['viewPath'].$v['image_url'][0];  ?>">
+                                                                        </div>
+                                                                    </header>
+                                                                    <div class="col-md-5 col-xs-12 col-sm-4 order-info-box">
+                                                                        <h3 class="order-info-title"><a href="#"><?php $count = count($v['varient_name']); if($count>1) { print $v['varient_name'][0].'等'.$count.'个';}else {print $v['varient_name'][0];} ?></a></h3>
+                                                                        <div class="order-info-title-plus">订单号:<?php print $v['order_id']; ?></div>
+                                                                        <ul class="order-info-body">
+                                                                            <li class="listItemCard-module_bulletPoint_tJqoi" style='font-size: 13px;'>收获人联系电话:<?php print $v['telephone']; ?></li>
+                                                                            <li class="listItemCard-module_bulletPoint_tJqoi" style='font-size: 13px;' >优惠码:<?php if(!empty($v['order_coupon_code'])){ print $v['order_coupon_code'];}else{print '无';} ?></li>
+                                                                            <li class="listItemCard-module_bulletPoint_tJqoi" style='font-size: 13px;' >配送地址:<?php print $v['area'].$v['address']; ?></li>
+
+                                                                        </ul>
+                                                                    </div>
+                                                                    <footer class="col-md-4 col-xs-12 col-sm-4 order-operation-box">
+                                                                        <div class="order-price">应付款:<?php print $v['order_final_price']; ?></div>
+                                                                        <ul class="order-extra-info">
+                                                                            <li>创建日期:<?php print $v['order_create_time']; ?></li>
+                                                                            <li>订单状态: <?php print get_order_status_label($v['order_status']); ?></li>
+                                                                        </ul>
+                                                                        <div class="order-operation-options">
+                                                                            <a href="/user/user_order_detail/order_id/<?php print $v['order_id']; ?>" target="_blank">详情</a>
+                                                                            <a href="#">去付款</a>
+                                                                        </div>
+                                                                    </footer>
+                                                        </article>
+                                            <?php endforeach; ?>      
+					</section>
+					<section id="section-2">
+						<div class="mediabox">
+							<img src="__PUBLIC__/Home/images/04.png" alt="img04" />
+							<h3>Asparagus Cucumber Cake</h3>
+							<p>Chickweed okra pea winter purslane coriander yarrow sweet pepper radish garlic brussels sprout groundnut summer purslane earthnut pea tomato spring onion azuki bean gourd. </p>
+						</div>
+						<div class="mediabox">
+							<img src="__PUBLIC__/Home/images/05.png" alt="img05" />
+							<h3>Magis Kohlrabi Gourd</h3>
+							<p>Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard.</p>
+						</div>
+						<div class="mediabox">
+							<img src="__PUBLIC__/Home/images/06.png" alt="img06" />
+							<h3>Ricebean Rutabaga</h3>
+							<p>Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. </p>
+						</div>
+					</section>
+					<section id="section-3">
+						<div class="mediabox">
+							<img src="__PUBLIC__/Home/images/02.png" alt="img02" />
+							<h3>Noodle Curry</h3>
+							<p>Lotus root water spinach fennel kombu maize bamboo shoot green bean swiss chard seakale pumpkin onion chickpea gram corn pea.Sushi gumbo beet greens corn soko endive gumbo gourd.</p>
+						</div>
+						<div class="mediabox">
+							<img src="__PUBLIC__/Home/images/06.png" alt="img06" />
+							<h3>Leek Wasabi</h3>
+							<p>Sushi gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato.</p>
+						</div>
+						<div class="mediabox">
+							<img src="__PUBLIC__/Home/images/01.png" alt="img01" />
+							<h3>Green Tofu Wrap</h3>
+							<p>Pea horseradish azuki bean lettuce avocado asparagus okra. Kohlrabi radish okra azuki bean corn fava bean mustard tigernut wasabi tofu broccoli mixture soup.</p>
+						</div>
+					</section>
+					<section id="section-4">
+						<div class="mediabox">
+							<img src="__PUBLIC__/Home/images/03.png" alt="img03" />
+							<h3>Tomato Cucumber Curd</h3>
+							<p>Chickweed okra pea winter purslane coriander yarrow sweet pepper radish garlic brussels sprout groundnut summer purslane earthnut pea tomato spring onion azuki bean gourd. </p>
+						</div>
+						<div class="mediabox">
+							<img src="__PUBLIC__/Home/images/01.png" alt="img01" />
+							<h3>Mushroom Green</h3>
+							<p>Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout chard.</p>
+						</div>
+						<div class="mediabox">
+							<img src="__PUBLIC__/Home/images/04.png" alt="img04" />
+							<h3>Swiss Celery Chard</h3>
+							<p>Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear garlic gram celery bitterleaf wattle seed collard greens nori. </p>
+						</div>
+					</section>
+					<section id="section-5">
+                                        
+                                           
+                                                                                                                                                    
+					</section>
+				</div><!-- /content -->
+			</div><!-- /tabs -->		 	
+  </div>
+  
+   <!--block 底座-->
+   <include file="Application/Home/View/Common/foot_block.html" />
+    <script src="__PUBLIC__/Home/js/jquery.singlePageNav.min.js"></script>
+    <script src="__PUBLIC__/Home/js/wow.min.js"></script> 
+    <script src="__PUBLIC__/Home/js/custom.js"></script>
+    <script src="__PUBLIC__/Home/js/validator.js"></script>
+    <script src="__PUBLIC__/Home/js/nocache.js"></script>
+    <script src="__PUBLIC__/Home/js/cbpFWTabs.js"></script>
+    <script>
+	new CBPFWTabs( document.getElementById( 'tabs' ) );
+
+        $(document).ready(function() {
+           $('#order_status').niceSelect();
+           $('#order_order_by').niceSelect();
+        });
+    
+    </script>
+</body>
+</html>

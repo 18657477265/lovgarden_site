@@ -4,9 +4,11 @@
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
      <link rel="shortcut icon" href="/favicon.ico" />
-     <title>文章标题|花点馨思(丽de花苑)</title>
+     <title><?php print $faq['article_title']; ?>|花点馨思(丽de花苑)</title>
      <link rel="stylesheet" href="__PUBLIC__/Home/css/bootstrap.min.css"/>
      <link rel="stylesheet" href="__PUBLIC__/Home/css/style.css"/>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/products.css"/>
+     <link rel="stylesheet" href="__PUBLIC__/Home/css/article.css"/>
      <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
      <script src="__PUBLIC__/Home/js/bootstrap.min.js"></script>
      <script src="__PUBLIC__/Home/js/jquery.cookie.js"></script>
@@ -14,13 +16,64 @@
 <body class="page">
   <include file="Application/Home/View/Common/nav_block.html" />
   <include file="Application/Home/View/Common/menu_block.html" />
-  <div style="height:100px"></div>
-  <div class="container">
-      <h2>The Bouqs Company</h2>
-      <div>
-          <p>John is passionate about disruptive businesses, cool brands, and showing love to the important people in his life. The Bouqs Company is a combination of those things, and he is thrilled to bring it to you and yours. Prior to Founding The Bouqs, John worked in strategy consulting at Bain & Company, followed by marketing strategy for brands including Disney, ESPN, ABC, Marvel, ShoeDazzle and Gerber Baby. John received his BS in Finance from the University of Notre Dame and his MBA from UCLA Anderson. You can reach John with questions, comments or suggestions @JohnGTabis. But be careful, the guy can be chatty...</p>
+  <!-- 左边黑框描述，右边图片block样式-->
+   <div style="width: 100%;height: 100px;"></div>
+   <div class="category-banner-content-block container">
+      <div class="row">
+      <div class="category-banner-content-block__content col-md-3 col-sm-4">
+          <h1 class="category-banner-content-block__title"><?php print $faq['article_title']; ?></h1>
+          <p class="category-banner-content-block__description"><?php print $faq['article_summary']; ?></p>
       </div>
+      <div class="category-banner-content-block__image col-md-9 col-sm-8" style="background-image: url(<?php echo C('IMAGE_CONFIG')['viewPath'].$faq['banner_image']; ?>)">
+        
+      </div>
+      </div>
+   </div>
+   <div class="container pagination-results">
+       <div class="section-tree" style="margin-top: 20px;">        
+        <?php print $faq['article_body']; ?>
+      </div>      
   </div>
+  
+  <?php if(!empty($products)): ?>
+  <!--product list flow 商品展示瀑布流分页-->
+  <div class="pagination-results container">
+      <h2 class="related-products-title">相关商品</h2>
+  	<ul class="product-grid">
+          <?php foreach($products as $sku_id => $product_varient): ?>
+	  <li class="product-grid__cell col-md-4 col-sm-4 col-xs-12 list-grid-left">
+		<div class="product-summary">
+		    <div class="product-summary__media">
+                        <a class="product-summary__media-link" href='/product/show/sku_id/<?php print $sku_id; ?>'><img title="<?php print $product_varient['varient_name']; ?>" alt="<?php print $product_varient['varient_name']; ?>" src="<?php print C('IMAGE_CONFIG')['viewPath'].$product_varient['image_url'][0] ?>"></a>
+		    </div>
+			<div class="product-summary__info">
+			    <h3 class="heading--2 product-summary__name"><a class="product-summary__name-link" href='/product/show/sku_id/<?php print $sku_id; ?>'><?php print $product_varient['varient_name']; ?></a></h3>
+				<div class="product-summary__short-description">
+					<p><?php print $product_varient['varient_summary']; ?></p>
+				</div>
+				<div class="product-summary__pricing">
+				   <div class="product-prices product-prices--summary">
+				    <p class="product-prices__price"><span class="price__unit">￥</span><span class="price__number"><?php print rtrim(rtrim($product_varient['varient_price'], '0'), '.'); ?></span><!--<span class="small-start">起</span>--></p>
+				   </div>
+				</div>
+				<div class="product-summary__manufacturer show-tablet-pc">
+				    <div class="product-summary__manufacturer-image"><img src="__PUBLIC__/Home/images/products_list/creator1.jpg"></div>
+				    <div class="product-summary__manufacturer-title">Farmer Andre</div>
+				    <div class="product-summary__manufacturer-location">Ecuador</div>
+				</div>
+				<div class="product-summary__availability">
+				    <div class="product-summary__availability-label show-tablet-pc">配送时间</div>
+				    <div class="product-summary__availability-date"><span><?php print show_appropriate_hurry_status($product_varient['hurry_level_id']); ?></span></div>
+				</div>
+			</div>
+		</div>
+	  </li>
+          <?php endforeach; ?>
+  	</ul>
+  </div>
+  <p class="products-read-more"><a class="read-more" href="/product/select_list">查看更多</a></p>
+  <?php endif; ?>
+  
   <include file="Application/Home/View/Common/foot_block.html" />
      <script src="__PUBLIC__/Home/js/custom.js"></script>
      <script src="__PUBLIC__/Home/js/nocache.js"></script>

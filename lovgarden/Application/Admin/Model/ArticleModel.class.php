@@ -5,8 +5,8 @@ class ArticleModel extends Model
 {
     public $model_data;
     //调用时候create方法允许接受的字段
-    protected $insertFields = 'article_title,article_summary,article_author,article_body,article_publish,article_create_time,article_category,banner_image';
-    protected $updateFields = 'article_title,article_summary,article_author,article_body,article_publish,article_category,banner_image';
+    protected $insertFields = 'article_title,article_summary,article_author,article_body,article_publish,article_create_time,article_category,banner_image,related_article_ids';
+    protected $updateFields = 'article_title,article_summary,article_author,article_body,article_publish,article_category,banner_image,related_article_ids';
     protected $_validate = array(
         array('article_title','require','文章标题不能为空',1,'',3),
         array('article_title','1,50','超出标题最大限制',1,'length'),
@@ -42,7 +42,7 @@ class ArticleModel extends Model
         $data['article_body'] = $_POST['article_body'];
         $data['article_author'] = !empty(session('user_name'))? session('user_name'):'';
         $data['article_create_time'] = date('Y-m-d H:i:s');
-        
+        $data['related_article_ids'] = I('post.related_article_ids','');
         $uploaded_images = uploadImage('article','article');
         //if($uploaded_images) {          
         $data['banner_image'] = $uploaded_images['banner_image']['savepath'].$uploaded_images['banner_image']['savename'];             
@@ -78,6 +78,7 @@ class ArticleModel extends Model
         $data['article_summary'] = I('post.article_summary','');
         $data['article_publish'] = I('post.article_publish','0');
         $data['article_category'] = I('post.article_category_name','0');
+        $data['related_article_ids'] = I('post.related_article_ids','');
         $data['article_body'] = $_POST['article_body'];        
         if(!empty($_FILES)) {
             if($_FILES["banner_image"]['error'] > 0) {
