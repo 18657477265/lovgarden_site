@@ -11,7 +11,7 @@ return array(
     'MAIL_CONFIG' => array(
        'smtpdebug' => FALSE,
        'host' => 'smtp.163.com',
-       'smtpsecure' => 'tls', 
+       'smtpsecure' => 'ssl', 
        'port' => 587, 
        'smtpauth' =>TRUE,
        'username' => '18657477265@163.com',
