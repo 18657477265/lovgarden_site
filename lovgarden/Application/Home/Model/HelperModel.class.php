@@ -54,7 +54,7 @@ class HelperModel
             $mail->Subject = $subject; //????
             $mail->Body = $content; //????
             $mail->AltBody = $content; //???????HTML?????
-            if($mail->Send()){
+            if($mail->send()){
                 return TRUE;
             }
             else {
