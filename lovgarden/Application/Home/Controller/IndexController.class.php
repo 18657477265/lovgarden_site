@@ -2,6 +2,8 @@
 namespace Home\Controller;
 use Think\Controller;
 use Org\Util\SendCustomCode;
+use Org\Util\PHPMailer;
+
 class IndexController extends Controller {
     public function index(){
         $block_model = D('Admin/Block');

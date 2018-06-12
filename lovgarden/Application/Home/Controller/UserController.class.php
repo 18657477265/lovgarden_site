@@ -296,7 +296,7 @@ class UserController extends Controller {
         }
         //$this->display('user_order_detail');
     }
-    
+    //这个action用于接收来自码支付的通知请求
     public function user_order_handle() {
        //$log_file = '/a.txt';
        //file_put_contents($log_file,'test', FILE_APPEND);
@@ -309,7 +309,7 @@ class UserController extends Controller {
        $order = D('Order');
        $order->order_handle_notify($_POST);
     }
-    
+    //这里用户给某一个订单进行付款，生成付款二维码
     public function user_order_pay($order_id) {
         $user = D('User');
         $user->user_init_order_pay($order_id);

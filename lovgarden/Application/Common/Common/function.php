@@ -465,6 +465,28 @@ function mem_check_ip_attention($max_visit_count = 10,$frozen_time = 7200) {
         return FALSE;
     }
 }
+
+//封装memcache检查IP尝试连接次数，邮件发送次数
+function mem_check_ip_attention_mail($max_visit_count = 5,$frozen_time = 3600,$type='mail') {
+    $client_ip = getClientIp().$type;
+    $mem = new Think\Cache\Driver\Memcache();
+    $ip_send_count = $mem->get($client_ip);
+    if(empty($ip_send_count) || $ip_send_count < $max_visit_count) {
+        if(!empty($ip_send_count)) {
+            //一小时内不是第一次发送
+            $ip_send_count ++;
+            $mem->set($client_ip, $ip_send_count, $frozen_time);
+        }
+        else {
+            //第一次发送
+            $mem->set($client_ip,1,$frozen_time); 
+        }
+        return TRUE;
+    }
+    else {
+        return FALSE;
+    }
+}
 //根据商品信息整理出价格，优惠，花瓶价格等信息
 function calculate_cost($products_array,$vase_price = '20',$cut_code = '0') {
     $cost_info_array = array(
