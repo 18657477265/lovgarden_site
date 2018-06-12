@@ -2,6 +2,8 @@
 namespace Home\Model;
 use Think\Model;
 use Think\Cache\Driver\Memcache;
+use Org\Util\PHPMailer;
+use Org\Util\SMTP;
 class HelperModel
 {
     function get_category_related_products($where){
@@ -30,6 +32,35 @@ class HelperModel
 //        echo "</pre>";
 //        exit();
         return $products;
+    }
+    
+    function leave_message($type = 'mail',$telephone,$content,$subject) {
+        if($type == 'mail') {
+            $mail = new PHPMailer();
+            $mail->IsSMTP(); // ??SMTP
+            $mail->SMTPDebug = C('MAIL_CONFIG')['smtpdebug'];
+            $mail->Host = C('MAIL_CONFIG')['host']; //smtp??????(???QQ????)
+            $mail->SMTPSecure = C('MAIL_CONFIG')['smtpsecure'];
+            $mail->Port = C('MAIL_CONFIG')['port'];
+            $mail->SMTPAuth = C('MAIL_CONFIG')['smtpauth']; //??smtp??
+            $mail->Username = C('MAIL_CONFIG')['username']; //?????
+            $mail->Password = C('MAIL_CONFIG')['password']; //????
+            $mail->From = C('MAIL_CONFIG')['from']; //?????(?????????)
+            $mail->FromName = $telephone; //?????
+            $mail->AddAddress(C('MAIL_CONFIG')['address'],"New Client");
+            $mail->WordWrap = C('MAIL_CONFIG')['wordwrap']; //????????
+            $mail->IsHTML(C('MAIL_CONFIG')['ishtml']); // ??HTML????
+            $mail->CharSet = C('MAIL_CONFIG')['charset']; //??????
+            $mail->Subject = $subject; //????
+            $mail->Body = $content; //????
+            $mail->AltBody = $content; //???????HTML?????
+            if($mail->Send()){
+                return TRUE;
+            }
+            else {
+                return FALSE;
+            }
+        }
     }
 }
 
