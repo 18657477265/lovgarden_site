@@ -1,6 +1,9 @@
 <?php
 return array(
 	//'配置项'=>'配置值'
+    //'TMPL_CACHE_ON' => false,
+    //'ACTION_CACHE_ON' => false,
+    //'HTML_CACHE_ON' => false,
     'DB_TYPE' =>  'mysqli',
     //'DB_DSN'    => 'mysql:host=127.0.0.1;dbname=lovgarden;charset=utf8',
     'DB_USER' =>  'root',

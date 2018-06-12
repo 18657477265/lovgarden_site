@@ -9,7 +9,7 @@ return array(
 	   'Product:select_list' => array('{:controller}_{:action}'),
     ),
     'MAIL_CONFIG' => array(
-       'smtpdebug' => FALSE,
+       'smtpdebug' => TRUE,
        'host' => 'smtp.163.com',
        'smtpsecure' => 'ssl', 
        'port' => 587, 
