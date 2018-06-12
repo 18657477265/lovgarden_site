@@ -15,6 +15,8 @@ class MessageController extends RestController {
             $content = I('post.content');
             $subject = I('post.subject');
             if(!empty($telephone) && !empty($content) && !empty($subject)) {
+                echo '2222';
+                exit();
                 $helper = new \Home\Model\HelperModel();
                 if($helper->leave_message('mail',$telephone,$content,$subject)) {
                     $value['code']=200;
