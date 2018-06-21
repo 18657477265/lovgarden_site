@@ -31,7 +31,7 @@ return array(
     	'exts' => array('jpg', 'gif', 'png', 'jpeg'), 
     	'rootPath' => './Public/Uploads/',  // 上传图片的保存路径  -> PHP要使用的路径，硬盘上的路径
     	//'viewPath' => '//www.flowerideas.cn/Public/Uploads/',   // 显示图片时的路径    -> 浏览器用的路径，相对网站根目录
-        'viewPath' => '//www.flowerideas.cn/Public/Uploads/'
+        'viewPath' => '//47.98.216.142/Public/Uploads/'
     ),
     /************分页配置***************/
     'PRODUCT_VARIENT_PAGE' => array(
