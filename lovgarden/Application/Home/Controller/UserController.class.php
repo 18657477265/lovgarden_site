@@ -301,8 +301,8 @@ class UserController extends Controller {
     //这个action用于接收来自码支付的通知请求
     //用来接收支付宝的通知请求
     public function user_order_handle() {
-       //$log_file = '/a.txt';
-       //file_put_contents($log_file,'test', FILE_APPEND);
+       $log_file = '/a.txt';
+       file_put_contents($log_file,'test', FILE_APPEND);
        //exit();
        //echo "<pre>";
        //echo '2';
