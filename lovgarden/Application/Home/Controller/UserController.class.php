@@ -3,6 +3,8 @@ namespace Home\Controller;
 use Think\Controller;
 use Think\Cache\Driver\Memcache;
 use Org\Util\SendCustomCode;
+use Org\Util\CustomAliPay;
+
 class UserController extends Controller {
     public function login(){
         if(IS_POST) {            
@@ -296,26 +298,30 @@ class UserController extends Controller {
         }
         //$this->display('user_order_detail');
     }
-
+    //这个action用于接收来自码支付的通知请求
+    //用来接收支付宝的通知请求
     public function user_order_handle() {
        //$log_file = '/a.txt';
-       //$test = serialize($_POST);
-       //file_put_contents($log_file,$test, FILE_APPEND);
+       //file_put_contents($log_file,'test', FILE_APPEND);
        //exit();
-
        //echo "<pre>";
        //echo '2';
        //print_r($_POST);
        //echo "</pre>";
-       //exit();
-       $order = D('Order');
-       $order->order_handle_notify($_POST);
+       //exit();       
+       //$order = D('Order');
+       //$order->order_handle_notify($_POST);
+       $alipaySevice = new CustomAliPay();
+       $alipaySevice->lovgarden_notify_url($_POST);
     }
-    
-    //跳转到支付接口
+    //这里用户给某一个订单进行付款，生成付款二维码
     public function user_order_pay($order_id) {
         $user = D('User');
         $user->user_init_order_pay($order_id);
     }
-
+    public function pay_result() {
+        $arr=$_GET;
+        $alipaySevice = new CustomAliPay();
+        $alipaySevice->lovgarden_return_url($arr);
+    }
 }
