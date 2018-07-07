@@ -38,4 +38,6 @@ return array(
          'page_count' => 10,  
     ),
     'PAY_SECRET' => '5v4bRQhIB00NqjcuJPOmIGG49VMXpcPM',
+    'PAY_SHOP'=>'Flower Ideas',
+    'PAY_PRODUCT'=>'Beauty From Flower Ideas',
 );

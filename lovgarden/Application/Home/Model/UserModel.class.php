@@ -1,6 +1,7 @@
 <?php
 namespace Home\Model;
 use Think\Model;
+use Org\Util\CustomAliPay;
 class UserModel extends Model 
 {
     //调用时候create方法允许接受的字段
@@ -142,12 +143,19 @@ class UserModel extends Model
                if(in_array($order_id, $order_ids)){
                    //这里的话才可以正式发起请求                  
                   $this_order = $orders[$order_id];
-                  pay_codepay($order_id, $this_order['order_final_price']);
+                  $shop_subject = C('PAY_SHOP');
+                 
+                  $shop_body = C('PAY_PRODUCT');
+                  $alipay = new CustomAliPay($order_id,$shop_subject, $this_order['order_final_price'],$shop_body);
+                  $alipay->lovgardenPagePay();
+                  
+                  //pay_codepay($order_id, $this_order['order_final_price']);
                   exit();
                }
             }
         }
-    }   
+    }
+    
 }
 
 
