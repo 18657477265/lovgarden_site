@@ -78,7 +78,12 @@ class UserController extends Controller {
             'status' => $status,
         ));
         $this->display('success');
-    } 
+    }
+    
+    //支付成功页面
+    public function pay_success() {
+        $this->display('pay_success');
+    }
     //发送短信验证码接口
     public function send_ali_message_code() {
         //将验证码保存在session中，其实最好得方式是保存在memcache中，之后得改
@@ -298,19 +303,8 @@ class UserController extends Controller {
         }
         //$this->display('user_order_detail');
     }
-    //这个action用于接收来自码支付的通知请求
     //用来接收支付宝的通知请求
     public function user_order_handle() {
-       $log_file = '/a.txt';
-       file_put_contents($log_file,'test', FILE_APPEND);
-       //exit();
-       //echo "<pre>";
-       //echo '2';
-       //print_r($_POST);
-       //echo "</pre>";
-       //exit();       
-       //$order = D('Order');
-       //$order->order_handle_notify($_POST);
        $alipaySevice = new CustomAliPay();
        $alipaySevice->lovgarden_notify_url($_POST);
     }
