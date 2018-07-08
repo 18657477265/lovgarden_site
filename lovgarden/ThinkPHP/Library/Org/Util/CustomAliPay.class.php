@@ -67,7 +67,7 @@ class CustomAliPay {
       $alipaySevice = new \AlipayTradeService($this->config);
       $result = $alipaySevice->check($arr);
       if($result) {//验证成功
-          redirect('/user/operation_success/status/7');
+          redirect('/user/pay_success');
      }
      else {
          //验证失败
@@ -102,14 +102,34 @@ class CustomAliPay {
 			//如果有做过处理，不执行商户的业务程序			
 		//注意：
 		//付款完成后，支付宝系统发送该交易状态通知
-               $log_file = '/a.txt';
-               file_put_contents($log_file, serialize($_POST), FILE_APPEND);
-               //exit();
-               //echo "<pre>";
-               //echo '2';
-               //print_r($_POST);
-               //echo "</pre>";
-               //exit();       
+                $order_id = $_POST['out_trade_no']; //需要充值的ID 或订单号 或用户名
+                $receipt_amount = (float)$_POST['receipt_amount']; //实际付款金额
+                $total_amount = (float)$_POST['total_amount']; //订单的原价
+                $buyer_pay_amount = (float)$_POST['buyer_pay_amount'];
+                $trade_no = $_POST['trade_no'];
+                $buyer_id = $_POST['buyer_id'];
+                $gmt_create = $_POST['gmt_create'];
+                $gmt_payment = $_POST['gmt_payment'];
+                //站点业务逻辑:需要更新订单状态到已支付
+                //$pay_id = '18040314555687237';
+                $sql_pay = "UPDATE lovgarden_order SET 
+                            gmt_payment = $gmt_payment,
+                            gmt_create = $gmt_create,
+                            buyer_id = $buyer_id,
+                            out_trade_no = $order_id,
+                            receipt_amount = $receipt_amount,
+                            buyer_pay_amount = $buyer_pay_amount,
+                            total_amount = $total_amount,
+                            trade_no = $trade_no,
+                            order_status = '2' WHERE order_id = $order_id";
+                $result = $this->execute($sql_pay);
+                if($result) {
+                   //exit('success');
+                }
+                else {//返回成功 不要删除哦
+                    $log_file = './alipay_php/failed_order_id.txt';
+                    file_put_contents($log_file, serialize($_POST).'-------', FILE_APPEND);
+                }
            }
 	   //——请根据您的业务逻辑来编写程序（以上代码仅作参考）——
 	   echo "success";	//请不要修改或删除          
