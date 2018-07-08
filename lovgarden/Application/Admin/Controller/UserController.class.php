@@ -46,6 +46,7 @@ class UserController extends BaseController {
     }
 
     public function chkcode() {
+        ob_clean();
 	$Verify = new \Think\Verify(array(
 	  'fontSize'    =>    20,    // 验证码字体大小
           'length'      =>    4,     // 验证码位数
