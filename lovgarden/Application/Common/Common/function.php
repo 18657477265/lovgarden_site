@@ -445,7 +445,7 @@ function getClientIp() {
 }
 
 //封装memcache检查IP尝试连接次数，短信验证次数
-function mem_check_ip_attention($max_visit_count = 20,$frozen_time = 7200) {
+function mem_check_ip_attention($max_visit_count = 10,$frozen_time = 7200) {
     $client_ip = getClientIp();
     $mem = new Think\Cache\Driver\Memcache();
     $ip_send_count = $mem->get($client_ip);
