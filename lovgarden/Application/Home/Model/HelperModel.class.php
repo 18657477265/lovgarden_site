@@ -4,6 +4,8 @@ use Think\Model;
 use Think\Cache\Driver\Memcache;
 use Org\Util\PHPMailer;
 use Org\Util\SMTP;
+use Org\Util\CustomAliPay;
+use Org\Util\CustomWapAliPay;
 class HelperModel
 {
     function get_category_related_products($where){
@@ -61,6 +63,40 @@ class HelperModel
                 return FALSE;
             }
         }
+    }
+    
+    //支付通道，统一移动端和PC端
+    function alipay($order_id,$shop_subject, $price,$body,$time_expire='1m'){
+        $alipay = '';
+        if(isMobile()){
+            $alipay = new CustomWapAliPay($order_id,$shop_subject, $price,$body,$time_expire);
+        }
+        else {
+            $alipay = new CustomAliPay($order_id,$shop_subject,$price,$body);
+        }
+        $alipay->lovgardenPagePay();
+    }
+    
+    function alipay_return_url($arr){
+        $alipaySevice = '';
+        if(isMobile()){
+           $alipaySevice = new CustomWapAliPay();
+        }
+        else {
+           $alipaySevice = new CustomAliPay();
+        }
+        $alipaySevice->lovgarden_return_url($arr);
+    }
+    
+    function alipay_notify_url($arr){
+       $alipaySevice = '';
+       if(isMobile()){
+          $alipaySevice = new CustomWapAliPay();
+       }
+       else {
+          $alipaySevice = new CustomAliPay();   
+       }
+       $alipaySevice->lovgarden_notify_url($arr);
     }
 }
 

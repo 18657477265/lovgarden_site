@@ -304,9 +304,10 @@ class UserController extends Controller {
         //$this->display('user_order_detail');
     }
     //用来接收支付宝的通知请求
-    public function user_order_handle() {
-       $alipaySevice = new CustomAliPay();
-       $alipaySevice->lovgarden_notify_url($_POST);
+    public function user_order_handle() {     
+        $helper = D('Helper');
+        $arr =$_POST;
+        $helper->alipay_notify_url($arr);
     }
     //这里用户给某一个订单进行付款，生成付款二维码
     public function user_order_pay($order_id) {
@@ -314,8 +315,8 @@ class UserController extends Controller {
         $user->user_init_order_pay($order_id);
     }
     public function pay_result() {
-        $arr=$_GET;
-        $alipaySevice = new CustomAliPay();
-        $alipaySevice->lovgarden_return_url($arr);
+        $helper = D('Helper');
+        $arr = $_GET;
+        $helper->alipay_return_url($arr);
     }
 }
