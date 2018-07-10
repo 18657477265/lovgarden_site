@@ -142,5 +142,9 @@ class CustomAliPay {
 	   //——请根据您的业务逻辑来编写程序（以上代码仅作参考）——
 	   echo "success";	//请不要修改或删除          
       }
+      else {
+          //验证失败
+           echo "fail";
+      }
   }
 }

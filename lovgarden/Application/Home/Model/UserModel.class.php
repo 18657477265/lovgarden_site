@@ -147,9 +147,8 @@ class UserModel extends Model
                  
                   $shop_body = C('PAY_PRODUCT');
                   $this_order['order_final_price']='0.01';
-                  $alipay = new CustomAliPay($order_id,$shop_subject, $this_order['order_final_price'],$shop_body);
-                  $alipay->lovgardenPagePay();
-                  
+                  $helper = D('Helper');
+                  $helper->alipay($order_id,$shop_subject,$this_order['order_final_price'],$shop_body);
                   //pay_codepay($order_id, $this_order['order_final_price']);
                   exit();
                }
