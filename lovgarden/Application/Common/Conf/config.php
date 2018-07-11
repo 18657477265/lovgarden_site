@@ -18,7 +18,7 @@ return array(
     'ERROR_PAGE' => './404.html', // 错误定向页面
     'URL_MODEL'  =>  2, 
     'URL_CASE_INSENSITIVE' => true,
-    'MODULE_ALLOW_LIST' => array('Home','Admin'), 
+    'MODULE_ALLOW_LIST' => array('Home','Admin','Api'), 
     'APP_GROUP_LIST' => 'Home,Admin,Api', //项目分组设定 
     'DEFAULT_GROUP' => 'Home', //默认分组
     'DATA_CACHE_TYPE' => 'File',
