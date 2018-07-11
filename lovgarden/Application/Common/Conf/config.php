@@ -19,7 +19,7 @@ return array(
     'URL_MODEL'  =>  2, 
     'URL_CASE_INSENSITIVE' => true,
     'MODULE_ALLOW_LIST' => array('Home','Admin'), 
-    'APP_GROUP_LIST' => 'Home,Admin', //项目分组设定 
+    'APP_GROUP_LIST' => 'Home,Admin,Api', //项目分组设定 
     'DEFAULT_GROUP' => 'Home', //默认分组
     'DATA_CACHE_TYPE' => 'File',
     'MEMCACHE_HOST'  => 'tcp://127.0.0.1:11211',

@@ -319,4 +319,5 @@ class UserController extends Controller {
         $arr = $_GET;
         $helper->alipay_return_url($arr);
     }
+
 }
