@@ -88,7 +88,7 @@ class PayController extends RestController {
        exit();
    }
    function notify_url(){
-    file_put_contents('/b.txt', json_encode($_POST), FILE_APPEND);
+    file_put_contents('/b.txt', $_POST['out_trade_no'].'----------', FILE_APPEND);
     echo "success"; 
    }
 }

@@ -150,7 +150,7 @@ class CustomAliPay {
                    $sign = $this->proxy_get_sign($array_post,$codepay_key);
                    $array_post['sign'] = $sign;
                    $result_post = $this->proxy_post('https://www.flowerideas.cn/api/pay/notify_url', $array_post);
-                   file_put_contents('/a.txt', $result_post, FILE_APPEND);
+                   //file_put_contents('/a.txt', $result_post, FILE_APPEND);
                    if(strpos($result_post,'success') !== FALSE){
                        file_put_contents('/a.txt','6',FILE_APPEND);
                        echo "success"; 
@@ -198,7 +198,8 @@ class CustomAliPay {
                 }
            }
 	   //——请根据您的业务逻辑来编写程序（以上代码仅作参考）——
-	   echo "success";	//请不要修改或删除          
+	   //file_put_contents('/a.txt', 'done', FILE_APPEND);
+           echo "success";	//请不要修改或删除          
       }
       else {
           //验证失败
