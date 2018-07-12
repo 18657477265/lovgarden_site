@@ -308,7 +308,9 @@ class UserController extends Controller {
     function user_order_handle() {
         $helper = D('Helper');
         $arr =$_POST;
-        $helper->alipay_notify_url($arr);
+        $result = $helper->alipay_notify_url($arr);
+        file_put_contents('/a.txt','|'.$result,FILE_APPEND);
+        echo $result;
     }
     //这里用户给某一个订单进行付款，生成付款二维码
     public function user_order_pay($order_id) {

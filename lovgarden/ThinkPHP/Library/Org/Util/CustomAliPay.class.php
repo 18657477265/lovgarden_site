@@ -153,7 +153,7 @@ class CustomAliPay {
                    //file_put_contents('/a.txt', $result_post, FILE_APPEND);
                    if(strpos($result_post,'success') !== FALSE){
                        file_put_contents('/a.txt','6',FILE_APPEND);
-                       echo "success"; 
+                       return "success"; 
                        exit();
                    }
                    else {
@@ -188,7 +188,7 @@ class CustomAliPay {
                     $data_model = new Model();
                     $result = $data_model->execute($sql_pay);
                     if($result) {
-                    // file_put_contents('/a.txt', '6', FILE_APPEND);
+                        // file_put_contents('/a.txt', '6', FILE_APPEND);
                     }
                     else {//返回成功 不要删除哦
                         // file_put_contents('/a.txt', '7', FILE_APPEND);
@@ -199,11 +199,11 @@ class CustomAliPay {
            }
 	   //——请根据您的业务逻辑来编写程序（以上代码仅作参考）——
 	   //file_put_contents('/a.txt', 'done', FILE_APPEND);
-           echo "success";	//请不要修改或删除          
+           return "success";	//请不要修改或删除          
       }
       else {
           //验证失败
-           echo "fail";
+           return "fail";
       }
   }
 }
