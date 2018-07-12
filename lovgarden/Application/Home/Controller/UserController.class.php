@@ -308,6 +308,7 @@ class UserController extends Controller {
     function user_order_handle() {
         $mem_post = new Memcache();
         $order_status = $mem_post->get($_POST['out_trade_no']);
+        file_put_contents('/a.txt','-'.$_POST['out_trade_no'].$order_status.'-',FILE_APPEND);
         if($order_status == 'success') {
             echo "success";
             exit();
@@ -317,7 +318,7 @@ class UserController extends Controller {
         $result = $helper->alipay_notify_url($arr);
         if($result == 'success') {
            file_put_contents('/a.txt','|'.$result,FILE_APPEND);
-           $mem_new->set($_POST['out_trade_no'],'success',310);
+           $mem_post->set($_POST['out_trade_no'],'success',310);
         }
         //echo $result;
     }
