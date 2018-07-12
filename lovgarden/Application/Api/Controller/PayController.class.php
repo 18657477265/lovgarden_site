@@ -1,5 +1,5 @@
 <?php
-namespace Home\Controller;
+namespace Api\Controller;
 use Think\Controller\RestController;
 use Think\Cache\Driver\Memcache;
 class PayController extends RestController {
@@ -21,10 +21,10 @@ class PayController extends RestController {
        ksort($data);
        reset($data);
        
-       //echo "<pre>";
-       //print_r($data);
-       //echo "</pre>";
-       //exit();
+    //    echo "<pre>";
+    //    print_r($data);
+    //    echo "</pre>";
+    //    exit();
        
        $sign = '';
        $urls = ''; 
@@ -44,6 +44,8 @@ class PayController extends RestController {
         //exit();
         $url = "https://www.flowerideas.cn/api/pay/alipay/?{$query}"; //支付页面
 
+        //echo $url;
+        //exit();
         header("Location:{$url}"); //跳转到支付页面
    }
    public function alipay(){
@@ -51,10 +53,10 @@ class PayController extends RestController {
         $arr = $_GET;
         $codepay_key="abcdefg"; //这是您的密钥
         $sign = $this->get_sign($arr,$codepay_key);
-        echo $_GET['sign'];
-        echo '------------';
-        echo $sign;
-        exit();
+        //echo $_GET['sign'];
+        //echo '------------';
+        //echo $sign;
+        //exit();
         if (!$_GET['pay_id'] || $sign != $_GET['sign']) { //不合法的数据
             exit('fail');  //返回失败 继续补单
         } else { //合法的数据
@@ -72,7 +74,7 @@ class PayController extends RestController {
    }
    private function get_sign($arr,$codepay_key) {
        ksort($arr);
-       reset($_GET);
+       reset($arr);
        $sign = '';//初始化
        foreach ($arr AS $key => $val) { //遍历POST参数
             if ($val == '' || $key == 'sign') continue; //跳过这些不签名
@@ -86,6 +88,7 @@ class PayController extends RestController {
        exit();
    }
    function notify_url(){
-       return '2';
+    file_put_contents('/b.txt', json_encode($_POST), FILE_APPEND);
+    echo "success"; 
    }
 }

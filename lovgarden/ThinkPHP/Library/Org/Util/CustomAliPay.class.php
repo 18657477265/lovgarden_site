@@ -1,7 +1,6 @@
 <?php
 namespace Org\Util;
 use Think\Model;
-require_once './alipay_php/config.php';
 require_once './alipay_php/pagepay/service/AlipayTradeService.php';
 require_once './alipay_php/pagepay/buildermodel/AlipayTradePagePayContentBuilder.php';
 
@@ -43,6 +42,31 @@ class CustomAliPay {
      $this->total_amount = $total_amount;
      $this->body = $body;
   }
+
+  function proxy_post($url, $param){
+    $httph =curl_init($url);
+    curl_setopt($httph, CURLOPT_SSL_VERIFYPEER, 0);
+    curl_setopt($httph, CURLOPT_SSL_VERIFYHOST, 1);
+    curl_setopt($httph,CURLOPT_RETURNTRANSFER,1);
+    curl_setopt($httph, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)");
+    curl_setopt($httph, CURLOPT_POST, 1);//设置为POST方式 
+    curl_setopt($httph, CURLOPT_POSTFIELDS, $param);
+    curl_setopt($httph, CURLOPT_RETURNTRANSFER,1);
+    //curl_setopt($httph, CURLOPT_HEADER,1);
+    $rst=curl_exec($httph);
+    curl_close($httph);
+    return $rst;
+  }
+
+  function proxy_get_sign($arr,$codepay_key) {
+    $sign = '';//初始化
+    foreach ($arr AS $key => $val) { //遍历POST参数
+         if ($val == '' || $key == 'sign') continue; //跳过这些不签名
+         if ($sign) $sign .= '&'; //第一个字符串签名不加& 其他加&连接起来参数
+         $sign .= "$key=$val"; //拼接为url参数形式
+    }
+    return md5($sign . $codepay_key);
+  }
   
   public function lovgardenPagePay(){
       $payRequestBuilder = new \AlipayTradePagePayContentBuilder();
@@ -61,6 +85,7 @@ class CustomAliPay {
       //echo $header;
       var_dump($header.$response);
   }
+
   
   //设置alipay的return 方法
   public function lovgarden_return_url($arr) {
@@ -78,7 +103,7 @@ class CustomAliPay {
   
   //设置alipay的通知函数
   public function lovgarden_notify_url($arr){
-      //file_put_contents('/a.txt', '1', FILE_APPEND);
+      //file_put_contents('/a.txt', '1-2', FILE_APPEND);
       $alipaySevice = new \AlipayTradeService($this->config);
       $alipaySevice->writeLog(var_export($_POST,true));
       $result = $alipaySevice->check($arr);
@@ -106,37 +131,70 @@ class CustomAliPay {
 		//注意：
 		//付款完成后，支付宝系统发送该交易状态通知
                 // file_put_contents('/a.txt', '3', FILE_APPEND);
+               //file_put_contents('/a.txt', '1', FILE_APPEND);
                 $order_id = $_POST['out_trade_no']; //需要充值的ID 或订单号 或用户名
-                $receipt_amount = (float)$_POST['receipt_amount']; //实际付款金额
-                $total_amount = (float)$_POST['total_amount']; //订单的原价
-                $buyer_pay_amount = (float)$_POST['buyer_pay_amount'];
-                $trade_no = $_POST['trade_no'];
-                $buyer_id = $_POST['buyer_id'];
-                $gmt_create = $_POST['gmt_create'];
-                $gmt_payment = $_POST['gmt_payment'];
-                //站点业务逻辑:需要更新订单状态到已支付
-                //$pay_id = '18040314555687237';
-                //file_put_contents('/a.txt', '4', FILE_APPEND);
-                $sql_pay = "UPDATE lovgarden_order SET 
-                            gmt_payment = '$gmt_payment',
-                            gmt_create = '$gmt_create',
-                            buyer_id = '$buyer_id',
-                            out_trade_no = '$order_id',
-                            receipt_amount = $receipt_amount,
-                            buyer_pay_amount = $buyer_pay_amount,
-                            total_amount = $total_amount,
-                            trade_no = '$trade_no',
-                            order_status = '2' WHERE order_id = '$order_id'";
-               //file_put_contents('/a.txt', $sql_pay, FILE_APPEND);
-                $data_model = new Model();
-                $result = $data_model->execute($sql_pay);
-                if($result) {
-                  // file_put_contents('/a.txt', '6', FILE_APPEND);
-                }
-                else {//返回成功 不要删除哦
-                    // file_put_contents('/a.txt', '7', FILE_APPEND);
-                    $log_file = './alipay_php/failed_order_id.txt';
-                    file_put_contents($log_file, serialize($_POST).'-------', FILE_APPEND);
+                if(strpos($order_id,"A2018") !== FALSE){
+                    //Api订单
+                  // file_put_contents('/a.txt', '5', FILE_APPEND);
+                   $array_post = array(
+                       'gmt_create' => $_POST['gmt_create'],
+                       'receipt_amount' => $_POST['receipt_amount'],
+                       'buyer_pay_amount' => $_POST['buyer_pay_amount'],
+                       'total_amount' => $_POST['total_amount'],
+                       'seller_id' => $_POST['seller_id'],
+                       'gmt_payment' => $_POST['gmt_payment'],
+                       'notify_time' => $_POST['notify_time'],
+                       'out_trade_no' => $_POST['out_trade_no'],
+                   );
+                   $codepay_key="abcdefg";
+                   $sign = $this->proxy_get_sign($array_post,$codepay_key);
+                   $array_post['sign'] = $sign;
+                   $result_post = $this->proxy_post('https://www.flowerideas.cn/api/pay/notify_url', $array_post);
+                   file_put_contents('/a.txt', $result_post, FILE_APPEND);
+                   if(strpos($result_post,'success') !== FALSE){
+                       file_put_contents('/a.txt','6',FILE_APPEND);
+                       echo "success"; 
+                       exit();
+                   }
+                   else {
+                       $log = 'gmt_payment:'.$array_post['gmt_payment'].'||'.'receipt_amount:'.$array_post['receipt_amount'].'||'.'out_trade_no:'.$array_post['out_trade_no'].'||'.'trade_no:'.$_POST['trade_no'];
+                       file_put_contents("/app/logs/api_order_log.txt", $log.PHP_EOL, FILE_APPEND);
+                       exit();
+                   }
+                }else {
+                    $receipt_amount = (float)$_POST['receipt_amount']; //实际付款金额
+                    $total_amount = (float)$_POST['total_amount']; //订单的原价
+                    $buyer_pay_amount = (float)$_POST['buyer_pay_amount'];
+                    $trade_no = $_POST['trade_no'];
+                    $buyer_id = $_POST['buyer_id'];
+                    $gmt_create = $_POST['gmt_create'];
+                    $gmt_payment = $_POST['gmt_payment'];
+                    //站点业务逻辑:需要更新订单状态到已支付
+
+
+                    //$pay_id = '18040314555687237';
+                    //file_put_contents('/a.txt', '4', FILE_APPEND);
+                    $sql_pay = "UPDATE lovgarden_order SET 
+                                gmt_payment = '$gmt_payment',
+                                gmt_create = '$gmt_create',
+                                buyer_id = '$buyer_id',
+                                out_trade_no = '$order_id',
+                                receipt_amount = $receipt_amount,
+                                buyer_pay_amount = $buyer_pay_amount,
+                                total_amount = $total_amount,
+                                trade_no = '$trade_no',
+                                order_status = '2' WHERE order_id = '$order_id'";
+                    //file_put_contents('/a.txt', $sql_pay, FILE_APPEND);
+                    $data_model = new Model();
+                    $result = $data_model->execute($sql_pay);
+                    if($result) {
+                    // file_put_contents('/a.txt', '6', FILE_APPEND);
+                    }
+                    else {//返回成功 不要删除哦
+                        // file_put_contents('/a.txt', '7', FILE_APPEND);
+                        $log_file = './alipay_php/failed_order_id.txt';
+                        file_put_contents($log_file, serialize($_POST).'-------', FILE_APPEND);
+                    }
                 }
            }
 	   //——请根据您的业务逻辑来编写程序（以上代码仅作参考）——

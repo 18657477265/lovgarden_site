@@ -1,0 +1,217 @@
+[ 2018-05-04T10:33:58+08:00 ] 210.83.66.4 /admin/user/lgin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000052s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000020s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000036s ]
+SQL: SHOW COLUMNS FROM `lovgarden_permission` [ RunTime:0.0005s ]
+
+[ 2018-05-04T10:33:58+08:00 ] 210.83.66.4 /Admin/Success/access_denied.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000053s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000020s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000037s ]
+NOTIC: [2] Declaration of Admin\Controller\SuccessController::success() should be compatible with Think\Controller::success($message = '', $jumpUrl = '', $ajax = false) /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Admin/Controller/SuccessController.class.php 第 0 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000018s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000035s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000609s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000628s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000022s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000048s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000015s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000024s ]
+
+[ 2018-05-04T10:34:07+08:00 ] 210.83.66.4 /Admin/user/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000050s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000019s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000035s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000033s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000051s ]
+NOTIC: [8] Undefined variable: user_name /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/dd023d97164b5a749e2edb2ef1228c9f.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000932s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000962s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000028s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000054s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000024s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000039s ]
+
+[ 2018-05-04T10:34:07+08:00 ] 210.83.66.4 /Admin/User/chkcode
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000062s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000020s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000035s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000025s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000049s ]
+
+[ 2018-05-04T10:34:26+08:00 ] 210.83.66.4 /Admin/user/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000059s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000019s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000035s ]
+SQL: SHOW COLUMNS FROM `lovgarden_user` [ RunTime:0.0006s ]
+NOTIC: [8] Undefined index: auto /application/nginx-1.12.2/html/lovgarden_site/lovgarden/ThinkPHP/Library/Think/Model.class.php 第 1128 行.
+SQL: SELECT * FROM `lovgarden_user` WHERE `user_name` = 'root' LIMIT 1   [ RunTime:0.0001s ]
+
+[ 2018-05-04T10:34:26+08:00 ] 210.83.66.4 /Admin/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000074s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000028s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000053s ]
+SQL: SHOW COLUMNS FROM `lovgarden_permission` [ RunTime:0.0007s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000172s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000221s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004391s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004425s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000037s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000056s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000036s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000077s ]
+
+[ 2018-05-04T10:34:36+08:00 ] 210.83.66.4 /Admin/Product/add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000051s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000018s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000034s ]
+SQL: SHOW COLUMNS FROM `lovgarden_permission` [ RunTime:0.0016s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000118s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000143s ]
+NOTIC: [8] Undefined variable: data /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/3d5239bae7b7df4dc546c5a53b1c4f81.php 第 131 行.
+NOTIC: [8] Undefined variable: data /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/3d5239bae7b7df4dc546c5a53b1c4f81.php 第 135 行.
+NOTIC: [8] Undefined variable: data /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/3d5239bae7b7df4dc546c5a53b1c4f81.php 第 139 行.
+NOTIC: [8] Undefined variable: data /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/3d5239bae7b7df4dc546c5a53b1c4f81.php 第 143 行.
+NOTIC: [8] Undefined variable: data /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/3d5239bae7b7df4dc546c5a53b1c4f81.php 第 154 行.
+NOTIC: [8] Undefined variable: data /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/3d5239bae7b7df4dc546c5a53b1c4f81.php 第 155 行.
+NOTIC: [8] Undefined variable: data /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/3d5239bae7b7df4dc546c5a53b1c4f81.php 第 156 行.
+NOTIC: [8] Undefined variable: data /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/3d5239bae7b7df4dc546c5a53b1c4f81.php 第 160 行.
+NOTIC: [8] Undefined variable: data /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/3d5239bae7b7df4dc546c5a53b1c4f81.php 第 161 行.
+NOTIC: [8] Undefined variable: data /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/3d5239bae7b7df4dc546c5a53b1c4f81.php 第 162 行.
+NOTIC: [8] Undefined variable: data /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/3d5239bae7b7df4dc546c5a53b1c4f81.php 第 167 行.
+NOTIC: [8] Undefined variable: data /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/3d5239bae7b7df4dc546c5a53b1c4f81.php 第 168 行.
+NOTIC: [8] Undefined variable: multipleSelectData /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/3d5239bae7b7df4dc546c5a53b1c4f81.php 第 173 行.
+SQL: select id , flower_color from lovgarden_flower_color [ RunTime:0.0003s ]
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [8] Undefined variable: multipleSelectData /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/3d5239bae7b7df4dc546c5a53b1c4f81.php 第 177 行.
+SQL: select id , hurry_level from lovgarden_hurry_level [ RunTime:0.0001s ]
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [8] Undefined variable: multipleSelectData /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/3d5239bae7b7df4dc546c5a53b1c4f81.php 第 181 行.
+SQL: select id , flower_name from lovgarden_flower_type [ RunTime:0.0001s ]
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [8] Undefined variable: multipleSelectData /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/3d5239bae7b7df4dc546c5a53b1c4f81.php 第 185 行.
+SQL: select id , flower_home from lovgarden_flower_home [ RunTime:0.0001s ]
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [8] Undefined variable: multipleSelectData /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/3d5239bae7b7df4dc546c5a53b1c4f81.php 第 189 行.
+SQL: select id , flower_occasion from lovgarden_flower_occasion [ RunTime:0.0001s ]
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 34 行.
+NOTIC: [8] Undefined variable: data /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/3d5239bae7b7df4dc546c5a53b1c4f81.php 第 203 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004064s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004081s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000031s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000042s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000023s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000039s ]
+
+[ 2018-05-04T10:34:49+08:00 ] 210.83.66.4 /Admin/User/logout
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000058s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000027s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000043s ]
+SQL: SHOW COLUMNS FROM `lovgarden_user` [ RunTime:0.0007s ]
+
+[ 2018-05-04T10:34:49+08:00 ] 210.83.66.4 /Admin/User/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000051s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000018s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000034s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000037s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000055s ]
+NOTIC: [8] Undefined variable: user_name /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/dd023d97164b5a749e2edb2ef1228c9f.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000923s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000939s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000026s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000046s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000019s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000030s ]
+
+[ 2018-05-04T10:34:49+08:00 ] 210.83.66.4 /Admin/User/chkcode
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000056s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000021s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000038s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000025s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000050s ]
+

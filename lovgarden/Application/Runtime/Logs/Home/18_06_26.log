@@ -1,0 +1,1134 @@
+[ 2018-06-26T01:06:48+08:00 ] 220.181.108.179 /robots.txt
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000090s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000028s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000046s ]
+ERR: 无法加载控制器:Robots.txt
+
+[ 2018-06-26T01:08:00+08:00 ] 123.125.67.225 /robots.txt
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000058s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000044s ]
+ERR: 无法加载控制器:Robots.txt
+
+[ 2018-06-26T02:28:09+08:00 ] 13.57.233.99 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000057s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000024s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000041s ]
+SQL: SHOW COLUMNS FROM `lovgarden_block` [ RunTime:0.0006s ]
+SQL: SELECT image_pc,image_mobile,block_title,block_body,block_link_title,block_link,page_link FROM lovgarden_block WHERE page_link = 'front' ORDER BY block_order ASC; [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000132s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000156s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003873s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003897s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000035s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000048s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000034s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000052s ]
+
+[ 2018-06-26T02:29:23+08:00 ] 202.108.211.56 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000058s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000025s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000041s ]
+SQL: SHOW COLUMNS FROM `lovgarden_block` [ RunTime:0.0006s ]
+SQL: SELECT image_pc,image_mobile,block_title,block_body,block_link_title,block_link,page_link FROM lovgarden_block WHERE page_link = 'front' ORDER BY block_order ASC; [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000126s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000150s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003859s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003882s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000030s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000042s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000030s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000048s ]
+
+[ 2018-06-26T04:39:03+08:00 ] 37.72.173.162 /.git/config
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000057s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000024s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000041s ]
+ERR: 无法加载控制器:.git
+
+[ 2018-06-26T05:57:33+08:00 ] 47.52.210.105 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000058s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000024s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000040s ]
+SQL: SHOW COLUMNS FROM `lovgarden_block` [ RunTime:0.0006s ]
+SQL: SELECT image_pc,image_mobile,block_title,block_body,block_link_title,block_link,page_link FROM lovgarden_block WHERE page_link = 'front' ORDER BY block_order ASC; [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000125s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000147s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003851s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003885s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000030s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000042s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000030s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000057s ]
+
+[ 2018-06-26T07:21:03+08:00 ] 140.205.205.25 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000060s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000024s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000040s ]
+SQL: SHOW COLUMNS FROM `lovgarden_block` [ RunTime:0.0006s ]
+SQL: SELECT image_pc,image_mobile,block_title,block_body,block_link_title,block_link,page_link FROM lovgarden_block WHERE page_link = 'front' ORDER BY block_order ASC; [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000127s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000152s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003872s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003897s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000031s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000042s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000032s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000050s ]
+
+[ 2018-06-26T07:21:04+08:00 ] 140.205.205.23 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000058s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000042s ]
+SQL: SHOW COLUMNS FROM `lovgarden_block` [ RunTime:0.0005s ]
+SQL: SELECT image_pc,image_mobile,block_title,block_body,block_link_title,block_link,page_link FROM lovgarden_block WHERE page_link = 'front' ORDER BY block_order ASC; [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000126s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000151s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006971s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006995s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000023s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000045s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000023s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000041s ]
+
+[ 2018-06-26T07:21:04+08:00 ] 140.205.205.25 /link/more
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000061s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000019s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000037s ]
+ERR: 无法加载控制器:Link
+
+[ 2018-06-26T07:21:04+08:00 ] 140.205.205.23 /user/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000032s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000016s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000044s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001081s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001114s ]
+NOTIC: [8] Undefined variable: error_message /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/3359adbadf95118621a5c500fb3ff893.php 第 227 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003889s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003908s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000024s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000036s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000035s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000055s ]
+
+[ 2018-06-26T07:21:04+08:00 ] 140.205.205.25 /www.baidu.com
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000051s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000018s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000035s ]
+ERR: 无法加载控制器:Www.baidu.com
+
+[ 2018-06-26T07:21:04+08:00 ] 140.205.205.25 /article/faq/id/32
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000038s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000017s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000034s ]
+SQL: SHOW COLUMNS FROM `lovgarden_article` [ RunTime:0.0006s ]
+SQL: SELECT `id`,`article_title`,`article_summary`,`article_body`,`article_category`,`banner_image` FROM `lovgarden_article` WHERE `article_publish` = 1 AND `article_category` = 7  [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000092s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000115s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.002823s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.002848s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000023s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000034s ]
+
+[ 2018-06-26T07:21:04+08:00 ] 140.205.205.25 /article/helpcenter
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000048s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000019s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000037s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000103s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000127s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.002956s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.002978s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000022s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000032s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000022s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000040s ]
+
+[ 2018-06-26T07:21:04+08:00 ] 140.205.205.25 /user/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000035s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000017s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000032s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000127s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000158s ]
+NOTIC: [8] Undefined variable: user_telephone /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/5c9ee6d19cd41add49f97afe3aef0b25.php 第 233 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006488s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006509s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000027s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000037s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000023s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000041s ]
+
+[ 2018-06-26T07:21:04+08:00 ] 140.205.205.25 /article/faq/id/28
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000032s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000018s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000037s ]
+SQL: SHOW COLUMNS FROM `lovgarden_article` [ RunTime:0.0005s ]
+SQL: SELECT `id`,`article_title`,`article_summary`,`article_body`,`article_category`,`banner_image` FROM `lovgarden_article` WHERE `article_publish` = 1 AND `article_category` = 7  [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000098s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000131s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003166s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003189s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000022s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000033s ]
+
+[ 2018-06-26T07:21:04+08:00 ] 140.205.205.23 /flowers/all
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000041s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000019s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000035s ]
+ERR: 无法加载控制器:Flowers
+
+[ 2018-06-26T07:21:04+08:00 ] 140.205.205.23 /product/select_list
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000067s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000020s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000038s ]
+NOTIC: [2] Declaration of Home\Controller\ProductController::show($sku_id) should be compatible with Think\Controller::show($content, $charset = '', $contentType = '', $prefix = '') /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Home/Controller/ProductController.class.php 第 0 行.
+SQL: SELECT image_pc,block_title,block_body,block_link_title FROM lovgarden_block WHERE page_link = "/product/select_list" [ RunTime:0.0001s ]
+NOTIC: [2] Declaration of Admin\Model\ProductVarientModel::_before_insert($data, $option) should be compatible with Think\Model::_before_insert(&$data, $options) /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Admin/Model/ProductVarientModel.class.php 第 0 行.
+SQL: SHOW COLUMNS FROM `lovgarden_product_varient` [ RunTime:0.0006s ]
+SQL: SELECT product.id,product.sku_id,product.varient_name,product.varient_summary,product.varient_price,images.`image_url`,hurrylevelid.hurry_level_id,hurrylevel.hurry_level,flowertypeid.flower_type_id,flowertype.flower_name,floweroccasionid.flower_occasion_id,floweroccasion.flower_occasion,flowercolorid.flower_color_id,flowercolor.flower_color FROM lovgarden_product_varient product LEFT JOIN lovgarden_product_varient_images AS images ON product.id = images.product_varient_id LEFT JOIN lovgarden_product_varient_hurry_level AS hurrylevelid ON product.id = hurrylevelid.product_varient_id LEFT JOIN lovgarden_hurry_level AS hurrylevel ON hurrylevelid.hurry_level_id = hurrylevel.id LEFT JOIN lovgarden_product_varient_flower_type AS flowertypeid ON product.id = flowertypeid.product_varient_id LEFT JOIN lovgarden_flower_type AS flowertype ON flowertypeid.flower_type_id = flowertype.id LEFT JOIN lovgarden_product_varient_flower_occasion AS floweroccasionid ON product.id = floweroccasionid.product_varient_id LEFT JOIN lovgarden_flower_occasion AS floweroccasion ON floweroccasionid.flower_occasion_id = floweroccasion.id LEFT JOIN lovgarden_product_varient_flower_color AS flowercolorid ON product.id = flowercolorid.product_varient_id LEFT JOIN lovgarden_flower_color AS flowercolor ON flowercolorid.flower_color_id = flowercolor.id  WHERE product.varient_status = '1' ORDER BY product.sku_id asc  [ RunTime:0.0194s ]
+NOTIC: [8] Undefined index: image_url /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: hurry_level_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: hurry_level /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_type_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_name /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_occasion_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_occasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_color_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_color /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: image_url /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: hurry_level_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: hurry_level /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_type_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_name /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_occasion_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_occasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_color_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_color /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: image_url /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: hurry_level_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: hurry_level /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_type_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_name /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_occasion_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_occasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_color_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_color /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: image_url /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: hurry_level_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: hurry_level /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_type_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_name /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_occasion_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_occasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_color_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_color /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: image_url /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: hurry_level_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: hurry_level /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_type_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_name /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_occasion_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_occasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_color_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_color /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: image_url /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: hurry_level_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: hurry_level /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_type_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_name /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_occasion_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_occasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_color_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_color /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: image_url /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: hurry_level_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: hurry_level /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_type_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_name /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_occasion_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_occasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_color_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_color /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: image_url /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: hurry_level_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: hurry_level /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_type_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_name /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_occasion_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_occasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_color_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_color /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: image_url /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: hurry_level_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: hurry_level /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_type_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_name /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_occasion_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_occasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_color_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_color /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: image_url /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: hurry_level_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: hurry_level /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_type_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_name /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_occasion_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_occasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_color_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_color /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: image_url /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: hurry_level_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: hurry_level /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_type_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_name /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_occasion_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_occasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_color_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_color /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: image_url /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: hurry_level_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: hurry_level /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_type_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_name /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_occasion_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_occasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_color_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [8] Undefined index: flower_color /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+SQL: select id, hurry_level from lovgarden_hurry_level [ RunTime:0.0001s ]
+SQL: select id, flower_name from lovgarden_flower_type [ RunTime:0.0001s ]
+SQL: select id, flower_occasion from lovgarden_flower_occasion [ RunTime:0.0001s ]
+SQL: select id, flower_color from lovgarden_flower_color [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000234s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000259s ]
+NOTIC: [8] Undefined index: hurryLevel /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 245 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 245 行.
+NOTIC: [8] Undefined index: hurryLevel /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 245 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 245 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 259 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 259 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 259 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 259 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 259 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 259 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 259 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 259 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 259 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 259 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 259 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 259 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 259 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 259 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 259 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 259 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 270 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 270 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 270 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 270 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 270 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 270 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 270 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 270 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 270 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 270 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 270 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 270 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 270 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 270 行.
+NOTIC: [8] Undefined index: flowerOccasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 286 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 286 行.
+NOTIC: [8] Undefined index: flowerOccasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 286 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 286 行.
+NOTIC: [8] Undefined index: flowerOccasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 286 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 286 行.
+NOTIC: [8] Undefined index: flowerOccasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 286 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 286 行.
+NOTIC: [8] Undefined index: flowerOccasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 286 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 286 行.
+NOTIC: [8] Undefined index: flowerOccasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 297 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 297 行.
+NOTIC: [8] Undefined index: flowerOccasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 297 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 297 行.
+NOTIC: [8] Undefined index: flowerOccasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 297 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 297 行.
+NOTIC: [8] Undefined index: flowerOccasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 297 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 297 行.
+NOTIC: [8] Undefined index: flowerOccasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 297 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 297 行.
+NOTIC: [8] Undefined index: flowerColor /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 313 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 313 行.
+NOTIC: [8] Undefined index: flowerColor /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 313 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 313 行.
+NOTIC: [8] Undefined index: flowerColor /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 313 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 313 行.
+NOTIC: [8] Undefined index: flowerColor /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 324 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 324 行.
+NOTIC: [8] Undefined index: flowerColor /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 324 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 324 行.
+NOTIC: [8] Undefined index: flowerColor /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 324 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 324 行.
+NOTIC: [8] Undefined index: hurryLevel /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 427 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 427 行.
+NOTIC: [8] Undefined index: hurryLevel /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 427 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 427 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [8] Undefined index: flowerType /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 435 行.
+NOTIC: [8] Undefined index: flowerOccasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 443 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 443 行.
+NOTIC: [8] Undefined index: flowerOccasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 443 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 443 行.
+NOTIC: [8] Undefined index: flowerOccasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 443 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 443 行.
+NOTIC: [8] Undefined index: flowerOccasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 443 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 443 行.
+NOTIC: [8] Undefined index: flowerOccasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 443 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 443 行.
+NOTIC: [8] Undefined index: flowerOccasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 443 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 443 行.
+NOTIC: [8] Undefined index: flowerOccasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 443 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 443 行.
+NOTIC: [8] Undefined index: flowerOccasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 443 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 443 行.
+NOTIC: [8] Undefined index: flowerOccasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 443 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 443 行.
+NOTIC: [8] Undefined index: flowerOccasion /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 443 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 443 行.
+NOTIC: [8] Undefined index: flowerColor /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 451 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 451 行.
+NOTIC: [8] Undefined index: flowerColor /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 451 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 451 行.
+NOTIC: [8] Undefined index: flowerColor /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 451 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 451 行.
+NOTIC: [8] Undefined index: flowerColor /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 451 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 451 行.
+NOTIC: [8] Undefined index: flowerColor /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 451 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 451 行.
+NOTIC: [8] Undefined index: flowerColor /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 451 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Home/afae4ad50d97c51a10b9a6b53125e1ae.php 第 451 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006550s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006574s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000026s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000038s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000026s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000047s ]
+
+[ 2018-06-26T08:44:33+08:00 ] 120.78.231.236 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000057s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000025s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000041s ]
+SQL: SHOW COLUMNS FROM `lovgarden_block` [ RunTime:0.0006s ]
+SQL: SELECT image_pc,image_mobile,block_title,block_body,block_link_title,block_link,page_link FROM lovgarden_block WHERE page_link = 'front' ORDER BY block_order ASC; [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000126s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000176s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003817s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003853s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000031s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000043s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000031s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000049s ]
+
+[ 2018-06-26T08:45:59+08:00 ] 123.125.71.24 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000061s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000024s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000042s ]
+SQL: SHOW COLUMNS FROM `lovgarden_block` [ RunTime:0.0006s ]
+SQL: SELECT image_pc,image_mobile,block_title,block_body,block_link_title,block_link,page_link FROM lovgarden_block WHERE page_link = 'front' ORDER BY block_order ASC; [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000127s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000151s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003833s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003858s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000032s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000044s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000032s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000050s ]
+
+[ 2018-06-26T08:46:03+08:00 ] 111.206.221.12 /user/get_cart_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000075s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000027s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000057s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000027s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000054s ]
+
+[ 2018-06-26T08:46:03+08:00 ] 111.206.198.77 /user/get_user_status
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000067s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000053s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000023s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000049s ]
+
+[ 2018-06-26T08:46:03+08:00 ] 111.206.221.43 /cart/ajax_get_cart_items
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000052s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000018s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000034s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000019s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000038s ]
+
+[ 2018-06-26T09:15:42+08:00 ] 139.162.116.133 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000059s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000024s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000040s ]
+SQL: SHOW COLUMNS FROM `lovgarden_block` [ RunTime:0.0006s ]
+SQL: SELECT image_pc,image_mobile,block_title,block_body,block_link_title,block_link,page_link FROM lovgarden_block WHERE page_link = 'front' ORDER BY block_order ASC; [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000137s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000170s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003969s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003995s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000032s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000044s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000031s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000048s ]
+
+[ 2018-06-26T09:28:23+08:00 ] 220.181.108.177 /article/helpcenter
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000060s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000025s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000042s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000105s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000130s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003036s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003059s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000032s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000042s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000031s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000051s ]
+
+[ 2018-06-26T09:28:24+08:00 ] 111.206.198.109 /user/get_cart_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000048s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000017s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000033s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000016s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000030s ]
+
+[ 2018-06-26T09:28:24+08:00 ] 111.206.221.24 /cart/ajax_get_cart_items
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000033s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000015s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000031s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000013s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000028s ]
+
+[ 2018-06-26T09:28:24+08:00 ] 111.206.221.23 /user/get_user_status
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000036s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000017s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000032s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000013s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000027s ]
+
+[ 2018-06-26T09:43:04+08:00 ] 106.11.242.199 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000057s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000024s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000041s ]
+SQL: SHOW COLUMNS FROM `lovgarden_block` [ RunTime:0.0005s ]
+SQL: SELECT image_pc,image_mobile,block_title,block_body,block_link_title,block_link,page_link FROM lovgarden_block WHERE page_link = 'front' ORDER BY block_order ASC; [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000126s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000149s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003763s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003787s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000030s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000041s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000030s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000047s ]
+
+[ 2018-06-26T10:02:58+08:00 ] 60.191.38.78 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000059s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000043s ]
+SQL: SHOW COLUMNS FROM `lovgarden_block` [ RunTime:0.0005s ]
+SQL: SELECT image_pc,image_mobile,block_title,block_body,block_link_title,block_link,page_link FROM lovgarden_block WHERE page_link = 'front' ORDER BY block_order ASC; [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000126s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000150s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003818s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003843s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000032s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000044s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000032s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000050s ]
+
+[ 2018-06-26T11:03:02+08:00 ] 140.205.205.25 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000061s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000025s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000040s ]
+SQL: SHOW COLUMNS FROM `lovgarden_block` [ RunTime:0.0006s ]
+SQL: SELECT image_pc,image_mobile,block_title,block_body,block_link_title,block_link,page_link FROM lovgarden_block WHERE page_link = 'front' ORDER BY block_order ASC; [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000138s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000166s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004007s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004036s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000034s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000045s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000025s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000035s ]
+
+[ 2018-06-26T12:12:53+08:00 ] 13.57.233.99 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000071s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000025s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000041s ]
+SQL: SHOW COLUMNS FROM `lovgarden_block` [ RunTime:0.0006s ]
+SQL: SELECT image_pc,image_mobile,block_title,block_body,block_link_title,block_link,page_link FROM lovgarden_block WHERE page_link = 'front' ORDER BY block_order ASC; [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000128s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000159s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003858s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003882s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000031s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000042s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000031s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000050s ]
+
+[ 2018-06-26T12:23:01+08:00 ] 185.35.63.27 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000058s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000035s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000052s ]
+SQL: SHOW COLUMNS FROM `lovgarden_block` [ RunTime:0.0006s ]
+SQL: SELECT image_pc,image_mobile,block_title,block_body,block_link_title,block_link,page_link FROM lovgarden_block WHERE page_link = 'front' ORDER BY block_order ASC; [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000128s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000183s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003848s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003872s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000032s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000044s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000031s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000049s ]
+
+[ 2018-06-26T12:51:23+08:00 ] 106.15.76.92 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000057s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000042s ]
+SQL: SHOW COLUMNS FROM `lovgarden_block` [ RunTime:0.0005s ]
+SQL: SELECT image_pc,image_mobile,block_title,block_body,block_link_title,block_link,page_link FROM lovgarden_block WHERE page_link = 'front' ORDER BY block_order ASC; [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000155s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000182s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003835s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003859s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000032s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000043s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000032s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000049s ]
+
+[ 2018-06-26T13:03:32+08:00 ] 106.11.227.34 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000075s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000024s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000039s ]
+SQL: SHOW COLUMNS FROM `lovgarden_block` [ RunTime:0.0005s ]
+SQL: SELECT image_pc,image_mobile,block_title,block_body,block_link_title,block_link,page_link FROM lovgarden_block WHERE page_link = 'front' ORDER BY block_order ASC; [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000150s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000175s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003848s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003871s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000031s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000042s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000029s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000047s ]
+
+[ 2018-06-26T13:11:59+08:00 ] 117.94.123.212 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000076s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000024s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000040s ]
+SQL: SHOW COLUMNS FROM `lovgarden_block` [ RunTime:0.0005s ]
+SQL: SELECT image_pc,image_mobile,block_title,block_body,block_link_title,block_link,page_link FROM lovgarden_block WHERE page_link = 'front' ORDER BY block_order ASC; [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000127s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000153s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003897s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003921s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000032s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000043s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000031s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000049s ]
+
+[ 2018-06-26T14:03:28+08:00 ] 140.205.205.25 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000059s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000023s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000039s ]
+SQL: SHOW COLUMNS FROM `lovgarden_block` [ RunTime:0.0005s ]
+SQL: SELECT image_pc,image_mobile,block_title,block_body,block_link_title,block_link,page_link FROM lovgarden_block WHERE page_link = 'front' ORDER BY block_order ASC; [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000126s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000150s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003767s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003791s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000030s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000041s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000024s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000034s ]
+
+[ 2018-06-26T16:50:39+08:00 ] 123.125.71.22 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000059s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000024s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000040s ]
+SQL: SHOW COLUMNS FROM `lovgarden_block` [ RunTime:0.0006s ]
+SQL: SELECT image_pc,image_mobile,block_title,block_body,block_link_title,block_link,page_link FROM lovgarden_block WHERE page_link = 'front' ORDER BY block_order ASC; [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000127s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000151s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003901s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003924s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000031s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000043s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000030s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000048s ]
+
+[ 2018-06-26T16:50:44+08:00 ] 111.206.221.74 /cart/ajax_get_cart_items
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000075s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000019s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000038s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000029s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000047s ]
+
+[ 2018-06-26T16:50:44+08:00 ] 111.206.221.96 /user/get_cart_info
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000036s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000017s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000099s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000015s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000032s ]
+
+[ 2018-06-26T16:50:44+08:00 ] 111.206.198.76 /user/get_user_status
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000035s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000018s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000034s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000015s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000032s ]
+
+[ 2018-06-26T17:17:35+08:00 ] 140.205.205.25 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000058s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000023s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000039s ]
+SQL: SHOW COLUMNS FROM `lovgarden_block` [ RunTime:0.0006s ]
+SQL: SELECT image_pc,image_mobile,block_title,block_body,block_link_title,block_link,page_link FROM lovgarden_block WHERE page_link = 'front' ORDER BY block_order ASC; [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000128s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000152s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003850s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003874s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000032s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000044s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000024s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000036s ]
+
+[ 2018-06-26T18:48:25+08:00 ] 209.126.136.7 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000060s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000024s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000040s ]
+SQL: SHOW COLUMNS FROM `lovgarden_block` [ RunTime:0.0005s ]
+SQL: SELECT image_pc,image_mobile,block_title,block_body,block_link_title,block_link,page_link FROM lovgarden_block WHERE page_link = 'front' ORDER BY block_order ASC; [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000135s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000170s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004019s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004045s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000032s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000044s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000030s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000049s ]
+
+[ 2018-06-26T22:37:14+08:00 ] 34.238.125.51 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000060s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000042s ]
+SQL: SHOW COLUMNS FROM `lovgarden_block` [ RunTime:0.0005s ]
+SQL: SELECT image_pc,image_mobile,block_title,block_body,block_link_title,block_link,page_link FROM lovgarden_block WHERE page_link = 'front' ORDER BY block_order ASC; [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000127s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000173s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003852s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003876s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000030s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000042s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000047s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000066s ]
+
+[ 2018-06-26T22:47:01+08:00 ] 184.105.247.196 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000059s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000025s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000042s ]
+SQL: SHOW COLUMNS FROM `lovgarden_block` [ RunTime:0.0006s ]
+SQL: SELECT image_pc,image_mobile,block_title,block_body,block_link_title,block_link,page_link FROM lovgarden_block WHERE page_link = 'front' ORDER BY block_order ASC; [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000127s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000150s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004010s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004033s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000030s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000058s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000031s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000050s ]
+

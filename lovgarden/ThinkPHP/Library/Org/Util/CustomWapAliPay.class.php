@@ -79,24 +79,10 @@ class CustomWapAliPay {
      }
   }
   
-  function send_post($url, $post_data) {    
-      $postdata = http_build_query($post_data);    
-      $options = array(    
-            'http' => array(    
-                'method' => 'POST',    
-                'header' => 'Content-type:application/x-www-form-urlencoded',    
-                'content' => $postdata,    
-                'timeout' => 60 // 超时时间（单位:s）    
-            )    
-        );    
-        $context = stream_context_create($options);    
-        $result = file_get_contents($url, false, $context);             
-        return $result;    
-  }
   
   //设置alipay的通知函数
   public function lovgarden_notify_url($arr){
-      //file_put_contents('/a.txt', '1', FILE_APPEND);
+      file_put_contents('/a.txt', '1-1', FILE_APPEND);
       $alipaySevice = new \AlipayTradeService($this->config);
       $alipaySevice->writeLog(var_export($_POST,true));
       $result = $alipaySevice->check($arr);
@@ -123,13 +109,11 @@ class CustomWapAliPay {
 			//如果有做过处理，不执行商户的业务程序			
 		//注意：
 		//付款完成后，支付宝系统发送该交易状态通知
-                // file_put_contents('/a.txt', '3', FILE_APPEND);
+                file_put_contents('/a.txt', 'a', FILE_APPEND);
                 $order_id = $_POST['out_trade_no']; //需要充值的ID 或订单号 或用户名
                 if(strpos($order_id,"A2018") !== FALSE){
                        //Api订单
-                      $result_post = $this->send_post('https://www.flowerideas.cn/api/pay/notify_url', $_POST);
-                     
-                      file_put_contents('/a.txt', $result_post, FILE_APPEND);
+                      file_put_contents('/a.txt', 'b', FILE_APPEND);
                 }else {
                     $receipt_amount = (float)$_POST['receipt_amount']; //实际付款金额
                     $total_amount = (float)$_POST['total_amount']; //订单的原价

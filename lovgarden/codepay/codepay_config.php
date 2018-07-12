@@ -16,20 +16,20 @@
 //codepay平台的ID，由纯数字组成的字符串，查看地址：https://codepay.fateqq.com/admin/#/dataSet.html
 error_reporting(E_ALL & ~E_NOTICE); //过滤脚本提醒
 date_default_timezone_set('PRC'); //时区设置 解决某些机器报错
-$codepay_config['id'] = "码支付ID";
+$codepay_config['id'] = '60905';
 /**
  * MD5密钥，安全检验码，由数字和字母组成字符串，需要跟服务端一致
  * 设置地址：https://codepay.fateqq.com/admin/#/dataSet.html
  * 该值非常重要 请不要泄露 否则会影响支付的安全。 如泄露请重新到云端设置
  */
-$codepay_config['key'] = "通信密钥";
+$codepay_config['key'] = '5v4bRQhIB00NqjcuJPOmIGG49VMXpcPM';
 
 //字符编码格式 目前支持 gbk GB2312 或 utf-8 保证跟文档编码一致 建议使用utf-8
 $codepay_config['chart'] = strtolower('utf-8');
 header('Content-type: text/html; charset=' . $codepay_config['chart']);
 
 //是否启用免挂机模式 1为启用. 未开通请勿更改否则资金无法及时到账
-$codepay_config['act'] = "版本"; //认证版则开启 一般情况都为0
+$codepay_config['act'] = '0'; //认证版则开启 一般情况都为0
 
 /**订单支付页面显示方式
  * 3：自定义开发模式 (默认 复杂 需要一定开发能力  codepay.php修改收银台代码)
@@ -74,7 +74,7 @@ function isHTTPS()
     return FALSE;
 }
 
-$codepay_config['gateway'] = "http://api2.fateqq.com:52888/creat_order/?";  //设置支付网关
+$codepay_config['gateway'] = '';  //设置支付网关
 
 $codepay_config['host'] = (isHTTPS() ? 'https://' : 'http://') . $_SERVER['HTTP_HOST']; //获取域名
 
@@ -98,7 +98,7 @@ $codepay_config['return_url'] = $codepay_config['path'] . '/notify.php'; //自�
 
 //可以删除下面【//】改成自己的 最终为：
 
-//$codepay_config['return_url'] ="http://域名/codepay/notify.php";
+//$codepay_config['return_url'] ='';
 
 
 
@@ -106,10 +106,10 @@ $codepay_config['return_url'] = $codepay_config['path'] . '/notify.php'; //自�
 
 $codepay_config['go_time'] = 3; //3秒跳转页面 默认为首页
 
-$codepay_config['go_url'] =  $_SERVER["SERVER_PORT"] == '80' ? '/' : '//'.$_SERVER['SERVER_NAME']; 
+$codepay_config['go_url'] =  $_SERVER[''] == '80' ? '/' : '//'.$_SERVER['SERVER_NAME']; 
 
 //可以删除下面【//】改成自己的  以下为跳转到百度的例子
-//$codepay_config['go_url'] = "https://www.baidu.com/"; 
+//$codepay_config['go_url'] = ''; 
 
 
 
@@ -125,7 +125,7 @@ $codepay_config['notify_url'] = $codepay_config['path'] . '/notify.php'; //自�
 
 //可以删除下面【//】改成自己的 最终为：
 
-//$codepay_config['notify_url'] ="http://域名/codepay/notify.php";
+//$codepay_config['notify_url'] ='';
 
 
 
@@ -143,11 +143,11 @@ define('DB_PREFIX', 'codepay');  //测试数据表前缀 主要是订单记录�
  *
  * 以下为MYSQL数据库的配置 主要用于测试数据充值业务demo 不是必要安装。相关参数在安装后自动生成。
  */
-define('DB_HOST', "数据库IP地址"); //数据库服务器地址
-define('DB_USER', "MYSQL用户名");  //数据库用户名
-define('DB_PWD', "MYSQL密码");//数据库密码
-define('DB_NAME', "MYSQL数据库");  //数据库名称
-define('DB_PORT', "MYSQL端口");  //数据库端口
+define('DB_HOST', '127.0.0.1'); //数据库服务器地址
+define('DB_USER', 'root');  //数据库用户名
+define('DB_PWD', 'sherry418!');//数据库密码
+define('DB_NAME', 'lovgarden');  //数据库名称
+define('DB_PORT', '3306');  //数据库端口
 
 define('DB_AUTOCOMMIT', false);  //默认false使用事物回滚 不自动提交只对InnoDB有效。
 define('DB_ENCODE', $codepay_config['chart'] == 'utf-8' ? 'utf8' : $codepay_config['chart']);  //数据库编码

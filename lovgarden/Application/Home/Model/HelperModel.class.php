@@ -94,7 +94,7 @@ class HelperModel
           $alipaySevice = new CustomWapAliPay();
        }
        else {
-          $alipaySevice = new CustomAliPay();   
+          $alipaySevice = new CustomAliPay();
        }
        $alipaySevice->lovgarden_notify_url($arr);
     }

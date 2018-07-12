@@ -43,6 +43,7 @@ class UserController extends Controller {
     }
     
     public function register() {
+        //file_put_content('/a.txt','s',FILE_APPEND);
         if(IS_POST) {
            $user_model = D('User');
            $user_info = array(
@@ -304,7 +305,7 @@ class UserController extends Controller {
         //$this->display('user_order_detail');
     }
     //用来接收支付宝的通知请求
-    public function user_order_handle() {     
+    function user_order_handle() {
         $helper = D('Helper');
         $arr =$_POST;
         $helper->alipay_notify_url($arr);
@@ -313,6 +314,7 @@ class UserController extends Controller {
     public function user_order_pay($order_id) {
         $user = D('User');
         $user->user_init_order_pay($order_id);
+
     }
     public function pay_result() {
         $helper = D('Helper');
