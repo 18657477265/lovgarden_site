@@ -306,11 +306,20 @@ class UserController extends Controller {
     }
     //用来接收支付宝的通知请求
     function user_order_handle() {
+        $mem_post = new Memcache();
+        $order_status = $mem_post->get($_POST['out_trade_no']);
+        if($order_status == 'success') {
+            echo "success";
+            exit();
+        }
         $helper = D('Helper');
         $arr =$_POST;
         $result = $helper->alipay_notify_url($arr);
-        file_put_contents('/a.txt','|'.$result,FILE_APPEND);
-        echo $result;
+        if($result == 'success') {
+           file_put_contents('/a.txt','|'.$result,FILE_APPEND);
+           $mem_new->set($_POST['out_trade_no'],'success',310);
+        }
+        //echo $result;
     }
     //这里用户给某一个订单进行付款，生成付款二维码
     public function user_order_pay($order_id) {
