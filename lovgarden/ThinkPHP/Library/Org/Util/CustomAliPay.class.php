@@ -146,7 +146,7 @@ class CustomAliPay {
                        'notify_time' => $_POST['notify_time'],
                        'out_trade_no' => $_POST['out_trade_no'],
                    );
-                   $codepay_key="abcdefg";
+                   $codepay_key="KrpiUmSEr2pvaGa46tcwqajSGK8NRw7I1";
                    $sign = $this->proxy_get_sign($array_post,$codepay_key);
                    $array_post['sign'] = $sign;
                    $result_post = $this->proxy_post('https://www.flowerideas.cn/api/pay/notify_url', $array_post);

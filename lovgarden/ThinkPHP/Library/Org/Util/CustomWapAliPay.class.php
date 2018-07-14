@@ -82,7 +82,7 @@ class CustomWapAliPay {
   
   //设置alipay的通知函数
   public function lovgarden_notify_url($arr){
-      file_put_contents('/a.txt', '1-1', FILE_APPEND);
+      //file_put_contents('/a.txt', '1-1', FILE_APPEND);
       $alipaySevice = new \AlipayTradeService($this->config);
       $alipaySevice->writeLog(var_export($_POST,true));
       $result = $alipaySevice->check($arr);
@@ -109,11 +109,11 @@ class CustomWapAliPay {
 			//如果有做过处理，不执行商户的业务程序			
 		//注意：
 		//付款完成后，支付宝系统发送该交易状态通知
-                file_put_contents('/a.txt', 'a', FILE_APPEND);
+                //file_put_contents('/a.txt', 'a', FILE_APPEND);
                 $order_id = $_POST['out_trade_no']; //需要充值的ID 或订单号 或用户名
                 if(strpos($order_id,"A2018") !== FALSE){
                        //Api订单
-                      file_put_contents('/a.txt', 'b', FILE_APPEND);
+                      //file_put_contents('/a.txt', 'b', FILE_APPEND);
                 }else {
                     $receipt_amount = (float)$_POST['receipt_amount']; //实际付款金额
                     $total_amount = (float)$_POST['total_amount']; //订单的原价
@@ -149,10 +149,10 @@ class CustomWapAliPay {
                 }
            }
 	   //——请根据您的业务逻辑来编写程序（以上代码仅作参考）——
-	   echo "success";	//请不要修改或删除          
+	   return  "success";	//请不要修改或删除          
       }
       else {
-          echo "fail";	//请不要修改或删除
+          return "fail";	//请不要修改或删除
       }
   }
 }

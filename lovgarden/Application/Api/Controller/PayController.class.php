@@ -7,7 +7,7 @@ class PayController extends RestController {
    //protected $allowType      = array('json');
    public function create_order($codepay_id,$order_id,$type,$price,$param = '') {
        //$codepay_id="1111111111";//这里改成码支付ID
-       $codepay_key="abcdefg"; //这是您的通讯密钥
+       $codepay_key="KrpiUmSEr2pvaGa46tcwqajSGK8NRw7I1"; //这是您的通讯密钥
        
        $data = array(
             "id" => $codepay_id,//你的码支付ID
@@ -43,15 +43,13 @@ class PayController extends RestController {
         //echo $query;
         //exit();
         $url = "https://www.flowerideas.cn/api/pay/alipay/?{$query}"; //支付页面
-
-        //echo $url;
-        //exit();
         header("Location:{$url}"); //跳转到支付页面
    }
    public function alipay(){
        //验证签名
         $arr = $_GET;
-        $codepay_key="abcdefg"; //这是您的密钥
+        
+        $codepay_key="KrpiUmSEr2pvaGa46tcwqajSGK8NRw7I1"; //这是您的密钥
         $sign = $this->get_sign($arr,$codepay_key);
         //echo $_GET['sign'];
         //echo '------------';
@@ -83,12 +81,14 @@ class PayController extends RestController {
        }
        return md5($sign . $codepay_key);
    }
+   //测试用返回转发地址
    function return_url() {
        echo '22';
        exit();
    }
+   //测试用回调转发地址
    function notify_url(){
-    file_put_contents('/b.txt', $_POST['out_trade_no'].'----------', FILE_APPEND);
+    file_put_contents('/b.txt', json_encode($_POST).'----------', FILE_APPEND);
     echo "success"; 
    }
 }

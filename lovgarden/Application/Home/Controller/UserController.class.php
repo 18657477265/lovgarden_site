@@ -317,8 +317,8 @@ class UserController extends Controller {
         $arr =$_POST;
         $result = $helper->alipay_notify_url($arr);
         if($result == 'success') {
-           file_put_contents('/a.txt','|'.$result,FILE_APPEND);
-           $mem_post->set($_POST['out_trade_no'],'success',310);
+           //file_put_contents('/a.txt','|'.$result,FILE_APPEND);
+           $mem_post->set($_POST['out_trade_no'],'success',3600);
         }
         //echo $result;
     }
