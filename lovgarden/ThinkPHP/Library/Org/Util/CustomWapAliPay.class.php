@@ -67,7 +67,24 @@ class CustomWapAliPay {
       if($result) {//验证成功
           if(strpos($arr['out_trade_no'],"A2018") !== FALSE){
              //Api订单
-             redirect('/api/pay/return_url');
+            $sign = '';
+            $urls = ''; 
+            foreach ($arr AS $key => $val) { //遍历需要传递的参数
+                 if ($val == ''||$key == 'sign') continue; //跳过这些不参数签名
+                 if ($sign != '') { //后面追加&拼接URL
+                     $sign .= "&";
+                     $urls .= "&";
+                 }
+                 $sign .= "$key=$val"; //拼接为url参数形式
+                 $urls .= "$key=" . urlencode($val); //拼接为url参数形式并URL编码参数值
+
+             }
+             $query = $urls;
+
+             //echo $query;
+             //exit();
+             $url = "https://www.flowerideas.cn/api/pay/return_url/?{$query}";              
+             redirect($url);
           }
           else {
              redirect('/user/pay_success');
