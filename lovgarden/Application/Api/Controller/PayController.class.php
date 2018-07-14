@@ -43,6 +43,8 @@ class PayController extends RestController {
         //echo $query;
         //exit();
         $url = "https://www.flowerideas.cn/api/pay/alipay/?{$query}"; //支付页面
+        //echo $url;
+        //exit();
         header("Location:{$url}"); //跳转到支付页面
    }
    public function alipay(){
