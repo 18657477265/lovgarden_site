@@ -308,7 +308,7 @@ class UserController extends Controller {
     function user_order_handle() {
         $mem_post = new Memcache();
         $order_status = $mem_post->get($_POST['out_trade_no']);
-        file_put_contents('/a.txt','-'.$_POST['out_trade_no'].$order_status.'-',FILE_APPEND);
+        //file_put_contents('/a.txt','-'.$_POST['out_trade_no'].$order_status.'-',FILE_APPEND);
         if($order_status == 'success') {
             echo "success";
             exit();
