@@ -156,7 +156,7 @@ class CustomAliPay {
                    $result_post = $this->proxy_post('https://www.flowerideas.cn/api/pay/notify_url', $array_post);
                    //file_put_contents('/a.txt', $result_post, FILE_APPEND);
                    if(strpos($result_post,'success') !== FALSE){
-                       //file_put_contents('/a.txt','6',FILE_APPEND);
+                       //efile_put_contents('/a.txt','6',FILE_APPEND);
                        return "success"; 
                        exit();
                    }
