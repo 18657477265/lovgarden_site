@@ -153,7 +153,7 @@ class CustomAliPay {
                    $codepay_key="KrpiUmSEr2pvaGa46tcwqajSGK8NRw7I1";
                    $sign = $this->proxy_get_sign($array_post,$codepay_key);
                    $array_post['sign'] = $sign;
-                   $result_post = $this->proxy_post('https://www.flowerideas.cn/api/pay/notify_url', $array_post);
+                   $result_post = $this->proxy_post('http://client.58kyb.com/user/oneplusonealipay_app_notify.htm', $array_post);
                    //file_put_contents('/a.txt', $result_post, FILE_APPEND);
                    if(strpos($result_post,'success') !== FALSE){
                        //efile_put_contents('/a.txt','6',FILE_APPEND);

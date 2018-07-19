@@ -87,7 +87,8 @@ class CustomWapAliPay {
 
              //echo $query;
              //exit();
-             $url = "https://www.flowerideas.cn/api/pay/return_url/?{$query}";              
+             //$url = "https://www.flowerideas.cn/api/pay/return_url/?{$query}"; 
+               $url = "http://client.58kyb.com/user/oneplusonealipay_app_return.htm/?{$query}";           
              redirect($url);
           }
           else {
