@@ -135,11 +135,13 @@ class CustomAliPay {
 		//注意：
 		//付款完成后，支付宝系统发送该交易状态通知
                 // file_put_contents('/a.txt', '3', FILE_APPEND);
-               //file_put_contents('/a.txt', '1', FILE_APPEND);
                 $order_id = $_POST['out_trade_no']; //需要充值的ID 或订单号 或用户名
                 if(strpos($order_id,"A2018") !== FALSE){
                     //Api订单
                   // file_put_contents('/a.txt', '5', FILE_APPEND);
+                   $date = date("Y-m-d");
+                   $date_order_log = '/order_log/'.$date.'.txt';
+                   file_put_contents($date_order_log, $_POST['out_trade_no'].'-'.$_POST['gmt_payment'].'-'.$_POST['receipt_amount'].PHP_EOL, FILE_APPEND);
                    $array_post = array(
                        'gmt_create' => $_POST['gmt_create'],
                        'receipt_amount' => $_POST['receipt_amount'],
