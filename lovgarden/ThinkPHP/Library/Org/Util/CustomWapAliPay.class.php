@@ -14,6 +14,7 @@ class CustomWapAliPay {
    public $config = array (	
 		//应用ID,您的APPID。
 		'app_id' => "2018070660584041",
+        
 
 		//商户私钥
 		'merchant_private_key' => "MIIEpQIBAAKCAQEA2ggqhYPVNrTiYy2btMinshaaGlqkSL4QooCK7t93/xVTvwTo+Mk/o3g1wAm8LZQeChljWEdzG/zCM0+FE3huCDmTvU8IUGszuZnJpw3AMqLlW4RtBrJuGvHa9/r+huxKkoTZvQuR1YsyAcER41FMk464CNTjHno7vVTSyDYXRUM+DX3SAbg+O7DAPKFIDk+VTq6Jl+/ck0uGVXDW8UguC2Xwu/gcnAu2KUeh3NS+yLwAc0PtWfPH9g9WWgN0uFxAkWbfiTCGUK1DEQAPhZJeg/a9wRzydsrPd+ar94DWgvIfaMyBMgdkenpyIMaas+W/yA6cN2PNugPJhw+hQlEAuwIDAQABAoIBAQDFVebGeQ+dOBI+maT39zRwZyyK9ccDX6NGsPkOQowk/3SQyyzhH6TNm5tqeGUtC4Y0tc3ItMJmblqGfk5/1Nwh7ZreGI35200xixOMc1GlgvH75tuW2B/3mzcIgs+j5nGIM12vUK1pjVZxaAF8sLSSSPYgaC44A4HWVtOAChT9xbahpHODwWlYctX6UyDCZjGUJCadGwmCjTWCKsyV01S4c2w8UqKbp4b7vVpNcPW39dKSgAtpfPEfDkEvGXYQYge8Cl1oirP5FUuy3xBiTHgIqZd3UE0FPVPk773tYT7vRMu2lz7v3va0MvF3sX5lm8cQ2u0Rwm1rPOCz8NVmRpABAoGBAPOyUjMONS75WjTF5FV+kwq20FLObR1uocLtO2KusX4ygpc/anEcsVmbYRlgkfwq0iTlAPWpis5VtMq3ArRQbg78mksShbLPkT6QB5Rlq6v/GOVNvdbmh9mCHaStMFAojKh67Y3JLpYgIXCH6usdeaUTqtyI3YZDEiyY1oUwzsIBAoGBAOUKI75nhLq6qeZMl9otyb9+5cfhlg2duFnGSxugc1IBAf0/uMgKl0XfjicSpWPai3eiI0fjeU/2BImuG/Qr0ZIBjMkAQbTqFUgOFmtFV4ngPDCYExzIVyd2QvccDVEX1F6XIF9uT6vUYERX87Umef+dk3TpItzE6blO5FKtNUq7AoGBAIHvHzLHrYWpP/aJWPBYt4/r33F3TOh3d1pWYOaB3HM7/TMlhdxffxQW65O7ULsSHc+8JmHVjwPq4KWBJLj9dWEaQC4s5wpq77da1h/CgeEH978zTzgI3IAVhzapfOwQYsbmHEkP7n3vDcVRQukvYw+oR96kPvD6S/NpXl/PoT4BAoGBAOFc8cC3EQW/B8/AS6Z1aU7QaP4c/M2XBD7pexvK682jijaKzaGfsishhjjyAuTWtGZZlkd1DvfbxalHNOAzgXkdp05bv0tpDNmiavLP/wt+JRtXd27Zvc/pcIi/BGdngCI2p7bezuvvA24b8IOtQVt/zAi8IP6Djso0Uzr6jTZjAoGAc7QVKXGtaqyuyzkCtA1n+aYpJd3HwD8miW+NdXJqWSlyrfX6oIfPvwkyZ+eOVdASywv+fJdIKaHUVTCToEpVmRjGD8mLliwrIErDXYuu3vFyPd3z7PUAGDaM/rmT/7ixuSKNdTocM7YFNJ7phZ+s5kZ1GR+L4z/3vSrbxSltQec=",
@@ -85,7 +86,7 @@ class CustomWapAliPay {
              //echo $query;
              //exit();
              //$url = "https://www.flowerideas.cn/api/pay/return_url/?{$query}"; 
-               $url = "http://client.58kyb.com/user/oneplusonealipay_app_return.htm/?{$query}";           
+               $url = "https://www.flowerideas.cn/api/pay/return_url/?{$query}";           
              redirect($url);
           }
           else {
