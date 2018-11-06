@@ -22,7 +22,7 @@ class ArticleController extends RestController {
        echo json_encode(array(
             'faq' => $all_faq[$id],
             'products' => $products
-       ),JSON_UNESCAPED_UNICODE);
+       ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
    }
    
 }
