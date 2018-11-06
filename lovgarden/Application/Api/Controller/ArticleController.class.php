@@ -2,7 +2,7 @@
 namespace Api\Controller;
 use Think\Controller\RestController;
 use Think\Cache\Driver\Memcache;
-class ArticleController extends Controller {
+class ArticleController extends RestController {
    public function category($id = 0) {
        $products = '';
        $article = D('Article');
