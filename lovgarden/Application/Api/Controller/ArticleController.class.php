@@ -1,0 +1,27 @@
+<?php
+namespace Api\Controller;
+use Think\Controller\RestController;
+use Think\Cache\Driver\Memcache;
+class ArticleController extends Controller {
+   public function category($id = 0) {
+       $products = '';
+       $article = D('Article');
+       $all_faq = $article->field('id,article_title,article_summary,article_body,article_category,banner_image,related_article_ids')->where(array(
+                'article_publish' => 1,
+                'article_category' => 9
+       ))->select();
+       $all_faq = translate_database_result_to_logic_array($all_faq,array(),'id');
+       if(!empty($all_faq[$id]['related_article_ids'])){
+           $where = array(
+             'product.id' => array('IN', explode(',', $all_faq[$id]['related_article_ids'])),
+           );
+           $helper = D('Helper');
+           $products = $helper->get_category_related_products($where);
+       }
+       echo json_encode(array(
+            'faq' => $all_faq[$id],
+            'products' => $products
+       ));
+   }
+   
+}
