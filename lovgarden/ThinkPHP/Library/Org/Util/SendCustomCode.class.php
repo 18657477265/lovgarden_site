@@ -36,9 +36,9 @@ class SendCustomCode {
         $domain = "dysmsapi.aliyuncs.com";
 
         // TODO 此处需要替换成开发者自己的AK (https://ak-console.aliyun.com/)
-        $accessKeyId = "LTAIuDffuBcR0Hxr"; // AccessKeyId
+        $accessKeyId = "LTAIlsrmDG7wqj9t"; // AccessKeyId
 
-        $accessKeySecret = "ZA3X159Zwk1GGsjUnBPlJjEVMxrtBt"; // AccessKeySecret
+        $accessKeySecret = "Rv46YxIW4xjqJDu9hLILCW10Nubwos"; // AccessKeySecret
 
         // 暂时不支持多Region
         $region = "cn-hangzhou";
