@@ -711,5 +711,10 @@ function isMobile() {
   } 
   return false;
 }
+//根据花卉产地打印出产地宣传图
+function render_flower_id_to_image($flower_home_id) {
+    $flower_home_image_dir = C("FLOWER_HOME_IMAGE_DIR");
+    return $flower_home_image_dir.$flower_home_id.'.jpg';   
+}
 
 

@@ -40,4 +40,5 @@ return array(
     'PAY_SECRET' => '5v4bRQhIB00NqjcuJPOmIGG49VMXpcPM',
     'PAY_SHOP'=>'Flower Ideas',
     'PAY_PRODUCT'=>'Beauty From Flower Ideas',
+    'FLOWER_HOME_IMAGE_DIR'=>"/Public/FlowerPlace/",
 );

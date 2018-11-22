@@ -49,10 +49,9 @@
                   <?php endforeach; ?>-->
                   
                    <div class="farm_vendor_info show-tablet-pc">
-                      <a><img src="__PUBLIC__/Home/images/product_detail/farm_vendor/farm_vendor.jpg"></a>
-                      <h3 class="product-detail-container__manufacturer-title">Farmer Manuel</h3>
-                      <p class="product-detail-container__manufacturer-location">Colombia</p>
-                      <p class="product-detail-container__manufacturer-description">Founded in 1976 by four entrepreneurs, it now boasts almost 500 acres of production and more than 30 products available on a year-round basis. They grow great flowers like Roses, Alstroemerias, Carnations, Mini Carnations, Garden Roses and more! Plus, the farm is Rainforest Alliance and SGS certified! They believe their business, the growth of their employees, and caring for the environment are ALL important. </p>
+                   <?php foreach($product_varients[$current_sku_id]['flower_home_id'] as $k => $v): ?>
+                      <a><img src="<?php print render_flower_id_to_image($v); ?>"></a>
+                   <?php endforeach; ?>
                    </div>
                 </div>
                 <div class="col-md-8 col-sm-8 product-detail-info">
