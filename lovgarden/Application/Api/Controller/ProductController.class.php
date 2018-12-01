@@ -28,4 +28,49 @@ class ProductController extends RestController {
             'sku_id' => $sku_id
        ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
    }  
+   public function select_list() {
+       $model = new \Think\Model();
+       $sql_block = 'SELECT image_pc,block_title,block_body,block_link_title FROM lovgarden_block WHERE page_link = "/product/select_list"';
+       $block = $model->query($sql_block);
+       
+       $product_model = D('Admin/ProductVarient');
+       $where = array();
+       $where['product.varient_status'] = array('EQ','1');
+       $order = 'product.sku_id asc';
+       $product_varients = '';
+       $product_varients = $product_model->alias('product')
+                           ->join('LEFT JOIN lovgarden_product_varient_images AS images ON product.id = images.product_varient_id')
+                           ->join('LEFT JOIN lovgarden_product_varient_hurry_level AS hurrylevelid ON product.id = hurrylevelid.product_varient_id')
+                           ->join('LEFT JOIN lovgarden_hurry_level AS hurrylevel ON hurrylevelid.hurry_level_id = hurrylevel.id')
+                           ->join('LEFT JOIN lovgarden_product_varient_flower_type AS flowertypeid ON product.id = flowertypeid.product_varient_id')
+                           ->join('LEFT JOIN lovgarden_flower_type AS flowertype ON flowertypeid.flower_type_id = flowertype.id')
+                           ->join('LEFT JOIN lovgarden_product_varient_flower_occasion AS floweroccasionid ON product.id = floweroccasionid.product_varient_id')
+                           ->join('LEFT JOIN lovgarden_flower_occasion AS floweroccasion ON floweroccasionid.flower_occasion_id = floweroccasion.id')
+                           ->join('LEFT JOIN lovgarden_product_varient_flower_color AS flowercolorid ON product.id = flowercolorid.product_varient_id')
+                           ->join('LEFT JOIN lovgarden_flower_color AS flowercolor ON flowercolorid.flower_color_id = flowercolor.id')
+                           ->field('product.id , product.sku_id , product.varient_name , product.varient_summary , product.varient_price , images.`image_url` , hurrylevelid.hurry_level_id , hurrylevel.hurry_level,flowertypeid.flower_type_id,flowertype.flower_name,floweroccasionid.flower_occasion_id,floweroccasion.flower_occasion,flowercolorid.flower_color_id,flowercolor.flower_color')
+                           ->where($where)
+                           ->order($order)
+                           ->select(); 
+       $product_varients_info = translate_database_result_to_logic_array($product_varients,array('image_url','hurry_level_id','hurry_level','flower_type_id','flower_name','flower_occasion_id','flower_occasion','flower_color_id','flower_color'),'sku_id');
+       $sql = 'select id, hurry_level from lovgarden_hurry_level';
+       $hurry_level_original = $model->query($sql);
+       $hurry_level_original = translate_database_result_to_logic_array($hurry_level_original,array(),'id');
+       $sql = 'select id, flower_name from lovgarden_flower_type';
+       $flower_type_original = $model->query($sql);
+       $flower_type_original = translate_database_result_to_logic_array($flower_type_original,array(),'id');
+       $sql = 'select id, flower_occasion from lovgarden_flower_occasion';
+       $flower_occasion_original = $model->query($sql);
+       $flower_occasion_original = translate_database_result_to_logic_array($flower_occasion_original,array(),'id');
+       $sql = 'select id, flower_color from lovgarden_flower_color';
+       $flower_color_original = $model->query($sql);
+       $flower_color_original = translate_database_result_to_logic_array($flower_color_original,array(),'id'); 
+       echo json_encode(array(
+            'products' => $product_varients_info,
+            'hurry_level' => $hurry_level_original,
+            'flower_type' => $flower_type_original,
+            'flower_occasion' => $flower_occasion_original,
+            'flower_color' => $flower_color_original
+       ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE); 
+   }
 }
