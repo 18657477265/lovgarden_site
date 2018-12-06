@@ -29,13 +29,37 @@ class ProductController extends RestController {
        ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
    }  
    public function select_list() {
+       $where = array();
+       if(!empty($_GET['filters'])){
+            //echo "<pre>";
+            //print_r(array(5,6));
+            //print_r(json_decode($_GET['filters']));
+            //echo "</pre>";
+            $filters_object = json_decode($_GET['filters']);
+            if(!empty($filters_object->hurry_level)){
+               $where['hurrylevel.id'] = array('IN', $filters_object->hurry_level);
+            }
+            if(!empty($filters_object->flower_type)){
+               $where['flowertype.id'] = array('IN', $filters_object->flower_type);
+            }
+            if(!empty($filters_object->flower_occasion)){
+               $where['floweroccasion.id'] = array('IN', $filters_object->flower_occasion);
+            }
+            if(!empty($filters_object->flower_color)){
+               $where['flowercolor.id'] = array('IN', $filters_object->flower_color);
+            }
+       }
        $model = new \Think\Model();
        $sql_block = 'SELECT image_pc,block_title,block_body,block_link_title FROM lovgarden_block WHERE page_link = "/product/select_list"';
        $block = $model->query($sql_block);
        
        $product_model = D('Admin/ProductVarient');
-       $where = array();
+       //$where = array();
        $where['product.varient_status'] = array('EQ','1');
+       //echo "<pre>";
+       //print_r($where);
+       //echo "</pre>";
+       //exit();
        $order = 'product.sku_id asc';
        $product_varients = '';
        $product_varients = $product_model->alias('product')
@@ -66,6 +90,7 @@ class ProductController extends RestController {
        $flower_color_original = $model->query($sql);
        $flower_color_original = translate_database_result_to_logic_array($flower_color_original,array(),'id'); 
        echo json_encode(array(
+            'block' => $block[0],
             'products' => $product_varients_info,
             'hurry_level' => $hurry_level_original,
             'flower_type' => $flower_type_original,
