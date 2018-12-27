@@ -15,13 +15,14 @@ class LoginController extends RestController {
        $session_key = $arr['session_key'];
        //根据openID创建一个微信用户
        //将session_key保存到缓存中,以便小程序检查登录状态
-       $login_code = md5($openid.$session_key);
-       $wx_user = D('Wxuser');      
-       if($wx_user->add_wxuser($openid)) {
+       $login_code = 'Login Error';
+       if(!empty($session_key) && !empty($openid)) {
            $mem_cache = new Memcache();
            $mem_cache->set($login_code, $session_key, 3600);
+           $login_code = md5($openid.$session_key);
+           $wx_user = D('Wxuser');      
+           $wx_user->add_wxuser($openid);
        }
-       //echo json_encode($arr);
        echo json_encode(array(
             'loginInfo' => $login_code
        ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);

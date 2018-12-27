@@ -7,7 +7,9 @@ class WxuserModel extends Model
     //调用时候create方法允许接受的字段
     protected $insertFields = 'open_id,telephone';
     protected $updateFields = 'open_id,telephone,wxuser_status';
-    
+    protected $_validate = array(
+        array('open_id', '', 'exist', 1, 'unique', 1),
+    );
     function add_wxuser($open_id,$telephone = '') {
         $data = array();
         $data['open_id'] = $open_id;
