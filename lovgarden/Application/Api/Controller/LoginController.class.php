@@ -13,10 +13,21 @@ class LoginController extends RestController {
        $arr = get_object_vars($json);//返回一个数组。获取$json对象中的属性，组成一个数组
        $openid = $arr['openid'];
        $session_key = $arr['session_key'];
+       //根据openID创建一个微信用户
+       //将session_key保存到缓存中,以便小程序检查登录状态
+       $login_code = md5($openid.$session_key);
+       $wx_user = D('Wxuser');      
+       if($wx_user->add_wxuser($openid)) {
+           $mem_cache = new Memcache();
+           $mem_cache->set($login_code, $session_key, 3600);
+       }
        //echo json_encode($arr);
        echo json_encode(array(
-            'loginInfo' => $arr
+            'loginInfo' => $login_code
        ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
        //return $this->result(0, 'success', $session_key);//返回给前台一个sess
-   }  
+   }
+   public function checkMiniProgramLoginStatus() {
+       
+   }
 }
