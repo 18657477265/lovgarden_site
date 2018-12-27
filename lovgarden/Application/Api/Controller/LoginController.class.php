@@ -18,15 +18,13 @@ class LoginController extends RestController {
        $login_code = 'Login Error';
        $mem_cache = new Memcache();
        if(!empty($session_key) && !empty($openid)) {
-           $mem_cache->set($login_code, $session_key, 3600);
            $login_code = md5($openid.$session_key);
+           $mem_cache->set($login_code, $session_key, 3600);
            $wx_user = D('Wxuser');      
            $wx_user->add_wxuser($openid);
        }
        echo json_encode(array(
-            'loginInfo' => $login_code,
-            'session' => $session_key,
-            'cache'=>  $mem_cache->get($login_code)
+            'loginInfo' => $login_code
        ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
        //return $this->result(0, 'success', $session_key);//返回给前台一个sess
    }
