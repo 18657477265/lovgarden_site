@@ -2,6 +2,7 @@
 namespace Api\Controller;
 use Think\Controller\RestController;
 use Think\Cache\Driver\Memcache;
+use Org\Util\SendCustomCode;
 class LoginController extends RestController {
    public function miniProgramlogin() {
        $appid = 'wxd7561da4052911c3';
@@ -19,7 +20,7 @@ class LoginController extends RestController {
        $mem_cache = new Memcache();
        if(!empty($session_key) && !empty($openid)) {
            $login_code = md5($openid.$session_key);
-           $mem_cache->set($login_code, $session_key, 3600);
+           $mem_cache->set($login_code, $openid, 3600);
            $wx_user = D('Wxuser');      
            $wx_user->add_wxuser($openid);
        }
@@ -40,5 +41,27 @@ class LoginController extends RestController {
        echo json_encode(array(
               'loginStatus' => $login_status
        ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);       
+   }
+   public function miniProgramSendMessage($telephone = '',$login_code = '') {
+       $error_code = 404;
+       if(!empty($telephone) && !empty($login_code)){
+         $mem_code = new Memcache();
+         //确保是登录状态,否则不发短信
+         $open_id = $mem_code->get($login_code);
+         if(!empty($open_id)) {
+            $param = str_pad(mt_rand(0, 999999), 6, "0", STR_PAD_BOTH);              
+            set_time_limit(0);          
+            $response = SendCustomCode::sendSms($telephone,$param);
+            //将数据存入memcache,并设置30分钟后过期
+            $mem_code->set($telephone, $param, 1800);
+            $error_code = 200;
+         }
+         else {
+            $error_code = 403;
+         }
+       }
+       echo json_encode(array(
+              'error_code' => $error_code
+       ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);         
    }
 }
