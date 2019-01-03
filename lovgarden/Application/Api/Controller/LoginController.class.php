@@ -76,6 +76,8 @@ class LoginController extends RestController {
                $result = $wxuser->update_wxuser($open_id,$telephone);
                if($result){
                    $error_code = 200;
+                   //删除缓存数据
+                   $memory->rm($telephone);
                }
            }
        }
