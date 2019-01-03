@@ -64,4 +64,23 @@ class LoginController extends RestController {
               'error_code' => $error_code
        ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);         
    }
+   public function miniProgramVerifyCode($telephone = '',$login_code = '',$code = '') {
+       $error_code = '404';
+       $memory = new Memcache();
+       if(!empty($telephone) && !empty($login_code) && !empty($code)) {
+           $open_id = $memory->get($login_code);
+           $mem_code = $memory->get($telephone);
+           if(!empty($open_id) && $mem_code == $code) {
+               //说明处于登录状态并且输入的验证码是正确的,将电话号码绑定到数据库中
+               $wxuser = D("Wxuser");
+               $result = $wxuser->update_wxuser($open_id,$telephone);
+               if($result){
+                   $error_code = 200;
+               }
+           }
+       }
+       echo json_encode(array(
+              'error_code' => $error_code
+       ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);          
+   }
 }

@@ -24,19 +24,17 @@ class WxuserModel extends Model
         return FALSE;
     }
 
-    function update_article($open_id,$telephone = '') {
+    function update_wxuser($open_id,$telephone = '') {
         $data = array();
         $data['open_id'] = $open_id;
         $data['telephone'] = $telephone;
-
-        $save_data = $this->create($data);
-        if($save_data) {
-           $update_status = $this->where("open_id = $open_id")->save($save_data);
-           if($update_status !== FALSE) {
-                return TRUE;
-           }
+        $result = $this->where("open_id = $open_id")->save($data);
+        if($result !== FALSE) {
+            return true;
         }
-        return FALSE;
+        else {
+            return false;
+        }
     }
 }
 
