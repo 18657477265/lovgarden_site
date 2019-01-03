@@ -24,11 +24,12 @@ class WxuserModel extends Model
         return FALSE;
     }
 
-    function update_wxuser($open_id,$telephone = '') {
-        $data = array();
-        $data['open_id'] = $open_id;
-        $data['telephone'] = $telephone;
-        $result = $this->where("open_id = $open_id")->save($data);
+    function update_wxuser($open_id = '0',$telephone = '0') {
+        //$data = array();
+        //$data['open_id'] = $open_id;
+        //$data['telephone'] = $telephone;
+        $sql = "update lovgarden_wxuser set telephone = '".$telephone."' where open_id = '".$open_id."'";
+        $result = $this->execute($sql);
         if($result !== FALSE) {
             return true;
         }
