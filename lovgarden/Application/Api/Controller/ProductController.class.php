@@ -102,9 +102,11 @@ class ProductController extends RestController {
    public function getProductsInfo($sku_ids) {
         $model = new \Think\Model();
         $sku_ids = I('get.sku_ids');
+        //echo $sku_ids;
+        //exit();
         if(!empty($sku_ids)) {
             //根据传入的sku_id通过算法获取该sku_id的相关产品信息，并传到页面中去
-            $sku_ids = implode(',', $sku_ids);       
+            //$sku_ids = implode(',', $sku_ids);       
             $sql = "SELECT a.id,a.sku_id,a.varient_name,a.varient_summary,a.varient_body,a.varient_status,a.varient_price,a.decoration_level,a.vase,b.`image_url`,c.`flower_home_id`,d.`hurry_level_id` FROM lovgarden_product_varient AS a
                     LEFT JOIN lovgarden_product_varient_images AS b ON a.`id`=b.`product_varient_id`
                     LEFT JOIN lovgarden_product_varient_flower_home AS c ON a.`id`=c.`product_varient_id`
