@@ -97,7 +97,7 @@ class HelperModel
           $alipaySevice = new CustomAliPay();
        }
        return $alipaySevice->lovgarden_notify_url($arr);
-    }
+    }  
 }
 
 

@@ -107,9 +107,10 @@ class ProductController extends RestController {
         if(!empty($sku_ids)) {
             //根据传入的sku_id通过算法获取该sku_id的相关产品信息，并传到页面中去
             //$sku_ids = implode(',', $sku_ids);       
-            $sql = "SELECT a.id,a.sku_id,a.varient_name,a.varient_summary,a.varient_body,a.varient_status,a.varient_price,a.decoration_level,a.vase,b.`image_url`,c.`flower_home_id`,d.`hurry_level_id` FROM lovgarden_product_varient AS a
+            $sql = "SELECT a.id,a.sku_id,a.varient_name,a.varient_summary,a.varient_body,a.varient_status,a.varient_price,a.decoration_level,a.vase,b.`image_url`,c.`flower_home_id`,d.`hurry_level_id`,e.`flower_home` FROM lovgarden_product_varient AS a
                     LEFT JOIN lovgarden_product_varient_images AS b ON a.`id`=b.`product_varient_id`
                     LEFT JOIN lovgarden_product_varient_flower_home AS c ON a.`id`=c.`product_varient_id`
+                    LEFT JOIN lovgarden_flower_home AS e ON c.`flower_home_id`= e.`id`
                     LEFT JOIN lovgarden_product_varient_hurry_level AS d ON a.`id`=d.`product_varient_id`
                     WHERE a.`sku_id` IN ($sku_ids) ;";
 
