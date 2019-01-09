@@ -115,7 +115,7 @@ class ProductController extends RestController {
                     WHERE a.`sku_id` IN ($sku_ids) ;";
 
             $result_rows = $model->query($sql);
-            $multiple_fileds_array = array('image_url','flower_home_id','hurry_level_id');    
+            $multiple_fileds_array = array('image_url','flower_home_id','hurry_level_id','flower_home');  
             $result_rows_array = translate_database_result_to_logic_array($result_rows,$multiple_fileds_array,'sku_id');
         }
        echo json_encode(array(
