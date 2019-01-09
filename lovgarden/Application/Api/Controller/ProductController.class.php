@@ -99,4 +99,24 @@ class ProductController extends RestController {
             'flower_color' => $flower_color_original
        ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE); 
    }
+   public function getProductsInfo($sku_ids) {
+        $model = new \Think\Model();
+        $sku_ids = I('get.sku_ids');
+        if(!empty($sku_ids)) {
+            //根据传入的sku_id通过算法获取该sku_id的相关产品信息，并传到页面中去
+            $sku_ids = implode(',', $sku_ids);       
+            $sql = "SELECT a.id,a.sku_id,a.varient_name,a.varient_summary,a.varient_body,a.varient_status,a.varient_price,a.decoration_level,a.vase,b.`image_url`,c.`flower_home_id`,d.`hurry_level_id` FROM lovgarden_product_varient AS a
+                    LEFT JOIN lovgarden_product_varient_images AS b ON a.`id`=b.`product_varient_id`
+                    LEFT JOIN lovgarden_product_varient_flower_home AS c ON a.`id`=c.`product_varient_id`
+                    LEFT JOIN lovgarden_product_varient_hurry_level AS d ON a.`id`=d.`product_varient_id`
+                    WHERE a.`sku_id` IN ($sku_ids) ;";
+
+            $result_rows = $model->query($sql);
+            $multiple_fileds_array = array('image_url','flower_home_id','hurry_level_id');    
+            $result_rows_array = translate_database_result_to_logic_array($result_rows,$multiple_fileds_array,'sku_id');
+        }
+       echo json_encode(array(
+            'products' => $result_rows_array,
+       ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
+   }
 }
