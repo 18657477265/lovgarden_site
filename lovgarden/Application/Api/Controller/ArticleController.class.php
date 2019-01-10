@@ -24,5 +24,14 @@ class ArticleController extends RestController {
             'products' => $products
        ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
    }
-   
+   public function getArticles($ids) {
+       $articleModel = D('Article');
+       $where['article_publish'] = array('EQ','1');
+       $where['article_category'] = array('EQ','9');
+       $where['id'] = array('IN',$ids);
+       $articles = $articleModel->field('id,article_title,article_summary,article_body,article_category,banner_image,related_article_ids')->where($where)->select();
+       echo json_encode(array(
+           'articles'=> $articles
+       ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
+   }
 }
