@@ -30,6 +30,7 @@ class ArticleController extends RestController {
        $where['article_category'] = array('EQ','9');
        $where['id'] = array('IN',$ids);
        $articles = $articleModel->field('id,article_title,article_summary,article_category,banner_image')->where($where)->select();
+       $articles = translate_database_result_to_logic_array($articles,array(),'id');
        echo json_encode(array(
            'articles'=> $articles
        ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
