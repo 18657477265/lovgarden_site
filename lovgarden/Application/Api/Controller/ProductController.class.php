@@ -122,4 +122,69 @@ class ProductController extends RestController {
             'products' => $result_rows_array,
        ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
    }
+   public function getProductsAndArticles($all_ids = '') {
+       $viewed_objects = array();
+       if(!empty($all_ids)) {
+         $all_ids = implode(',', $all_ids);
+         $product_pattern = "^\d{5,8}$";
+         $article_pattern = "^\d{2,3}$";
+         
+         $mem_cache = new Memcache();
+         $all_articles = $mem_cache->get("AllArticles");
+         $all_products = $mem_cache->get("AllProducts");
+         
+         if(empty($all_articles) || empty($all_products)) {       
+           $model = new \Think\Model();
+           $product_sql = "SELECT a.id,a.sku_id,a.varient_name,a.varient_summary,a.varient_body,a.varient_status,a.varient_price,a.decoration_level,a.vase,b.`image_url`,c.`flower_home_id`,d.`hurry_level_id`,e.`flower_home` FROM lovgarden_product_varient AS a
+                 LEFT JOIN lovgarden_product_varient_images AS b ON a.`id`=b.`product_varient_id`
+                 LEFT JOIN lovgarden_product_varient_flower_home AS c ON a.`id`=c.`product_varient_id`
+                 LEFT JOIN lovgarden_flower_home AS e ON c.`flower_home_id`= e.`id`
+                 LEFT JOIN lovgarden_product_varient_hurry_level AS d ON a.`id`=d.`product_varient_id`
+               ;";
+           $result_rows = $model->query($product_sql);
+           $multiple_fileds_array = array('image_url','flower_home_id','hurry_level_id','flower_home');
+           $all_products = translate_database_result_to_logic_array($result_rows,$multiple_fileds_array,'sku_id');
+         
+           $articleModel = D('Article');
+           $where['article_publish'] = array('EQ','1');
+           $where['article_category'] = array('EQ','9');
+           $articles_array = $articleModel->field('id,article_title,article_summary,article_category,banner_image')->where($where)->select();
+           $all_articles = translate_database_result_to_logic_array($articles_array,array(),'id');
+         
+           //将数据存入缓存
+           $mem_cache->set('AllProducts',$all_products,86400);
+           $mem_cache->set('AllArticles',$all_articles,86400);
+         }
+         $products = array();
+         $articles = array();
+         
+         //收集articles
+         foreach ($all_articles as $item_id => $item_article ) {
+             if(in_array($item_id, $all_ids)) {
+                 $articles[$item_id] = $item_article;
+             }
+         }
+         //收集products
+         foreach ($all_products as $item_sku_id => $item_product) {
+             if(in_array($item_sku_id, $all_ids)) {
+                 $products[$item_sku_id] = $item_product;
+             }
+         }
+         
+         //数据排序整理
+         foreach ($all_ids as $value) {
+             if(preg_match($product_pattern, $value)) {
+                 $viewed_objects[$value]["type"] = "product"; 
+                 $viewed_objects[$value]["object"] = $products[$value];
+             }
+             elseif(preg_match($article_pattern, $value)) {
+                 $viewed_objects[$value]["type"] = "article";
+                 $viewed_objects[$value]["object"] = $articles[$value];
+             }
+         }
+       }
+       echo json_encode(array(
+            'viewedObjects' => $viewed_objects,
+       ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);      
+   }
 }
