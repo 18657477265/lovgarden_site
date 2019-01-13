@@ -125,17 +125,15 @@ class ProductController extends RestController {
    public function getProductsAndArticles($all_ids = '') {
        $viewed_objects = array();
        if(!empty($all_ids)) {
-         $all_ids = implode(',', $all_ids);
-         $product_pattern = "^\d{5,8}$";
-         $article_pattern = "^\d{2,3}$";
-         
+         $all_ids = explode(',', $all_ids);
+         $product_pattern = '/^\d{6,7}$/';
+         $article_pattern = '/^\d{2,3}$/';
          $mem_cache = new Memcache();
          $all_articles = $mem_cache->get("AllArticles");
          $all_products = $mem_cache->get("AllProducts");
-         
          if(empty($all_articles) || empty($all_products)) {       
            $model = new \Think\Model();
-           $product_sql = "SELECT a.id,a.sku_id,a.varient_name,a.varient_summary,a.varient_body,a.varient_status,a.varient_price,a.decoration_level,a.vase,b.`image_url`,c.`flower_home_id`,d.`hurry_level_id`,e.`flower_home` FROM lovgarden_product_varient AS a
+           $product_sql = "SELECT a.id,a.sku_id,a.varient_name,a.varient_summary,a.varient_status,a.varient_price,a.decoration_level,a.vase,b.`image_url`,c.`flower_home_id`,d.`hurry_level_id`,e.`flower_home` FROM lovgarden_product_varient AS a
                  LEFT JOIN lovgarden_product_varient_images AS b ON a.`id`=b.`product_varient_id`
                  LEFT JOIN lovgarden_product_varient_flower_home AS c ON a.`id`=c.`product_varient_id`
                  LEFT JOIN lovgarden_flower_home AS e ON c.`flower_home_id`= e.`id`
@@ -170,7 +168,6 @@ class ProductController extends RestController {
                  $products[$item_sku_id] = $item_product;
              }
          }
-         
          //数据排序整理
          foreach ($all_ids as $value) {
              if(preg_match($product_pattern, $value)) {
