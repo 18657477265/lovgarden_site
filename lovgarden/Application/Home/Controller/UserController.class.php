@@ -310,7 +310,7 @@ class UserController extends Controller {
         $order_status = $mem_post->get($_POST['out_trade_no']);
         //file_put_contents('/a.txt','-'.$_POST['out_trade_no'].$order_status.'-',FILE_APPEND);
         if($order_status == 'success') {
-            echo "success";
+            echo 'success';
             exit();
         }
         $helper = D('Helper');
