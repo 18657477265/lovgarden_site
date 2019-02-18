@@ -22,7 +22,7 @@ class CouponController extends RestController {
        $user_condition = 0; //0 原始状态 1 条件满足  2条件不满足
        $user_telephone = $telephone;
        $coupon_expire = 1;//0没有过期,1过期
-       
+  
        //检查是否登录
        if(!empty($login_ip)){
            $mem_cache = new Memcache();
@@ -41,13 +41,11 @@ class CouponController extends RestController {
        if(!empty($data)) {
            $coupon_expire = 0;
        }
-       
        //当用户处于登录状态,电话号码存在,并且该优惠券也没过期的情况下
        if($login_status == 200 && $user_telephone != 0 && $coupon_expire == 0) {
            $sql = "SELECT * FROM lovgarden_coupon_condition WHERE coupon_id = $coupon_id";
            //$model = new \Think\Model();
            $data = $model->query($sql);
-
            if(!empty($data)) {
              $condition_user_points = $data[0]["user_points"];
              $condition_pay_cost = $data[0]["pay_cost"];
@@ -64,12 +62,12 @@ class CouponController extends RestController {
            }
            //在满足领取优惠券的条件下查看用户是否已经有了优惠券
            if($user_condition == '1') {
-               $sql2 = "SELECT id FROM lovgarden_user_coupon WHERE open_id = $open_id and coupon_id = $coupon_id" ;
+               $sql2 = "SELECT id FROM lovgarden_user_coupon WHERE open_id = '".$open_id."' and coupon_id = '".$coupon_id."'" ;
                $coupon_user_exist = $model->query($sql2);
                if(empty($coupon_user_exist)) {
                    //说明该用户可以领取这个优惠券,需要插入数据
                    //这里处理代码
-                   $sql_insert = "INSERT INTO lovgarden_user_coupon (coupon_id,user_telephone,open_id) VALUES ($coupon_id,$telephone,$open_id)";
+                   $sql_insert = "INSERT INTO lovgarden_user_coupon (coupon_id,user_telephone,open_id) VALUES ('$coupon_id','$telephone','$open_id')";
                    $model_execute = new \Think\Model();
                    $data_insert = $model_execute->execute($sql_insert);
                    if(data_insert) {
