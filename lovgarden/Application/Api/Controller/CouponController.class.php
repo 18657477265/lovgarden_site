@@ -105,7 +105,7 @@ class CouponController extends RestController {
            }
        }
        if($login_status == 200) {
-           $sql = "SELECT * FROM lovgarden_user_coupon WHERE open_id = $open_id";
+           $sql = "SELECT * FROM lovgarden_user_coupon WHERE open_id = '$open_id'";
            $model = new \Think\Model();
            $data = $model->query($sql);
            if(!empty($data)) {
