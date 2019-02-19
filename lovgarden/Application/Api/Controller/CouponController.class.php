@@ -106,7 +106,7 @@ class CouponController extends RestController {
        }
        if($login_status == 200) {
            //$sql = "SELECT * FROM lovgarden_user_coupon WHERE open_id = '$open_id'";
-           $sql = "SELECT a.coupon_id , a.user_telephone , a.coupon_status , b.coupon_value , b.deadline , b.coupon_image , b.coupon_choose_image , b.coupon_expire_image FROM lovgarden_user_coupon AS a LEFT JOIN lovgarden_coupon AS b ON a.coupon_id = b.coupon_id  WHERE open_id = '$open_id'";
+           $sql = "SELECT a.coupon_id , a.user_telephone , a.coupon_status , b.coupon_value , b.deadline , b.coupon_image , b.coupon_choose_image , b.coupon_expire_image , b.coupon_use_image FROM lovgarden_user_coupon AS a LEFT JOIN lovgarden_coupon AS b ON a.coupon_id = b.coupon_id  WHERE open_id = '$open_id'";
            $model = new \Think\Model();
            $data = $model->query($sql);
            if(!empty($data)) {
