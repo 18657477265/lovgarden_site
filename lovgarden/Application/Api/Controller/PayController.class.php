@@ -4,39 +4,14 @@ use Think\Controller\RestController;
 use Think\Cache\Driver\Memcache;
 class PayController extends RestController {
    public function create_wx_order() {
-               
-         //echo "<pre>";
-         //print_r($_GET['sku_ids']);
-         //echo "</pre>";
-         //exit();
-         
+         $error_message = '';
+         $error_message_content = '';
          $login_ip = I('get.login_ip');
-         //$sku_ids = I('get.sku_ids');
          $sku_ids = json_decode($_GET['sku_ids']);
-         //$sku_ids = json_decode($sku_ids);
-         //echo "<pre>";
-         //print_r($sku_ids[0]->deliver_time);
-         //echo "</pre>";
-         //exit();
          $vase_count = I('get.vase_count');
          $coupon_code = I('get.coupon_code');
          $mem_cache = new Memcache();
          $login_exist = $mem_cache->get($login_ip);
-         /*$login_exist = 1;
-         $sku_ids = array(
-           0 => array(
-               'sku_id'=>'180011',
-               'count' => 1,
-               'vase_option' => '2',//2不包含花瓶
-               'deliver_time' => '2019-05-09 23:59:58'
-           ),
-           1 => array(
-               'sku_id'=>'180022',
-               'count'=>2,
-               'vase_option' => '1',
-               'deliver_time' => '2019-05-09 23:59:58'
-           )
-         );*/
          $sku_ids_str = '';
          $count = 0;
          $sku_ids_count = count($sku_ids);
@@ -59,7 +34,7 @@ class PayController extends RestController {
                  $result_rows_array[$v->sku_id]['vase']=$v->vase_option;
                  $result_rows_array[$v->sku_id]['deliver_time']=$v->deliver_time;
              }
-             $error_message = '';
+             //$error_message = '';
              $order_products_info = $result_rows_array;
              $costs = wx_calculate_cost($order_products_info,20,$coupon_code,$vase_count);                   
              $order_info = array(
@@ -85,8 +60,6 @@ class PayController extends RestController {
         
              $order_model = D('Order');
              $validate_status = $order_model->create($order_info);
-             //print_r($validate_status);
-             //exit();
              if($validate_status){
                  $order_model->startTrans();
                  $order_id = $order_model->add($validate_status);
@@ -120,10 +93,18 @@ class PayController extends RestController {
                     }
                  }
              }
+             else {
+                 $error_message = '404';
+                 $error_message_content = $order_model->getError();
+             }
          }
-    echo json_encode(array(
-         'create_order' => '404'
-    ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
-    exit();        
+         else {
+             $error_message = '403';
+         }
+         echo json_encode(array(
+             'create_order' => $error_message,
+             'error_message_content' => $error_message_content
+         ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
+         exit();        
    }
 }
