@@ -52,7 +52,7 @@ class OrderController extends BaseController {
         $this->display('order_list');
     }
     public function detail($id) {
-        $sql = "SELECT o.id AS list_id, o.order_info_id,o.product_sku_id,o.vase_option,o.deliver_time,p.varient_name,p.varient_status,p.varient_price,img.image_url FROM lovgarden_order_product_varient AS o
+        $sql = "SELECT o.id AS list_id, o.order_info_id,o.product_sku_id,o.vase_option,o.deliver_time,o.items_count,p.varient_name,p.varient_status,p.varient_price,img.image_url FROM lovgarden_order_product_varient AS o
                 LEFT JOIN lovgarden_product_varient AS p ON o.product_sku_id = p.sku_id 
                 LEFT JOIN lovgarden_product_varient_images AS img ON p.id = img.product_varient_id WHERE o.order_original_id = '$id'";
         $model = new \Think\Model();

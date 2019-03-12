@@ -20,7 +20,7 @@
         <td><?php print $value['order_info_id'];  ?></td>
         <td class="center"><?php print $value['product_sku_id'];  ?></td>
         <td class="center"><img src="<?php echo C('IMAGE_CONFIG')['viewPath'].$value['image_url']['0']; ?>" width="50px" height="50px"/></td>
-        <td class="center"><?php print $value['varient_name'];  ?></td>
+        <td class="center"><?php print $value['varient_name'].'|'.$value['items_count'];  ?></td>
         <td class="center"><?php print $value['varient_price'];  ?></td>
         <td class="center"><?php print get_vase_label($value['vase_option']);  ?></td>
         <td class="center"><?php print date('Y-m-d',strtotime($value['deliver_time']));  ?></td>
