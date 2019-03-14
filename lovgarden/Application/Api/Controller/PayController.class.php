@@ -2,6 +2,7 @@
 namespace Api\Controller;
 use Think\Controller\RestController;
 use Think\Cache\Driver\Memcache;
+use Api\Model\WxpayModel;
 class PayController extends RestController {
    public function create_wx_order() {
          $error_message = '';
@@ -106,5 +107,17 @@ class PayController extends RestController {
              'error_message_content' => $error_message_content
          ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
          exit();        
+   }
+   public function wx_pay() {
+       $wx_pay_model = new WxpayModel('wxd7561da4052911c3', '1526072861', 'https://www.flowerideas.cn/api/pay/wx_notify', '9xtnukxfqwvid4it94ieu736lktnc3mu');
+       $params['body'] = '商品描述'; //商品描述
+       $params['out_trade_no'] = 'O20160617021323-001';
+       $params['total_fee'] = '100';
+       $params['trade_type'] = 'APP'; 
+       $result = $wx_pay_model->unifiedOrder( $params );
+       print_r($result);     
+   }
+   public function wx_notify(){
+       
    }
 }
