@@ -109,15 +109,16 @@ class PayController extends RestController {
          exit();        
    }
    public function wx_pay() {
-       $wx_pay_model = new WxpayModel('wxd7561da4052911c3', '1526072861', 'https://www.flowerideas.cn/api/pay/wx_notify', '9xtnukxfqwvid4it94ieu736lktnc3mu');
+       $wx_pay_model = new WxpayModel('wxd7561da4052911c3', '1526072861', 'https://www.flowerideas.cn/api/pay/wx_notify', '9xtnukxfqwvid4it94ieu736lktnc3mu','onPOZ5dswyfYGoSNF18xAfFoEBRg');
        $params['body'] = '商品描述'; //商品描述
        $params['out_trade_no'] = 'O20160617021323-001';
        $params['total_fee'] = '100';
-       $params['trade_type'] = 'APP'; 
+       $params['trade_type'] = 'JSAPI'; 
        $result = $wx_pay_model->unifiedOrder( $params );
        print_r($result);     
    }
    public function wx_notify(){
-       
+       echo 's';
+       exit();
    }
 }

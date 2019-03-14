@@ -35,16 +35,18 @@ class WxpayModel
     //支付密钥
     private $key;
     //证书路径
+    private $openid;
     private $SSLCERT_PATH;
     private $SSLKEY_PATH;
     //所有参数
     private $params = array();
     
-    public function __construct($appid, $mch_id, $notify_url, $key) {
+    public function __construct($appid, $mch_id, $notify_url, $key, $openid) {
        $this->appid = $appid;
        $this->mch_id = $mch_id;
        $this->notify_url = $notify_url;
        $this->key = $key;
+       $this->openid = $openid;
     }
    /**
    * 下单方法
@@ -66,6 +68,7 @@ class WxpayModel
        $this->params['spbill_create_ip'] = $this->spbill_create_ip;
        $this->params['notify_url'] = $this->notify_url;
        $this->params['trade_type'] = $this->trade_type;
+       $this->params['openid'] = $this->openid;
        //获取签名数据
        $this->sign = $this->MakeSign( $this->params );
        $this->params['sign'] = $this->sign;
