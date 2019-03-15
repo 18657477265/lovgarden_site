@@ -87,7 +87,19 @@ class PayController extends RestController {
                     }                 
                     if($final_status) {
                        $order_model->commit();
+                       //创建微信支付预订单
+                       $wx_pay_model = new WxpayModel('wxd7561da4052911c3', '1526072861', 'https://www.flowerideas.cn/api/pay/wx_notify', '9xtnukxfqwvid4it94ieu736lktnc3mu',$login_exist);
+                       $params['body'] = '花点馨思花卉商品';
+                       $params['out_trade_no'] = $order_info['order_id'];
+                       $params['total_fee'] = $order_info['order_final_price'];
+                       $params['trade_type'] = 'JSAPI';
+                       $result = $wx_pay_model->unifiedOrder( $params );
+                       $data = array();
+                       if(!empty($result['prepay_id'])) {
+                           $data = $wx_pay_model->getPayParams($result['prepay_id']);                          
+                       }
                        echo json_encode(array(
+                          'data' => $data,
                           'create_order' => '200'
                        ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
                        exit();

@@ -272,6 +272,16 @@ class WxpayModel
       $data['sign'] = $this->MakeSign( $data ); 
       return $data;
     }
+    public function getPayParams( $prepayid ){
+      $data['appId'] = $this->appid;
+      //$data['partnerid'] = $this->mch_id;
+      $data['signType'] = 'MD5';
+      $data['package'] = 'prepay_id='.$prepayid;
+      $data['nonceStr'] = $this->genRandomString();
+      $data['timeStamp'] = time();
+      $data['paySign'] = $this->MakeSign( $data ); 
+      return $data;
+    }
 }
 
 
