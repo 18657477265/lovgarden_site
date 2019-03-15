@@ -758,5 +758,15 @@ function getIP() {
     unset ( $cips ); 
     return $cip; 
 }
-
+//Translate xml data to array
+function translate_xml_to_data($xml){ 
+    if(!$xml){
+        return false;
+    }
+    //将XML转为array
+    //禁止引用外部xml实体
+    libxml_disable_entity_loader(true);
+    $data = json_decode(json_encode(simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA)), true); 
+    return $data;
+}
 

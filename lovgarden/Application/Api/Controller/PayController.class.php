@@ -130,7 +130,18 @@ class PayController extends RestController {
        print_r($result);     
    }
    public function wx_notify(){
-       echo 's';
-       exit();
+       //$xml = $GLOBALS['HTTP_RAW_POST_DATA'];
+       $xml = file_get_contents("php://input");
+       $data = array();
+       if( empty($xml) ){
+           //file_put_contents('/b.txt', $xml, FILE_APPEND);
+           return false;
+       }
+       $data = translate_xml_to_data( $xml );
+       //return $data;
+       file_put_contents('/b.txt', serialize($data).'----------', FILE_APPEND);
+       echo "<xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>";
+       //echo 's';
+       //exit();
    }
 }
