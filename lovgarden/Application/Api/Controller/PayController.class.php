@@ -121,27 +121,57 @@ class PayController extends RestController {
          exit();        
    }
    public function wx_pay() {
-       $wx_pay_model = new WxpayModel('wxd7561da4052911c3', '1526072861', 'https://www.flowerideas.cn/api/pay/wx_notify', '9xtnukxfqwvid4it94ieu736lktnc3mu','onPOZ5dswyfYGoSNF18xAfFoEBRg');
-       $params['body'] = '商品描述'; //商品描述
-       $params['out_trade_no'] = 'O20160617021323-001';
-       $params['total_fee'] = '100';
-       $params['trade_type'] = 'JSAPI'; 
-       $result = $wx_pay_model->unifiedOrder( $params );
-       print_r($result);     
+       //$wx_pay_model = new WxpayModel('wxd7561da4052911c3', '1526072861', 'https://www.flowerideas.cn/api/pay/wx_notify', '9xtnukxfqwvid4it94ieu736lktnc3mu','onPOZ5dswyfYGoSNF18xAfFoEBRg');
+       //$params['body'] = '商品描述'; //商品描述
+       //$params['out_trade_no'] = 'O20160617021323-001';
+       //$params['total_fee'] = '100';
+       //$params['trade_type'] = 'JSAPI'; 
+       //$result = $wx_pay_model->unifiedOrder( $params );
+       $result = unserialize('a:16:{s:5:"appid";s:18:"wxd7561da4052911c3";s:9:"bank_type";s:3:"CFT";s:8:"cash_fee";s:3:"179";s:8:"fee_type";s:3:"CNY";s:12:"is_subscribe";s:1:"N";s:6:"mch_id";s:10:"1526072861";s:9:"nonce_str";s:32:"HoPEJG2piNffcUCTH1udK23wBkun7IxR";s:6:"openid";s:28:"onPOZ5dswyfYGoSNF18xAfFoEBRg";s:12:"out_trade_no";s:17:"19031517372733755";s:11:"result_code";s:7:"SUCCESS";s:11:"return_code";s:7:"SUCCESS";s:4:"sign";s:32:"CDFA6E304C20D4ABD467B3864F1C240F";s:8:"time_end";s:14:"20190315173731";s:9:"total_fee";s:3:"179";s:10:"trade_type";s:5:"JSAPI";s:14:"transaction_id";s:28:"4200000247201903152054578863";}');
+
+   
    }
    public function wx_notify(){
        //$xml = $GLOBALS['HTTP_RAW_POST_DATA'];
        $xml = file_get_contents("php://input");
-       $data = array();
+       //$data = array();
        if( empty($xml) ){
            //file_put_contents('/b.txt', $xml, FILE_APPEND);
            return false;
        }
-       $data = translate_xml_to_data( $xml );
-       //return $data;
-       file_put_contents('/b.txt', serialize($data).'----------', FILE_APPEND);
-       echo "<xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>";
-       //echo 's';
+       $result = translate_xml_to_data( $xml );
+ 
+       $get_sign = $result['sign'];
+       unset($result['sign']);
+       $string = '';
+       if( !empty($result) ){
+           $array = array();
+           foreach( $result as $key => $value ){
+             $array[] = $key.'='.$value;
+           }
+           $string = implode("&",$array);
+       }
+       $string = $string . "&key=".'9xtnukxfqwvid4it94ieu736lktnc3mu';
+       $string = md5($string);
+       $check_sign = strtoupper($string);
+       if($get_sign != $check_sign) {
+           return false;
+           exit();
+       }
+       $out_trade_no = $result['out_trade_no'];
+       $total_amount = $result['total_fee'];
+       $trade_no = $result['transaction_id'];
+       //file_put_contents('/b.txt', $out_trade_no.'---'.$total_amount.'---'.$trade_no, FILE_APPEND);
        //exit();
+       if(!empty($out_trade_no)){
+          $sql_pay = "UPDATE lovgarden_order SET out_trade_no = '$out_trade_no', total_amount = '$total_amount', trade_no = '$trade_no', order_status = '2' WHERE order_id = '$out_trade_no'";
+          //file_put_contents('/b.txt', '------'.$sql_pay, FILE_APPEND);
+          $data_model = D('Order');
+          $sql_result = $data_model->execute($sql_pay);
+          //file_put_contents('/b.txt', $sql_result, FILE_APPEND);
+          if($sql_result) {
+             echo "<xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>";
+          }
+       }
    }
 }

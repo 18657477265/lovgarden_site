@@ -44,7 +44,7 @@
          <ul class="result-filters__list">
            <?php foreach($filters_available['hurry_level'] as $k => $v): ?>
            <li>
-               <a class="filter-deliver-time-dropdown-a <?php if(in_array($k, $current_url_conditions['hurryLevel'])){ print 'filter-deliver-time-item-choosen'; } ?>" href="__SELF__/<?php print 'hurryLevel_'.$k.'/'.$k;  ?>"><?php print $v; ?></a>
+               <a rel="nofollow" class="filter-deliver-time-dropdown-a <?php if(in_array($k, $current_url_conditions['hurryLevel'])){ print 'filter-deliver-time-item-choosen'; } ?>" href="__SELF__/<?php print 'hurryLevel_'.$k.'/'.$k;  ?>"><?php print $v; ?></a>
            </li>
            <?php endforeach; ?>
          </ul>
@@ -58,7 +58,7 @@
              <?php foreach($filters_available['flower_type'] as $k => $v): ?>
              <?php if($index_flower_type%2 == 1): ?>
              <li class="flower-type-list-item">
-                <a class="<?php if(in_array($k, $current_url_conditions['flowerType'])){ print 'flower-type-list-item-choosen'; } ?>" href="__SELF__/<?php print 'flowerType_'.$k.'/'.$k;?>"><?php print $v; ?></a>
+                <a rel="nofollow" class="<?php if(in_array($k, $current_url_conditions['flowerType'])){ print 'flower-type-list-item-choosen'; } ?>" href="__SELF__/<?php print 'flowerType_'.$k.'/'.$k;?>"><?php print $v; ?></a>
              </li>
              <?php endif; ?>
              <?php $index_flower_type++; ?>
@@ -69,7 +69,7 @@
              <?php foreach($filters_available['flower_type'] as $k => $v): ?>
              <?php if($index_flower_type%2 == 0): ?>
              <li class="flower-type-list-item">
-                <a class="<?php if(in_array($k, $current_url_conditions['flowerType'])){ print 'flower-type-list-item-choosen'; } ?>" href="__SELF__/<?php print 'flowerType_'.$k.'/'.$k;?>"><?php print $v; ?></a>
+                <a rel="nofollow" class="<?php if(in_array($k, $current_url_conditions['flowerType'])){ print 'flower-type-list-item-choosen'; } ?>" href="__SELF__/<?php print 'flowerType_'.$k.'/'.$k;?>"><?php print $v; ?></a>
              </li>
              <?php endif; ?>
              <?php $index_flower_type++; ?>
@@ -85,7 +85,7 @@
              <?php foreach($filters_available['flower_occasion'] as $k => $v): ?>
              <?php if($index_flower_type%2 == 1): ?>
              <li class="flower-holiday-list-item">
-                <a class="<?php if(in_array($k, $current_url_conditions['flowerOccasion'])){ print 'flower-holiday-list-item-choosen'; } ?>" href="__SELF__/<?php print 'flowerOccasion_'.$k.'/'.$k;?>"><?php print $v; ?></a>
+                <a rel="nofollow" class="<?php if(in_array($k, $current_url_conditions['flowerOccasion'])){ print 'flower-holiday-list-item-choosen'; } ?>" href="__SELF__/<?php print 'flowerOccasion_'.$k.'/'.$k;?>"><?php print $v; ?></a>
              </li>
              <?php endif; ?>
              <?php $index_flower_type++; ?>
@@ -96,7 +96,7 @@
              <?php foreach($filters_available['flower_occasion'] as $k => $v): ?>
              <?php if($index_flower_type%2 == 0): ?>
              <li class="flower-holiday-list-item">
-                <a class="<?php if(in_array($k, $current_url_conditions['flowerOccasion'])){ print 'flower-holiday-list-item-choosen'; } ?>" href="__SELF__/<?php print 'flowerOccasion_'.$k.'/'.$k;?>"><?php print $v; ?></a>
+                <a rel="nofollow" class="<?php if(in_array($k, $current_url_conditions['flowerOccasion'])){ print 'flower-holiday-list-item-choosen'; } ?>" href="__SELF__/<?php print 'flowerOccasion_'.$k.'/'.$k;?>"><?php print $v; ?></a>
              </li>
              <?php endif; ?>
              <?php $index_flower_type++; ?>
@@ -112,7 +112,7 @@
              <?php foreach($filters_available['flower_color'] as $k => $v): ?>
              <?php if($index_flower_type%2 == 1): ?>
              <li class="flower-color-list-item">
-                <a class="<?php print get_css_class_color($k); ?>  <?php if(in_array($k, $current_url_conditions['flowerColor'])){ print 'flower-color-list-item-choosen'; } ?>" href="__SELF__/<?php print 'flowerColor_'.$k.'/'.$k;?>"><?php print $v; ?></a>
+                <a rel="nofollow" class="<?php print get_css_class_color($k); ?>  <?php if(in_array($k, $current_url_conditions['flowerColor'])){ print 'flower-color-list-item-choosen'; } ?>" href="__SELF__/<?php print 'flowerColor_'.$k.'/'.$k;?>"><?php print $v; ?></a>
              </li>
              <?php endif; ?>
              <?php $index_flower_type++; ?>
@@ -123,7 +123,7 @@
              <?php foreach($filters_available['flower_color'] as $k => $v): ?>
              <?php if($index_flower_type%2 == 0): ?>
              <li class="flower-color-list-item">
-                <a class="<?php print get_css_class_color($k); ?>  <?php if(in_array($k, $current_url_conditions['flowerColor'])){ print 'flower-color-list-item-choosen'; } ?>" href="__SELF__/<?php print 'flowerColor_'.$k.'/'.$k;?>"><?php print $v; ?></a>
+                <a rel="nofollow" class="<?php print get_css_class_color($k); ?>  <?php if(in_array($k, $current_url_conditions['flowerColor'])){ print 'flower-color-list-item-choosen'; } ?>" href="__SELF__/<?php print 'flowerColor_'.$k.'/'.$k;?>"><?php print $v; ?></a>
              </li>
              <?php endif; ?>
              <?php $index_flower_type++; ?>
@@ -140,13 +140,13 @@
        <div class="input-choice order-list">
          <ul class="result-filters__list">
            <li>
-             <a class="filter-deliver-time-dropdown-a" href="#">热销</a>
+             <a rel="nofollow" class="filter-deliver-time-dropdown-a" href="#">热销</a>
            </li>
            <li>
-             <a class="filter-deliver-time-dropdown-a filter-deliver-time-item-choosen" href="#">价格</a>
+             <a rel="nofollow" class="filter-deliver-time-dropdown-a filter-deliver-time-item-choosen" href="#">价格</a>
            </li>
            <li>
-             <a class="filter-deliver-time-dropdown-a" href="#">最新款</a>
+             <a rel="nofollow" class="filter-deliver-time-dropdown-a" href="#">最新款</a>
            </li>
          </ul>
        </div>
@@ -226,7 +226,7 @@
 	    <ul class="filter-mobile-popup-delivertime-choice">
                 <?php foreach($filters_available['hurry_level'] as $k => $v): ?>
                 <li class="col-sm-6 col-xs-6">
-                    <a class="<?php if(in_array($k, $current_url_conditions['hurryLevel'])){ print 'mobile-tablet-filter-choosen'; } ?>" href="__SELF__/<?php print 'hurryLevel_'.$k.'/'.$k;  ?>"><?php print $v; ?></a>
+                    <a rel="nofollow" class="<?php if(in_array($k, $current_url_conditions['hurryLevel'])){ print 'mobile-tablet-filter-choosen'; } ?>" href="__SELF__/<?php print 'hurryLevel_'.$k.'/'.$k;  ?>"><?php print $v; ?></a>
                 </li>
                 <?php endforeach; ?>
 	    </ul>
@@ -234,7 +234,7 @@
 	    <ul class="filter-mobile-popup-flowertype-choice">                            
              <?php foreach($filters_available['flower_type'] as $k => $v): ?>            
              <li class="col-sm-6 col-xs-6">
-                <a class="<?php if(in_array($k, $current_url_conditions['flowerType'])){ print 'mobile-tablet-filter-choosen'; } ?>" href="__SELF__/<?php print 'flowerType_'.$k.'/'.$k;?>"><?php print $v; ?></a>
+                <a rel="nofollow" class="<?php if(in_array($k, $current_url_conditions['flowerType'])){ print 'mobile-tablet-filter-choosen'; } ?>" href="__SELF__/<?php print 'flowerType_'.$k.'/'.$k;?>"><?php print $v; ?></a>
              </li>             
              <?php endforeach; ?>     	     
 	    </ul>
@@ -242,7 +242,7 @@
 	    <ul class="filter-mobile-popup-occasion-choice">             
              <?php foreach($filters_available['flower_occasion'] as $k => $v): ?>            
              <li class="col-sm-6 col-xs-6">
-                <a class="<?php if(in_array($k, $current_url_conditions['flowerOccasion'])){ print 'mobile-tablet-filter-choosen'; } ?>" href="__SELF__/<?php print 'flowerOccasion_'.$k.'/'.$k;?>"><?php print $v; ?></a>
+                <a rel="nofollow" class="<?php if(in_array($k, $current_url_conditions['flowerOccasion'])){ print 'mobile-tablet-filter-choosen'; } ?>" href="__SELF__/<?php print 'flowerOccasion_'.$k.'/'.$k;?>"><?php print $v; ?></a>
              </li>            
              <?php endforeach; ?>
 	    </ul>
@@ -250,15 +250,15 @@
 	    <ul class="filter-mobile-popup-flower-color-choice">               
              <?php foreach($filters_available['flower_color'] as $k => $v): ?>            
              <li class="col-sm-6 col-xs-6">
-                <a class="<?php print get_css_class_color($k); ?>  <?php if(in_array($k, $current_url_conditions['flowerColor'])){ print 'mobile-tablet-filter-choosen'; } ?>" href="__SELF__/<?php print 'flowerColor_'.$k.'/'.$k;?>"><?php print $v; ?></a>
+                <a rel="nofollow" class="<?php print get_css_class_color($k); ?>  <?php if(in_array($k, $current_url_conditions['flowerColor'])){ print 'mobile-tablet-filter-choosen'; } ?>" href="__SELF__/<?php print 'flowerColor_'.$k.'/'.$k;?>"><?php print $v; ?></a>
              </li>                       
              <?php endforeach; ?>                
 	    </ul>
 	  	<p class="filter-mobile-popup-order">特色选择<span class="glyphicon glyphicon-plus"></span></p>
 	  	<ul class="filter-mobile-popup-order-choice">
-	      <li class="col-sm-6 col-xs-6"><a href="#">价格</a></li>
-	      <li class="col-sm-6 col-xs-6"><a href="#">最新</a></li>
-	      <li class="col-sm-6 col-xs-6"><a href="#">热销</a></li>
+	      <li class="col-sm-6 col-xs-6"><a rel="nofollow" href="#">价格</a></li>
+	      <li class="col-sm-6 col-xs-6"><a rel="nofollow" href="#">最新</a></li>
+	      <li class="col-sm-6 col-xs-6"><a rel="nofollow" href="#">热销</a></li>
 	    </ul>
 	  </section>
   </div>
