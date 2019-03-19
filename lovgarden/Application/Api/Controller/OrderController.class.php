@@ -16,12 +16,15 @@ class OrderController extends RestController {
                $login_status = 200;
                
                $order_model = D('Order');
-               $filter_selection = array();
+               //$filter_selection = array();
                $where = array(array(
                 'orders.order_owner' => $login_exist,
                ));
-               $where['orders.order_status'] = I('get.order_status');
-               $filter_selection['order_status'] = I('get.order_status');
+               $order_status_check = I('get.order_status');
+               if(!empty($order_status_check)) {
+                  $where['orders.order_status'] = $order_status_check;
+               }
+               //$filter_selection['order_status'] = I('get.order_status');
                $order_sort = array(
                 'orders.order_create_time'=>'desc'
                );
