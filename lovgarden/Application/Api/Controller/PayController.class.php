@@ -190,13 +190,24 @@ class PayController extends RestController {
                $login_status = 200;
                $order_model = D('Order');
                $order_info = $order_model->alias('orders')->field('*')->where("orders.`order_owner`='%s' and orders.`order_id`='%s'",array($login_exist,$order_id))->select();
+
+               
                $wx_pay_model = new WxpayModel('wxd7561da4052911c3', '1526072861', 'https://www.flowerideas.cn/api/pay/wx_notify', '9xtnukxfqwvid4it94ieu736lktnc3mu',$login_exist);
                
                $params['body'] = '花点馨思花卉商品';
                $params['out_trade_no'] = $order_info[0]['order_id'];
-               $params['total_fee'] = $order_info[0]['order_final_price'];
+               $params['total_fee'] = $order_info[0]['order_final_price'] * 100;
                $params['trade_type'] = 'JSAPI';
+
+                 
                $result = $wx_pay_model->unifiedOrder( $params );
+
+echo json_encode(array(
+            'data' => $result,
+            'login_status' => $login_status,
+       ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
+               exit();
+
                $data = array();
                if(!empty($result['prepay_id'])) {
                     $data = $wx_pay_model->getPayParams($result['prepay_id']);                          
