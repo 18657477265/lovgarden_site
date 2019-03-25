@@ -174,4 +174,39 @@ class PayController extends RestController {
           }
        }
    }
+   public function wx_order_pay() {
+       $login_ip = I('get.login_ip');
+       $order_id = I('get.order_id');
+       $order_info = array();
+       $params = array();
+       $data = array();
+       $login_status = 404;
+       $open_id = '0';
+       if(!empty($login_ip) && !empty($order_id)){
+           $mem_cache = new Memcache();
+           $login_exist = $mem_cache->get($login_ip);
+           if(!empty($login_exist)){
+               $open_id = $login_exist;
+               $login_status = 200;
+               $order_model = D('Order');
+               $order_info = $order_model->alias('orders')->field('*')->where("orders.`order_owner`='%s' and orders.`order_id`='%s'",array($login_exist,$order_id))->select();
+               $wx_pay_model = new WxpayModel('wxd7561da4052911c3', '1526072861', 'https://www.flowerideas.cn/api/pay/wx_notify', '9xtnukxfqwvid4it94ieu736lktnc3mu',$login_exist);
+               
+               $params['body'] = '花点馨思花卉商品';
+               $params['out_trade_no'] = $order_info[0]['order_id'];
+               $params['total_fee'] = $order_info[0]['order_final_price'];
+               $params['trade_type'] = 'JSAPI';
+               $result = $wx_pay_model->unifiedOrder( $params );
+               $data = array();
+               if(!empty($result['prepay_id'])) {
+                    $data = $wx_pay_model->getPayParams($result['prepay_id']);                          
+               }
+           }
+       }
+       echo json_encode(array(
+            'data' => $data,
+            'login_status' => $login_status,
+       ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
+       exit();
+   }
 }

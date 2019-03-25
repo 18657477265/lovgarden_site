@@ -56,7 +56,7 @@ class OrderController extends RestController {
        $order_id = I('get.order_id');
        $order_info = array();
        $order_products_fix = array();
-       if(!empty($login_ip)){
+       if(!empty($login_ip) && !empty($order_id)){
            $mem_cache = new Memcache();
            $login_exist = $mem_cache->get($login_ip);
            if(!empty($login_exist)){
