@@ -53,6 +53,7 @@ class OrderController extends RestController {
        $open_id = '0';
        $orders_fix = array();
        $login_ip = I('get.login_ip');
+       //此处order_id修改为order表的主键id
        $order_id = I('get.order_id');
        $order_info = array();
        $order_products_fix = array();
@@ -64,11 +65,11 @@ class OrderController extends RestController {
                $login_status = 200;
                
                $order_model = D('Order');
-               $order_info = $order_model->alias('orders')->field('*')->where("orders.`order_owner`='%s' and orders.`order_id`='%s'",array($login_exist,$order_id))->select();
+               $order_info = $order_model->alias('orders')->field('*')->where("orders.`order_owner`='%s' and orders.`id`='%s'",array($login_exist,$order_id))->select();
                if(!empty($order_info)) {         
                   $sql = "SELECT order_products.*,products.`varient_name`,products.`varient_price`,products.`decoration_level`,images.`image_url` FROM lovgarden_order_product_varient AS order_products
                         LEFT JOIN lovgarden_product_varient AS products ON order_products.`product_sku_id`=products.`sku_id`
-                        LEFT JOIN lovgarden_product_varient_images AS images ON products.`id`=images.`product_varient_id` WHERE order_products.`order_info_id`= '$order_id'";
+                        LEFT JOIN lovgarden_product_varient_images AS images ON products.`id`=images.`product_varient_id` WHERE order_products.`order_original_id`= '$order_id'";
 
                   $order_products = $order_model->query($sql);
                   $order_products_fix = translate_database_result_to_logic_array($order_products, array('image_url'), 'product_sku_id');
