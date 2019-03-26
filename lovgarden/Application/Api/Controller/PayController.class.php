@@ -182,6 +182,7 @@ class PayController extends RestController {
        $data = array();
        $login_status = 404;
        $open_id = '0';
+       $create_order = 404;
        if(!empty($login_ip) && !empty($order_id)){
            $mem_cache = new Memcache();
            $login_exist = $mem_cache->get($login_ip);
@@ -210,6 +211,7 @@ class PayController extends RestController {
                    echo json_encode(array(
                         'data' => $data,
                         'login_status' => $login_status,
+                        'create_order' => $create_order
                     ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
                    exit();
                }
@@ -226,13 +228,15 @@ class PayController extends RestController {
                
                //$data = array();
                if(!empty($result['prepay_id'])) {
-                    $data = $wx_pay_model->getPayParams($result['prepay_id']);                          
+                    $data = $wx_pay_model->getPayParams($result['prepay_id']);
+                    $create_order = 200;
                }
            }
        }
        echo json_encode(array(
             'data' => $data,
             'login_status' => $login_status,
+            'create_order' => $create_order
        ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
        exit();
    }
