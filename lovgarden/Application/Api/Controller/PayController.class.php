@@ -176,6 +176,7 @@ class PayController extends RestController {
    }
    public function wx_order_pay() {
        $login_ip = I('get.login_ip');
+       //这里的order_id修改为order表的主键id
        $order_id = I('get.order_id');
        $order_info = array();
        $params = array();
@@ -190,7 +191,7 @@ class PayController extends RestController {
                $open_id = $login_exist;
                $login_status = 200;
                $order_model = D('Order');
-               $order_info = $order_model->alias('orders')->field('*')->where("orders.`order_owner`='%s' and orders.`order_id`='%s'",array($login_exist,$order_id))->select();
+               $order_info = $order_model->alias('orders')->field('*')->where("orders.`order_owner`='%s' and orders.`id`='%s'",array($login_exist,$order_id))->select();
 
                $new_order_id = date('ymdHis'). rand(10000,99999);
                $order_original_id = $order_info[0]['id'];
@@ -220,7 +221,7 @@ class PayController extends RestController {
                
                $params['body'] = '花点馨思花卉商品';
                $params['out_trade_no'] = $new_order_id;
-               $params['total_fee'] = $order_info[0]['order_final_price'] * 100;
+               $params['total_fee'] = ($order_info[0]['order_final_price'] * 100)/100;
                $params['trade_type'] = 'JSAPI';
 
                  
