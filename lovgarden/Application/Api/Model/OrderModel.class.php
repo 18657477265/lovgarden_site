@@ -35,6 +35,34 @@ class OrderModel extends Model
         }
         return FALSE;
     }
+    //验证订单对应的优惠券id是否已经被使用
+    function checkCouponStatus($coupon_id,$open_id) {
+        if($coupon_id == '0') {
+            return TRUE;
+        }
+        $sql = "SELECT id FROM lovgarden_user_coupon WHERE coupon_id = '$coupon_id' and open_id = '$open_id' and coupon_status='1'";
+        $model_for_user = new Model();
+        $results = $model_for_user->query($sql);
+        $count = count($results);
+        if($count>0){
+             return TRUE;
+        }
+        else {
+            return FALSE;
+        }
+    }
+    //创建订单后,将订单对应的优惠券设置为已使用3
+    function setCouponUsed($coupon_id,$open_id) {
+        $sql = "update lovgarden_user_coupon set coupon_status = '3' where coupon_id = '$coupon_id' and open_id = '$open_id'";
+        $model_for_user = new Model();
+        $results = $model_for_user->execute($sql);
+        if($results) {
+            return TRUE;
+        }
+        else {
+            return FALSE;
+        }
+    }
 }
 
 

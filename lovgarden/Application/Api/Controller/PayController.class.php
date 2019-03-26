@@ -60,6 +60,17 @@ class PayController extends RestController {
              );
         
              $order_model = D('Order');
+             
+             //检查优惠券是否可以用,不可以的话直接返回
+             $check_coupon_status = $order_model->checkCouponStatus($coupon_code,$login_exist);
+             if(!$check_coupon_status) {
+                echo json_encode(array(
+                   'create_order' => '404',
+                   'error_message_content' => '优惠券已不可用'
+                ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
+                exit();
+             }
+             
              $validate_status = $order_model->create($order_info);
              if($validate_status){
                  $order_model->startTrans();
@@ -87,6 +98,8 @@ class PayController extends RestController {
                     }                 
                     if($final_status) {
                        $order_model->commit();
+                       //设置优惠券状态为已使用
+                       $order_model->setCouponUsed($coupon_code,$login_exist);
                        //创建微信支付预订单
                        $wx_pay_model = new WxpayModel('wxd7561da4052911c3', '1526072861', 'https://www.flowerideas.cn/api/pay/wx_notify', '9xtnukxfqwvid4it94ieu736lktnc3mu',$login_exist);
                        $params['body'] = '花点馨思花卉商品';
@@ -167,6 +180,7 @@ class PayController extends RestController {
           $sql_pay = "UPDATE lovgarden_order SET out_trade_no = '$out_trade_no', total_amount = '$total_amount', trade_no = '$trade_no', order_status = '2' WHERE order_id = '$out_trade_no'";
           //file_put_contents('/b.txt', '------'.$sql_pay, FILE_APPEND);
           $data_model = D('Order');
+          //如果有优惠券,还需要吧优惠券设置成已使用
           $sql_result = $data_model->execute($sql_pay);
           //file_put_contents('/b.txt', $sql_result, FILE_APPEND);
           if($sql_result) {
