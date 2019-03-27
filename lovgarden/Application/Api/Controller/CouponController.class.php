@@ -145,7 +145,7 @@ class CouponController extends RestController {
                $expired_coupons[] = $value['coupon_id'];
              }
              $expired_coupons_string = implode(',', $expired_coupons);
-             $sql = "UPDATE lovgarden_user_coupon SET coupon_status = '2' WHERE coupon_id IN ($expired_coupons_string)";
+             $sql = "UPDATE lovgarden_user_coupon SET coupon_status = '2' WHERE coupon_id IN ($expired_coupons_string) and coupon_status = '1'";
              $result = $model->execute($sql);
              if($result !== FALSE) {
                  //记录log
