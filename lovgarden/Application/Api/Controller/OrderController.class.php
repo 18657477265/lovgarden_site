@@ -82,4 +82,34 @@ class OrderController extends RestController {
              'login_status' => $login_status
        ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
    }
+   //cron,删除已经过期7天的未支付订单,7天执行一次
+   public function deleteExpiredUnpaidOrders() {
+       $ip = getIP();
+       if($ip == '127.0.0.1' || $ip == '47.98.216.142' || $ip == '172.16.207.38') {
+           $sql = "SELECT * FROM lovgarden_order e WHERE DATE_SUB(CURDATE(), INTERVAL 7 DAY) >= DATE(order_create_time) AND order_status = '1'";
+           $model = new \Think\Model();
+           $data = $model->query($sql);
+           $expired_orders = array();
+           if(!empty($data)) {
+               foreach($data as $key => $value) {
+                 $expired_orders[] = $value['id'];
+               }
+               $expired_orders_string = implode(',', $expired_orders);
+               $sql1 = "DELETE FROM lovgarden_order WHERE id IN ($expired_orders_string) AND order_status = '1'";
+               $sql2 = "DELETE FROM lovgarden_order_product_varient WHERE order_original_id IN ($expired_orders_string)";
+               $model->startTrans();
+               $result1 = $model->execute($sql1);
+               $result2 = $model->execute($sql2);
+               if($result1 && $result2) {
+                   $model->commit();
+                   file_put_contents('/cron_order.log',date('Y-m-d H:i:s',time())." Delete Expired  Unpaid Orders In Orders and Order-Products Table . Number:".$result1.'|'.$result2.PHP_EOL,FILE_APPEND);
+               }
+               else {
+                   $model->rollback();
+                   file_put_contents('/cron_order.log',date('Y-m-d H:i:s',time())." No Delete Expired  Unpaid Orders In Orders and Order-Products Table . Number:".$result1.'|'.$result2.PHP_EOL,FILE_APPEND);
+               }
+           }
+       }
+   }
+   
 }
