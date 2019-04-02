@@ -35,4 +35,20 @@ class ArticleController extends RestController {
            'articles'=> $articles
        ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
    }
+   public function faq($id) {
+       $mem = new Memcache();
+       $all_faq = $mem->get('all_faqs');
+       if(empty($all_faq)) {
+         $article = D('Article');
+         $all_faq = $article->field('id,article_title,article_summary,article_body,article_category,banner_image')->where(array(
+              'article_publish' => 1,
+              'article_category' => 7
+         ))->select();
+         $all_faq = translate_database_result_to_logic_array($all_faq,array(),'id');
+         $mem->set('all_faqs', $all_faq, '604800');
+       }
+       echo json_encode(array(
+            'faq' => $all_faq[$id]
+       ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
+   }
 }
