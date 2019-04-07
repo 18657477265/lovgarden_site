@@ -31,7 +31,7 @@ class LikeController extends RestController {
        foreach($products as $item) {
           $product = $xml->addChild('product');
           foreach($xmlTag as $x) {
-            if($x == 'likse') {
+            if($x == 'likes') {
               $product->addChild($x, rand(100,1000));
             }
             else {
