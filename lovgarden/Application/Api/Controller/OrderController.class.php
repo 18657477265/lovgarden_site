@@ -108,7 +108,9 @@ class OrderController extends RestController {
                    $model->rollback();
                    file_put_contents('/cron_order.log',date('Y-m-d H:i:s',time())." No Delete Expired  Unpaid Orders In Orders and Order-Products Table . Number:".$result1.'|'.$result2.PHP_EOL,FILE_APPEND);
                }
+               exit();
            }
+           file_put_contents('/cron_order.log',date('Y-m-d H:i:s',time())." No Delete Expired  Unpaid Orders In Orders and Order-Products Table . Number:".'Empty'.'|'.'Empty'.PHP_EOL,FILE_APPEND);
        }
    }
    
