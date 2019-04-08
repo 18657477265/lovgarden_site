@@ -12,7 +12,8 @@ class LikeController extends RestController {
        $products = array();
        $xml = simplexml_load_file('/xmls/products_likes.xml');
        foreach($xml->children() as $product) {
-         $products[] = get_object_vars($product);//获取对象全部属性，返回数组
+         $item = get_object_vars($product);//获取对象全部属性，返回数组
+         $products[$item['id']] = $item;
        }
        echo '<pre>';
        print_r($products);
