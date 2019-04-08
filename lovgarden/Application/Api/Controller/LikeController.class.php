@@ -15,42 +15,61 @@ class LikeController extends RestController {
          $item = get_object_vars($product);//获取对象全部属性，返回数组
          $products[$item['id']] = $item;
        }
-       echo '<pre>';
-       print_r($products);
+       $mem_cache = new Memcache();
+       $mem_cache->set('likes_products',$products,604800);
    }
-   public function addLikes() {
+   public function addLikes($id) {
        //操作内存中的数据
+       $mem_cache = new Memcache();
+       $products = $mem_cache->get('likes_products');
+       $products[$id]['likes'] = $products[$id]['likes'] + 1;
+       $mem_cache = new Memcache();
+       $mem_cache->set('likes_products',$products,604800);
    }
-   public function removeLikes() {
+   public function removeLikes($id) {
        //操作内存中的数据
+       $mem_cache = new Memcache();
+       $products = $mem_cache->get('likes_products');
+       $products[$id]['likes'] = $products[$id]['likes'] - 1;
+       $mem_cache = new Memcache();
+       $mem_cache->set('likes_products',$products,604800);
    }
    public function addMemoryToXml(){
        //每天定时任务,将最新的内存中的数组写入到xml文件中去
-       
-   }
-   public function makeXml() {
-       //将数据库里面的数据制作成本地XML文件
-       $sql = "select id , sku_id , varient_name from lovgarden_product_varient";
-       $model = new \Think\Model();
-       $data = $model->query($sql);
-       $products = translate_database_result_to_logic_array($data,array(),'id');
-       echo "<pre>";
-       print_r($products);
-       echo "</pre>";
-       exit();
+       $mem_cache = new Memcache();
+       $products = $mem_cache->get('likes_products');
        $xmlTag = array('id','sku_id','varient_name','likes');
        $xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?><products />');
        foreach($products as $item) {
           $product = $xml->addChild('product');
           foreach($xmlTag as $x) {
-            if($x == 'likes') {
-              $product->addChild($x, rand(100,1000));
-            }
-            else {
               $product->addChild($x, $item[$x]);
-            }
           }
        }
        $xml->asXml('/xmls/products_likes.xml');
+   }
+   public function makeXml() {
+       //将数据库里面的数据制作成本地XML文件,数据初始化
+       $ip = getIP();
+       if($ip == '127.0.0.1' || $ip == '47.98.216.142' || $ip == '172.16.207.38') {
+         $sql = "select id , sku_id , varient_name from lovgarden_product_varient";
+         $model = new \Think\Model();
+         $data = $model->query($sql);
+         $products = translate_database_result_to_logic_array($data,array(),'id');
+         $xmlTag = array('id','sku_id','varient_name','likes');
+         $xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?><products />');
+         foreach($products as $item) {
+            $product = $xml->addChild('product');
+            foreach($xmlTag as $x) {
+              if($x == 'likes') {
+                $product->addChild($x, rand(100,1000));
+              }
+              else {
+                $product->addChild($x, $item[$x]);
+              }
+            }
+         }
+         $xml->asXml('/xmls/products_likes.xml');
+       }
    }
 }
