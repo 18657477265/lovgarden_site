@@ -117,6 +117,14 @@ class ProductController extends RestController {
             $result_rows = $model->query($sql);
             $multiple_fileds_array = array('image_url','flower_home_id','hurry_level_id','flower_home');  
             $result_rows_array = translate_database_result_to_logic_array($result_rows,$multiple_fileds_array,'sku_id');
+            
+            $mem_cache = new Memcache();
+            $likes_products = $mem_cache->get('likes_products');
+            if($likes_products) {
+                foreach ($result_rows_array as $key => $value) {
+                    $result_rows_array[$key]['likes'] = $likes_products[$key]['likes'];
+                }
+            }
         }
        echo json_encode(array(
             'products' => $result_rows_array,

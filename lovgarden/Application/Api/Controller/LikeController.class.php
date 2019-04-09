@@ -15,15 +15,15 @@ class LikeController extends RestController {
          $xml = simplexml_load_file('/xmls/products_likes.xml');
          foreach($xml->children() as $product) {
            $item = get_object_vars($product);//获取对象全部属性，返回数组
-           $products[$item['id']] = $item;
+           $products[$item['sku_id']] = $item;
          }
          $mem_cache = new Memcache();
-         $mem_cache->set('likes_products',$products,604800);
+         $mem_cache->set('likes_products',$products,606000);
          file_put_contents('/xmls/cron_products_likes.log',date('Y-m-d H:i:s',time())." Add products_likes.xml To Memory".PHP_EOL,FILE_APPEND);
        }
    }
    public function addLikes($id) {
-       //操作内存中的数据
+       //操作内存中的数据 id这里指的是sku_id
        $mem_cache = new Memcache();
        $products = $mem_cache->get('likes_products');
        $products[$id]['likes'] = $products[$id]['likes'] + 1;
@@ -31,7 +31,7 @@ class LikeController extends RestController {
        $mem_cache->set('likes_products',$products,604800);
    }
    public function removeLikes($id) {
-       //操作内存中的数据
+       //操作内存中的数据 id这里指的是sku_id
        $mem_cache = new Memcache();
        $products = $mem_cache->get('likes_products');
        $products[$id]['likes'] = $products[$id]['likes'] - 1;
