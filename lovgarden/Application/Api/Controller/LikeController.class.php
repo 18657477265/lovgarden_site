@@ -27,14 +27,14 @@ class LikeController extends RestController {
        $mem_cache = new Memcache();
        $products = $mem_cache->get('likes_products');
        $products[$id]['likes'] = $products[$id]['likes'] + 1;
-       $mem_cache->set('likes_products',$products,605000);
+       $mem_cache->set('likes_products',$products,606000);
    }
    public function removeLikes($id) {
        //操作内存中的数据 id这里指的是sku_id
        $mem_cache = new Memcache();
        $products = $mem_cache->get('likes_products');
        $products[$id]['likes'] = $products[$id]['likes'] - 1;
-       $mem_cache->set('likes_products',$products,604800);
+       $mem_cache->set('likes_products',$products,606000);
    }
    public function addMemoryToXml(){
        //每天定时任务,将最新的内存中的数组写入到xml文件中去
@@ -141,6 +141,6 @@ class LikeController extends RestController {
        $mem_cache = new Memcache();
        $articles = $mem_cache->get('likes_articles');
        $articles[$id]['likes'] = $articles[$id]['likes'] + 1;
-       $mem_cache->set('likes_articles',$products,605000);
+       $mem_cache->set('likes_articles',$products,606000);
    }
 }
