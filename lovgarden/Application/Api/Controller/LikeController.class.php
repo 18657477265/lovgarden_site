@@ -87,7 +87,7 @@ class LikeController extends RestController {
          $data = $model->query($sql);
          $articles = translate_database_result_to_logic_array($data,array(),'id');
          $xmlTag = array('id','article_title','likes');
-         $xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?><products />');
+         $xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?><articles />');
          foreach($articles as $item) {
             $article = $xml->addChild('article');
             foreach($xmlTag as $x) {
@@ -125,7 +125,7 @@ class LikeController extends RestController {
          $mem_cache = new Memcache();
          $articles = $mem_cache->get('likes_articles');
          $xmlTag = array('id','article_title','likes');
-         $xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?><products />');
+         $xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?><articles />');
          foreach($articles as $item) {
             $article = $xml->addChild('article');
             foreach($xmlTag as $x) {
@@ -133,7 +133,7 @@ class LikeController extends RestController {
             }
          }
          $xml->asXml('/xmls/articles_likes.xml');
-         file_put_contents('/xmls/cron_articles_likes.log',date('Y-m-d H:i:s',time())." Add Articles_likes Memory To products_likes.xml".PHP_EOL,FILE_APPEND);
+         file_put_contents('/xmls/cron_articles_likes.log',date('Y-m-d H:i:s',time())." Add Articles_likes Memory To articles_likes.xml".PHP_EOL,FILE_APPEND);
        }
    }
    public function addArticlesLikes($id) {
