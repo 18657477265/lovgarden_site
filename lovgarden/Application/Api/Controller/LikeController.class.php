@@ -141,6 +141,6 @@ class LikeController extends RestController {
        $mem_cache = new Memcache();
        $articles = $mem_cache->get('likes_articles');
        $articles[$id]['likes'] = $articles[$id]['likes'] + 1;
-       $mem_cache->set('likes_articles',$products,606000);
+       $mem_cache->set('likes_articles',$articles,606000);
    }
 }

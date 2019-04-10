@@ -31,6 +31,14 @@ class ArticleController extends RestController {
        $where['id'] = array('IN',$ids);
        $articles = $articleModel->field('id,article_title,article_summary,article_category,banner_image')->where($where)->select();
        $articles = translate_database_result_to_logic_array($articles,array(),'id');
+       
+       $mem_cache = new Memcache();
+       $likes_articles = $mem_cache->get('likes_articles');
+       if($likes_articles) {
+           foreach ($articles as $key => $article) {
+               $articles[$key]['likes'] =  $likes_articles[$key]['likes'];
+           }
+       }
        echo json_encode(array(
            'articles'=> $articles
        ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
