@@ -42,16 +42,18 @@ class LikeController extends RestController {
        if($ip == '127.0.0.1' || $ip == '47.98.216.142' || $ip == '172.16.207.38') {
          $mem_cache = new Memcache();
          $products = $mem_cache->get('likes_products');
-         $xmlTag = array('id','sku_id','varient_name','likes');
-         $xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?><products />');
-         foreach($products as $item) {
-            $product = $xml->addChild('product');
-            foreach($xmlTag as $x) {
-                $product->addChild($x, $item[$x]);
-            }
+         if(!empty($products)) {
+           $xmlTag = array('id','sku_id','varient_name','likes');
+           $xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?><products />');
+           foreach($products as $item) {
+              $product = $xml->addChild('product');
+              foreach($xmlTag as $x) {
+                  $product->addChild($x, $item[$x]);
+              }
+           }
+           $xml->asXml('/xmls/products_likes.xml');
+           file_put_contents('/xmls/cron_products_likes.log',date('Y-m-d H:i:s',time())." Add Product_likes Memory To products_likes.xml".PHP_EOL,FILE_APPEND);
          }
-         $xml->asXml('/xmls/products_likes.xml');
-         file_put_contents('/xmls/cron_products_likes.log',date('Y-m-d H:i:s',time())." Add Product_likes Memory To products_likes.xml".PHP_EOL,FILE_APPEND);
        }
    }
    public function makeXml() {
@@ -124,16 +126,18 @@ class LikeController extends RestController {
        if($ip == '127.0.0.1' || $ip == '47.98.216.142' || $ip == '172.16.207.38') {
          $mem_cache = new Memcache();
          $articles = $mem_cache->get('likes_articles');
-         $xmlTag = array('id','article_title','likes');
-         $xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?><articles />');
-         foreach($articles as $item) {
-            $article = $xml->addChild('article');
-            foreach($xmlTag as $x) {
-                $article->addChild($x, $item[$x]);
-            }
+         if(!empty($articles)) {
+           $xmlTag = array('id','article_title','likes');
+           $xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?><articles />');
+           foreach($articles as $item) {
+              $article = $xml->addChild('article');
+              foreach($xmlTag as $x) {
+                  $article->addChild($x, $item[$x]);
+              }
+           }
+           $xml->asXml('/xmls/articles_likes.xml');
+           file_put_contents('/xmls/cron_articles_likes.log',date('Y-m-d H:i:s',time())." Add Articles_likes Memory To articles_likes.xml".PHP_EOL,FILE_APPEND);
          }
-         $xml->asXml('/xmls/articles_likes.xml');
-         file_put_contents('/xmls/cron_articles_likes.log',date('Y-m-d H:i:s',time())." Add Articles_likes Memory To articles_likes.xml".PHP_EOL,FILE_APPEND);
        }
    }
    public function addArticlesLikes($id) {
