@@ -155,4 +155,27 @@ class CouponController extends RestController {
        }
    }
    //配合服务器的定时任务将用户表中已过期一个月的优惠券删除
+   public function checkAndDeleteLongExpiredUserCoupons() {
+       $ip = getIP();
+       if($ip == '127.0.0.1' || $ip == '47.98.216.142' || $ip == '172.16.207.38') {
+           //对数据表进行操作
+          //$nowday = date("Y-m-d H:i:s");
+          $sql = "SELECT * FROM lovgarden_coupon e WHERE DATE_SUB(CURDATE(), INTERVAL 7 DAY) >= DATE(deadline)";
+          $model = new \Think\Model();
+          $data = $model->query($sql);
+          $expired_coupons = array();
+          if(!empty($data)) {
+             foreach($data as $key => $value) {
+               $expired_coupons[] = $value['coupon_id'];
+             }
+             $expired_coupons_string = implode(',', $expired_coupons);
+             $sql = "DELETE FROM lovgarden_user_coupon WHERE coupon_id IN ($expired_coupons_string)";
+             $result = $model->execute($sql);
+             if($result !== FALSE) {
+                 //记录log
+                 file_put_contents('/cron.log',date('Y-m-d H:i:s',time())." DELETE 7 DAYS Expired Coupons In User-Coupons Table . Number:".$result.PHP_EOL,FILE_APPEND);
+             }
+          }   
+       }   
+   }
 }
