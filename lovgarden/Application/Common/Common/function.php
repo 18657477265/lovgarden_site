@@ -329,7 +329,10 @@ function get_order_status_label($order_status) {
             $order_status_label = '已付款';
             break;
         case '3':
-            $order_status_label = '退货';
+            $order_status_label = '已发货';
+            break;
+        case '4':
+            $order_status_label = '已完成';
             break;
     }
     return $order_status_label;
