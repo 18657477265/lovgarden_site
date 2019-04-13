@@ -56,7 +56,6 @@ $(function(){
    });
    //ajax 修改订单状态为已发送
    $('.order-send-button').on('click',function(){
-       alert('www');
        if(confirm("确定更新该订单状态为已发送?")){
            var order_id = $(this).data('order-id');
            var order_msg = {
