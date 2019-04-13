@@ -65,4 +65,19 @@ class OrderController extends BaseController {
         
         $this->display('order_detail');
     }
+    public function updateStatus() {
+        $order_id = $_POST['order_id'];
+        $order_status = $_POST['status'];
+        
+        if($order_status == 'sent') {
+            $sql = "UPDATE lovgarden_order set order_status = '3' WHERE id = '$order_id'";
+            $model = new \Think\Model();
+            $result = $model->execute($sql);
+            if($result !== FALSE) {
+                echo '200';
+                exit();
+            }
+        }
+        echo '404';
+    }
 }
