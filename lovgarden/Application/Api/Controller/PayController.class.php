@@ -42,8 +42,8 @@ class PayController extends RestController {
              $costs = wx_calculate_cost($order_products_info,20,$coupon_code,$vase_count);                   
              $order_info = array(
                 'order_id' => date('ymdHis'). rand(10000,99999),
-                'order_owner' => $login_exist.'|'.$nickname,
-                'last_name' => 'WeChat',
+                'order_owner' => $login_exist,
+                'last_name' => '(买家:'.$nickname.')',
                 'first_name' => $receive_username,
                 'telephone' => I('get.phone_number'),
                 'area' => I('get.address_province_city'),
