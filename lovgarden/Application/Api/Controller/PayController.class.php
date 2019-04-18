@@ -11,6 +11,8 @@ class PayController extends RestController {
          $sku_ids = json_decode($_GET['sku_ids']);
          $vase_count = I('get.vase_count');
          $coupon_code = I('get.coupon_code');
+         $nickname = I('get.nickname');
+         $receive_username = I('get.receive_username');
          $mem_cache = new Memcache();
          $login_exist = $mem_cache->get($login_ip);
          $sku_ids_str = '';
@@ -40,9 +42,9 @@ class PayController extends RestController {
              $costs = wx_calculate_cost($order_products_info,20,$coupon_code,$vase_count);                   
              $order_info = array(
                 'order_id' => date('ymdHis'). rand(10000,99999),
-                'order_owner' => $login_exist,
+                'order_owner' => $login_exist.'|'.$nickname,
                 'last_name' => 'WeChat',
-                'first_name' => 'User',
+                'first_name' => $receive_username,
                 'telephone' => I('get.phone_number'),
                 'area' => I('get.address_province_city'),
                 'address' => I('get.address_detail_location'),
@@ -192,6 +194,7 @@ class PayController extends RestController {
        $login_ip = I('get.login_ip');
        //这里的order_id修改为order表的主键id
        $order_id = I('get.order_id');
+       //$nickname = I('get.nickname');
        $order_info = array();
        $params = array();
        $data = array();
