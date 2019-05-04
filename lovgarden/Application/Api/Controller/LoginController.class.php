@@ -85,4 +85,24 @@ class LoginController extends RestController {
               'error_code' => $error_code
        ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);          
    }
+   public function getUserInfo() {
+       $login_ip = I('get.login_ip');
+       $login_status = 404;
+       $data = array();
+       if(!empty($login_ip)) {
+           $mem_cache = new Memcache();
+           $login_exist = $mem_cache->get($login_ip);
+           if(!empty($login_exist)){
+               $open_id = $login_exist;
+               $login_status = 200;
+               $model = new \Think\Model();
+               $sql = "SELECT telephone , reward_points FROM lovgarden_wxuser WHERE open_id = '$open_id'";
+               $data = $model->query($sql);
+           }
+       }
+       echo json_encode(array(
+          'login_status'=> $login_status,
+          'user_info'=> $data
+      ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
+   }
 }
