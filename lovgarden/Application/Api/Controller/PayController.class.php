@@ -186,6 +186,10 @@ class PayController extends RestController {
           $sql_result = $data_model->execute($sql_pay);
           //file_put_contents('/b.txt', $sql_result, FILE_APPEND);
           if($sql_result) {
+             //添加用户积分
+             $add_reward_points = ceil($total_amount);
+             $sql_add_reward_points = "UPDATE lovgarden_wxuser SET reward_points = reward_points + $add_reward_points WHERE open_id = (SELECT order_owner FROM lovgarden_order WHERE order_id ='$out_trade_no')";
+             $sql_add_rewards_points_result = $data_model->execute($sql_add_reward_points);
              echo "<xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>";
           }
        }
