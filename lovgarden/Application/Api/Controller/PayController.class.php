@@ -39,7 +39,7 @@ class PayController extends RestController {
              }
              //$error_message = '';
              $order_products_info = $result_rows_array;
-             $costs = wx_calculate_cost($order_products_info,20,$coupon_code,$vase_count);                   
+             $costs = wx_calculate_cost($order_products_info,20,$coupon_code,$vase_count,$login_exist);                   
              $order_info = array(
                 'order_id' => date('ymdHis'). rand(10000,99999),
                 'order_owner' => $login_exist,
@@ -56,7 +56,7 @@ class PayController extends RestController {
                 'order_vases_price' => $costs['vase_cost'],
                 'order_coupon_code' => $coupon_code,
                 'order_coupon_cut' => $costs['cut_cost'],
-                'order_vip_level_cut' => '0',
+                'order_vip_level_cut' => $costs['vip_discount'],
                 'order_final_price' => $costs['total_cost'],
                 'order_status' => '1',  
              );

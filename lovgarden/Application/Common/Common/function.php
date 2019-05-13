@@ -511,19 +511,21 @@ function calculate_cost($products_array,$vase_price = '20',$cut_code = '0') {
 }
 
 //根据商品信息整理出价格，优惠，花瓶价格等信息
-function wx_calculate_cost($products_array,$vase_price = 20,$coupon_code = '0',$vase_count = 0) {
+function wx_calculate_cost($products_array,$vase_price = 20,$coupon_code = '0',$vase_count = 0,$login_exist=0) {
     $cost_info_array = array(
         'total_cost' => 0,
         'vase_cost' => 0,
         'cut_cost' => 0,
         'deliver_cost' => 0,
         'products_original_cost' => 0,
+        'vip_discount'=> 1
     );
     $coupon_value = 0;
+    $model = new \Think\Model();
     foreach($products_array as $k => $v) {
        $cost_info_array['products_original_cost']+= $v['varient_price'] * $v['count'];
        $sql = "select * from lovgarden_coupon where coupon_id = $coupon_code";
-       $model = new \Think\Model();
+       //$model = new \Think\Model();
        $data = $model->query($sql);
        if(!empty($data)) {
            $coupon_value = $data[0]['coupon_value'];
@@ -533,8 +535,21 @@ function wx_calculate_cost($products_array,$vase_price = 20,$coupon_code = '0',$
     $cost_info_array['vase_cost'] = $vase_price * $vase_count;
     //这里以后添加购物券的逻辑，从数据库里取出扣除的价格
     $cost_info_array['total_cost'] = $cost_info_array['vase_cost'] + $cost_info_array['deliver_cost'] + $cost_info_array['products_original_cost'] - $cost_info_array['cut_cost'];
+    if($login_exist != 0) {
+        $sql_vip = "SELECT reward_points FROM lovgarden_wxuser WHERE open_id = '$login_exist'";
+        $reward_points_array = $model->query($sql_vip);
+        $reward_points = $reward_points_array[0]['reward_points'];
+        if($reward_points > 2000) {
+            $cost_info_array['vip_discount'] = 0.8;
+        }
+        elseif ($reward_points >= 1000 && $reward_points < 2000) {
+            $cost_info_array['vip_discount'] = 0.9;
+        }
+        $cost_info_array['total_cost'] = $cost_info_array['total_cost'] * $cost_info_array['vip_discount'];
+    }
     return $cost_info_array;
 }
+
 
 //确认订单时候用户提交的数据和老的cart info数据组合成新的数据
 function merge_submit_cart_info($old_cart_info,$submit_info,$user_id) {
