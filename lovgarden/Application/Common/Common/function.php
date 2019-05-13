@@ -511,14 +511,14 @@ function calculate_cost($products_array,$vase_price = '20',$cut_code = '0') {
 }
 
 //根据商品信息整理出价格，优惠，花瓶价格等信息
-function wx_calculate_cost($products_array,$vase_price = 20,$coupon_code = '0',$vase_count = 0,$login_exist=0) {
+function wx_calculate_cost($products_array,$vase_price = 20,$coupon_code = '0',$vase_count = 0,$login_exist='none') {
     $cost_info_array = array(
         'total_cost' => 0,
         'vase_cost' => 0,
         'cut_cost' => 0,
         'deliver_cost' => 0,
         'products_original_cost' => 0,
-        'vip_discount'=> 1
+        'vip_discount'=> 10
     );
     $coupon_value = 0;
     $model = new \Think\Model();
@@ -535,19 +535,23 @@ function wx_calculate_cost($products_array,$vase_price = 20,$coupon_code = '0',$
     $cost_info_array['vase_cost'] = $vase_price * $vase_count;
     //这里以后添加购物券的逻辑，从数据库里取出扣除的价格
     $cost_info_array['total_cost'] = $cost_info_array['vase_cost'] + $cost_info_array['deliver_cost'] + $cost_info_array['products_original_cost'] - $cost_info_array['cut_cost'];
-    if($login_exist != 0) {
+    //file_put_contents('/cron_order.log', 'aaa'.$login_exist.PHP_EOL,FILE_APPEND);
+    if($login_exist != 'none') {
+        //file_put_contents('/cron_order.log', 'sss'.PHP_EOL,FILE_APPEND);
         $sql_vip = "SELECT reward_points FROM lovgarden_wxuser WHERE open_id = '$login_exist'";
         $reward_points_array = $model->query($sql_vip);
         $reward_points = $reward_points_array[0]['reward_points'];
-        file_put_contents('/cron_order.log', serialize($reward_points_array).PHP_EOL,FILE_APPEND);
+        //file_put_contents('/cron_order.log', 't'.$reward_points.PHP_EOL,FILE_APPEND);
         if($reward_points > 2000) {
-            $cost_info_array['vip_discount'] = 0.8;
+            $cost_info_array['vip_discount'] = 8;
         }
         elseif ($reward_points >= 1000 && $reward_points < 2000) {
-            $cost_info_array['vip_discount'] = 0.9;
+            //file_put_contents('/cron_order.log', 'y'.$reward_points.PHP_EOL,FILE_APPEND);
+            $cost_info_array['vip_discount'] = 9;
         }
-        $cost_info_array['total_cost'] = $cost_info_array['total_cost'] * $cost_info_array['vip_discount'];
+        $cost_info_array['total_cost'] = ceil(($cost_info_array['total_cost'] * $cost_info_array['vip_discount'])/10);
     }
+    //file_put_contents('/cron_order.log', serialize($cost_info_array).PHP_EOL,FILE_APPEND);
     return $cost_info_array;
 }
 
