@@ -542,12 +542,16 @@ function wx_calculate_cost($products_array,$vase_price = 20,$coupon_code = '0',$
         $reward_points_array = $model->query($sql_vip);
         $reward_points = $reward_points_array[0]['reward_points'];
         //file_put_contents('/cron_order.log', 't'.$reward_points.PHP_EOL,FILE_APPEND);
-        if($reward_points > 2000) {
-            $cost_info_array['vip_discount'] = 8;
+        //积分在5000以上为钻石会员,3000-5000是黄金会员,1000-3000白银会员
+        if($reward_points > 5000) {
+            $cost_info_array['vip_discount'] = 8.8;
         }
-        elseif ($reward_points >= 1000 && $reward_points < 2000) {
+        elseif ($reward_points > 3000 && $reward_points <= 5000) {
             //file_put_contents('/cron_order.log', 'y'.$reward_points.PHP_EOL,FILE_APPEND);
-            $cost_info_array['vip_discount'] = 9;
+            $cost_info_array['vip_discount'] = 9.5;
+        }
+        elseif ($reward_points > 1000 && $reward_points <= 3000) {
+            $cost_info_array['vip_discount'] = 9.8;
         }
         $cost_info_array['total_cost'] = ceil(($cost_info_array['total_cost'] * $cost_info_array['vip_discount'])/10);
     }
