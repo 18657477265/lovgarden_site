@@ -96,7 +96,7 @@ class LoginController extends RestController {
                $open_id = $login_exist;
                $login_status = 200;
                $model = new \Think\Model();
-               $sql = "SELECT telephone , reward_points FROM lovgarden_wxuser WHERE open_id = '$open_id'";
+               $sql = "SELECT telephone , reward_points , balance FROM lovgarden_wxuser WHERE open_id = '$open_id'";
                $data = $model->query($sql);
            }
        }
