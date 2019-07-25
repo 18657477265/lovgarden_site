@@ -81,7 +81,7 @@ class RechargeModel extends Model
            return 'balance not enough';
        }
    }
-   function getUserBalance($open_id) {
+   public function getUserBalance($open_id) {
        $sql = "select balance from lovgarden_wxuser where open_id = '$open_id'";
        $current_balance = $this->query($sql);
        $balance = $current_balance[0]["balance"];

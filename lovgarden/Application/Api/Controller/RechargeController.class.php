@@ -93,7 +93,7 @@ class RechargeController extends RestController {
          //事务:充值表状态改为充值成功,并给用户添加上响应的充值金额
          $sql_pay = "UPDATE lovgarden_recharge SET `status`= '2' WHERE recharge_id = '$out_trade_no' AND `status`= '1'";
          $sql_add_recharge_pay = "UPDATE lovgarden_wxuser AS a SET a.balance = a.balance + $result_pay WHERE a.open_id = (SELECT b.open_id FROM lovgarden_recharge as b WHERE b.recharge_id ='$out_trade_no')";
-          //file_put_contents('/b.txt', '------'.$sql_pay, FILE_APPEND);
+         file_put_contents('/b.txt', '------'.$sql_pay, FILE_APPEND);
           //如果有优惠券,还需要吧优惠券设置成已使用
          $recharge->startTrans();
          $sql_result = $recharge->execute($sql_pay);
@@ -120,6 +120,21 @@ class RechargeController extends RestController {
        $recharge = D("Recharge");
        $pay_result = $recharge->userPayWithBalance($order_id);
        echo $pay_result;
+   }
+   public function getUserBalance($login_ip) {
+       $mem_cache = new Memcache();
+       $login_exist = $mem_cache->get($login_ip);
+       $get_balance_status = '404';
+       $balance = 0;
+       if(!empty($login_exist)) {
+           $recharge = D("Recharge");
+           $balance = $recharge->getUserBalance($login_exist);
+           $get_balance_status = '200';
+       }
+       echo json_encode(array(
+          'get_balance_status' => $get_balance_status,
+          'balance' => $balance
+       ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);       
    }
    
 }
