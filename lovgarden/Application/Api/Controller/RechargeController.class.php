@@ -11,6 +11,7 @@ class RechargeController extends RestController {
        $add_result = 0;
        $data = array();
        $create_recharge = 404;
+       $result_pay = 0;
        if(!empty($login_exist)) {              
          //获取阈值,避免数据库被恶意写入
          $login_ip_existed_try = $mem_cache->get($login_exist."recharge");
@@ -24,12 +25,13 @@ class RechargeController extends RestController {
              $open_id = $login_exist;
              $recharge = D('Recharge');
              $gift_pay = $recharge->findGiftPayCost($original_pay);
+             $result_pay = $original_pay + $gift_pay;
              $recharge_info = array(
                 'recharge_id' => date('ymdHis'). rand(10000,99999),
                 'open_id' => $open_id,
                 'original_pay' => $original_pay,
                 'gift_pay' => $gift_pay,
-                'result_pay' => $original_pay + $gift_pay,
+                'result_pay' => $result_pay,
                 'recharge_create_time' => date('Y-m-d H:i:s')
              );
             $add_result = $recharge->addRecharge($recharge_info);
@@ -51,7 +53,8 @@ class RechargeController extends RestController {
         }
        echo json_encode(array(
           'data' => $data,
-          'create_recharge' => $create_recharge
+          'create_recharge' => $create_recharge,
+          'result_pay' => $result_pay
        ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
    }
    public function userRechargeSuccess() {
