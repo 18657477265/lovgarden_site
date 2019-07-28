@@ -71,7 +71,7 @@ class RechargeModel extends Model
                }
                else {
                    $this->rollback();
-                   return 'update order error';
+                   return "update order error";
                }
            }
            else {

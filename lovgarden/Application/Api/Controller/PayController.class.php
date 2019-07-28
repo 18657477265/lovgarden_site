@@ -231,7 +231,6 @@ class PayController extends RestController {
                //首先尝试余额支付
                $recharge = D("Recharge");
                $pay_result = $recharge->userPayWithBalance($order_id,$login_exist,$order_info[0]['order_final_price']);
-               
                if($pay_result != 'success') {
                  //采用微信支付              
                  $new_order_id = date('ymdHis'). rand(10000,99999);
