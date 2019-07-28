@@ -49,12 +49,14 @@ class RechargeModel extends Model
            return -1;
        }
    }
-   public function userPayWithBalance($order_id) {
-       $sql = "select order_owner, order_final_price from lovgarden_order where order_id = '$order_id'";
-       $order_info = $this->query($sql);
-       $order_final_price = $order_info[0]["order_final_price"];
-       $open_id = $order_info[0]["order_owner"];
-       $balance = $this->getUserBalance($open_id);
+   public function userPayWithBalance($order_id,$open_id= '0',$order_final_price = 0 ) {
+       if($open_id == '0' || $order_final_price == 0) {
+         $sql = "select order_owner, order_final_price from lovgarden_order where order_id = '$order_id'";
+         $order_info = $this->query($sql);
+         $order_final_price = $order_info[0]["order_final_price"];
+         $open_id = $order_info[0]["order_owner"];
+       }
+       $balance = $this->getUserBalance($open_id);      
        if($balance > $order_final_price) {
            //将用户余额减去订单金额
            $sql_pay_with_balance = "UPDATE lovgarden_wxuser AS a SET a.balance=a.balance - '$order_final_price',a.reward_points = a.reward_points + '$order_final_price' WHERE open_id = '$open_id'";

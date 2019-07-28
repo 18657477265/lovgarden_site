@@ -102,20 +102,32 @@ class PayController extends RestController {
                        $order_model->commit();
                        //设置优惠券状态为已使用
                        $order_model->setCouponUsed($coupon_code,$login_exist);
-                       //创建微信支付预订单
-                       $wx_pay_model = new WxpayModel('wxd7561da4052911c3', '1526072861', 'https://www.flowerideas.cn/api/pay/wx_notify', '9xtnukxfqwvid4it94ieu736lktnc3mu',$login_exist);
-                       $params['body'] = '花点馨思花卉商品';
-                       $params['out_trade_no'] = $order_info['order_id'];
-                       $params['total_fee'] = $order_info['order_final_price'];
-                       $params['trade_type'] = 'JSAPI';
-                       $result = $wx_pay_model->unifiedOrder( $params );
                        $data = array();
-                       if(!empty($result['prepay_id'])) {
-                           $data = $wx_pay_model->getPayParams($result['prepay_id']);                          
+                       $pay_type = "wechat";
+                       //首先试试能不能用用户余额进行支付
+                       $recharge = D("Recharge");
+                       $pay_result = $recharge->userPayWithBalance($order_info['order_id'],$login_exist,$order_info['order_final_price']);
+                       if($pay_result != 'success') {
+                         //创建微信支付预订单
+                         $wx_pay_model = new WxpayModel('wxd7561da4052911c3', '1526072861', 'https://www.flowerideas.cn/api/pay/wx_notify', '9xtnukxfqwvid4it94ieu736lktnc3mu',$login_exist);
+                         $params['body'] = '花点馨思花卉商品';
+                         $params['out_trade_no'] = $order_info['order_id'];
+                         $params['total_fee'] = $order_info['order_final_price'];
+                         $params['trade_type'] = 'JSAPI';
+                         $result = $wx_pay_model->unifiedOrder( $params );
+                         //$data = array();
+                         if(!empty($result['prepay_id'])) {
+                             $data = $wx_pay_model->getPayParams($result['prepay_id']);                          
+                         }
+                       }
+                       else {
+                           //设置为余额支付
+                           $pay_type = 'balance';
                        }
                        echo json_encode(array(
                           'data' => $data,
-                          'create_order' => '200'
+                          'create_order' => '200',
+                          'pay_type' => $pay_type
                        ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
                        exit();
                     }
@@ -205,6 +217,7 @@ class PayController extends RestController {
        $login_status = 404;
        $open_id = '0';
        $create_order = 404;
+       $pay_type = "wechat";
        if(!empty($login_ip) && !empty($order_id)){
            $mem_cache = new Memcache();
            $login_exist = $mem_cache->get($login_ip);
@@ -213,52 +226,63 @@ class PayController extends RestController {
                $login_status = 200;
                $order_model = D('Order');
                $order_info = $order_model->alias('orders')->field('*')->where("orders.`order_owner`='%s' and orders.`id`='%s'",array($login_exist,$order_id))->select();
-
-               $new_order_id = date('ymdHis'). rand(10000,99999);
-               $order_original_id = $order_info[0]['id'];
-               //为了避免微信里面的预订单重复,需要将该订单号重新编号,需要修改order表和order product表中的order_id,再重新创建微信支付预订单
-               $new_order_id_sql = "UPDATE lovgarden_order SET order_id = '".$new_order_id."' WHERE id = '".$order_original_id."'";
-               $new_order_product_id_sql = "UPDATE lovgarden_order_product_varient SET order_info_id = '".$new_order_id."' WHERE order_original_id = '".$order_original_id."'";
                
-               $order_model->startTrans();
-               $update_order_result = $order_model->execute($new_order_id_sql);
-               $update_order_product_result = $order_model->execute($new_order_product_id_sql);
-               if($update_order_result && $update_order_product_result) {
-                   //改变成功就提交
-                   $order_model->commit();
-               }
-               else {
-                   //改变失败就回滚
-                   $order_model->rollback();
-                   echo json_encode(array(
+               
+               //首先尝试余额支付
+               $recharge = D("Recharge");
+               $pay_result = $recharge->userPayWithBalance($order_id,$login_exist,$order_info[0]['order_final_price']);
+               
+               if($pay_result != 'success') {
+                 //采用微信支付              
+                 $new_order_id = date('ymdHis'). rand(10000,99999);
+                 $order_original_id = $order_info[0]['id'];
+                 //为了避免微信里面的预订单重复,需要将该订单号重新编号,需要修改order表和order product表中的order_id,再重新创建微信支付预订单
+                 $new_order_id_sql = "UPDATE lovgarden_order SET order_id = '".$new_order_id."' WHERE id = '".$order_original_id."'";
+                 $new_order_product_id_sql = "UPDATE lovgarden_order_product_varient SET order_info_id = '".$new_order_id."' WHERE order_original_id = '".$order_original_id."'";
+               
+                 $order_model->startTrans();
+                 $update_order_result = $order_model->execute($new_order_id_sql);
+                 $update_order_product_result = $order_model->execute($new_order_product_id_sql);
+                 if($update_order_result && $update_order_product_result) {
+                     //改变成功就提交
+                     $order_model->commit();
+                 }
+                 else {
+                     //改变失败就回滚
+                     $order_model->rollback();
+                     echo json_encode(array(
                         'data' => $data,
                         'login_status' => $login_status,
-                        'create_order' => $create_order
-                    ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
-                   exit();
-               }
+                        'create_order' => $create_order,
+                        'pay_type' => $pay_type
+                     ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
+                     exit();
+                 }
                
-               $wx_pay_model = new WxpayModel('wxd7561da4052911c3', '1526072861', 'https://www.flowerideas.cn/api/pay/wx_notify', '9xtnukxfqwvid4it94ieu736lktnc3mu',$login_exist);
+                 $wx_pay_model = new WxpayModel('wxd7561da4052911c3', '1526072861', 'https://www.flowerideas.cn/api/pay/wx_notify', '9xtnukxfqwvid4it94ieu736lktnc3mu',$login_exist);
                
-               $params['body'] = '花点馨思花卉商品';
-               $params['out_trade_no'] = $new_order_id;
-               $params['total_fee'] = ($order_info[0]['order_final_price'] * 100)/100;
-               $params['trade_type'] = 'JSAPI';
-
-                 
-               $result = $wx_pay_model->unifiedOrder( $params );
-               
-               //$data = array();
-               if(!empty($result['prepay_id'])) {
+                 $params['body'] = '花点馨思花卉商品';
+                 $params['out_trade_no'] = $new_order_id;
+                 $params['total_fee'] = ($order_info[0]['order_final_price'] * 100)/100;
+                 $params['trade_type'] = 'JSAPI';                
+                 $result = $wx_pay_model->unifiedOrder( $params );             
+                 //$data = array();
+                 if(!empty($result['prepay_id'])) {
                     $data = $wx_pay_model->getPayParams($result['prepay_id']);
                     $create_order = 200;
+                 }
+               }
+               else {
+                   $create_order = 200;
+                   $pay_type = "balance";
                }
            }
        }
        echo json_encode(array(
             'data' => $data,
             'login_status' => $login_status,
-            'create_order' => $create_order
+            'create_order' => $create_order,
+            'pay_type' => $pay_type
        ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
        exit();
    }
