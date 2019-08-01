@@ -21,8 +21,11 @@ class LoginController extends RestController {
        if(!empty($session_key) && !empty($openid)) {
            $login_code = md5($openid.$session_key);
            $mem_cache->set($login_code, $openid, 3600);
-           $wx_user = D('Wxuser');      
-           $wx_user->add_wxuser($openid);
+           $wx_user = D('Wxuser');
+           
+           $nickname = empty($_GET['nickname'])?'':I('get.nickname');
+           $avatarurl = empty($_GET['avatarurl'])?'':I('get.avatarurl');
+           $wx_user->add_wxuser($openid,$nickname,$avatarurl);
        }
        echo json_encode(array(
             'loginInfo' => $login_code
