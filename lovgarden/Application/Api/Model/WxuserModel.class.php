@@ -29,7 +29,9 @@ class WxuserModel extends Model
               if($telephone == '') {
                 unset($data['telephone']);
               }
-              $this->where("open_id=$open_id")->save($data);
+              
+              $sql = "update lovgarden_wxuser set nickname = '$nickname', avatarurl = '$avatarurl' where open_id = '$open_id'";
+              $result = $this->execute($sql);
             }
         }
         return FALSE;
