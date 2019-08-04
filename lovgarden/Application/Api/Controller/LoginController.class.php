@@ -20,7 +20,7 @@ class LoginController extends RestController {
        $mem_cache = new Memcache();
        if(!empty($session_key) && !empty($openid)) {
            $login_code = md5($openid.$session_key);
-           $mem_cache->set($login_code, $openid, 3600);
+           $mem_cache->set($login_code, $openid, 86400);
            $wx_user = D('Wxuser');
            
            $nickname = empty($_GET['nickname'])?'':I('get.nickname');
