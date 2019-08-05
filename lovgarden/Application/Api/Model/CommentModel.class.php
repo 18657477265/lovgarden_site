@@ -52,6 +52,27 @@ class CommentModel extends Model {
         }
          */
     }
+    public function getMyComments($login_ip) {
+        $login_status = 404;
+        $open_id = '0';
+        $order_products_info = array();
+        $mem_cache = new Memcache();
+        $login_exist = $mem_cache->get($login_ip);
+        if(!empty($login_exist)){
+            $open_id = $login_exist;
+            $login_status = 200;
+            //获取此时可以评论的订单,也就是已经完成的订单
+            $sql = "SELECT orders.id, orders.order_id,orders_products.product_sku_id,products.varient_name,products_images.image_url FROM lovgarden_order AS orders 
+                    LEFT JOIN lovgarden_order_product_varient AS orders_products ON orders.id = orders_products.order_original_id 
+                    LEFT JOIN lovgarden_product_varient AS products ON orders_products.product_sku_id = products.sku_id
+                    LEFT JOIN lovgarden_product_varient_images AS products_images ON products.id = products_images.product_varient_id
+                    WHERE orders.order_status = '4' AND orders.order_owner = '$login_exist'";
+            $order_products = $this->query($sql);
+            $order_products_info = translate_database_result_to_logic_array($order_products, array('image_url','product_sku_id','varient_name'), 'id');
+            
+        }
+        return ['login_status'=> $login_status,'order_products_info' => $order_products_info];
+    }
 }
 
 

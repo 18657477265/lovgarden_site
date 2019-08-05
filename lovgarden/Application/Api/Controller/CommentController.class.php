@@ -28,4 +28,10 @@ class CommentController extends RestController {
             'add_result' => $add_result
        ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
    }
+   public function getCanCommentOrders() {
+       $login_ip = I('get.login_ip');
+       $comment = D('Comment');
+       $orders = $comment->getMyComments($login_ip);
+       echo json_encode($orders,JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
+   }
 }
