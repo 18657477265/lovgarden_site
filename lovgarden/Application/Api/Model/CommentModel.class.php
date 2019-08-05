@@ -68,7 +68,7 @@ class CommentModel extends Model {
                     LEFT JOIN lovgarden_product_varient_images AS products_images ON products.id = products_images.product_varient_id
                     WHERE orders.order_status = '4' AND orders.order_owner = '$login_exist'";
             $order_products = $this->query($sql);
-            $order_products_info = translate_database_result_to_logic_array($order_products, array('image_url','product_sku_id','varient_name'), 'id');
+            $order_products_info = translate_database_result_to_logic_array($order_products, array('image_url','product_sku_id','varient_name'), 'order_id');
             
         }
         return ['login_status'=> $login_status,'order_products_info' => $order_products_info];
