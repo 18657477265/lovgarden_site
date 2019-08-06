@@ -3,7 +3,7 @@ namespace Api\Model;
 use Think\Model;
 use Think\Cache\Driver\Memcache;
 class CommentModel extends Model {
-    protected $insertFields = 'open_id,order_id,sku_ids,content_body,image_urls';
+    protected $insertFields = 'open_id,order_id,sku_ids,content_body,image_urls,products_names';
     protected $_validate = array(
         array('order_id', '', '该订单已评论',0,'unique',1),//新增字段时候验证唯一性，编辑字段时候不验证          
     );
@@ -27,12 +27,13 @@ class CommentModel extends Model {
             return TRUE;
         }        
     }
-    public function addComment($open_id,$order_id,$sku_ids,$comment_words,$comment_images) {
+    public function addComment($open_id,$order_id,$sku_ids,$comment_words,$comment_images,$products_names) {
         $data['open_id'] = $open_id;
         $data['order_id'] = $order_id;
         $data['sku_ids'] = $sku_ids;
         $data['content_body'] = $comment_words;
-        $data['image_urls'] = $comment_images;    
+        $data['image_urls'] = $comment_images;
+        $data['products_names'] = $products_names;    
         $status = $this->create($data);
         if($status) {
             $success_id = $this->add($status);

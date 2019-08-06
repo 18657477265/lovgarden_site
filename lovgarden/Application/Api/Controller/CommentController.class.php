@@ -24,24 +24,21 @@ class CommentController extends RestController {
        $login_exist = $mem_cache->get($login_ip);
        if(!empty($login_exist)){        
            $order_id = I('get.order_id');
-           $sku_ids = I('get.sku_ids');
+           $sku_ids = $_GET['sku_ids'];
            $sku_ids = json_decode($sku_ids);
            $sku_ids = implode(",", $sku_ids);
-           $products_names = I('get.products_names');
+           $products_names = $_GET['products_names'];
            $products_names = json_decode($products_names);
            $products_names = implode(",", $products_names);
-           $uploadImages = I('get.uploadImages');
+           $uploadImages = $_GET['uploadImages'];
            $uploadImages = json_decode($uploadImages); 
            $uploadImages = implode(",", $uploadImages);
            $words = I('get.words');
            $open_id = $login_exist;
            
-           echo $sku_ids;
-           exit();
-           
-           
+                    
            $comment = D('Comment');
-           $result = $comment->addComment($open_id,$order_id,$sku_ids,$words,$uploadImages);
+           $result = $comment->addComment($open_id,$order_id,$sku_ids,$words,$uploadImages,$products_names);
            if($result) {
               $add_result = '200';
            }
