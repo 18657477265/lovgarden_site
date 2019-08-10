@@ -57,6 +57,7 @@ class CommentModel extends Model {
         $login_status = 404;
         $open_id = '0';
         $order_products_info = array();
+        $my_comments = array();
         $mem_cache = new Memcache();
         $login_exist = $mem_cache->get($login_ip);
         if(!empty($login_exist)){
@@ -70,9 +71,11 @@ class CommentModel extends Model {
                     WHERE orders.order_status = '4' AND orders.order_owner = '$login_exist'";
             $order_products = $this->query($sql);
             $order_products_info = translate_database_result_to_logic_array($order_products, array('image_url','product_sku_id','varient_name'), 'order_id');
-            
+            //获取已经评价的信息
+            $sql2 = "select id,order_id,content_body,image_urls,products_names from lovgarden_comment where open_id = $login_exist";
+            $my_comments = $this->query($sql2);
         }
-        return ['login_status'=> $login_status,'order_products_info' => $order_products_info];
+        return ['login_status'=> $login_status,'order_products_info' => $order_products_info,'my_comments'=>$my_comments];
     }
 }
 
