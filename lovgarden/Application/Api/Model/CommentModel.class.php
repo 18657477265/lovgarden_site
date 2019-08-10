@@ -77,7 +77,8 @@ class CommentModel extends Model {
             $my_comments = $this->query($sql2);
             if(!empty($my_comments)) {
                 foreach($my_comments as $key => $value) {
-                   $my_comments[$key]['image_urls'] = explode(",",$value['image_urls']); 
+                   $my_comments[$key]['image_urls'] = explode(",",$value['image_urls']);
+                   $my_comments[$key]['product_image'] = $order_products_info[$value['order_id']]['image_url'][0];
                    //剔除掉订单里那些已评价的单
                    unset($order_products_info[$value['order_id']]);
                 }
