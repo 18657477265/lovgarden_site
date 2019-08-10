@@ -78,6 +78,8 @@ class CommentModel extends Model {
             if(!empty($my_comments)) {
                 foreach($my_comments as $key => $value) {
                    $my_comments[$key]['image_urls'] = explode(",",$value['image_urls']); 
+                   //剔除掉订单里那些已评价的单
+                   unset($order_products_info[$value['order_id']]);
                 }
             }
         }
