@@ -5,7 +5,8 @@ use Think\Cache\Driver\Memcache;
 class CommentModel extends Model {
     protected $insertFields = 'open_id,order_id,sku_ids,content_body,image_urls,products_names,comment_date';
     protected $_validate = array(
-        array('order_id', '', '该订单已评论',0,'unique',1),//新增字段时候验证唯一性，编辑字段时候不验证          
+        array('order_id', '', '该订单已评论',0,'unique',1),//新增字段时候验证唯一性，编辑字段时候不验证 
+        array('content_body','require','内容不能为空',1,'',1),
     );
     public function checkUserUploadFilesTimes() {
         $user_ip = getIP();
