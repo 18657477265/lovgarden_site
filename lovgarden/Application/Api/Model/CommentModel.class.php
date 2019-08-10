@@ -74,7 +74,7 @@ class CommentModel extends Model {
             $order_products_info = translate_database_result_to_logic_array($order_products, array('image_url','product_sku_id','varient_name'), 'order_id');
             //获取已经评价的信息
     
-            $sql2 = "select id,order_id,content_body,image_urls,products_names from lovgarden_comment where open_id = '$login_exist'";            
+            $sql2 = "select id,order_id,content_body,image_urls,products_names,comment_date from lovgarden_comment where open_id = '$login_exist'";            
             $my_comments = $this->query($sql2);
             if(!empty($my_comments)) {
                 foreach($my_comments as $key => $value) {
