@@ -53,4 +53,11 @@ class CommentController extends RestController {
        $orders = $comment->getMyComments($login_ip);
        echo json_encode($orders,JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
    }
+   public function getAllComments() {
+       $login_ip = I('get.login_ip');
+       $index = I('get.index');
+       $comment = D('Comment');
+       $indexed_comments = $comment->getAllComments($login_ip,$index);
+       echo json_encode($indexed_comments,JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
+   }
 }

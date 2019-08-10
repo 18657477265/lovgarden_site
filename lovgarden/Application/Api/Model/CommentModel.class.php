@@ -88,6 +88,22 @@ class CommentModel extends Model {
         }
         return ['login_status'=> $login_status,'order_products_info' => $order_products_info,'my_comments'=>$my_comments];
     }
+    public function getAllComments($login_ip,$index,$count = 5,$cache_time = 100) {
+          $offset = $index * $count;
+          $comment_cache = new Memcache();
+          $login_exist = $mem_cache->get($login_ip);
+          $all_comments = array();
+          if(!empty($login_exist)) {
+            $key = "allComment".$offset;
+            $all_comments = $comment_cache->get($key);
+            if(empty($all_comments)) {
+              $sql_comment = "select id,order_id,content_body,image_urls,products_names,comment_date from lovgarden_comment order by id desc limit $offset , $count";            
+              $all_comments = $this->query($sql_comment);
+              $comment_cache->set($key,$all_comments,$cache_time);
+            }
+          }
+          return $all_comments;
+    }
 }
 
 
