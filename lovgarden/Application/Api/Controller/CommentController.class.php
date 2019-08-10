@@ -10,7 +10,9 @@ class CommentController extends RestController {
            $comment = D('Comment');
            if($comment->checkUserUploadFilesTimes()) {
              $info = uploadImage('comments', 'comments');
-             echo $info['file']['savepath'].$info['file']['savename'];
+             $result = $info['file']['savepath'].$info['file']['savename'];
+             $result = substr($result,3);
+             echo $result;
            }
            else {
               echo 500;
