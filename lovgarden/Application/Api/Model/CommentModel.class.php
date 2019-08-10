@@ -33,7 +33,9 @@ class CommentModel extends Model {
         $data['order_id'] = $order_id;
         $data['sku_ids'] = $sku_ids;
         $data['content_body'] = $comment_words;
-        $data['image_urls'] = $comment_images;
+        //$data['image_urls'] = $comment_images;
+        //$data['image_urls']  = trim($comment_images , "\xEF\xBB\xBF");
+        $data['image_urls'] = str_replace("\xEF\xBB\xBF", '', $comment_images);
         $data['products_names'] = $products_names;
         $data['comment_date'] = date('Y-m-d H:i:s');
         $status = $this->create($data);

@@ -11,7 +11,8 @@ class CommentController extends RestController {
            if($comment->checkUserUploadFilesTimes()) {
              $info = uploadImage('comments', 'comments');
              $result = $info['file']['savepath'].$info['file']['savename'];
-             $result = substr($result,3);
+             //$result = substr($result,3);
+             $result = trim($result, "\xEF\xBB\xBF");
              echo $result;
            }
            else {
