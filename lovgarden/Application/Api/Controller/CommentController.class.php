@@ -10,9 +10,18 @@ class CommentController extends RestController {
            $comment = D('Comment');
            if($comment->checkUserUploadFilesTimes()) {
              $info = uploadImage('comments', 'comments');
-             $result = $info['file']['savepath'].$info['file']['savename'];
-             //$result = substr($result,3);
-             $result = trim($result, "\xEF\xBB\xBF");
+             $savePath = $info['file']['savepath'];
+             $savePath = trim($savePath, "\xEF\xBB\xBF");
+             $saveName = $info['file']['savename'];
+             $result = $savePath.$saveName;            
+             //生成缩略图
+             $img = new Image();
+             $image_config = C('IMAGE_CONFIG');  
+             $big_img = $image_config['rootPath'].$result;
+             $img->open($big_img);
+             $img->thumb(100,100);
+             $small_img = $image_config['rootPath'].$savePath.'small_'.$saveName;
+             $img->save($small_img);
              echo $result;
            }
            else {
