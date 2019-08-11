@@ -101,8 +101,7 @@ class CommentModel extends Model {
             $all_comments = $comment_cache->get($key);
             if(empty($all_comments)) {
               //$sql_comment = "select id,order_id,content_body,image_urls,products_names,comment_date from lovgarden_comment lef order by id desc limit $offset , $count";            
-              $sql_comment = "select comments.id,comments.order_id,comments.content_body,comments.image_urls,comments.products_names,comments.comment_date,wxuser.nickname,wxuser.avatarurl from lovgarden_comment as comments
-                      .       left join lovgarden_wxuser as wxuser on comments.open_id = wxuser.open_id  order by comments.id desc limit $offset , $count";
+              $sql_comment = "select comments.id,comments.order_id,comments.content_body,comments.image_urls,comments.products_names,comments.comment_date,wxuser.nickname,wxuser.avatarurl from lovgarden_comment as comments left join lovgarden_wxuser as wxuser on comments.open_id = wxuser.open_id  order by comments.id desc limit $offset , $count";
               $all_comments = $this->query($sql_comment);
               $comment_cache->set($key,$all_comments,$cache_time);
             }
