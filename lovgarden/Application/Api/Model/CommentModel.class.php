@@ -90,13 +90,13 @@ class CommentModel extends Model {
         }
         return ['login_status'=> $login_status,'order_products_info' => $order_products_info,'my_comments'=>$my_comments];
     }
-    public function getAllComments($login_ip,$index,$count = 5,$cache_time = 100) {
+    public function getAllComments($login_ip,$index,$count = 5,$cache_time = 3600,$max = 999) {
  
-          $offset = $index * $count;
+          $offset = ceil($index * $count);
           $comment_cache = new Memcache();
           $login_exist = $comment_cache->get($login_ip);
           $all_comments = array();
-          if(!empty($login_exist)) {
+          if(!empty($login_exist) && $offset < $max) {
             $key = "allComment".$offset;
             $all_comments = $comment_cache->get($key);
             if(empty($all_comments)) {

@@ -69,7 +69,14 @@ class CommentController extends RestController {
        $login_ip = I('get.login_ip');
        $index = I('get.index');
        $comment = D('Comment');
+       $bottom = '1';
        $indexed_comments = $comment->getAllComments($login_ip,$index);
-       echo json_encode($indexed_comments,JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
+       if(empty($indexed_comments)) {
+           $bottom = '2';
+       }
+       echo json_encode(array(
+           'comments' => $indexed_comments,
+           'bottom' => $bottom
+       ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
    }
 }
