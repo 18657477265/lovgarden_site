@@ -68,17 +68,24 @@ class CommentModel extends Model {
             $open_id = $login_exist;
             $login_status = 200;
             //获取此时可以评论的订单,也就是已经完成的订单
-            $sql = "SELECT orders.id, orders.order_id,orders_products.product_sku_id,products.varient_name,products_images.image_url FROM lovgarden_order AS orders 
+            $order_products_info = $mem_cache->get($open_id.'noCommentOrders');
+            if(empty($order_products_info)) {
+              $sql = "SELECT orders.id, orders.order_id,orders_products.product_sku_id,products.varient_name,products_images.image_url FROM lovgarden_order AS orders 
                     LEFT JOIN lovgarden_order_product_varient AS orders_products ON orders.id = orders_products.order_original_id 
                     LEFT JOIN lovgarden_product_varient AS products ON orders_products.product_sku_id = products.sku_id
                     LEFT JOIN lovgarden_product_varient_images AS products_images ON products.id = products_images.product_varient_id
                     WHERE orders.order_status = '4' AND orders.order_owner = '$login_exist' ORDER BY orders.id DESC";
-            $order_products = $this->query($sql);
-            $order_products_info = translate_database_result_to_logic_array($order_products, array('image_url','product_sku_id','varient_name'), 'order_id');
+              $order_products = $this->query($sql);
+              $order_products_info = translate_database_result_to_logic_array($order_products, array('image_url','product_sku_id','varient_name'), 'order_id');
+              $mem_cache->set($open_id.'noCommentOrders',$order_products_info,86400);
+            }
             //获取已经评价的信息
-    
-            $sql2 = "select id,order_id,content_body,image_urls,products_names,comment_date from lovgarden_comment where open_id = '$login_exist'";            
-            $my_comments = $this->query($sql2);
+            $my_comments = $mem_cache->get($open_id.'commentOrders');
+            if(empty($my_comments)) {
+              $sql2 = "select id,order_id,content_body,image_urls,products_names,comment_date from lovgarden_comment where open_id = '$login_exist'";            
+              $my_comments = $this->query($sql2);
+              $mem_cache->set($open_id.'commentOrders',$my_comments,86400);
+            }
             if(!empty($my_comments)) {
                 foreach($my_comments as $key => $value) {
                    $my_comments[$key]['image_urls'] = explode(",",$value['image_urls']);
