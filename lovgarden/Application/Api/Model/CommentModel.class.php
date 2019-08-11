@@ -72,7 +72,7 @@ class CommentModel extends Model {
                     LEFT JOIN lovgarden_order_product_varient AS orders_products ON orders.id = orders_products.order_original_id 
                     LEFT JOIN lovgarden_product_varient AS products ON orders_products.product_sku_id = products.sku_id
                     LEFT JOIN lovgarden_product_varient_images AS products_images ON products.id = products_images.product_varient_id
-                    WHERE orders.order_status = '4' AND orders.order_owner = '$login_exist'";
+                    WHERE orders.order_status = '4' AND orders.order_owner = '$login_exist' ORDER BY orders.id DESC";
             $order_products = $this->query($sql);
             $order_products_info = translate_database_result_to_logic_array($order_products, array('image_url','product_sku_id','varient_name'), 'order_id');
             //获取已经评价的信息
@@ -100,7 +100,9 @@ class CommentModel extends Model {
             $key = "allComment".$offset;
             $all_comments = $comment_cache->get($key);
             if(empty($all_comments)) {
-              $sql_comment = "select id,order_id,content_body,image_urls,products_names,comment_date from lovgarden_comment order by id desc limit $offset , $count";            
+              //$sql_comment = "select id,order_id,content_body,image_urls,products_names,comment_date from lovgarden_comment lef order by id desc limit $offset , $count";            
+              $sql_comment = "select comments.id,comments.order_id,comments.content_body,comments.image_urls,comments.products_names,comments.comment_date,wxuser.nickname,wxuser.avatarurl from lovgarden_comment as comments
+                      .       left join lovgarden_wxuser as wxuser on comments.open_id = wxuser.open_id  order by comments.id desc limit $offset , $count";
               $all_comments = $this->query($sql_comment);
               $comment_cache->set($key,$all_comments,$cache_time);
             }
