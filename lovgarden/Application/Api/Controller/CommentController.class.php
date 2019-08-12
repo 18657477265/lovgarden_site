@@ -53,6 +53,9 @@ class CommentController extends RestController {
            $result = $comment->addComment($open_id,$order_id,$sku_ids,$words,$uploadImages,$products_names);
            if($result) {
               $add_result = '200';
+              //删除已经存在的个人评论数据缓存
+              $mem_cache->rm($open_id.'noCommentOrders');
+              $mem_cache->rm($open_id.'commentOrders');
            }
        }
        echo json_encode(array(

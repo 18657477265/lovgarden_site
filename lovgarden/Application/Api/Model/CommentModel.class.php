@@ -97,7 +97,7 @@ class CommentModel extends Model {
         }
         return ['login_status'=> $login_status,'order_products_info' => $order_products_info,'my_comments'=>$my_comments];
     }
-    public function getAllComments($login_ip,$index,$count = 5,$cache_time = 3600,$max = 999) {
+    public function getAllComments($login_ip,$index,$count = 5,$cache_time = 10800,$max = 999) {
  
           $offset = ceil($index * $count);
           $comment_cache = new Memcache();
