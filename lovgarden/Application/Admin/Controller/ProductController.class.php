@@ -164,7 +164,7 @@ lovgarden_product_varient_images AS df ON mf.`id`= df.`product_varient_id` WHERE
           }
         }
         else {
-            $sql = "SELECT pv.id , pv.category , pv.sku_id , pv.varient_name,pv.varient_summary,pv.varient_body,pv.varient_status,pv.varient_price,pv.decoration_level,pv.vase,pvi.`image_url` ,pvhl.`hurry_level_id` , pvft.`flower_type_id`,pvfo.`flower_occasion_id`,pvfh.`flower_home_id`,pvfc.`flower_color_id` FROM lovgarden_product_varient AS pv 
+            $sql = "SELECT pv.id , pv.category , pv.sku_id , pv.varient_name,pv.varient_summary,pv.varient_body,pv.varient_status,pv.varient_price,pv.decoration_level,pv.vase,pv.wait_days,pv.decoration_names,pvi.`image_url` ,pvhl.`hurry_level_id` , pvft.`flower_type_id`,pvfo.`flower_occasion_id`,pvfh.`flower_home_id`,pvfc.`flower_color_id` FROM lovgarden_product_varient AS pv 
                     LEFT JOIN lovgarden_product_varient_images AS pvi ON pv.`id`=pvi.`product_varient_id`
                     LEFT JOIN lovgarden_product_varient_hurry_level AS pvhl ON pv.`id`=pvhl.`product_varient_id`
                     LEFT JOIN lovgarden_product_varient_flower_type AS pvft ON pv.`id`=pvft.`product_varient_id`
