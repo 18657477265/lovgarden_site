@@ -53,15 +53,15 @@ class OrderModel extends Model
     }
     //创建订单后,将订单对应的优惠券设置为已使用3
     function setCouponUsed($coupon_id,$open_id) {
-        $sql = "update lovgarden_user_coupon set coupon_status = '3' where coupon_id = '$coupon_id' and open_id = '$open_id'";
-        $model_for_user = new Model();
-        $results = $model_for_user->execute($sql);
-        if($results) {
-            return TRUE;
+        if($coupon_id != '0') {
+          $sql = "update lovgarden_user_coupon set coupon_status = '3' where coupon_id = '$coupon_id' and open_id = '$open_id'";
+          $model_for_user = new Model();
+          $results = $model_for_user->execute($sql);
+          if($results) {
+              return TRUE;
+          }
         }
-        else {
-            return FALSE;
-        }
+        return FALSE;
     }
 }
 

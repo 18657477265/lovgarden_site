@@ -39,7 +39,16 @@ class PayController extends RestController {
              }
              //$error_message = '';
              $order_products_info = $result_rows_array;
-             $costs = wx_calculate_cost($order_products_info,20,$coupon_code,$vase_count,$login_exist);                   
+             $costs = wx_calculate_cost($order_products_info,20,$coupon_code,$vase_count,$login_exist);
+             
+             if($costs['coupon_min_pay_allow'] == '0') {
+                echo json_encode(array(
+                   'create_order' => '404',
+                   'error_message_content' => '优惠券不满足使用条件'
+                ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
+                exit();
+             }
+             
              $order_info = array(
                 'order_id' => date('ymdHis'). rand(10000,99999),
                 'order_owner' => $login_exist,

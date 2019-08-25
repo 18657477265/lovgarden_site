@@ -518,25 +518,32 @@ function wx_calculate_cost($products_array,$vase_price = 20,$coupon_code = '0',$
         'cut_cost' => 0,
         'deliver_cost' => 0,
         'products_original_cost' => 0,
-        'vip_discount'=> 10
+        'vip_discount'=> 10,
+        'coupon_min_pay_allow' => '1'
     );
     $coupon_value = 0;
     $model = new \Think\Model();
     foreach($products_array as $k => $v) {
        $cost_info_array['products_original_cost']+= $v['varient_price'] * $v['count'];
-       $sql = "select * from lovgarden_coupon where coupon_id = $coupon_code";
-       //$model = new \Think\Model();
-       $data = $model->query($sql);
-       if(!empty($data)) {
-           $coupon_value = $data[0]['coupon_value'];
-           $cost_info_array['cut_cost'] = $coupon_value;
-       }
     }
+    if($coupon_code != '0') {
+      $sql = "select coupon_id,coupon_value,min_pay from lovgarden_coupon where coupon_id = $coupon_code";
+      //$model = new \Think\Model();
+      $data = $model->query($sql);
+      if(!empty($data)) {
+          $coupon_value = $data[0]['coupon_value'];
+          $cost_info_array['cut_cost'] = $coupon_value;
+          if($cost_info_array['products_original_cost'] < $data[0]['min_pay']) {
+              $cost_info_array['coupon_min_pay_allow'] = '0';
+          }
+      }
+    }
+    
     $cost_info_array['vase_cost'] = $vase_price * $vase_count;
     //这里以后添加购物券的逻辑，从数据库里取出扣除的价格
     $cost_info_array['total_cost'] = $cost_info_array['vase_cost'] + $cost_info_array['deliver_cost'] + $cost_info_array['products_original_cost'] - $cost_info_array['cut_cost'];
     //file_put_contents('/cron_order.log', 'aaa'.$login_exist.PHP_EOL,FILE_APPEND);
-    if($login_exist != 'none') {
+    if($login_exist != 'none' && $cost_info_array['coupon_min_pay_allow'] == '1') {
         //file_put_contents('/cron_order.log', 'sss'.PHP_EOL,FILE_APPEND);
         $sql_vip = "SELECT reward_points FROM lovgarden_wxuser WHERE open_id = '$login_exist'";
         $reward_points_array = $model->query($sql_vip);
