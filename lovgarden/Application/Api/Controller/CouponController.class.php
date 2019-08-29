@@ -188,6 +188,7 @@ class CouponController extends RestController {
        $coupon_exist = 0; //0 不存在 1 存在
        $company_name = I('get.company_name');
        $company_code = I('get.company_code');
+       $coupon_image = '';
        
        if($company_name == '' || $company_code == '') {
           $company_name = 'none';
@@ -205,12 +206,10 @@ class CouponController extends RestController {
                //检查当前优惠券是否过期
                $nowday = date("Y-m-d H:i:s");
                //$sql = "select id , coupon_id , coupon_number from lovgarden_coupon where type='2' and company_name = '$company_name' and company_code = '$company_code' and deadline >"."'".$nowday."'";
-               //echo $sql;
-               //exit();
                $model = new \Think\Model();
                //$model->query('select * from user where id=%d and status=%d',$id,$status);
                //$Model->query("SELECT * FROM think_user WHERE id=%d and username='%s' and xx='%f'",array($id,$username,$xx));
-               $data = $model->query("select id , coupon_id , coupon_number from lovgarden_coupon where type='2' and company_name = '%s' and company_code = '%s' and deadline >'%s'",array($company_name,$company_code,$nowday));
+               $data = $model->query("select id , coupon_id , coupon_choose_image, coupon_number from lovgarden_coupon where type='2' and company_name = '%s' and company_code = '%s' and deadline >'%s'",array($company_name,$company_code,$nowday));
               
                if(!empty($data)) {
                   $coupon_exist = 1;
@@ -222,10 +221,11 @@ class CouponController extends RestController {
                         $coupon_user_exist = $model->query($sql2);
                         if(empty($coupon_user_exist)) {
                          //说明该用户可以领取这个优惠券,需要插入数据
-                           $sql_insert = "INSERT INTO lovgarden_user_coupon (coupon_id,user_telephone,open_id) VALUES ('$coupon_id','$telephone','$open_id')";
-                           $data_insert = $model->execute($sql_insert);
+                           //$sql_insert = "INSERT INTO lovgarden_user_coupon (coupon_id,user_telephone,open_id) VALUES ('$coupon_id','$telephone','$open_id')";
+                           $data_insert = $model->execute("INSERT INTO lovgarden_user_coupon (coupon_id,user_telephone,open_id) VALUES ('%s','%s','%s')",array($coupon_id,$telephone,$open_id));
                            if(data_insert) {
                                $user_coupon_insert[] = array('coupon_id' => $coupon_id,'user_coupon_insert'=>'1');
+                               $coupon_image = $value['coupon_choose_image'];
                                $model->execute("update lovgarden_coupon set coupon_number = coupon_number - 1 where coupon_id = '$coupon_id'");
                            }
                         }
@@ -246,7 +246,8 @@ class CouponController extends RestController {
           'login_status' => $login_status,
           'user_coupon_insert' => $user_coupon_insert,
           'coupon_exist' => $coupon_exist,
-          'user_telephone' => $user_telephone
+          'user_telephone' => $user_telephone,
+          'coupon_image' => $coupon_image
        ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
        
    }
