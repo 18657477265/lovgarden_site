@@ -188,6 +188,13 @@ class CouponController extends RestController {
        $coupon_exist = 0; //0 不存在 1 存在
        $company_name = I('get.company_name');
        $company_code = I('get.company_code');
+       
+       if($company_name == '' || $company_code == '') {
+          $company_name = 'none';
+          $company_code = 'none';
+       }
+       //echo $company_code;
+       //exit();
        //检查是否登录
        if($login_ip!='0' && $user_telephone != 0){
            $mem_cache = new Memcache();
@@ -197,11 +204,14 @@ class CouponController extends RestController {
                $login_status = 200;
                //检查当前优惠券是否过期
                $nowday = date("Y-m-d H:i:s");
-               $sql = "select id , coupon_id , coupon_number from lovgarden_coupon where type='2' and company_name = $company_name and company_code = $company_code and deadline >"."'".$nowday."'";
+               //$sql = "select id , coupon_id , coupon_number from lovgarden_coupon where type='2' and company_name = '$company_name' and company_code = '$company_code' and deadline >"."'".$nowday."'";
+               //echo $sql;
+               //exit();
                $model = new \Think\Model();
                //$model->query('select * from user where id=%d and status=%d',$id,$status);
                //$Model->query("SELECT * FROM think_user WHERE id=%d and username='%s' and xx='%f'",array($id,$username,$xx));
-               $data = $model->query($sql);
+               $data = $model->query("select id , coupon_id , coupon_number from lovgarden_coupon where type='2' and company_name = '%s' and company_code = '%s' and deadline >'%s'",array($company_name,$company_code,$nowday));
+              
                if(!empty($data)) {
                   $coupon_exist = 1;
                   foreach ($data as $key => $value) {
@@ -216,6 +226,7 @@ class CouponController extends RestController {
                            $data_insert = $model->execute($sql_insert);
                            if(data_insert) {
                                $user_coupon_insert[] = array('coupon_id' => $coupon_id,'user_coupon_insert'=>'1');
+                               $model->execute("update lovgarden_coupon set coupon_number = coupon_number - 1 where coupon_id = '$coupon_id'");
                            }
                         }
                         else {
