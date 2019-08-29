@@ -6,7 +6,7 @@ class CouponController extends RestController {
    //获取当前可用的优惠券
    public function getAvailableCoupons($coupon_id = 0) {
       $nowday = date("Y-m-d H:i:s");
-      $sql = "select * from lovgarden_coupon where deadline >"."'".$nowday."'";
+      $sql = "select * from lovgarden_coupon where type = '1' and deadline >"."'".$nowday."'";
       $model = new \Think\Model();
       $data = $model->query($sql);
       echo json_encode(array(
@@ -177,5 +177,66 @@ class CouponController extends RestController {
              }
           }   
        }   
+   }
+   public function userTakeCompanyCoupon($login_ip= '0',$telephone=0,$company_name='',$company_code='') {
+       //1验证用户是否登录
+       $login_status = 404; //404 没有登录, 200登录状态
+       $open_id = '0'; //0 表示没有
+       $user_coupon_insert = array(); //0 原始状态 1 给用户新增了优惠券 2 该优惠券用户已经有了 3该优惠券已经达到最大领取上限
+       $user_condition = 0; //0 原始状态 1 条件满足  2条件不满足
+       $user_telephone = $telephone;
+       $coupon_exist = 0; //0 不存在 1 存在
+       $company_name = I('get.company_name');
+       $company_code = I('get.company_code');
+       //检查是否登录
+       if($login_ip!='0' && $user_telephone != 0){
+           $mem_cache = new Memcache();
+           $login_exist = $mem_cache->get($login_ip);
+           if(!empty($login_exist)){
+               $open_id = $login_exist;
+               $login_status = 200;
+               //检查当前优惠券是否过期
+               $nowday = date("Y-m-d H:i:s");
+               $sql = "select id , coupon_id , coupon_number from lovgarden_coupon where type='2' and company_name = $company_name and company_code = $company_code and deadline >"."'".$nowday."'";
+               $model = new \Think\Model();
+               //$model->query('select * from user where id=%d and status=%d',$id,$status);
+               //$Model->query("SELECT * FROM think_user WHERE id=%d and username='%s' and xx='%f'",array($id,$username,$xx));
+               $data = $model->query($sql);
+               if(!empty($data)) {
+                  $coupon_exist = 1;
+                  foreach ($data as $key => $value) {
+                      $coupon_id = $value['coupon_id'];
+                      $coupon_number = $value['coupon_number'];
+                      if($coupon_number > 0) {
+                        $sql2 = "SELECT id FROM lovgarden_user_coupon WHERE open_id = '".$open_id."' and coupon_id = '".$coupon_id."'" ;
+                        $coupon_user_exist = $model->query($sql2);
+                        if(empty($coupon_user_exist)) {
+                         //说明该用户可以领取这个优惠券,需要插入数据
+                           $sql_insert = "INSERT INTO lovgarden_user_coupon (coupon_id,user_telephone,open_id) VALUES ('$coupon_id','$telephone','$open_id')";
+                           $data_insert = $model->execute($sql_insert);
+                           if(data_insert) {
+                               $user_coupon_insert[] = array('coupon_id' => $coupon_id,'user_coupon_insert'=>'1');
+                           }
+                        }
+                        else {
+                             //说明该用户已经有了该优惠券,不需要插入数据
+                              $user_coupon_insert[] = array('coupon_id' => $coupon_id,'user_coupon_insert'=>'2');
+                        }
+                      }
+                      else {
+                          $user_coupon_insert[] = array('coupon_id' => $coupon_id,'user_coupon_insert'=>'3');
+                      }
+                  }
+               }
+           }
+       }
+    
+       echo json_encode(array(
+          'login_status' => $login_status,
+          'user_coupon_insert' => $user_coupon_insert,
+          'coupon_exist' => $coupon_exist,
+          'user_telephone' => $user_telephone
+       ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
+       
    }
 }
