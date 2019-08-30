@@ -225,7 +225,7 @@ class CouponController extends RestController {
                            $data_insert = $model->execute("INSERT INTO lovgarden_user_coupon (coupon_id,user_telephone,open_id) VALUES ('%s','%s','%s')",array($coupon_id,$telephone,$open_id));
                            if(data_insert) {
                                $user_coupon_insert[] = array('coupon_id' => $coupon_id,'user_coupon_insert'=>'1');
-                               $coupon_image[] = $value['coupon_choose_image'];
+                               $coupon_image[] = $value['coupon_image'];
                                $model->execute("update lovgarden_coupon set coupon_number = coupon_number - 1 where coupon_id = '$coupon_id'");
                            }
                         }
