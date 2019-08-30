@@ -31,7 +31,7 @@ class RechargeModel extends Model
    function findRightLevelActivity($activitys_rows,$original_pay) {
        if(!empty($activitys_rows)) {
          foreach($activitys_rows as $key => $value) {
-             if($value["if_pay"]<$original_pay) {           
+             if($value["if_pay"] <= $original_pay) {           
                if(!empty($activitys_rows[$key+1])){
                    continue;
                }
