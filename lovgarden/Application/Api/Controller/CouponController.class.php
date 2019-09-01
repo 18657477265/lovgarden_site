@@ -210,7 +210,6 @@ class CouponController extends RestController {
                //$model->query('select * from user where id=%d and status=%d',$id,$status);
                //$Model->query("SELECT * FROM think_user WHERE id=%d and username='%s' and xx='%f'",array($id,$username,$xx));
                $data = $model->query("select id , coupon_id , coupon_image, coupon_number from lovgarden_coupon where type='2' and company_name = '%s' and company_code = '%s' and deadline >'%s'",array($company_name,$company_code,$nowday));
-              
                if(!empty($data)) {
                   $coupon_exist = 1;
                   foreach ($data as $key => $value) {
