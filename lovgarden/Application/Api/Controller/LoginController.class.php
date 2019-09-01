@@ -52,12 +52,24 @@ class LoginController extends RestController {
          //确保是登录状态,否则不发短信
          $open_id = $mem_code->get($login_code);
          if(!empty($open_id)) {
-            $param = str_pad(mt_rand(0, 999999), 6, "0", STR_PAD_BOTH);              
-            set_time_limit(0);          
-            $response = SendCustomCode::sendSms($telephone,$param);
-            //将数据存入memcache,并设置30分钟后过期
-            $mem_code->set($telephone, $param, 1800);
-            $error_code = 200;
+            $send_time = $mem_code->get($open_id.'send_msg_times');
+            if(empty($send_time)) {
+                $send_time = 0;
+            }
+            if($send_time < 10) {
+              $param = str_pad(mt_rand(0, 999999), 6, "0", STR_PAD_BOTH);              
+              set_time_limit(0);          
+              $response = SendCustomCode::sendSms($telephone,$param);
+              //将数据存入memcache,并设置30分钟后过期
+              $mem_code->set($telephone, $param, 1800);
+              $error_code = 200;
+            
+              $send_time = $send_time + 1;
+              $mem_code->set($open_id.'send_msg_times',$send_time, 86400);
+            }
+            else {
+                $error_code = 405;
+            }
          }
          else {
             $error_code = 403;
