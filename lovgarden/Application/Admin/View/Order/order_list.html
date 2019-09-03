@@ -44,6 +44,7 @@
         <option  value="1" <?php if($filter_selection['order_status'] === '1'): ?><?php echo "selected='selected'"; ?><?php endif; ?>>未付款</option>
         <option value="2"  <?php if($filter_selection['order_status'] === '2'): ?><?php echo "selected='selected'"; ?><?php endif; ?>>已付款</option>
         <option value="3"  <?php if($filter_selection['order_status'] === '3'): ?><?php echo "selected='selected'"; ?><?php endif; ?>>已发货</option>
+        <option value="3"  <?php if($filter_selection['order_status'] === '4'): ?><?php echo "selected='selected'"; ?><?php endif; ?>>已完成</option>
        </select>
        <input name="others" type="text" class="textbox textbox_225" placeholder="输入名字备注地址等其他信息..." value="<?php print $filter_selection['others']; ?>"/>
        <input type="submit" value="查询" class="group_btn"/>
@@ -98,7 +99,8 @@
          <td class="center" style="font-size: 10px;"><?php print $v['trade_no']; ?></td>
          <td class="center">
              <a target='_blank' href="/Admin/Order/detail/id/<?php print $v['id']; ?>" data-order-id="<?php print $v['id']; ?>" title="所含商品信息" class="link_icon" target="_blank">&#118;</a>
-             <span class="order-send-button" style="cursor:pointer" data-order-id="<?php print $v['id']; ?>" title="修改订单状态为已发货">点击发货</span>        
+             <span class="order-send-button" style="cursor:pointer" data-order-id="<?php print $v['id']; ?>" title="修改订单状态为已发货">点击发货</span> 
+             <span class="order-done-button" style="cursor:pointer" data-order-id="<?php print $v['id']; ?>" title="修改订单状态为已完成">标记完成</span>
          </td>
         </tr>
        <?php endforeach; ?>
