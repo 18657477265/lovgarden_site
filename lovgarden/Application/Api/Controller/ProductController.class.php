@@ -19,14 +19,16 @@ class ProductController extends RestController {
             $sku_id = $sku_id_real[0]['sku_id'];
             $sku_ids = get_related_products($sku_id);
             $sku_ids = implode(',', $sku_ids);       
-            $sql = "SELECT a.id,a.sku_id,a.varient_name,a.wait_days,a.decoration_names,a.varient_summary,a.varient_body,a.varient_status,a.varient_price,a.decoration_level,a.vase,b.`image_url`,c.`flower_home_id`,d.`hurry_level_id` FROM lovgarden_product_varient AS a
+            $sql = "SELECT a.id,a.sku_id,a.varient_name,a.wait_days,a.decoration_names,a.varient_summary,a.varient_body,a.varient_status,a.varient_price,a.decoration_level,a.vase,b.`image_url`,c.`flower_home_id`,d.`hurry_level_id`,f.`flower_type_id`,g.`flower_name` FROM lovgarden_product_varient AS a
                     LEFT JOIN lovgarden_product_varient_images AS b ON a.`id`=b.`product_varient_id`
                     LEFT JOIN lovgarden_product_varient_flower_home AS c ON a.`id`=c.`product_varient_id`
                     LEFT JOIN lovgarden_product_varient_hurry_level AS d ON a.`id`=d.`product_varient_id`
+                    LEFT JOIN lovgarden_product_varient_flower_type AS f ON a.`id`=f.`product_varient_id`
+                    LEFT JOIN lovgarden_flower_type AS g ON f.`flower_type_id`=g.`id`
                     WHERE a.`sku_id` IN ($sku_ids) ;";
 
             $result_rows = $model->query($sql);
-            $multiple_fileds_array = array('image_url','flower_home_id','hurry_level_id');    
+            $multiple_fileds_array = array('image_url','flower_home_id','hurry_level_id','flower_type_id','flower_name');    
             $result_rows_array = translate_database_result_to_logic_array($result_rows,$multiple_fileds_array,'sku_id');
             
             $mem_cache->set('products'.$sku_id,$result_rows_array,86400);
