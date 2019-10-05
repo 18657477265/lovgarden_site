@@ -106,6 +106,32 @@ $(function(){
        }
    });
    
+   //ajax 修改订单状态为已取消
+   $('.order-cancled-button').on('click',function(){
+       if(confirm("确定更新该订单状态为已取消?")){
+           var order_id = $(this).data('order-id');
+           var order_msg = {
+                 order_id: order_id,
+                 status:'cancled'
+           };
+           $.ajax({
+                type: 'POST',
+                url: "/index.php/Admin/Order/cancledStatus",
+                data: order_msg,
+                dataType: 'json',
+                success:function(data)
+                {
+                    if(data == '200') {
+                       alert('订单状态更新成功');
+                    }
+                    else {
+                        alert('订单状态更新失败');
+                    }
+                }         
+           });
+       }
+   });
+   
    //ajax 根据id 删除区块block全部信息
    $('.block-delete').on('click',function(){
        if(confirm("确定删除该区块?")){

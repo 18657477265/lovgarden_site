@@ -95,4 +95,19 @@ class OrderController extends BaseController {
         }
         echo '404';
     }
+    public function cancledStatus() {
+        $order_id = $_POST['order_id'];
+        $order_status = $_POST['status'];
+        
+        if($order_status == 'cancled') {
+            $sql = "UPDATE lovgarden_order set order_status = '5' WHERE id = '$order_id'";
+            $model = new \Think\Model();
+            $result = $model->execute($sql);
+            if($result !== FALSE) {
+                echo '200';
+                exit();
+            }
+        }
+        echo '404';
+    }
 }
