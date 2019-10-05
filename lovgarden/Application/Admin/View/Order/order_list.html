@@ -45,7 +45,7 @@
         <option value="2"  <?php if($filter_selection['order_status'] === '2'): ?><?php echo "selected='selected'"; ?><?php endif; ?>>已付款</option>
         <option value="3"  <?php if($filter_selection['order_status'] === '3'): ?><?php echo "selected='selected'"; ?><?php endif; ?>>已发货</option>
         <option value="4"  <?php if($filter_selection['order_status'] === '4'): ?><?php echo "selected='selected'"; ?><?php endif; ?>>已完成</option>
-        <option value="5"  <?php if($filter_selection['order_status'] === '5'): ?><?php echo "selected='selected'"; ?><?php endif; ?>>已完成</option>
+        <option value="5"  <?php if($filter_selection['order_status'] === '5'): ?><?php echo "selected='selected'"; ?><?php endif; ?>>已取消</option>
        </select>
        <input name="others" type="text" class="textbox textbox_225" placeholder="输入名字备注地址等其他信息..." value="<?php print $filter_selection['others']; ?>"/>
        <input type="submit" value="查询" class="group_btn"/>

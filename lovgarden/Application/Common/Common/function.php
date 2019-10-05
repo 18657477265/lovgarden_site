@@ -334,6 +334,9 @@ function get_order_status_label($order_status) {
         case '4':
             $order_status_label = '已完成';
             break;
+        case '5':
+            $order_status_label = '已取消';
+            break;
     }
     return $order_status_label;
 }
