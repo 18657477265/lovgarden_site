@@ -4,8 +4,8 @@ use Think\Model;
 class ProductVarientModel extends Model 
 {
     //调用时候create方法允许接受的字段
-    protected $insertFields = 'sku_id,varient_name,varient_summary,varient_body,varient_status,varient_price,decoration_level,varient_create_time,vase,category,wait_days,decoration_names';
-    protected $updateFields = 'sku_id,varient_name,varient_summary,varient_body,varient_status,varient_price,decoration_level,vase,category,wait_days,decoration_names';
+    protected $insertFields = 'sku_id,varient_name,varient_summary,varient_body,varient_status,varient_price,decoration_level,varient_create_time,vase,category,wait_days,original_price,decoration_names';
+    protected $updateFields = 'sku_id,varient_name,varient_summary,varient_body,varient_status,varient_price,decoration_level,vase,category,wait_days,original_price,decoration_names';
     
     //验证规则
     protected $_validate = array(
@@ -60,6 +60,7 @@ lovgarden_product_varient_images AS df ON mf.`id`= df.`product_varient_id` WHERE
         $data['vase'] = htmlspecialchars($_POST['vase']);
 
         $data['wait_days'] = htmlspecialchars($_POST['wait_days']);
+        $data['original_price'] = htmlspecialchars($_POST['original_price']);
         $data['decoration_names'] = htmlspecialchars($_POST['decoration_names']);
         
         $data['varient_create_time'] = date('Y-m-d H:i:s',time());
@@ -105,6 +106,7 @@ lovgarden_product_varient_images AS df ON mf.`id`= df.`product_varient_id` WHERE
         $data['vase'] = htmlspecialchars($_POST['vase']);
 
         $data['wait_days'] = htmlspecialchars($_POST['wait_days']);
+        $data['original_price'] = htmlspecialchars($_POST['original_price']);
         $data['decoration_names'] = htmlspecialchars($_POST['decoration_names']);           
         //create构造并验证product_varient的字段数据，传回$status
         $status = $this->create($data);
