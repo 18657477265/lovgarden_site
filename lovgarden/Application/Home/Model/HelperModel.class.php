@@ -22,7 +22,7 @@ class HelperModel
                                 ->join('LEFT JOIN lovgarden_flower_occasion AS floweroccasion ON floweroccasionid.flower_occasion_id = floweroccasion.id')
                                 ->join('LEFT JOIN lovgarden_product_varient_flower_color AS flowercolorid ON product.id = flowercolorid.product_varient_id')
                                 ->join('LEFT JOIN lovgarden_flower_color AS flowercolor ON flowercolorid.flower_color_id = flowercolor.id')
-                                ->field('product.id , product.sku_id , product.varient_name , product.varient_summary , product.varient_price , images.`image_url` , hurrylevelid.hurry_level_id , hurrylevel.hurry_level,flowerhomeid.flower_home_id,flowerhome.flower_home,flowertypeid.flower_type_id,flowertype.flower_name,floweroccasionid.flower_occasion_id,floweroccasion.flower_occasion,flowercolorid.flower_color_id,flowercolor.flower_color')
+                                ->field('product.id , product.sku_id , product.varient_name , product.varient_summary , product.varient_price , product.original_price , images.`image_url` , hurrylevelid.hurry_level_id , hurrylevel.hurry_level,flowerhomeid.flower_home_id,flowerhome.flower_home,flowertypeid.flower_type_id,flowertype.flower_name,floweroccasionid.flower_occasion_id,floweroccasion.flower_occasion,flowercolorid.flower_color_id,flowercolor.flower_color')
                                 ->where($where)                         
                                 ->order('product.id asc')
                                 ->select();
