@@ -121,7 +121,7 @@ class PayController extends RestController {
                          $wx_pay_model = new WxpayModel('wxd7561da4052911c3', '1526072861', 'https://www.flowerideas.cn/api/pay/wx_notify', '9xtnukxfqwvid4it94ieu736lktnc3mu',$login_exist);
                          $params['body'] = '花点馨思花卉商品';
                          $params['out_trade_no'] = $order_info['order_id'];
-                         $params['total_fee'] = $order_info['order_final_price'];
+                         $params['total_fee'] = $order_info['order_final_price'] * 100;
                          $params['trade_type'] = 'JSAPI';
                          $result = $wx_pay_model->unifiedOrder( $params );
                          //$data = array();
@@ -195,7 +195,7 @@ class PayController extends RestController {
            exit();
        }
        $out_trade_no = $result['out_trade_no'];
-       $total_amount = $result['total_fee'];
+       $total_amount = $result['total_fee']/100;
        $trade_no = $result['transaction_id'];
        //file_put_contents('/b.txt', $out_trade_no.'---'.$total_amount.'---'.$trade_no, FILE_APPEND);
        //exit();
@@ -271,7 +271,7 @@ class PayController extends RestController {
                
                  $params['body'] = '花点馨思花卉商品';
                  $params['out_trade_no'] = $new_order_id;
-                 $params['total_fee'] = ($order_info[0]['order_final_price'] * 100)/100;
+                 $params['total_fee'] = $order_info[0]['order_final_price'] * 100;
                  $params['trade_type'] = 'JSAPI';                
                  $result = $wx_pay_model->unifiedOrder( $params );             
                  //$data = array();

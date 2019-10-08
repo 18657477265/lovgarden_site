@@ -41,7 +41,7 @@ class RechargeController extends RestController {
                 $wx_pay_model = new WxpayModel('wxd7561da4052911c3', '1526072861', 'https://www.flowerideas.cn/api/recharge/userRechargeSuccess', '9xtnukxfqwvid4it94ieu736lktnc3mu',$login_exist);
                 $params['body'] = '花点馨思花卉充值';
                 $params['out_trade_no'] = $recharge_info['recharge_id'];
-                $params['total_fee'] = $recharge_info['original_pay'];
+                $params['total_fee'] = $recharge_info['original_pay'] * 100;
                 $params['trade_type'] = 'JSAPI';
                 $result = $wx_pay_model->unifiedOrder( $params );
                 if(!empty($result['prepay_id'])) {
@@ -83,7 +83,7 @@ class RechargeController extends RestController {
            exit();
        }
        $out_trade_no = $result['out_trade_no'];
-       $total_amount = $result['total_fee'];
+       $total_amount = ceil($result['total_fee']/100);
        $trade_no = $result['transaction_id'];
        if(!empty($out_trade_no)){
          //$yuan = $total_amount/100;
