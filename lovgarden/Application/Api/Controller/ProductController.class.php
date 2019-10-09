@@ -67,6 +67,10 @@ class ProductController extends RestController {
                $where['flowercolor.id'] = array('IN', $filters_object->flower_color);
                $filter_key = $filter_key.implode('_', $filters_object->flower_color);
             }
+            if(!empty($filters_object->flower_category)){
+               $where['flowercategory.id'] = array('IN', $filters_object->flower_category);
+               $filter_key = $filter_key.implode('_', $filters_object->flower_category);
+            }
        }
        $block = $mem_cache->get('select_list_header_block');
        if(empty($block)) {
@@ -103,11 +107,13 @@ class ProductController extends RestController {
                            ->join('LEFT JOIN lovgarden_flower_occasion AS floweroccasion ON floweroccasionid.flower_occasion_id = floweroccasion.id')
                            ->join('LEFT JOIN lovgarden_product_varient_flower_color AS flowercolorid ON product.id = flowercolorid.product_varient_id')
                            ->join('LEFT JOIN lovgarden_flower_color AS flowercolor ON flowercolorid.flower_color_id = flowercolor.id')
-                           ->field('product.id , product.sku_id , product.varient_name , product.varient_summary , product.varient_price , images.`image_url` , hurrylevelid.hurry_level_id , hurrylevel.hurry_level,flowertypeid.flower_type_id,flowertype.flower_name,floweroccasionid.flower_occasion_id,floweroccasion.flower_occasion,flowercolorid.flower_color_id,flowercolor.flower_color')
+                           ->join('LEFT JOIN lovgarden_product_varient_flower_category AS flowercategoryid ON product.id = flowercategoryid.product_varient_id')
+                           ->join('LEFT JOIN lovgarden_flower_category AS flowercategory ON flowercategoryid.flower_category_id = flowercategory.id')
+                           ->field('product.id , product.sku_id , product.varient_name , product.varient_summary , product.varient_price , images.`image_url` , hurrylevelid.hurry_level_id , hurrylevel.hurry_level,flowertypeid.flower_type_id,flowertype.flower_name,floweroccasionid.flower_occasion_id,floweroccasion.flower_occasion,flowercolorid.flower_color_id,flowercolor.flower_color,flowercategoryid.flower_category_id,flowercategory.flower_category')
                            ->where($where)
                            ->order($order)
                            ->select(); 
-         $product_varients_info = translate_database_result_to_logic_array($product_varients,array('image_url','hurry_level_id','hurry_level','flower_type_id','flower_name','flower_occasion_id','flower_occasion','flower_color_id','flower_color'),'sku_id');
+         $product_varients_info = translate_database_result_to_logic_array($product_varients,array('image_url','hurry_level_id','hurry_level','flower_type_id','flower_name','flower_occasion_id','flower_occasion','flower_color_id','flower_color','flower_category_id','flower_category'),'sku_id');
          $mem_cache->set($filter_key,$product_varients_info,86400);
        }
        
@@ -134,6 +140,12 @@ class ProductController extends RestController {
          $flower_color_original = $model2->query($sql);
          $flower_color_original = translate_database_result_to_logic_array($flower_color_original,array(),'id'); 
          $filters_options_array['flower_color'] = $flower_color_original;
+         
+         $sql = 'select id, flower_category from lovgarden_flower_category';
+         $flower_category_original = $model2->query($sql);
+         $flower_category_original = translate_database_result_to_logic_array($flower_category_original,array(),'id'); 
+         $filters_options_array['flower_category'] = $flower_category_original;
+         
          $mem_cache->set('select_list_filters_options_array',$filters_options_array,86400);
        }
        echo json_encode(array(
@@ -142,7 +154,8 @@ class ProductController extends RestController {
             'hurry_level' => $filters_options_array['hurry_level'],
             'flower_type' => $filters_options_array['flower_type'],
             'flower_occasion' => $filters_options_array['flower_occasion'],
-            'flower_color' => $filters_options_array['flower_color']
+            'flower_color' => $filters_options_array['flower_color'],
+            'flower_category' => $filters_options_array['flower_category']
        ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE); 
    }
    public function getProductsInfo($sku_ids) {
