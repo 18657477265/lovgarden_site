@@ -53,23 +53,23 @@ class ProductController extends RestController {
             $filters_object = json_decode($_GET['filters']);
             if(!empty($filters_object->hurry_level)){
                $where['hurrylevel.id'] = array('IN', $filters_object->hurry_level);
-               $filter_key = $filter_key.implode('_', $filters_object->hurry_level);
+               $filter_key = $filter_key."hl".implode('_', $filters_object->hurry_level);
             }
             if(!empty($filters_object->flower_type)){
                $where['flowertype.id'] = array('IN', $filters_object->flower_type);
-               $filter_key = $filter_key.implode('_', $filters_object->flower_type);
+               $filter_key = $filter_key."ft".implode('_', $filters_object->flower_type);
             }
             if(!empty($filters_object->flower_occasion)){
                $where['floweroccasion.id'] = array('IN', $filters_object->flower_occasion);
-               $filter_key = $filter_key.implode('_', $filters_object->flower_occasion);
+               $filter_key = $filter_key."fo".implode('_', $filters_object->flower_occasion);
             }
             if(!empty($filters_object->flower_color)){
                $where['flowercolor.id'] = array('IN', $filters_object->flower_color);
-               $filter_key = $filter_key.implode('_', $filters_object->flower_color);
+               $filter_key = $filter_key."fc".implode('_', $filters_object->flower_color);
             }
             if(!empty($filters_object->flower_category)){
                $where['flowercategory.id'] = array('IN', $filters_object->flower_category);
-               $filter_key = $filter_key.implode('_', $filters_object->flower_category);
+               $filter_key = $filter_key."fca".implode('_', $filters_object->flower_category);
             }
        }
        $block = $mem_cache->get('select_list_header_block');
@@ -84,7 +84,7 @@ class ProductController extends RestController {
     
        //$where = array();
        $where['product.varient_status'] = array('EQ','1');
-       $filter_key = $filter_key.'_1';
+       $filter_key = $filter_key."sl".'_1';
        //echo $filter_key;
        //exit();
        $product_varients_info = $mem_cache->get($filter_key);
