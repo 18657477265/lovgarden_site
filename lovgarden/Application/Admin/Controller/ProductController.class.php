@@ -24,13 +24,15 @@ class ProductController extends BaseController {
                     $product_varient_flower_occassion_model = D('ProductVarientFlowerOccasion');
                     $product_varient_flower_type_model = D('ProductVarientFlowerType');
                     $product_varient_hurry_level_model = D('ProductVarientHurryLevel');
+                    $product_varient_flower_category_model = D('ProductVarientFlowerCategory');
                     //将属性ID和新生成的product_varient_id进行关联
                     $attribute_flower_color_check = $product_varient_flower_color_model->product_varient_id_to_flower_color_id_add($new_product_varient_id,$_POST['flower_color']);
                     $attribute_flower_home_check = $product_varient_flower_home_model->product_varient_id_to_flower_home_id_add($new_product_varient_id,$_POST['flower_home']);
                     $attribute_flower_occasion_check = $product_varient_flower_occassion_model->product_varient_id_to_flower_occasion_id_add($new_product_varient_id,$_POST['flower_occasion']);
                     $attribute_flower_type_check = $product_varient_flower_type_model->product_varient_id_to_flower_type_id_add($new_product_varient_id,$_POST['flower_name']);
                     $attribute_hurry_level_check = $product_varient_hurry_level_model->product_varient_id_to_hurry_level_id_add($new_product_varient_id,$_POST['hurry_level']);
-                    if($attribute_flower_color_check && $attribute_flower_home_check && $attribute_flower_occasion_check && $attribute_flower_type_check && $attribute_hurry_level_check) {
+                    $attribute_flower_category_check = $product_varient_flower_category_model->product_varient_id_to_flower_category_id_add($new_product_varient_id,$_POST['flower_category']);
+                    if($attribute_flower_color_check && $attribute_flower_home_check && $attribute_flower_occasion_check && $attribute_flower_type_check && $attribute_hurry_level_check && $attribute_flower_category_check) {
                         //所有检查通过，那么最终完成了一个product_varient和所有属性的添加,并完成事务
                         $model->commit();
                         $this->redirect('Success/success');
@@ -142,8 +144,10 @@ lovgarden_product_varient_images AS df ON mf.`id`= df.`product_varient_id` WHERE
              $product_varient_flower_type_model = D('ProductVarientFlowerType');
              $update_flower_type_ids = $product_varient_flower_type_model->product_varient_id_to_flower_type_id_update($id,$_POST['flower_name']);
              $product_varient_hurry_level_model = D('ProductVarientHurryLevel');
-             $update_hurry_level_ids = $product_varient_hurry_level_model->product_varient_id_to_hurry_level_id_update($id,$_POST['hurry_level']); 
-             if($update_flower_color_ids && $update_flower_home_ids && $update_flower_occasion_ids && $update_flower_type_ids && $update_hurry_level_ids) {
+             $update_hurry_level_ids = $product_varient_hurry_level_model->product_varient_id_to_hurry_level_id_update($id,$_POST['hurry_level']);
+             $product_varient_flower_category_model = D('ProductVarientFlowerCategory');
+             $update_flower_category_ids = $product_varient_flower_category_model->product_varient_id_to_flower_category_id_update($id,$_POST['flower_category']);             
+             if($update_flower_color_ids && $update_flower_home_ids && $update_flower_occasion_ids && $update_flower_type_ids && $update_hurry_level_ids && $update_flower_category_ids) {
                  $product_varient_model->commit();
                  $this->display('Success/success');
              }
@@ -164,16 +168,17 @@ lovgarden_product_varient_images AS df ON mf.`id`= df.`product_varient_id` WHERE
           }
         }
         else {
-            $sql = "SELECT pv.id , pv.category , pv.sku_id , pv.varient_name,pv.varient_summary,pv.varient_body,pv.varient_status,pv.varient_price,pv.decoration_level,pv.vase,pv.wait_days,pv.original_price,pv.decoration_names,pvi.`image_url` ,pvhl.`hurry_level_id` , pvft.`flower_type_id`,pvfo.`flower_occasion_id`,pvfh.`flower_home_id`,pvfc.`flower_color_id` FROM lovgarden_product_varient AS pv 
+            $sql = "SELECT pv.id , pv.category , pv.sku_id , pv.varient_name,pv.varient_summary,pv.varient_body,pv.varient_status,pv.varient_price,pv.decoration_level,pv.vase,pv.wait_days,pv.original_price,pv.decoration_names,pvi.`image_url` ,pvhl.`hurry_level_id` , pvft.`flower_type_id`,pvfo.`flower_occasion_id`,pvfh.`flower_home_id`,pvfc.`flower_color_id`,pvfca.`flower_category_id` FROM lovgarden_product_varient AS pv 
                     LEFT JOIN lovgarden_product_varient_images AS pvi ON pv.`id`=pvi.`product_varient_id`
                     LEFT JOIN lovgarden_product_varient_hurry_level AS pvhl ON pv.`id`=pvhl.`product_varient_id`
                     LEFT JOIN lovgarden_product_varient_flower_type AS pvft ON pv.`id`=pvft.`product_varient_id`
                     LEFT JOIN lovgarden_product_varient_flower_occasion AS pvfo ON pv.`id`=pvfo.`product_varient_id`
                     LEFT JOIN lovgarden_product_varient_flower_home AS pvfh ON pv.`id`=pvfh.`product_varient_id`
-                    LEFT JOIN lovgarden_product_varient_flower_color AS pvfc ON pv.`id`=pvfc.`product_varient_id` WHERE pv.`id`= '$id'";
+                    LEFT JOIN lovgarden_product_varient_flower_color AS pvfc ON pv.`id`=pvfc.`product_varient_id`
+                    LEFT JOIN lovgarden_product_varient_flower_category AS pvfca ON pv.`id`=pvfca.`product_varient_id` WHERE pv.`id`= '$id'";
             $model = new Model();
             $result_rows = $model->query($sql);
-            $multiple_fileds_array = array('hurry_level_id','image_url','flower_type_id','flower_occasion_id','flower_home_id','flower_color_id');    
+            $multiple_fileds_array = array('hurry_level_id','image_url','flower_type_id','flower_occasion_id','flower_home_id','flower_color_id','flower_category_id');    
             $result_rows_array = translate_database_result_to_logic_array($result_rows,$multiple_fileds_array,'id');
 
             $key_value_images = $model->query("SELECT id,image_url FROM lovgarden_product_varient_images WHERE product_varient_id='$id'");

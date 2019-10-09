@@ -87,6 +87,10 @@
                          <span class="item_name" style="width: 120px">用花场合</span>
                          <?php print buildMultipleHtmlSelect('lovgarden_flower_occasion','id','flower_occasion','flower_occasion',$this_product_varient_info[$id]['flower_occasion_id']) ?>
                      </li>
+                     <li>
+                         <span class="item_name" style="width: 120px">花品类别</span>
+                         <?php print buildMultipleHtmlSelect('lovgarden_flower_category','id','flower_category','flower_category',$this_product_varient_info[$id]['flower_category_id']) ?>
+                     </li>                     
                      <li class="add-images-in-product-update">
                          <?php foreach($key_value_images as $key  => $value): ?>
                          <span class="product-varient-old-image"><img src="<?php echo C('IMAGE_CONFIG')['viewPath'].$value['image_url']; ?>" width="50px" height="50px"><a href="javascript:void(0);" data-row-id = <?php echo $value['id']; ?> data-product-varient-id=<?php echo $id ?>>移除</a></span>
