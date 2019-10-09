@@ -105,23 +105,22 @@ class LoginController extends RestController {
        $login_status = 404;
        $data = array();
        $block_attention = array();
+       $mem_cache = new Memcache();
+       $model = new \Think\Model();
        if(!empty($login_ip)) {
-           $mem_cache = new Memcache();
            $login_exist = $mem_cache->get($login_ip);
            if(!empty($login_exist)){
                $open_id = $login_exist;
                $login_status = 200;
-               $model = new \Think\Model();
                $sql = "SELECT telephone , reward_points , balance FROM lovgarden_wxuser WHERE open_id = '$open_id'";
-               $data = $model->query($sql);
-               
-               $block_attention = $mem_cache->get('block_attention');
-               if(empty($block_attention)) {
-                 $sql_attention_block = "SELECT block_title,block_body,block_link_title FROM lovgarden_block WHERE page_link = 'UserCenter'";
-                 $block_attention = $model->query($sql_attention_block);
-                 $mem_cache->set('block_attention',$block_attention,86400);
-               }
+               $data = $model->query($sql);              
            }
+       }
+       $block_attention = $mem_cache->get('block_attention');
+       if(empty($block_attention)) {
+          $sql_attention_block = "SELECT block_title,block_body,block_link_title FROM lovgarden_block WHERE page_link = 'UserCenter'";
+          $block_attention = $model->query($sql_attention_block);
+          $mem_cache->set('block_attention',$block_attention,86400);
        }
        echo json_encode(array(
           'login_status'=> $login_status,
