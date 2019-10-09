@@ -100,6 +100,20 @@ class LoginController extends RestController {
               'error_code' => $error_code
        ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);          
    }
+   public function getUserInfoForCenter() {
+       $login_ip = I('get.login_ip');
+       $login_status = 404;
+       if(!empty($login_ip)) {
+           $mem_cache = new Memcache();
+           $login_exist = $mem_cache->get($login_ip);
+           if(!empty($login_exist)){
+               $login_status = 200; 
+           }
+       }
+       echo json_encode(array(
+          'login_status'=> $login_status
+      ),JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
+   }
    public function getUserInfo() {
        $login_ip = I('get.login_ip');
        $login_status = 404;

@@ -31,6 +31,12 @@ class CouponController extends RestController {
                $open_id = $login_exist;
                $login_status = 200;
            }
+           else {
+               exit();
+           }
+       }
+       else {
+           exit();
        }
        
        //检查当前优惠券是否过期
