@@ -25,6 +25,8 @@ return array(
     'MEMCACHE_HOST'  => 'tcp://127.0.0.1:11211',
     //'MEMCACHED_PORT' => array('11211'),
     'DATA_CACHE_TIME' => 7200,
+    'HTML_CACHE_ON' => false,
+    'TMPL_CACHE_ON' => false,
     /************ 图片相关的配置 ***************/
     'IMAGE_CONFIG' => array(
     	'maxSize' => 1024*1024,
